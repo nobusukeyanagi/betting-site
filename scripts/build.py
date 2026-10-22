@@ -260,6 +260,7 @@ class WebClient:
     def __init__(self):
         self.robots: dict[str, urllib.robotparser.RobotFileParser] = {}
         self.last = 0.0
+        self.listing_urls: dict[str, str] = {}
 
     def _read(self, url: str, host: str) -> str:
         self.last = time.monotonic()
@@ -327,6 +328,7 @@ class WebClient:
         # Avoid bursts to sites; check for challenge page without bypassing it.
         time.sleep(max(0, 0.5 - (time.monotonic() - self.last)))
         host = urllib.parse.urlsplit(target).hostname
+        self.listing_urls[feed.key] = target
         doc = self._read(target, host)
         if any(marker in doc[:6000].lower() for marker in (
             'verify that you\'re not a robot', 'cf-chl-', 'enable javascript and reload the page',
@@ -357,7 +359,8 @@ class WebClient:
         """Use an ordinary headless browser for public JS-rendered listing pages."""
         if feed.key not in ('dmm', 'keirinjp'):
             raise RuntimeError('ブラウザ表示対象外です')
-        self._check_robots(feed.url)
+        page_url = self.listing_urls.get(feed.key, feed.url)
+        self._check_robots(page_url)
         binary = next((shutil.which(name) for name in
                        ('google-chrome', 'google-chrome-stable', 'chromium', 'chromium-browser')
                        if shutil.which(name)), None)
@@ -366,7 +369,7 @@ class WebClient:
         process = subprocess.run([
             binary, '--headless=new', '--disable-gpu', '--disable-extensions',
             '--disable-dev-shm-usage', '--no-first-run',
-            '--virtual-time-budget=7000', '--dump-dom', feed.url
+            '--virtual-time-budget=7000', '--dump-dom', page_url
         ], stdout=subprocess.PIPE, stderr=subprocess.PIPE, timeout=24, check=False)
         if process.returncode or not process.stdout or len(process.stdout) > MAX_BYTES:
             raise RuntimeError('Chromeで記事一覧を取得できませんでした')
