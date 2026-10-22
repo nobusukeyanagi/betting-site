@@ -19,7 +19,7 @@ from datetime import datetime
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup, NavigableString, Tag
 
 JST = ZoneInfo('Asia/Tokyo')
 VERSION = 1
@@ -410,6 +410,78 @@ def extract_body(document: str, headline: str = '') -> list[str]:
     return blocks
 
 
+def extract_oddspark_body(document: str, headline: str) -> list[str]:
+    """Read text after the exact announcement heading, never the site navigation.
+
+    Odds Park embeds its notice in a page with substantial shared header,
+    sidebar and campaign text; scoring the full main node is not reliable.
+    """
+    soup = BeautifulSoup(document, 'html.parser')
+    for unwanted in soup.select('script,style,noscript,template,svg'):
+        unwanted.decompose()
+
+    def normalized(text: str) -> str:
+        return clean(text).translate(str.maketrans({'〖': '【', '〗': '】'}))
+
+    title = normalized(headline)
+    heading = next((tag for tag in soup.select('h1,h2,h3,h4,h5,h6')
+                    if normalized(tag.get_text(' ', strip=True)) == title), None)
+    if heading is None:
+        # Do not fall back to a shared page container and show header text.
+        return []
+
+    stop = re.compile(r'^(?:ページ先頭へ|ページの先頭へ|お知らせTOPへ|お知らせ一覧へ|'
+                      r'バックナンバー|キャンペーン一覧|関連記事|関連ニュース)')
+    ignored = {'script', 'style', 'noscript', 'template', 'nav', 'header',
+               'footer', 'aside', 'form', 'button', 'iframe'}
+    blocks: list[str] = []
+    pieces: list[str] = []
+    active_block = None
+
+    def flush() -> None:
+        if pieces:
+            value = clean(''.join(pieces))
+            if value and value != title and not NOISE_BLOCK.fullmatch(value):
+                if value not in blocks[-2:]:
+                    blocks.append(value)
+            pieces.clear()
+
+    for node in heading.next_elements:
+        if isinstance(node, Tag):
+            if node.name in ('a', 'h2', 'h3', 'h4', 'h5', 'h6'):
+                marker = clean(node.get_text(' ', strip=True))
+                if stop.match(marker):
+                    break
+            continue
+        if not isinstance(node, NavigableString) or not str(node).strip():
+            continue
+        ancestors = [node.parent, *node.parents]
+        if any(parent.name in ignored for parent in ancestors if isinstance(parent, Tag)):
+            continue
+        value = clean(str(node))
+        if not value or normalized(value) == title or date_from(value) and len(value) <= 24:
+            continue
+        if stop.match(value):
+            break
+        semantic = next((parent for parent in ancestors if isinstance(parent, Tag)
+                         and parent.name in ('p', 'li', 'tr', 'h5', 'h6', 'blockquote', 'div')), node.parent)
+        if semantic is not active_block:
+            flush()
+            active_block = semantic
+        pieces.append(value)
+    flush()
+    if sum(map(len, blocks)) < 20:
+        return []
+    result: list[str] = []
+    total = 0
+    for paragraph in blocks:
+        if total + len(paragraph) > MAX_BODY_CHARS:
+            break
+        result.append(paragraph)
+        total += len(paragraph)
+    return result
+
+
 def update(client: WebClient, old: dict, now: datetime) -> dict:
     results = {}
     # Separate listing collection from detail fetching so sites with multiple
@@ -427,8 +499,13 @@ def update(client: WebClient, old: dict, now: datetime) -> dict:
                 item['new'] = bool(previous_items and item['url'] not in seen_old)
                 # Preserve successfully fetched bodies across daily updates.
                 if item['url'] in old_by_url:
-                    item['body'] = old_by_url[item['url']].get('body', [])
-                    item['note'] = old_by_url[item['url']].get('note', '')
+                    previous = old_by_url[item['url']]
+                    # Discard old Odds Park bodies polluted with shared headers.
+                    if not feed.key.startswith('odds-') or previous.get('body_extractor') == 'odds-v2':
+                        item['body'] = previous.get('body', [])
+                        item['note'] = previous.get('note', '')
+                        if feed.key.startswith('odds-'):
+                            item['body_extractor'] = 'odds-v2'
             results[feed.key] = {'status': 'ok', 'last_success': now.isoformat(), 'items': items}
             print(f'INFO {feed.site} / {feed.section}: {len(items)}件')
         except Exception as exc:
@@ -466,11 +543,15 @@ def update(client: WebClient, old: dict, now: datetime) -> dict:
             if item.get('body'):
                 continue
             try:
-                blocks = extract_body(client.fetch_article(feed, item['url']), item['title'])
+                document = client.fetch_article(feed, item['url'])
+                blocks = (extract_oddspark_body(document, item['title'])
+                          if feed.key.startswith('odds-') else extract_body(document, item['title']))
                 if not blocks:
                     raise RuntimeError('本文の領域が見つかりませんでした')
                 item['body'] = blocks
                 item['note'] = ''
+                if feed.key.startswith('odds-'):
+                    item['body_extractor'] = 'odds-v2'
             except Exception as exc:
                 item['body'] = []
                 item['note'] = '本文を取得できませんでした。出典元の記事をご確認ください。'

@@ -142,6 +142,55 @@ class ScraperTests(unittest.TestCase):
         self.assertEqual(page.count('<article id="news-'), 8)
         self.assertEqual(page.count('<li data-new="false"><a href="#news-'), 8)
 
+    def test_oddspark_extracts_actual_notice_instead_of_header(self):
+        document = """<html><body><div class="common-header">
+          <p>Odds Park</p><p>ログイン</p><p>新規会員登録(無料)</p>
+          <p>よくあるご質問</p><p>総合TOP</p></div>
+          <div class="content"><h3>お知らせ</h3>
+          <h4>【障害】ネット新聞の配信遅延につきまして</h4>
+          <time>2026/10/22</time>
+          <div class="notice-text">
+          <p>平素よりオッズパークをご利用いただき誠にありがとうございます。</p>
+          <p>現在、オッズパークサイトにおいてネット新聞が閲覧できない状態となっております。</p>
+          <p>復旧次第、改めてお知らせにてご案内させていただきます。</p>
+          <p>お客様にはご不便、ご迷惑をお掛けしますことを深くお詫び申し上げます。</p>
+          </div>
+          <a href="#">ページ先頭へ↑</a><a href="/info/">お知らせTOPへ</a>
+          </div><h3>バックナンバー</h3><p>2026年10月</p></body></html>"""
+        blocks = mod.extract_oddspark_body(document, '【障害】ネット新聞の配信遅延につきまして')
+        self.assertEqual(blocks, [
+            '平素よりオッズパークをご利用いただき誠にありがとうございます。',
+            '現在、オッズパークサイトにおいてネット新聞が閲覧できない状態となっております。',
+            '復旧次第、改めてお知らせにてご案内させていただきます。',
+            'お客様にはご不便、ご迷惑をお掛けしますことを深くお詫び申し上げます。'])
+        self.assertEqual(mod.extract_oddspark_body(document, '別記事'), [])
+
+    def test_oddspark_old_navigation_cache_is_replaced(self):
+        class Client:
+            calls = []
+            def fetch(self, feed):
+                if feed.key != 'odds-info':
+                    raise RuntimeError('unavailable')
+                return ('<a href="/info/2026/10/post-687.html">'
+                        '【障害】ネット新聞の配信遅延につきまして</a>')
+            def fetch_article(self, feed, url):
+                self.calls.append(url)
+                return ('<h4>【障害】ネット新聞の配信遅延につきまして</h4>'
+                        '<div><p>平素よりオッズパークをご利用いただき誠にありがとうございます。</p>'
+                        '<p>現在ネット新聞が閲覧できない状態です。</p>'
+                        '<a>ページ先頭へ↑</a></div>')
+        old = {'feeds': {'odds-info': {'status': 'ok', 'items': [
+            {'title': '【障害】ネット新聞の配信遅延につきまして',
+             'url': 'https://www.oddspark.com/info/2026/10/post-687.html',
+             'date': '2026-10-22', 'body': ['Odds Park', 'ログイン']}]}}}
+        client = Client()
+        updated = mod.update(client, old, datetime(2026, 10, 22, tzinfo=ZoneInfo('Asia/Tokyo')))
+        entry = updated['feeds']['odds-info']['items'][0]
+        self.assertEqual(len(client.calls), 1)
+        self.assertEqual(entry['body_extractor'], 'odds-v2')
+        self.assertNotIn('ログイン', entry['body'])
+        self.assertIn('現在ネット新聞が閲覧できない状態です。', entry['body'])
+
     def test_right_column_order_matches_left_site_grouping(self):
         import re
         snap = mod.load_snapshot(None)
