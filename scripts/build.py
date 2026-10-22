@@ -1185,7 +1185,7 @@ def render(snapshot: dict) -> str:
 <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
 <meta name="referrer" content="no-referrer">
 <link rel="icon" href="favicon.ico" sizes="any"><link rel="apple-touch-icon" href="apple-touch-icon.png" sizes="180x180">
-<title>競輪オート投票ニュース</title>
+<title>投票サイトニュース</title>
 <style>
 *{{box-sizing:border-box}}html{{scroll-behavior:auto}}body{{margin:0;background:#fff;color:#202020;font-family:"Noto Sans JP","Hiragino Sans","Yu Gothic",sans-serif;font-size:17px;line-height:1.85;overflow-wrap:anywhere}}
 main{{max-width:1440px;margin:auto;padding:0 24px 56px}}header{{position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid #bbb;padding:4px 0}}.header-row{{display:flex;align-items:center;gap:10px 18px;min-height:34px}}
@@ -1200,7 +1200,7 @@ article{{border-top:1px solid #bbb;padding:24px 0;scroll-margin-top:calc(var(--h
 @media print{{header{{position:static}}.menu-toggle,nav,.pull-refresh{{display:none!important}}main{{max-width:none;padding:0}}.layout{{display:block}}}}
 </style></head><body><div class="pull-refresh" role="status" aria-live="polite">下に引いて更新</div><main id="top"><header><div class="header-row">
 <button class="menu-toggle" type="button" aria-label="タイトル一覧を開く" aria-controls="news-nav" aria-expanded="false"><span class="hamburger" aria-hidden="true"><span></span><span></span><span></span></span></button>
-<h1><a href="#top">競輪オート投票ニュース</a></h1><div class="update-controls"><time class="updated">{('更新 ' + e(when)) if when else '未更新'}</time><button class="new-filter" type="button" aria-pressed="false">すべて表示中</button></div></div></header>
+<h1><a href="#top">投票サイトニュース</a></h1><div class="update-controls"><time class="updated">{('更新 ' + e(when)) if when else '未更新'}</time><button class="new-filter" type="button" aria-pressed="false">すべて表示中</button></div></div></header>
 <div class="layout"><nav id="news-nav" aria-label="タイトル一覧">{nav}<details class="source-status"><summary>取得元・取得状況（{success}/{len(FEEDS)}系統）</summary><p class="source-summary">取得できないサイトは前回取得分を表示する場合があります。</p><ul>{status_html}</ul></details></nav><div class="feed">
 {articles_html}
 </div></div></main><script>
