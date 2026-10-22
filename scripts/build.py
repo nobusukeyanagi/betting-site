@@ -197,7 +197,9 @@ def extract_articles(feed: Feed, document: str) -> list[dict]:
                     break
         title = clean(DATE_RE.sub(' ', title))
         title = re.sub(r'^(?:NEW\s+|重要\s+)+', '', title, flags=re.I).strip()
-        if len(title) < 5 or NOISE.fullmatch(title) or len(title) > 300:
+        if (len(title) < 5 or NOISE.fullmatch(title) or len(title) > 300 or
+                (feed.key == 'tipstar' and re.fullmatch(
+                    r'(?:前のページへ|次のページへ|前へ|次へ|ページトップへ|ページ[0-9]+)', title))):
             continue
         seen.add(url)
         items.append({'title': title, 'url': url, 'date': nearby_date(anchor),
@@ -513,6 +515,9 @@ def extract_oddspark_body(document: str, headline: str) -> list[str]:
 
     for node in heading.next_elements:
         if isinstance(node, Tag):
+            if node.name == 'br':
+                flush()
+                active_block = None
             if node.name in ('a', 'h2', 'h3', 'h4', 'h5', 'h6'):
                 marker = clean(node.get_text(' ', strip=True))
                 if stop.match(marker):
@@ -535,7 +540,9 @@ def extract_oddspark_body(document: str, headline: str) -> list[str]:
         if semantic is not active_block:
             flush()
             active_block = semantic
-        pieces.append(value)
+        # Retain whitespace from the original text nodes; combined with the
+        # line-break handling above this preserves short labelled sections.
+        pieces.append(str(node))
     flush()
     if sum(map(len, blocks)) < 20:
         return []
@@ -671,6 +678,124 @@ def ordered_article_media(document: str, title: str, paragraphs: list[str],
     return [block for _, _, block in merged]
 
 
+
+def extract_notice_body(document: str, title: str, site: str) -> list[str]:
+    """Extract notices anchored to the article heading, never sitewide navigation."""
+    soup = BeautifulSoup(document, 'html.parser')
+    structured = from_jsonld(soup, title)
+    if structured and len(''.join(structured)) >= 50:
+        return structured
+    for tag in soup.select('script,style,noscript,template'):
+        tag.decompose()
+
+    normalized = clean(title)
+    if site == 'netkeirin':
+        normalized = re.sub(r'^(?:お知らせ|メンテナンス|キャンペーン|イベント)\s+', '', normalized)
+    allowed_headings = 'h1,h2,h3' if site == 'netkeirin' else 'h1,h2,h3,h4'
+    heading = next((tag for tag in soup.select(allowed_headings)
+                    if clean(tag.get_text(' ', strip=True)) == normalized), None)
+    if heading is None:
+        return []
+    ignore = {'nav', 'header', 'footer', 'aside', 'script', 'style', 'noscript', 'button'}
+    endings = ('このニュースをポストする', 'このニュースをシェアする',
+               '競輪 キャンペーン・お知らせ一覧', 'お知らせを探す', 'ご意見・ご要望',
+               'お知らせ一覧', '戻る', '運営会社', '利用規約',
+               '車券の購入は20歳')
+    blocks: list[str] = []
+    parts: list[str] = []
+    active = None
+
+    def flush():
+        if parts:
+            line = clean(''.join(parts))
+            if (line and line != normalized and line not in blocks[-2:]
+                    and not NOISE_BLOCK.fullmatch(line)):
+                blocks.append(line)
+            parts.clear()
+
+    # Extract only text after the confirmed article title. Stop at the
+    # site's "share" links, related index or footer.
+    for node in heading.next_elements:
+        if isinstance(node, Tag):
+            if node.name == 'br':
+                flush()
+                active = None
+            if node.name in ('a', 'h1', 'h2', 'h3', 'h4'):
+                label = clean(node.get_text(' ', strip=True))
+                if label.startswith(endings):
+                    break
+            continue
+        if not isinstance(node, NavigableString) or isinstance(node, Comment):
+            continue
+        ancestors = [node.parent, *node.parents]
+        if any(getattr(parent, 'name', None) in ignore for parent in ancestors):
+            continue
+        value = clean(str(node))
+        if not value or value == normalized or (date_from(value) and len(value) <= 28):
+            continue
+        if value.startswith(endings):
+            break
+        node_group = next((parent for parent in ancestors if isinstance(parent, Tag)
+                           and parent.name in ('p', 'li', 'blockquote', 'h4', 'h5', 'h6', 'div')), node.parent)
+        if node_group is not active:
+            flush()
+            active = node_group
+        parts.append(str(node))
+    flush()
+    # A date or heading alone is not a readable article.
+    return blocks if sum(map(len, blocks)) >= 40 else []
+
+
+def extract_minnano_json_body(document: str, title: str) -> list[str]:
+    """Use publicly embedded page-state article HTML when SSR omits the body."""
+    soup = BeautifulSoup(document, 'html.parser')
+    normalized = clean(title)
+    texts: list[str] = []
+    for tag in soup.select('script[type="application/json"], script#__NEXT_DATA__, script#__NUXT_DATA__'):
+        raw = tag.string or tag.get_text()
+        if not raw or len(raw) > 3_000_000:
+            continue
+        try:
+            data = json.loads(raw)
+        except (ValueError, TypeError):
+            continue
+        def walk(obj, depth=0):
+            if depth > 18:
+                return
+            if isinstance(obj, dict):
+                # Only consider records that also contain this announcement title.
+                if normalized in clean(str(obj))[:20000]:
+                    for key in ('content', 'body', 'description', 'html', 'bodyHtml', 'text'):
+                        value = obj.get(key)
+                        if isinstance(value, str) and len(value) >= 55:
+                            texts.append(value)
+                for value in obj.values():
+                    if isinstance(value, (dict, list)):
+                        walk(value, depth + 1)
+            elif isinstance(obj, list):
+                for value in obj[:80]:
+                    if isinstance(value, (dict, list)):
+                        walk(value, depth + 1)
+        walk(data)
+    if not texts:
+        return []
+    candidate = max(texts, key=len)
+    body = BeautifulSoup(candidate, 'html.parser')
+    for br in body.find_all('br'):
+        br.replace_with('\n')
+    paragraphs = [clean(t) for t in body.get_text('\n', strip=True).splitlines()]
+    return [p for p in paragraphs if p and p != normalized][:160]
+
+
+def news_identity(feed: Feed, item: dict) -> str:
+    """Treat identical WINTICKET announcements across racing types as one."""
+    url = item.get('url', '')
+    if feed.site == 'WINTICKET' and '/topics/' in url:
+        title = clean(item.get('title', '')).casefold()
+        return f'winticket-notice:{title}:{item.get("date", "")}'
+    return url
+
+
 def update(client: WebClient, old: dict, now: datetime) -> dict:
     results = {}
     # Separate listing collection from detail fetching so sites with multiple
@@ -690,11 +815,17 @@ def update(client: WebClient, old: dict, now: datetime) -> dict:
                 if item['url'] in old_by_url:
                     previous = old_by_url[item['url']]
                     # Discard old Odds Park bodies polluted with shared headers.
-                    if not feed.key.startswith('odds-') or previous.get('body_extractor') == 'odds-v3':
+                    old_body_is_valid = (
+                        (not feed.key.startswith('odds-') or previous.get('body_extractor') == 'odds-v3')
+                        and (feed.key not in ('netkeirin', 'minnano')
+                             or previous.get('body_extractor') == 'notice-v1'))
+                    if old_body_is_valid:
                         item['body'] = previous.get('body', [])
                         item['note'] = previous.get('note', '')
                         if feed.key.startswith('odds-'):
                             item['body_extractor'] = 'odds-v3'
+                        elif feed.key in ('netkeirin', 'minnano'):
+                            item['body_extractor'] = 'notice-v1'
                     if previous.get('media_version') == MEDIA_VERSION:
                         item['media_version'] = MEDIA_VERSION
                         item['blocks'] = previous.get('blocks', [])
@@ -718,17 +849,18 @@ def update(client: WebClient, old: dict, now: datetime) -> dict:
         candidates.sort(key=lambda x: (x[1].get('date', ''), -x[0].limit, -FEEDS.index(x[0])), reverse=True)
         seen_links: set[str] = set()
         for feed, item in candidates:
-            if item['url'] in seen_links:
+            identity = news_identity(feed, item)
+            if identity in seen_links:
                 continue
-            seen_links.add(item['url'])
+            seen_links.add(identity)
             if len(seen_links) > MAX_PER_SITE:
                 break
-            selected.add(item['url'])
+            selected.add(identity)
     for feed in FEEDS:
         record = results[feed.key]
         # Keep only the selected articles in the snapshot; prevents unnecessary
         # requests and allows next run to re-use bodies while preserving NEW flags.
-        record['items'] = [i for i in record['items'] if i['url'] in selected]
+        record['items'] = [i for i in record['items'] if news_identity(feed, i) in selected]
         if record['status'] != 'ok':
             continue
         for item in record['items']:
@@ -737,14 +869,22 @@ def update(client: WebClient, old: dict, now: datetime) -> dict:
             try:
                 document = client.fetch_article(feed, item['url'])
                 if not item.get('body'):
-                    paragraphs = (extract_oddspark_body(document, item['title'])
-                                  if feed.key.startswith('odds-') else extract_body(document, item['title']))
+                    if feed.key.startswith('odds-'):
+                        paragraphs = extract_oddspark_body(document, item['title'])
+                    elif feed.key in ('netkeirin', 'minnano'):
+                        paragraphs = extract_notice_body(document, item['title'], feed.key)
+                        if not paragraphs and feed.key == 'minnano':
+                            paragraphs = extract_minnano_json_body(document, item['title'])
+                    else:
+                        paragraphs = extract_body(document, item['title'])
                     if not paragraphs:
                         raise RuntimeError('本文の領域が見つかりませんでした')
                     item['body'] = paragraphs
                     item['note'] = ''
                     if feed.key.startswith('odds-'):
                         item['body_extractor'] = 'odds-v3'
+                    elif feed.key in ('netkeirin', 'minnano'):
+                        item['body_extractor'] = 'notice-v1'
                 blocks = ordered_article_media(document, item['title'], item['body'], item['url'],
                                                feed.key.startswith('odds-'))
                 complete_blocks = []
@@ -798,8 +938,10 @@ def render(snapshot: dict) -> str:
             all_items.append({**item, 'url': url, 'feed': feed.key, 'site': feed.site,
                               'section': feed.section, 'stale': status != 'ok', '_rank': rank})
     unique = {}
+    feeds_by_key = {feed.key: feed for feed in FEEDS}
     for item in all_items:
-        unique.setdefault(item['url'], item)
+        identity = news_identity(feeds_by_key[item['feed']], item)
+        unique.setdefault(identity, item)
     # Match the right-hand article order to the left-hand site-grouped index.
     # Preserve newest-first ordering within each site and the eight-item cap.
     site_order = list(dict.fromkeys(feed.site for feed in FEEDS))
