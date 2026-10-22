@@ -501,7 +501,29 @@ class ScraperTests(unittest.TestCase):
         self.assertEqual(article['body'], [
             'いつもみんなの競輪をご利用いただきありがとうございます。',
             '緊急メンテナンスは無事終了いたしました。'])
-        self.assertEqual(article['body_extractor'], 'minnano-flight-v1')
+        self.assertEqual(article['body_extractor'], 'minnano-flight-v2')
+
+    def test_minnano_flight_record_split_across_scripts(self):
+        import json
+        markup = ('<img src="https://jpf-style.com/banner.jpg">'
+                  'キャンペーン内容をご案内します。\r\n'
+                  '<b>【キャンペーン対象日】</b>\r\n'
+                  '10月20日（火）\r\n応募方法と抽選条件についてご確認ください。')
+        pieces = [
+            'e:["$","$L1a",null,{"htmlContent":"$1b"}]\n1b:',
+            markup[:55],
+            markup[55:] + '\n1c:["$","footer",null,{}]'
+        ]
+        doc = '<h2>キャンペーン</h2>' + ''.join(
+            '<script>self.__next_f.push(' + json.dumps([1, segment], ensure_ascii=False) + ')</script>'
+            for segment in pieces)
+        actual = mod.extract_minnano_flight_html(doc)
+        self.assertEqual(actual, markup)
+        parsed = mod.minnano_flight_paragraphs(actual)
+        self.assertIn('キャンペーン内容をご案内します。', parsed)
+        self.assertIn('【キャンペーン対象日】', parsed)
+        self.assertIn('応募方法と抽選条件についてご確認ください。', parsed)
+
     def test_cache_on_failed_feeds(self):
         class Client:
             def fetch_article(self, feed, url):

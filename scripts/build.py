@@ -895,31 +895,30 @@ def extract_minnano_flight_html(document: str) -> str:
         if isinstance(packet, list) and len(packet) > 1 and packet[0] == 1 and isinstance(packet[1], str):
             payloads.append(packet[1])
 
+    # Next.js may split a single Flight record between consecutive push() scripts.
+    # Rebuild the stream before resolving "$1b"-style references.
+    stream = ''.join(payloads)
+
     def resolve(key: str) -> str:
         if not re.fullmatch(r'[a-fA-F0-9]{1,8}', key):
             return ''
-        # Flight records can be separated by newlines in the same script.
-        for payload in payloads:
-            found = re.search(r'(?m)(?:^|\n)' + re.escape(key) +
-                              r':([\s\S]*?)(?=\n[0-9a-fA-F]{1,8}:|\Z)', payload)
-            if found:
-                return found.group(1)
-        return ''
+        found = re.search(r'(?m)(?:^|\n)' + re.escape(key) +
+                          r':([\s\S]*?)(?=\n[0-9a-fA-F]{1,8}:|\Z)', stream)
+        return found.group(1) if found else ''
 
-    for payload in payloads:
-        for match in re.finditer(r'"htmlContent"\s*:\s*("(?:\\.|[^"\\])*")', payload):
-            try:
-                value = json.loads(match.group(1))
-            except (ValueError, TypeError):
-                continue
-            if not isinstance(value, str):
-                continue
-            ref = re.fullmatch(r'\$(?:L)?([a-fA-F0-9]{1,8})', value)
-            if ref:
-                value = resolve(ref.group(1))
-            # The body is neither the generic site description nor the page title.
-            if value and len(clean(BeautifulSoup(value, 'html.parser').get_text(' ', strip=True))) >= 25:
-                return value
+    for match in re.finditer(r'"htmlContent"\s*:\s*("(?:\\.|[^"\\])*")', stream):
+        try:
+            value = json.loads(match.group(1))
+        except (ValueError, TypeError):
+            continue
+        if not isinstance(value, str):
+            continue
+        ref = re.fullmatch(r'\$(?:L)?([a-fA-F0-9]{1,8})', value)
+        if ref:
+            value = resolve(ref.group(1))
+        # The body is neither the generic site description nor the page title.
+        if value and len(clean(BeautifulSoup(value, 'html.parser').get_text(' ', strip=True))) >= 25:
+            return value
     return ''
 
 
@@ -1031,7 +1030,7 @@ def update(client: WebClient, old: dict, now: datetime) -> dict:
                     old_body_is_valid = (
                         (not feed.key.startswith('odds-') or previous.get('body_extractor') == 'odds-v4')
                         and (feed.key != 'netkeirin' or previous.get('body_extractor') == 'notice-v1')
-                        and (feed.key != 'minnano' or previous.get('body_extractor') == 'minnano-flight-v1'))
+                        and (feed.key != 'minnano' or previous.get('body_extractor') == 'minnano-flight-v2'))
                     if old_body_is_valid:
                         item['body'] = previous.get('body', [])
                         item['note'] = previous.get('note', '')
@@ -1040,7 +1039,7 @@ def update(client: WebClient, old: dict, now: datetime) -> dict:
                         elif feed.key == 'netkeirin':
                             item['body_extractor'] = 'notice-v1'
                         elif feed.key == 'minnano':
-                            item['body_extractor'] = 'minnano-flight-v1'
+                            item['body_extractor'] = 'minnano-flight-v2'
                     if previous.get('media_version') == MEDIA_VERSION:
                         item['media_version'] = MEDIA_VERSION
                         item['blocks'] = previous.get('blocks', [])
@@ -1124,7 +1123,7 @@ def update(client: WebClient, old: dict, now: datetime) -> dict:
                     elif feed.key == 'netkeirin':
                         item['body_extractor'] = 'notice-v1'
                     elif feed.key == 'minnano':
-                        item['body_extractor'] = 'minnano-flight-v1'
+                        item['body_extractor'] = 'minnano-flight-v2'
                 blocks = ordered_article_media(document, item['title'], item['body'], item['url'],
                                                feed.key.startswith('odds-'))
                 complete_blocks = []
