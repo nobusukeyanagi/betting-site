@@ -1,6 +1,6 @@
-"""競輪・オート投票サイトの公式お知らせ一覧を静的なニュース一覧にする。
+"""競輪・オート投票サイトの公式お知らせを取得し、本文付きニュースを生成する。
 
-HTMLに公開されている記事リンクだけを扱う。認証・回避・非公開APIの解析は行わない。
+公開HTMLの本文のみを取得する。認証・アクセス制限の回避や非公開API解析は行わない。
 """
 from __future__ import annotations
 
@@ -23,6 +23,8 @@ from bs4 import BeautifulSoup
 
 JST = ZoneInfo('Asia/Tokyo')
 VERSION = 1
+MAX_PER_SITE = 8
+MAX_BODY_CHARS = 40000
 AGENT = 'BettingSiteNews/1.0 (+GitHub Pages public-news-index; respectful robot policy)'
 MAX_PER_FEED = 12
 MAX_BYTES = 5_000_000
@@ -241,6 +243,21 @@ class WebClient:
             raise RuntimeError('サイト側のアクセス確認画面が表示されました')
         return doc
 
+    def fetch_article(self, feed: Feed, url: str) -> str:
+        # 検出元サイトの許可されたURLだけを取得し、リダイレクトもサイト外へ出さない。
+        url = safe_url(feed, url)
+        if not url:
+            raise RuntimeError('記事URLの検証に失敗しました')
+        self._check_robots(url)
+        time.sleep(max(0, 0.5 - (time.monotonic() - self.last)))
+        document = self._read(url, urllib.parse.urlsplit(url).hostname)
+        if any(mark in document[:6000].lower() for mark in (
+            'verify that you\'re not a robot', 'cf-chl-',
+            'enable javascript and reload the page',
+        )):
+            raise RuntimeError('サイト側のアクセス確認画面が表示されました')
+        return document
+
 
 def load_snapshot(path: Path | None) -> dict:
     if not path or not path.is_file():
@@ -254,8 +271,149 @@ def load_snapshot(path: Path | None) -> dict:
     return {'format_version': VERSION, 'feeds': {}, 'updated': ''}
 
 
+ARTICLE_SELECTORS = (
+    '[itemprop="articleBody"]', '[data-testid="article-body"]',
+    '.article-body', '.articleBody', '.article__body', '.articleBodyWrap',
+    '.article-content', '.articleContent', '.article__content',
+    '.entry-content', '.entryContent', '.post-content', '.post-body',
+    '.news-body', '.news__body', '.news-content', '.newsContent',
+    '.news-detail', '.newsDetail', '.topic-body', '.topic-content',
+    '.detail-content', '.detailBody', '.contents-body', '.main-content',
+    'article', 'main', '[role="main"]', '#article', '#content',
+)
+NOISE_BLOCK = re.compile(
+    r'^(?:シェア|記事をシェアしよう|SNSでシェア|URLをコピー|お知らせ一覧(?:へ|に戻る)?|'
+    r'記事一覧(?:へ|に戻る)?|ページの先頭へ|前の記事|次の記事|TOP|戻る|'
+    r'関連情報|関連記事|関連ニュース|詳しくはこちら|続きを読む|一覧に戻る)$', re.I)
+# Remove entire non-article sections before estimating article content.
+DROP_SELECTORS = (
+    'script,style,noscript,template,svg,nav,header,footer,aside,form,button,iframe,'
+    '.breadcrumb,.breadcrumbs,.pagination,.share,.sns,.social,.related,.related-articles,'
+    '.recommend,.recommendations,.ranking,.ad,.advertisement,.sidebar,'
+    '[aria-label="パンくずリスト"],[aria-label="breadcrumb"]'
+)
+
+
+def content_blocks(node, headline: str = '') -> list[str]:
+    """Extract readable paragraphs, subheads and short list/table rows, not navigation."""
+    root = BeautifulSoup(str(node), 'html.parser')
+    for garbage in root.select(DROP_SELECTORS):
+        garbage.decompose()
+    blocks = []
+    for elem in root.find_all(['p', 'h2', 'h3', 'h4', 'li', 'blockquote', 'tr']):
+        # Skip the same content under a nested block (e.g. a list inside a p).
+        if elem.find_parent(['p', 'li', 'tr', 'blockquote']):
+            continue
+        if elem.name == 'li' and elem.find_parent(['ul', 'ol']) and len(elem.find_all('a')) > 0:
+            continue  # link navigation / related stories, not prose
+        if elem.name == 'tr':
+            value = ' ｜ '.join(clean(c.get_text(' ', strip=True)) for c in elem.find_all(['td', 'th']))
+        else:
+            value = clean(elem.get_text(' ', strip=True))
+        if not value or (value == headline) or NOISE_BLOCK.fullmatch(value):
+            continue
+        if len(value) > 3500:
+            value = value[:3500]
+        if value not in blocks[-2:]:
+            blocks.append(value)
+    if sum(map(len, blocks)) < 45:
+        # Many official notices use only <div> and <br> instead of <p>.
+        text = root.get_text('\n', strip=True)
+        lines = [clean(line) for line in text.splitlines()]
+        lines = [line for line in lines if line and line != headline and not NOISE_BLOCK.fullmatch(line)]
+        if sum(map(len, lines)) > sum(map(len, blocks)):
+            blocks = lines
+    # Remove dates and isolated labels at the top of an article when no prose is lost.
+    while blocks and (blocks[0] == headline or (len(blocks[0]) <= 20 and (
+            date_from(blocks[0]) or blocks[0] in ('お知らせ', 'ニュース', 'アップデート')))):
+        blocks.pop(0)
+    out, total = [], 0
+    for block in blocks:
+        if total + len(block) > MAX_BODY_CHARS:
+            break
+        out.append(block)
+        total += len(block)
+    return out
+
+
+def from_jsonld(soup, headline: str) -> list[str]:
+    def walk(value):
+        if isinstance(value, list):
+            for item in value:
+                yield from walk(item)
+        elif isinstance(value, dict):
+            typ = value.get('@type', '')
+            types = typ if isinstance(typ, list) else [typ]
+            if any(t in ('Article', 'NewsArticle', 'BlogPosting', 'Report', 'WebPage') for t in types):
+                body = value.get('articleBody', '')
+                if isinstance(body, str) and body:
+                    yield body
+            for nested in value.get('@graph', []):
+                yield from walk(nested)
+    for tag in soup.select('script[type="application/ld+json"]'):
+        try:
+            parsed = json.loads(tag.string or tag.get_text())
+            for body in walk(parsed):
+                blocks = content_blocks(BeautifulSoup(body, 'html.parser'), headline)
+                if sum(map(len, blocks)) >= 25:
+                    return blocks
+        except (ValueError, TypeError):
+            continue
+    return []
+
+
+def extract_body(document: str, headline: str = '') -> list[str]:
+    """Prefer a narrow article node; never mistake the site's whole link list for text."""
+    soup = BeautifulSoup(document, 'html.parser')
+    structured = from_jsonld(soup, headline)
+    if structured:
+        return structured
+    for tag in soup.select('script,style,noscript,template'):
+        tag.decompose()
+    candidates = []
+    seen = set()
+    for pos, selector in enumerate(ARTICLE_SELECTORS):
+        for node in soup.select(selector)[:12]:
+            if id(node) in seen:
+                continue
+            seen.add(id(node))
+            blocks = content_blocks(node, headline)
+            text_length = sum(map(len, blocks))
+            if text_length < (18 if pos < 23 else 30):
+                continue
+            # Specific article-body selectors take precedence; generic main/body
+            # can include lots of unrelated navigation.
+            link_text = sum(len(clean(a.get_text(' ', strip=True))) for a in node.select('a'))
+            tag_count = len(node.select('a'))
+            if tag_count >= 12 and link_text > text_length * .35:
+                continue
+            priority = 4 if pos < 23 else (2 if selector == 'article' else 0)
+            ratio = text_length / max(1, len(clean(node.get_text(' ', strip=True))))
+            score = priority * 10000 + min(text_length, 12000) * .6 + ratio * 1000 - link_text * .25
+            candidates.append((score, blocks))
+    if not candidates:
+        # Fallback to a small text-containing parent around the page's H1.
+        heading = soup.find('h1')
+        if heading:
+            parent = heading.parent
+            for _ in range(4):
+                if not parent:
+                    break
+                blocks = content_blocks(parent, headline)
+                if sum(map(len, blocks)) >= 30 and len(blocks) >= 2:
+                    return blocks
+                parent = parent.parent
+        return []
+    blocks = max(candidates, key=lambda x: x[0])[1]
+    if sum(map(len, blocks)) < 20:
+        return []
+    return blocks
+
+
 def update(client: WebClient, old: dict, now: datetime) -> dict:
     results = {}
+    # Separate listing collection from detail fetching so sites with multiple
+    # feeds (e.g. WINTICKET) are still limited to eight articles total.
     for feed in FEEDS:
         prior = old.get('feeds', {}).get(feed.key, {})
         previous_items = prior.get('items') if isinstance(prior.get('items'), list) else []
@@ -264,18 +422,59 @@ def update(client: WebClient, old: dict, now: datetime) -> dict:
             if not items:
                 raise RuntimeError('記事リンクが見つかりません（動的表示・構造変更の可能性）')
             seen_old = {i['url'] for i in previous_items if 'url' in i}
+            old_by_url = {i['url']: i for i in previous_items if 'url' in i}
             for item in items:
                 item['new'] = bool(previous_items and item['url'] not in seen_old)
+                # Preserve successfully fetched bodies across daily updates.
+                if item['url'] in old_by_url:
+                    item['body'] = old_by_url[item['url']].get('body', [])
+                    item['note'] = old_by_url[item['url']].get('note', '')
             results[feed.key] = {'status': 'ok', 'last_success': now.isoformat(), 'items': items}
             print(f'INFO {feed.site} / {feed.section}: {len(items)}件')
-        except Exception as exc:  # each source is independently best effort
-            # No ::warning:: annotations. Keep historic data and visibly mark it stale.
+        except Exception as exc:
             reason = clean(str(exc))[:130] or type(exc).__name__
             preserved = [{**item, 'new': False} for item in previous_items]
             results[feed.key] = {'status': 'cached' if preserved else 'unavailable',
                                  'last_success': prior.get('last_success', ''),
                                  'items': preserved, 'message': reason}
             print(f'INFO {feed.site} / {feed.section}: 取得不可（{reason}）、前回{len(preserved)}件を保持')
+
+    # Date order by site, newest first, then gather the eight that are displayed.
+    selected: set[str] = set()
+    per_site: dict[str, list[tuple[Feed, dict]]] = {}
+    for feed in FEEDS:
+        for order, item in enumerate(results[feed.key]['items']):
+            per_site.setdefault(feed.site, []).append((feed, item))
+    for site, candidates in per_site.items():
+        candidates.sort(key=lambda x: (x[1].get('date', ''), -x[0].limit, -FEEDS.index(x[0])), reverse=True)
+        seen_links: set[str] = set()
+        for feed, item in candidates:
+            if item['url'] in seen_links:
+                continue
+            seen_links.add(item['url'])
+            if len(seen_links) > MAX_PER_SITE:
+                break
+            selected.add(item['url'])
+    for feed in FEEDS:
+        record = results[feed.key]
+        # Keep only the selected articles in the snapshot; prevents unnecessary
+        # requests and allows next run to re-use bodies while preserving NEW flags.
+        record['items'] = [i for i in record['items'] if i['url'] in selected]
+        if record['status'] != 'ok':
+            continue
+        for item in record['items']:
+            if item.get('body'):
+                continue
+            try:
+                blocks = extract_body(client.fetch_article(feed, item['url']), item['title'])
+                if not blocks:
+                    raise RuntimeError('本文の領域が見つかりませんでした')
+                item['body'] = blocks
+                item['note'] = ''
+            except Exception as exc:
+                item['body'] = []
+                item['note'] = '本文を取得できませんでした。出典元の記事をご確認ください。'
+                print(f'INFO 本文未取得 {feed.site}: {item["url"]} ({clean(str(exc))[:100]})')
     return {'format_version': VERSION, 'updated': now.isoformat(), 'feeds': results}
 
 
@@ -293,8 +492,7 @@ def render(snapshot: dict) -> str:
     else:
         when = ''
     feeds = snapshot.get('feeds', {})
-    all_items = []
-    statuses = []
+    all_items, statuses = [], []
     success = 0
     for feed in FEEDS:
         record = feeds.get(feed.key, {})
@@ -309,33 +507,36 @@ def render(snapshot: dict) -> str:
                 continue
             all_items.append({**item, 'url': url, 'feed': feed.key, 'site': feed.site,
                               'section': feed.section, 'stale': status != 'ok', '_rank': rank})
-    # Cross-feed de-duplication by canonical link; title is not a reliable identity.
     unique = {}
     for item in all_items:
         unique.setdefault(item['url'], item)
-    all_items = list(unique.values())
-    all_items.sort(key=lambda item: (item.get('date', ''), -item['_rank']), reverse=True)
+    all_items = sorted(unique.values(), key=lambda item: (item.get('date', ''), -item['_rank']), reverse=True)
     groups: dict[str, list[str]] = {site: [] for site in dict.fromkeys(f.site for f in FEEDS)}
-    articles = []
-    for idx, item in enumerate(all_items, 1):
-        ident = f'news-{idx}'
+    articles, site_counts = [], {}
+    for item in all_items:
+        if site_counts.get(item['site'], 0) >= MAX_PER_SITE:
+            continue
+        site_counts[item['site']] = site_counts.get(item['site'], 0) + 1
+        ident = f'news-{len(articles) + 1}'
         new = 'true' if item.get('new') and not item.get('stale') else 'false'
-        title = e(item['title'])
-        site = e(item['site'])
-        section = e(item['section'])
+        title, site, section = e(item['title']), e(item['site']), e(item['section'])
         date = e(item.get('date', ''))
         stamp = f'<time datetime="{date}">{date}</time>' if date else '日付未取得'
         stale = '<span class="stale-label">前回取得分</span>' if item.get('stale') else ''
         new_icon = '<span class="new-label">NEW</span>' if new == 'true' else ''
-        groups[item['site']].append(f'<li data-new="{new}"><a href="#{ident}">{title}</a></li>')
-        articles.append(f'<article id="{ident}" data-new="{new}" data-site="{e(item["site"])}">'
-                        f'<h2><a href="{e(item["url"])}" target="_blank" rel="noopener noreferrer nofollow">{title}</a></h2>'
-                        f'<p class="meta">{site} <span class="separator">/</span> {section} <span class="separator">/</span> {stamp} {new_icon} {stale}</p>'
-                        f'<p class="read-original"><a href="{e(item["url"])}" target="_blank" rel="noopener noreferrer nofollow">公式サイトで記事を読む <span aria-hidden="true">↗</span></a></p>'
-                        '</article>')
-    nav = ''.join(f'<section class="category" data-site="{e(site)}"><h2>{e(site)} <span class="count">{len(links)}</span></h2><ul>{"".join(links)}</ul></section>'
+        groups[item['site']].append(f'<li data-new="{new}"><a href="#{ident}" title="{title}">{title}</a></li>')
+        # Article title is text; the attribution directly underneath is clickable.
+        attribution = f'{site} <span class="separator">/</span> {section} <span class="separator">/</span> {stamp}'
+        body = item.get('body', [])
+        paragraphs = ''.join(f'<p>{e(p)}</p>' for p in body if isinstance(p, str) and p.strip()) if isinstance(body, list) else ''
+        note = e(item.get('note') or '本文を取得できませんでした。出典元の記事をご確認ください。')
+        content = f'<div class="article-body">{paragraphs}</div>' if paragraphs else f'<p class="notice">{note}</p>'
+        articles.append(f'<article id="{ident}" data-new="{new}">'
+                        f'<h2>{title}</h2>'
+                        f'<p class="meta"><a href="{e(item["url"])}" target="_blank" rel="noopener noreferrer nofollow">{attribution}</a> {new_icon} {stale}</p>'
+                        f'{content}</article>')
+    nav = ''.join(f'<section class="category" data-site="{e(site)}"><h2>{e(site)}</h2><ul>{"".join(links)}</ul></section>'
                   for site, links in groups.items() if links)
-    options = ''.join(f'<option value="{e(site)}">{e(site)}</option>' for site in groups if groups[site])
     status_html = ''.join(statuses)
     empty = '<p class="empty">現在、表示できるニュースがありません。各公式サイトへのリンクや取得状況をご確認ください。</p>'
     articles_html = ''.join(articles) if articles else empty
@@ -353,27 +554,25 @@ h1{{font-size:23px;line-height:1.3;margin:0;flex:none}}h1 a{{color:inherit;text-
 .update-controls{{margin-left:auto;display:flex;flex-direction:column;align-items:flex-end;line-height:1.25}}.new-filter{{border:0;background:transparent;color:#555;font:inherit;font-size:14px;padding:2px 0;cursor:pointer}}.updated{{font-size:14px;color:#555}}
 [hidden]{{display:none!important}}.layout{{display:grid;grid-template-columns:minmax(230px,320px) minmax(0,1fr);gap:36px;align-items:start}}
 nav{{font-size:14px;position:sticky;top:calc(var(--header-height,42px) + 8px);max-height:calc(100dvh - var(--header-height,42px) - 16px);overflow:auto;padding-top:12px}}
-nav h2{{font-size:14px;line-height:1.4;margin:0 0 4px}}.category{{margin:0 0 18px}}.category ul{{list-style:none;margin:0;padding:0}}.category li{{padding:2px 0}}.count{{color:#777;font-weight:400}}.source-status{{margin-top:22px;border-top:1px solid #ddd;padding-top:12px}}.source-status summary{{font-weight:600;cursor:pointer}}.source-status ul{{list-style:none;padding:0;margin:8px 0 0}}.source-status li{{margin-bottom:7px;line-height:1.4}}.source-state{{display:block;color:#777;font-size:12px}}.source-summary{{font-size:13px;color:#666;margin:6px 0 0}}
-.toolbar{{display:flex;align-items:center;gap:12px;margin:10px 0 0;flex-wrap:wrap;font-size:14px;color:#555}}.toolbar select{{min-width:180px;max-width:100%;font:inherit;color:#222;background:#fff;border:1px solid #aaa;border-radius:4px;padding:4px 8px}}.feed article h2 a{{color:#14532d;text-decoration:none}}.feed article h2 a:hover{{text-decoration:underline}}article{{border-top:1px solid #bbb;padding:24px 0;scroll-margin-top:calc(var(--header-height,42px) + 12px)}}.feed article:first-child,.feed article.visible-first{{border-top:0;padding-top:12px}}
-.meta{{font-size:14px;color:#555;margin:4px 0 8px}}.separator{{color:#aaa}}.new-label{{font-weight:700;color:#b42318;margin-left:6px}}.stale-label{{color:#777;border:1px solid #aaa;border-radius:3px;font-size:12px;padding:0 4px;margin-left:7px}}.read-original{{font-size:14px;margin:0}}.empty{{margin:22px 0;color:#555}}.menu-toggle,.pull-refresh{{display:none}}
+nav h2{{font-size:14px;line-height:1.4;margin:0 0 4px}}.category{{margin:0 0 18px}}.category ul{{list-style:none;margin:0;padding:0}}.category li{{padding:2px 0;min-width:0}}.category li a{{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}}.source-status{{margin-top:22px;border-top:1px solid #ddd;padding-top:12px}}.source-status summary{{font-weight:600;cursor:pointer}}.source-status ul{{list-style:none;padding:0;margin:8px 0 0}}.source-status li{{margin-bottom:7px;line-height:1.4}}.source-state{{display:block;color:#777;font-size:12px}}.source-summary{{font-size:13px;color:#666;margin:6px 0 0}}
+article{{border-top:1px solid #bbb;padding:24px 0;scroll-margin-top:calc(var(--header-height,42px) + 12px)}}.feed article:first-child,.feed article.visible-first{{border-top:0;padding-top:12px}}
+.meta{{font-size:14px;color:#555;margin:4px 0 8px}}.separator{{color:#aaa}}.new-label{{font-weight:700;color:#b42318;margin-left:6px}}.stale-label{{color:#777;border:1px solid #aaa;border-radius:3px;font-size:12px;padding:0 4px;margin-left:7px}}.article-body p{{margin:0 0 16px;white-space:pre-wrap}}.notice{{font-size:14px;color:#666}}.empty{{margin:22px 0;color:#555}}.menu-toggle,.pull-refresh{{display:none}}
 @media(max-width:700px){{body{{line-height:1.75}}main{{padding:0 16px 36px}}header{{padding:1px 0;min-height:42px}}.header-row{{gap:6px 10px}}h1{{font-size:20px}}.new-filter{{font-size:14px;padding:0}}.layout{{display:block}}.menu-toggle{{display:inline-flex;align-items:center;justify-content:center;flex:none;order:3;margin-left:auto;width:32px;height:34px;border:0;background:transparent;color:inherit;padding:4px}}.hamburger{{display:flex;flex-direction:column;gap:4px}}.hamburger span{{display:block;width:20px;height:2px;background:currentColor}}.layout nav{{display:none;position:fixed;top:var(--header-height,42px);left:0;right:0;z-index:19;max-height:calc(100dvh - var(--header-height,42px));overflow:auto;padding:12px 16px;background:#fff;border-bottom:1px solid #bbb;box-shadow:0 5px 10px #0002}}body.menu-open .layout nav{{display:block}}.pull-refresh{{display:block;position:fixed;top:0;left:50%;z-index:25;padding:3px 14px;background:#14532d;color:#fff;border-radius:0 0 12px 12px;font-size:14px;pointer-events:none;transform:translate(-50%,-110%);transition:transform .15s}}.pull-refresh.active{{transform:translate(-50%,0)}}article{{padding:18px 0}}h2{{font-size:18px}}}}
-@media print{{header{{position:static}}.menu-toggle,nav,.pull-refresh,.toolbar{{display:none!important}}main{{max-width:none;padding:0}}.layout{{display:block}}}}
+@media print{{header{{position:static}}.menu-toggle,nav,.pull-refresh{{display:none!important}}main{{max-width:none;padding:0}}.layout{{display:block}}}}
 </style></head><body><div class="pull-refresh" role="status" aria-live="polite">下に引いて更新</div><main id="top"><header><div class="header-row">
 <button class="menu-toggle" type="button" aria-label="タイトル一覧を開く" aria-controls="news-nav" aria-expanded="false"><span class="hamburger" aria-hidden="true"><span></span><span></span><span></span></span></button>
 <h1><a href="#top">競輪オート投票ニュース</a></h1><div class="update-controls"><time class="updated">{('更新 ' + e(when)) if when else '未更新'}</time><button class="new-filter" type="button" aria-pressed="false">すべて表示中</button></div></div></header>
 <div class="layout"><nav id="news-nav" aria-label="タイトル一覧">{nav}<details class="source-status"><summary>取得元・取得状況（{success}/{len(FEEDS)}系統）</summary><p class="source-summary">取得できないサイトは前回取得分を表示する場合があります。</p><ul>{status_html}</ul></details></nav><div class="feed">
-<div class="toolbar"><label for="site-filter">サイト</label><select id="site-filter"><option value="">すべてのサイト</option>{options}</select><span id="visible-count" role="status"></span></div>
 {articles_html}
 </div></div></main><script>
-const filterButton=document.querySelector('.new-filter');const siteFilter=document.getElementById('site-filter');
+const filterButton=document.querySelector('.new-filter');
 function applyFilters(){{
- const onlyNew=filterButton.getAttribute('aria-pressed')==='true';const site=siteFilter.value;
- let count=0;document.querySelectorAll('.feed article').forEach(node=>{{node.hidden=(onlyNew&&node.dataset.new!=='true')||(site&&node.dataset.site!==site);if(!node.hidden)count++;node.classList.remove('visible-first')}});
+ const onlyNew=filterButton.getAttribute('aria-pressed')==='true';
+ document.querySelectorAll('.feed article').forEach(node=>{{node.hidden=onlyNew&&node.dataset.new!=='true';node.classList.remove('visible-first')}});
  document.querySelector('.feed article:not([hidden])')?.classList.add('visible-first');
- document.querySelectorAll('nav .category').forEach(category=>{{category.hidden=!!site&&category.dataset.site!==site;category.querySelectorAll('li').forEach(li=>{{li.hidden=onlyNew&&li.dataset.new!=='true'}});if(!category.querySelector('li:not([hidden])'))category.hidden=true;}});
- document.getElementById('visible-count').textContent=count+'件';
+ document.querySelectorAll('nav .category').forEach(category=>{{category.querySelectorAll('li').forEach(li=>{{li.hidden=onlyNew&&li.dataset.new!=='true'}});category.hidden=!category.querySelector('li:not([hidden])')}});
 }}
-filterButton.addEventListener('click',()=>{{const active=filterButton.getAttribute('aria-pressed')!=='true';filterButton.setAttribute('aria-pressed',String(active));filterButton.textContent=active?'NEWのみ表示中':'すべて表示中';applyFilters()}});siteFilter.addEventListener('change',applyFilters);applyFilters();
+filterButton.addEventListener('click',()=>{{const active=filterButton.getAttribute('aria-pressed')!=='true';filterButton.setAttribute('aria-pressed',String(active));filterButton.textContent=active?'NEWのみ表示中':'すべて表示中';applyFilters()}});applyFilters();
 const header=document.querySelector('header'),menuButton=document.querySelector('.menu-toggle'),menu=document.getElementById('news-nav');
 const updateHeaderHeight=()=>document.documentElement.style.setProperty('--header-height',`${{header.getBoundingClientRect().height}}px`);updateHeaderHeight();if(window.ResizeObserver)new ResizeObserver(updateHeaderHeight).observe(header);
 function setMenu(open){{document.body.classList.toggle('menu-open',open);menuButton.setAttribute('aria-expanded',String(open));menuButton.setAttribute('aria-label',open?'タイトル一覧を閉じる':'タイトル一覧を開く')}}

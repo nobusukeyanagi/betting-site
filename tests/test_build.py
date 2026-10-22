@@ -83,8 +83,70 @@ class ScraperTests(unittest.TestCase):
         self.assertNotIn('<script>alert(1)', html)
         self.assertIn('NEW', html)
 
+    def test_article_body_extraction_without_site_navigation(self):
+        document = """<html><body>
+        <header><a href='/'>トップへ</a></header>
+        <main><article><h1>料金改定のお知らせ</h1>
+        <div class='article-body'><p>いつもご利用いただき、ありがとうございます。</p>
+        <p>11月から一部サービスの料金を変更いたします。詳細は以下のとおりです。</p>
+        <h2>ご案内</h2><ul><li>2026年11月1日より適用します。</li></ul>
+        </div><div class='related'>関連記事 <a href='/news/1'>別のお知らせ</a></div>
+        </article></main><footer><p>プライバシーポリシーなどのご案内です。</p></footer>
+        </body></html>"""
+        blocks = mod.extract_body(document, '料金改定のお知らせ')
+        self.assertIn('いつもご利用いただき、ありがとうございます。', blocks)
+        self.assertIn('2026年11月1日より適用します。', blocks)
+        self.assertNotIn('プライバシーポリシーなどのご案内です。', blocks)
+        self.assertNotIn('別のお知らせ', blocks)
+
+    def test_jsonld_article_body(self):
+        document = """<script type="application/ld+json">{"@type":"NewsArticle","articleBody":"第1段落：新サービスを開始します。第2段落：今後も順次拡大していく予定です。利用可能なサービスを増やしてまいります。"}</script>
+        <main><a href='/a'>関連記事</a></main>"""
+        blocks = mod.extract_body(document, '新サービス')
+        self.assertTrue(any('新サービスを開始します' in b for b in blocks))
+        self.assertFalse(any('関連記事' in b for b in blocks))
+
+    def test_right_column_text_source_link_and_left_ellipsis(self):
+        feed = self.feed('odds-info')
+        snapshot = mod.load_snapshot(None)
+        snapshot['feeds'][feed.key] = {'status': 'ok', 'items': [{
+            'title': 'サービスのメンテナンスについて',
+            'url': 'https://www.oddspark.com/info/2026/10/post-687.html',
+            'date': '2026-10-22', 'body': ['サービスの本文がこちらに入ります。']}]}
+        page = mod.render(snapshot)
+        self.assertIn('サービスの本文がこちらに入ります。', page)
+        self.assertIn('text-overflow:ellipsis', page)
+        self.assertIn('class="meta"><a href="https://www.oddspark.com/info/2026/10/post-687.html"', page)
+        self.assertNotIn('公式サイトで記事を読む', page)
+        self.assertNotIn('すべてのサイト', page)
+        self.assertNotIn('visible-count', page)
+        self.assertNotIn('class="count"', page)
+
+    def test_eight_titles_per_site_across_multiple_feeds(self):
+        snap = mod.load_snapshot(None)
+        snap['feeds'] = {}
+        for feed in mod.FEEDS:
+            if feed.site == 'WINTICKET':
+                items = []
+                for n in range(10):
+                    base = feed.url.rstrip('/')
+                    items.append({'title': f'ニュース記事 {feed.key} {n}',
+                                  'url': base + f'/id{n}', 'date': f'2026-10-{(n%22)+1:02d}',
+                                  'body': ['本文がここにあります。']})
+                snap['feeds'][feed.key] = {'status': 'ok', 'items': items}
+        # Ensure URLs used in the test adhere to each feed's rules.
+        for key in list(snap['feeds']):
+            if key not in ('winkeirin-topics', 'winauto-topics'):
+                del snap['feeds'][key]
+        page = mod.render(snap)
+        self.assertEqual(page.count('<article id="news-'), 8)
+        self.assertEqual(page.count('<li data-new="false"><a href="#news-'), 8)
+
     def test_cache_on_failed_feeds(self):
         class Client:
+            def fetch_article(self, feed, url):
+                return '<article><p>記事の本文を取得できています。今後もサイトを安全にお使いいただけます。</p><p>詳細を確認して更新しました。</p></article>'
+
             def fetch(self, feed):
                 if feed.key == 'betimo':
                     raise RuntimeError('blocked')
@@ -99,6 +161,7 @@ class ScraperTests(unittest.TestCase):
         self.assertEqual(b['status'], 'cached')
         self.assertFalse(b['items'][0]['new'])
         self.assertEqual(b['last_success'], '2026-10-20T01:00:00+09:00')
+        self.assertTrue(snap['feeds']['winkeirin-topics']['items'][0]['body'])
 
 
 if __name__ == '__main__':
