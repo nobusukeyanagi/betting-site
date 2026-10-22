@@ -1096,12 +1096,8 @@ def update(client: WebClient, old: dict, now: datetime) -> dict:
                         if flight_html and paragraphs:
                             # Add the server-delivered article HTML to a synthetic
                             # document so existing image/link extraction sees it.
-                            html_lines = flight_html.replace('
-', '
-').replace('', '
-')
-                            article_markup = html_lines.replace('
-', '<br>')
+                            html_lines = flight_html.replace('\r\n', '\n').replace('\r', '\n')
+                            article_markup = html_lines.replace('\n', '<br>')
                             document = ('<article><h1>' + html.escape(item['title']) +
                                         '</h1><div class="article-body"><p>' +
                                         article_markup + '</p></div></article>')
