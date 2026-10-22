@@ -1146,7 +1146,7 @@ def render(snapshot: dict) -> str:
         date = e(item.get('date', ''))
         stamp = f'<time datetime="{date}">{date}</time>' if date else '日付未取得'
         stale = '<span class="stale-label">前回取得分</span>' if item.get('stale') else ''
-        new_icon = '<span class="new-label">NEW</span>' if new == 'true' else ''
+        new_label = ' [NEW]' if new == 'true' else ''
         groups[item['site']].append(f'<li data-new="{new}"><a href="#{ident}" title="{title}">{title}</a></li>')
         # Article title is text; the attribution directly underneath is clickable.
         attribution = f'{site} <span class="separator">/</span> {section} <span class="separator">/</span> {stamp}'
@@ -1172,7 +1172,7 @@ def render(snapshot: dict) -> str:
         content = f'<div class="article-body">{paragraphs}</div>' if paragraphs else f'<p class="notice">{note}</p>'
         articles.append(f'<article id="{ident}" data-new="{new}">'
                         f'<h2>{title}</h2>'
-                        f'<p class="meta"><a href="{e(item["url"])}" target="_blank" rel="noopener noreferrer nofollow">{attribution}</a> {new_icon} {stale}</p>'
+                        f'<p class="meta"><a href="{e(item["url"])}" target="_blank" rel="noopener noreferrer nofollow">{attribution}</a>{new_label}{" " + stale if stale else ""}</p>'
                         f'{content}</article>')
     nav = ''.join(f'<section class="category" data-site="{e(site)}"><h2>{e(site)}</h2><ul>{"".join(links)}</ul></section>'
                   for site, links in groups.items() if links)
@@ -1195,7 +1195,7 @@ h1{{font-size:23px;line-height:1.3;margin:0;flex:none}}h1 a{{color:inherit;text-
 nav{{font-size:14px;position:sticky;top:calc(var(--header-height,42px) + 8px);max-height:calc(100dvh - var(--header-height,42px) - 16px);overflow:auto;padding-top:12px}}
 nav h2{{font-size:14px;line-height:1.4;margin:0 0 4px}}.category{{margin:0 0 18px}}.category ul{{list-style:none;margin:0;padding:0}}.category li{{padding:2px 0;min-width:0}}.category li a{{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}}.source-status{{margin-top:22px;border-top:1px solid #ddd;padding-top:12px}}.source-status summary{{font-weight:600;cursor:pointer}}.source-status ul{{list-style:none;padding:0;margin:8px 0 0}}.source-status li{{margin-bottom:7px;line-height:1.4}}.source-state{{display:block;color:#777;font-size:12px}}.source-summary{{font-size:13px;color:#666;margin:6px 0 0}}
 article{{border-top:1px solid #bbb;padding:24px 0;scroll-margin-top:calc(var(--header-height,42px) + 12px)}}.feed article:first-child,.feed article.visible-first{{border-top:0;padding-top:12px}}
-.meta{{font-size:14px;color:#555;margin:4px 0 8px}}.meta a{{color:inherit}}.separator{{color:#aaa}}.new-label{{font-weight:700;color:#b42318;margin-left:6px}}.stale-label{{color:#777;border:1px solid #aaa;border-radius:3px;font-size:12px;padding:0 4px;margin-left:7px}}.article-body p{{margin:0 0 16px;white-space:pre-wrap}}figure{{margin:0 0 18px}}figure img{{display:block;width:auto;max-width:300px;height:auto;max-height:300px;object-fit:contain}}figcaption{{font-size:14px;color:#555;line-height:1.55;margin-top:5px}}.notice{{font-size:14px;color:#666}}.empty{{margin:22px 0;color:#555}}.menu-toggle,.pull-refresh{{display:none}}
+.meta{{font-size:14px;color:#555;margin:4px 0 8px}}.meta a{{color:inherit}}.separator{{color:#aaa}}.stale-label{{color:#777;border:1px solid #aaa;border-radius:3px;font-size:12px;padding:0 4px;margin-left:7px}}.article-body p{{margin:0 0 16px;white-space:pre-wrap}}figure{{margin:0 0 18px}}figure img{{display:block;width:auto;max-width:300px;height:auto;max-height:300px;object-fit:contain}}figcaption{{font-size:14px;color:#555;line-height:1.55;margin-top:5px}}.notice{{font-size:14px;color:#666}}.empty{{margin:22px 0;color:#555}}.menu-toggle,.pull-refresh{{display:none}}
 @media(max-width:700px){{body{{line-height:1.75}}main{{padding:0 16px 36px}}header{{padding:1px 0;min-height:42px}}.header-row{{gap:6px 10px}}h1{{font-size:20px}}.new-filter{{font-size:14px;padding:0}}.layout{{display:block}}.menu-toggle{{display:inline-flex;align-items:center;justify-content:center;flex:none;order:3;margin-left:auto;width:32px;height:34px;border:0;background:transparent;color:inherit;padding:4px}}.hamburger{{display:flex;flex-direction:column;gap:4px}}.hamburger span{{display:block;width:20px;height:2px;background:currentColor}}.layout nav{{display:none;position:fixed;top:var(--header-height,42px);left:0;right:0;z-index:19;max-height:calc(100dvh - var(--header-height,42px));overflow:auto;padding:12px 16px;background:#fff;border-bottom:1px solid #bbb;box-shadow:0 5px 10px #0002}}body.menu-open .layout nav{{display:block}}.pull-refresh{{display:block;position:fixed;top:0;left:50%;z-index:25;padding:3px 14px;background:#14532d;color:#fff;border-radius:0 0 12px 12px;font-size:14px;pointer-events:none;transform:translate(-50%,-110%);transition:transform .15s}}.pull-refresh.active{{transform:translate(-50%,0)}}article{{padding:18px 0}}h2{{font-size:18px}}}}
 @media print{{header{{position:static}}.menu-toggle,nav,.pull-refresh{{display:none!important}}main{{max-width:none;padding:0}}.layout{{display:block}}}}
 </style></head><body><div class="pull-refresh" role="status" aria-live="polite">下に引いて更新</div><main id="top"><header><div class="header-row">

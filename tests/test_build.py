@@ -417,6 +417,32 @@ class ScraperTests(unittest.TestCase):
                             datetime(2026, 10, 22, tzinfo=ZoneInfo('Asia/Tokyo')))
         self.assertEqual(len(result['feeds']['dmm']['items']), 1)
 
+    def test_new_marker_matches_other_news_sites(self):
+        feed = self.feed('winkeirin-topics')
+        def news(title, suffix, is_new, stale=False):
+            return {
+                'title': title,
+                'url': 'https://www.winticket.jp/keirin/topics/' + suffix,
+                'date': '2026-10-22',
+                'body': ['記事本文のテストです。'],
+                'new': is_new,
+            }
+        snapshot = mod.load_snapshot(None)
+        snapshot['feeds'] = {feed.key: {'status': 'ok', 'items': [
+            news('NEWの記事', 'abc123', True),
+            news('既存の記事', 'def456', False),
+        ]}}
+        page = mod.render(snapshot)
+        self.assertEqual(page.count(' [NEW]</p>'), 1)
+        self.assertIn('</a> [NEW]</p>', page)
+        self.assertNotIn('class="new-label"', page)
+        self.assertNotIn('color:#b42318', page)
+        self.assertIn('<article id="news-1" data-new="true">', page)
+        self.assertIn('<article id="news-2" data-new="false">', page)
+        self.assertIn('<li data-new="true"><a href="#news-1"', page)
+        self.assertIn('<li data-new="false"><a href="#news-2"', page)
+        self.assertIn("NEWのみ表示中", page)
+
     def test_cache_on_failed_feeds(self):
         class Client:
             def fetch_article(self, feed, url):
