@@ -72,7 +72,7 @@ class ScraperTests(unittest.TestCase):
     def test_html_escape_and_unavailable(self):
         old = mod.load_snapshot(None)
         html = mod.render(old)
-        self.assertIn('競輪オート投票ニュース', html)
+        self.assertIn('投票サイトニュース', html)
         self.assertIn('取得不可', html)
         f = self.feed('betimo')
         old['feeds'][f.key] = {'status': 'ok', 'last_success': '', 'items': [
