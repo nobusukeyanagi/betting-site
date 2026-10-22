@@ -9,6 +9,7 @@ import hashlib
 import html
 import ipaddress
 import shutil
+import subprocess
 import json
 import re
 import sys
@@ -287,6 +288,31 @@ class WebClient:
         )):
             raise RuntimeError('サイト側のアクセス確認画面が表示されました')
         return document
+
+
+
+    def render_article(self, feed: Feed, url: str) -> str:
+        """Render client-side notice text as a last resort (public pages only)."""
+        if feed.key != 'minnano' or safe_url(feed, url) != url:
+            raise RuntimeError('ブラウザで表示できる記事URLではありません')
+        binary = next((shutil.which(name) for name in
+                       ('google-chrome', 'google-chrome-stable', 'chromium', 'chromium-browser')
+                       if shutil.which(name)), None)
+        if not binary:
+            raise RuntimeError('ヘッドレスブラウザが利用できません')
+        args = [binary, '--headless=new', '--disable-gpu', '--disable-extensions',
+                '--disable-background-networking', '--disable-dev-shm-usage',
+                '--no-first-run', '--no-default-browser-check',
+                '--virtual-time-budget=6500', '--dump-dom', url]
+        # The sandbox remains enabled; never execute the remote page unsandboxed.
+        response = subprocess.run(args, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
+                                  timeout=22, check=False)
+        if response.returncode != 0:
+            raise RuntimeError('ヘッドレスブラウザで記事を表示できませんでした')
+        raw = response.stdout
+        if not raw or len(raw) > MAX_BYTES:
+            raise RuntimeError('ブラウザで描画したHTMLが不正です')
+        return raw.decode('utf-8', 'replace')
 
 
     def save_image(self, image_url: str, directory: Path) -> str:
@@ -878,6 +904,15 @@ def update(client: WebClient, old: dict, now: datetime) -> dict:
                         paragraphs = extract_notice_body(document, item['title'], feed.key)
                         if not paragraphs and feed.key == 'minnano':
                             paragraphs = extract_minnano_json_body(document, item['title'])
+                        if not paragraphs and feed.key == 'minnano':
+                            try:
+                                rendered = client.render_article(feed, item['url'])
+                                paragraphs = (extract_notice_body(rendered, item['title'], 'minnano')
+                                              or extract_minnano_json_body(rendered, item['title']))
+                                if paragraphs:
+                                    document = rendered
+                            except (OSError, RuntimeError, subprocess.TimeoutExpired) as error:
+                                print(f'INFO ブラウザ本文未取得 みんなの競輪: {clean(str(error))[:100]}')
                     else:
                         paragraphs = extract_body(document, item['title'])
                     if not paragraphs:

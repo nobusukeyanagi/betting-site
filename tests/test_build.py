@@ -333,6 +333,27 @@ class ScraperTests(unittest.TestCase):
         items = mod.extract_articles(feed, doc)
         self.assertEqual([i['title'] for i in items], ['今月のキャンペーン開始について'])
 
+    def test_minnano_browser_fallback_for_client_rendered_notice(self):
+        title = 'メンテナンスが終了いたしました'
+        class Client:
+            def fetch(self, feed):
+                if feed.key == 'minnano':
+                    return '<a href="/info/25833">メンテナンスが終了いたしました</a>'
+                raise RuntimeError('not available')
+            def fetch_article(self, feed, url):
+                return '<h2>' + title + '</h2><time>2026/10/22 10:13</time>'
+            def render_article(self, feed, url):
+                return ('<h2>' + title + '</h2><time>2026/10/22 10:13</time>'
+                        '<div><p>いつもみんなの競輪をご利用いただきありがとうございます。</p>'
+                        '<p>システムメンテナンスは終了し、通常通りご利用いただけます。</p></div>')
+            def save_image(self, url, directory):
+                raise RuntimeError('not needed')
+        result = mod.update(Client(), mod.load_snapshot(None),
+                            datetime(2026, 10, 22, tzinfo=ZoneInfo('Asia/Tokyo')))
+        item = result['feeds']['minnano']['items'][0]
+        self.assertIn('システムメンテナンスは終了し、通常通りご利用いただけます。', item['body'])
+        self.assertFalse(item.get('note'))
+
     def test_cache_on_failed_feeds(self):
         class Client:
             def fetch_article(self, feed, url):
