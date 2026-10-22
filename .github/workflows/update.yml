@@ -5,6 +5,12 @@ on:
   schedule:
     - cron: '0 16 * * *'
   workflow_dispatch:
+  # GitHub上でファイルを追加・修正したときにも再生成・再公開する
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - 'data/news.json'
 
 concurrency:
   group: betting-site-update
