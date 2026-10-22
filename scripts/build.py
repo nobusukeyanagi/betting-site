@@ -5,7 +5,10 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import html
+import ipaddress
+import shutil
 import json
 import re
 import sys
@@ -25,6 +28,9 @@ JST = ZoneInfo('Asia/Tokyo')
 VERSION = 1
 MAX_PER_SITE = 8
 MAX_BODY_CHARS = 40000
+MAX_IMAGES_PER_ARTICLE = 6
+MAX_IMAGE_BYTES = 5_000_000
+MEDIA_VERSION = 1
 AGENT = 'BettingSiteNews/1.0 (+GitHub Pages public-news-index; respectful robot policy)'
 MAX_PER_FEED = 12
 MAX_BYTES = 5_000_000
@@ -120,6 +126,28 @@ def safe_url(feed: Feed, href: str) -> str | None:
         canonical_query = ''
     path = p.path if feed.key in {'gamboo', 'netkeirin'} else p.path.rstrip('/')
     return urllib.parse.urlunsplit(('https', p.netloc.lower(), path, canonical_query, ''))
+
+
+
+def safe_image_url(href: str, base_url: str) -> str | None:
+    """Limit embedded media to HTTPS image URLs (no local/private destinations)."""
+    if not isinstance(href, str) or not href.strip():
+        return None
+    try:
+        p = urllib.parse.urlsplit(urllib.parse.urljoin(base_url, href.strip()))
+        host = p.hostname or ''
+        if p.scheme != 'https' or not host or p.port not in (None, 443) or p.username or p.password:
+            return None
+        if '.' not in host or host.endswith(('.local', '.internal', '.localhost')):
+            return None
+        try:
+            ipaddress.ip_address(host)
+            return None
+        except ValueError:
+            pass
+        return urllib.parse.urlunsplit(('https', p.netloc.lower(), p.path, p.query, ''))
+    except ValueError:
+        return None
 
 
 def nearby_date(anchor) -> str:
@@ -257,6 +285,43 @@ class WebClient:
         )):
             raise RuntimeError('サイト側のアクセス確認画面が表示されました')
         return document
+
+
+    def save_image(self, image_url: str, directory: Path) -> str:
+        safe = safe_image_url(image_url, image_url)
+        if not safe:
+            raise RuntimeError('画像URLが安全でありません')
+        p = urllib.parse.urlsplit(safe)
+        # Obey each CDN's robots rules; do not fetch inaccessible media.
+        self._check_robots(safe)
+        directory.mkdir(parents=True, exist_ok=True)
+        stem = hashlib.sha256(safe.encode()).hexdigest()[:24]
+        for ext in ('.jpg', '.png', '.webp', '.gif'):
+            if (directory / (stem + ext)).is_file():
+                return 'images/' + stem + ext
+        time.sleep(max(0, 0.5 - (time.monotonic() - self.last)))
+        self.last = time.monotonic()
+        request = urllib.request.Request(safe, headers={
+            'User-Agent': AGENT,
+            'Accept': 'image/avif,image/webp,image/jpeg,image/png,image/gif;q=0.9,*/*;q=0.5',
+        })
+        with urllib.request.urlopen(request, timeout=TIMEOUT) as response:
+            redirect = urllib.parse.urlsplit(response.url)
+            if redirect.scheme != 'https' or redirect.hostname != p.hostname:
+                raise RuntimeError('外部画像ドメインへの転送を検出しました')
+            kind = response.headers.get_content_type()
+            ext = {'image/jpeg': '.jpg', 'image/png': '.png',
+                   'image/webp': '.webp', 'image/gif': '.gif'}.get(kind)
+            if not ext:
+                raise RuntimeError('対応外の画像形式')
+            raw = response.read(MAX_IMAGE_BYTES + 1)
+            if len(raw) > MAX_IMAGE_BYTES:
+                raise RuntimeError('画像サイズの上限を超過')
+            if len(raw) < 100:
+                raise RuntimeError('画像の内容が不正です')
+        filename = stem + ext
+        (directory / filename).write_bytes(raw)
+        return 'images/' + filename
 
 
 def load_snapshot(path: Path | None) -> dict:
@@ -484,6 +549,128 @@ def extract_oddspark_body(document: str, headline: str) -> list[str]:
     return result
 
 
+
+def ordered_article_media(document: str, title: str, paragraphs: list[str],
+                          article_url: str, is_oddspark: bool) -> list[dict]:
+    """Locate article pictures, interleave them with established extracted paragraphs.
+
+    Text remains sourced from the existing text-only extractors, so a shared
+    header image or caption cannot alter a previously correct notice.
+    """
+    text_blocks = [{'type': 'text', 'text': p} for p in paragraphs if isinstance(p, str) and p.strip()]
+    soup = BeautifulSoup(document, 'html.parser')
+    for trash in soup.select('script,style,noscript,template,nav,header,footer,aside,form,iframe'):
+        trash.decompose()
+
+    root = None
+    odds_heading = None
+    if is_oddspark:
+        odds_heading = next((h for h in soup.select('h1,h2,h3,h4,h5,h6')
+                             if clean(h.get_text(' ', strip=True)) == clean(title)), None)
+        if odds_heading is None:
+            return text_blocks
+        root = odds_heading.parent
+    else:
+        sample = next((p[:18] for p in paragraphs if isinstance(p, str) and len(p) >= 18), '')
+        # Prefer narrow dedicated article containers, not the site's homepage.
+        for selector in ARTICLE_SELECTORS:
+            if selector in ('main', '[role="main"]', '#content'):
+                continue
+            candidates = [node for node in soup.select(selector)[:12]
+                          if sample and sample in clean(node.get_text(' ', strip=True))]
+            if candidates:
+                root = min(candidates, key=lambda tag: len(tag.get_text(' ', strip=True)))
+                break
+        if root is None:
+            for selector in ('article', 'main'):
+                nodes = [node for node in soup.select(selector)[:8]
+                         if sample and sample in clean(node.get_text(' ', strip=True))]
+                if nodes:
+                    root = min(nodes, key=lambda tag: len(tag.get_text(' ', strip=True)))
+                    break
+    if root is None:
+        return text_blocks
+
+    positions = {id(node): i for i, node in enumerate(soup.descendants)}
+    text_matches = []
+    last_position = -1
+    # Map preserved paragraph text back to DOM positions without changing it.
+    candidates = list(root.select('p,li,blockquote,h2,h3,h4,h5,h6,div'))
+    for block in text_blocks:
+        target = clean(block['text'])
+        matching = []
+        for tag in candidates:
+            position = positions.get(id(tag), -1)
+            if position <= last_position:
+                continue
+            content = clean(tag.get_text(' ', strip=True))
+            if content and (content == target or
+                            (len(target) >= 18 and target[:18] in content and len(content) < len(target) * 2)):
+                matching.append((len(content), position))
+        if matching:
+            match_pos = min(matching)[1]
+            last_position = match_pos
+        else:
+            match_pos = last_position + 0.01
+            last_position = match_pos
+        text_matches.append(match_pos)
+
+    pictures = []
+    stop = re.compile(r'^(?:ページ先頭へ|ページの先頭へ|お知らせTOPへ|お知らせ一覧へ|'
+                      r'バックナンバー|関連記事|関連ニュース)')
+    if is_oddspark:
+        # Odds Park mixes body and global content within the same wrapper.
+        # Consider only images following the precise article title until its
+        # first "back to top"/article-index link.
+        picture_nodes = []
+        for node in odds_heading.next_elements:
+            if isinstance(node, Tag) and node.name in ('a', 'h2', 'h3', 'h4', 'h5', 'h6'):
+                if stop.match(clean(node.get_text(' ', strip=True))):
+                    break
+            if isinstance(node, Tag) and node.name == 'img':
+                picture_nodes.append(node)
+    else:
+        picture_nodes = root.select('img')
+
+    seen_urls = set()
+    for image in picture_nodes:
+        if len(pictures) >= MAX_IMAGES_PER_ARTICLE:
+            break
+        if image.find_parent(['header', 'nav', 'aside', 'footer']):
+            continue
+        if image.find_parent(class_=re.compile(r'(^|[-_ ])(?:logo|icon|avatar|advert|related|share)(?:[-_ ]|$)', re.I)):
+            continue
+        try:
+            width, height = int(image.get('width', '0')), int(image.get('height', '0'))
+        except (ValueError, TypeError):
+            width = height = 0
+        if 0 < width <= 40 and 0 < height <= 40:
+            continue
+        srcset = image.get('data-srcset') or image.get('srcset') or ''
+        srcset_url = srcset.split(',')[-1].strip().split(' ')[0] if srcset else ''
+        raw = (image.get('data-src') or image.get('data-original') or
+               image.get('data-lazy-src') or image.get('src') or srcset_url or '')
+        if isinstance(raw, str) and raw.startswith('data:') and srcset_url:
+            raw = srcset_url
+        url = safe_image_url(raw, article_url)
+        if not url or url in seen_urls:
+            continue
+        seen_urls.add(url)
+        figure = image.find_parent('figure')
+        caption = clean(figure.find('figcaption').get_text(' ', strip=True))[:300] if figure and figure.find('figcaption') else ''
+        pictures.append((positions.get(id(image), 10**10),
+                         {'type': 'image', 'url': url, 'caption': caption}))
+
+    if not pictures:
+        return text_blocks
+    merged = []
+    for n, block in enumerate(text_blocks):
+        merged.append((text_matches[n] if n < len(text_matches) else n, 1, block))
+    merged.extend((pos, 0, block) for pos, block in pictures)
+    merged.sort(key=lambda x: (x[0], x[1]))
+    return [block for _, _, block in merged]
+
+
 def update(client: WebClient, old: dict, now: datetime) -> dict:
     results = {}
     # Separate listing collection from detail fetching so sites with multiple
@@ -508,6 +695,9 @@ def update(client: WebClient, old: dict, now: datetime) -> dict:
                         item['note'] = previous.get('note', '')
                         if feed.key.startswith('odds-'):
                             item['body_extractor'] = 'odds-v3'
+                    if previous.get('media_version') == MEDIA_VERSION:
+                        item['media_version'] = MEDIA_VERSION
+                        item['blocks'] = previous.get('blocks', [])
             results[feed.key] = {'status': 'ok', 'last_success': now.isoformat(), 'items': items}
             print(f'INFO {feed.site} / {feed.section}: {len(items)}件')
         except Exception as exc:
@@ -542,21 +732,38 @@ def update(client: WebClient, old: dict, now: datetime) -> dict:
         if record['status'] != 'ok':
             continue
         for item in record['items']:
-            if item.get('body'):
+            if item.get('body') and item.get('media_version') == MEDIA_VERSION:
                 continue
             try:
                 document = client.fetch_article(feed, item['url'])
-                blocks = (extract_oddspark_body(document, item['title'])
-                          if feed.key.startswith('odds-') else extract_body(document, item['title']))
-                if not blocks:
-                    raise RuntimeError('本文の領域が見つかりませんでした')
-                item['body'] = blocks
-                item['note'] = ''
-                if feed.key.startswith('odds-'):
-                    item['body_extractor'] = 'odds-v3'
+                if not item.get('body'):
+                    paragraphs = (extract_oddspark_body(document, item['title'])
+                                  if feed.key.startswith('odds-') else extract_body(document, item['title']))
+                    if not paragraphs:
+                        raise RuntimeError('本文の領域が見つかりませんでした')
+                    item['body'] = paragraphs
+                    item['note'] = ''
+                    if feed.key.startswith('odds-'):
+                        item['body_extractor'] = 'odds-v3'
+                blocks = ordered_article_media(document, item['title'], item['body'], item['url'],
+                                               feed.key.startswith('odds-'))
+                complete_blocks = []
+                for block in blocks:
+                    if block['type'] != 'image':
+                        complete_blocks.append(block)
+                        continue
+                    try:
+                        location = client.save_image(block['url'], Path('data/images'))
+                        complete_blocks.append({'type': 'image', 'src': location,
+                                                'caption': block.get('caption', '')})
+                    except (OSError, RuntimeError, urllib.error.URLError, ValueError) as error:
+                        print(f'INFO 画像未取得 {feed.site}: {type(error).__name__}: {clean(str(error))[:100]}')
+                item['blocks'] = complete_blocks
+                item['media_version'] = MEDIA_VERSION
             except Exception as exc:
-                item['body'] = []
-                item['note'] = '本文を取得できませんでした。出典元の記事をご確認ください。'
+                if not item.get('body'):
+                    item['body'] = []
+                    item['note'] = '本文を取得できませんでした。出典元の記事をご確認ください。'
                 print(f'INFO 本文未取得 {feed.site}: {item["url"]} ({clean(str(exc))[:100]})')
     return {'format_version': VERSION, 'updated': now.isoformat(), 'feeds': results}
 
@@ -617,7 +824,23 @@ def render(snapshot: dict) -> str:
         # Article title is text; the attribution directly underneath is clickable.
         attribution = f'{site} <span class="separator">/</span> {section} <span class="separator">/</span> {stamp}'
         body = item.get('body', [])
-        paragraphs = ''.join(f'<p>{e(p)}</p>' for p in body if isinstance(p, str) and p.strip()) if isinstance(body, list) else ''
+        ordered = item.get('blocks') if item.get('media_version') == MEDIA_VERSION else None
+        if not isinstance(ordered, list) or not ordered:
+            ordered = [{'type': 'text', 'text': p} for p in body if isinstance(p, str)] if isinstance(body, list) else []
+        html_blocks = []
+        for block in ordered:
+            if not isinstance(block, dict):
+                continue
+            if block.get('type') == 'image':
+                asset = block.get('src', '')
+                # Only locally saved image assets may appear in generated HTML.
+                if not re.fullmatch(r'images/[a-f0-9]{24}\.(?:jpg|png|webp|gif)', asset):
+                    continue
+                caption = f'<figcaption>{e(block.get("caption", ""))}</figcaption>' if block.get('caption') else ''
+                html_blocks.append(f'<figure><img src="{e(asset)}" alt="記事に掲載された画像" loading="lazy" decoding="async">{caption}</figure>')
+            elif block.get('type') == 'text' and isinstance(block.get('text'), str) and block['text'].strip():
+                html_blocks.append(f'<p>{e(block["text"])}</p>')
+        paragraphs = ''.join(html_blocks)
         note = e(item.get('note') or '本文を取得できませんでした。出典元の記事をご確認ください。')
         content = f'<div class="article-body">{paragraphs}</div>' if paragraphs else f'<p class="notice">{note}</p>'
         articles.append(f'<article id="{ident}" data-new="{new}">'
@@ -645,7 +868,7 @@ h1{{font-size:23px;line-height:1.3;margin:0;flex:none}}h1 a{{color:inherit;text-
 nav{{font-size:14px;position:sticky;top:calc(var(--header-height,42px) + 8px);max-height:calc(100dvh - var(--header-height,42px) - 16px);overflow:auto;padding-top:12px}}
 nav h2{{font-size:14px;line-height:1.4;margin:0 0 4px}}.category{{margin:0 0 18px}}.category ul{{list-style:none;margin:0;padding:0}}.category li{{padding:2px 0;min-width:0}}.category li a{{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}}.source-status{{margin-top:22px;border-top:1px solid #ddd;padding-top:12px}}.source-status summary{{font-weight:600;cursor:pointer}}.source-status ul{{list-style:none;padding:0;margin:8px 0 0}}.source-status li{{margin-bottom:7px;line-height:1.4}}.source-state{{display:block;color:#777;font-size:12px}}.source-summary{{font-size:13px;color:#666;margin:6px 0 0}}
 article{{border-top:1px solid #bbb;padding:24px 0;scroll-margin-top:calc(var(--header-height,42px) + 12px)}}.feed article:first-child,.feed article.visible-first{{border-top:0;padding-top:12px}}
-.meta{{font-size:14px;color:#555;margin:4px 0 8px}}.separator{{color:#aaa}}.new-label{{font-weight:700;color:#b42318;margin-left:6px}}.stale-label{{color:#777;border:1px solid #aaa;border-radius:3px;font-size:12px;padding:0 4px;margin-left:7px}}.article-body p{{margin:0 0 16px;white-space:pre-wrap}}.notice{{font-size:14px;color:#666}}.empty{{margin:22px 0;color:#555}}.menu-toggle,.pull-refresh{{display:none}}
+.meta{{font-size:14px;color:#555;margin:4px 0 8px}}.separator{{color:#aaa}}.new-label{{font-weight:700;color:#b42318;margin-left:6px}}.stale-label{{color:#777;border:1px solid #aaa;border-radius:3px;font-size:12px;padding:0 4px;margin-left:7px}}.article-body p{{margin:0 0 16px;white-space:pre-wrap}}figure{{margin:0 0 18px}}figure img{{display:block;width:auto;max-width:300px;height:auto;max-height:300px;object-fit:contain}}figcaption{{font-size:14px;color:#555;line-height:1.55;margin-top:5px}}.notice{{font-size:14px;color:#666}}.empty{{margin:22px 0;color:#555}}.menu-toggle,.pull-refresh{{display:none}}
 @media(max-width:700px){{body{{line-height:1.75}}main{{padding:0 16px 36px}}header{{padding:1px 0;min-height:42px}}.header-row{{gap:6px 10px}}h1{{font-size:20px}}.new-filter{{font-size:14px;padding:0}}.layout{{display:block}}.menu-toggle{{display:inline-flex;align-items:center;justify-content:center;flex:none;order:3;margin-left:auto;width:32px;height:34px;border:0;background:transparent;color:inherit;padding:4px}}.hamburger{{display:flex;flex-direction:column;gap:4px}}.hamburger span{{display:block;width:20px;height:2px;background:currentColor}}.layout nav{{display:none;position:fixed;top:var(--header-height,42px);left:0;right:0;z-index:19;max-height:calc(100dvh - var(--header-height,42px));overflow:auto;padding:12px 16px;background:#fff;border-bottom:1px solid #bbb;box-shadow:0 5px 10px #0002}}body.menu-open .layout nav{{display:block}}.pull-refresh{{display:block;position:fixed;top:0;left:50%;z-index:25;padding:3px 14px;background:#14532d;color:#fff;border-radius:0 0 12px 12px;font-size:14px;pointer-events:none;transform:translate(-50%,-110%);transition:transform .15s}}.pull-refresh.active{{transform:translate(-50%,0)}}article{{padding:18px 0}}h2{{font-size:18px}}}}
 @media print{{header{{position:static}}.menu-toggle,nav,.pull-refresh{{display:none!important}}main{{max-width:none;padding:0}}.layout{{display:block}}}}
 </style></head><body><div class="pull-refresh" role="status" aria-live="polite">下に引いて更新</div><main id="top"><header><div class="header-row">
@@ -685,6 +908,27 @@ def main() -> None:
     now = datetime.now(JST)
     snapshot = prior if args.from_snapshot else update(WebClient(), prior, now)
     args.output.mkdir(parents=True, exist_ok=True)
+    # Include only currently referenced images in Pages and prune stale cache.
+    image_cache = Path('data/images')
+    referenced = {
+        block.get('src', '').split('/')[-1]
+        for feed_data in snapshot.get('feeds', {}).values()
+        for item in feed_data.get('items', [])
+        for block in item.get('blocks', [])
+        if isinstance(block, dict) and block.get('type') == 'image'
+        and re.fullmatch(r'images/[a-f0-9]{24}\.(?:jpg|png|webp|gif)', block.get('src', ''))
+    }
+    if image_cache.is_dir():
+        output_images = args.output / 'images'
+        for file in image_cache.iterdir():
+            if not file.is_file():
+                continue
+            if file.name not in referenced:
+                if not args.from_snapshot:
+                    file.unlink()
+                continue
+            output_images.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(file, output_images / file.name)
     (args.output / 'index.html').write_text(render(snapshot), encoding='utf-8')
     (args.output / 'robots.txt').write_text('User-agent: *\nDisallow:\n', encoding='utf-8')
     (args.output / '.nojekyll').touch()
