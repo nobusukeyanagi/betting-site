@@ -902,9 +902,17 @@ def extract_minnano_flight_html(document: str) -> str:
     def resolve(key: str) -> str:
         if not re.fullmatch(r'[a-fA-F0-9]{1,8}', key):
             return ''
-        found = re.search(r'(?m)(?:^|\n)' + re.escape(key) +
-                          r':([\s\S]*?)(?=\n[0-9a-fA-F]{1,8}:|\Z)', stream)
-        return found.group(1) if found else ''
+        # Some records start at a script boundary without a newline.
+        pattern = (r'(?m)(?:^|\n|(?<=\])|(?<=\}))' + re.escape(key) +
+                   r':([\s\S]*?)(?=\n[0-9a-fA-F]{1,8}:|\Z)')
+        found = re.search(pattern, stream)
+        if found:
+            return found.group(1)
+        for payload in payloads:
+            found = re.search(r'^' + re.escape(key) + r':([\s\S]*)', payload)
+            if found:
+                return found.group(1)
+        return ''
 
     for match in re.finditer(r'"htmlContent"\s*:\s*("(?:\\.|[^"\\])*")', stream):
         try:
