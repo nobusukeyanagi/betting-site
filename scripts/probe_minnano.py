@@ -33,6 +33,8 @@ for id in ("25833","25484"):
                     js_url=urllib.parse.urljoin(url,src)
                     client._check_robots(js_url)
                     code=client._read(js_url,urllib.parse.urlsplit(js_url).hostname)
+                    if "app/info/" in src:
+                        print("PROBE page_js_source",repr(code[:14500]),flush=True)
                     triggers=list(re.finditer(r'/api/|info/|news/|getInfo|fetchInfo|notice|notification|information',code,re.I))
                     high=[m for m in triggers if re.search('info|notice|notification|information',m.group(),re.I)]
                     if high:
