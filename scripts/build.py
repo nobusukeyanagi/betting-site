@@ -32,6 +32,7 @@ MAX_BODY_CHARS = 40000
 MAX_IMAGES_PER_ARTICLE = 6
 MAX_IMAGE_BYTES = 5_000_000
 MEDIA_VERSION = 1
+LINK_VERSION = 1
 AGENT = 'BettingSiteNews/1.0 (+GitHub Pages public-news-index; respectful robot policy)'
 MAX_PER_FEED = 12
 MAX_BYTES = 5_000_000
@@ -149,6 +150,11 @@ def safe_image_url(href: str, base_url: str) -> str | None:
         return urllib.parse.urlunsplit(('https', p.netloc.lower(), p.path, p.query, ''))
     except ValueError:
         return None
+
+
+def safe_article_link(href: str, page_url: str) -> str | None:
+    """Only preserve ordinary public HTTPS links."""
+    return safe_image_url(href, page_url)
 
 
 def nearby_date(anchor) -> str:
@@ -637,11 +643,21 @@ def ordered_article_media(document: str, title: str, paragraphs: list[str],
             if position <= last_position:
                 continue
             content = clean(tag.get_text(' ', strip=True))
-            if content and (content == target or
-                            (len(target) >= 18 and target[:18] in content and len(content) < len(target) * 2)):
-                matching.append((len(content), position))
+            compact = clean(tag.get_text('', strip=True))
+            if content and (content == target or compact == target or
+                            (len(target) >= 18 and target[:18] in compact and len(compact) < len(target) * 2)):
+                matching.append((len(content), position, tag))
         if matching:
-            match_pos = min(matching)[1]
+            _, match_pos, text_tag = min(matching, key=lambda x: (x[0], x[1]))
+            source_links = []
+            for anchor in text_tag.select('a[href]'):
+                label = clean(anchor.get_text(' ', strip=True))
+                href = safe_article_link(anchor.get('href', ''), article_url)
+                if href and label and label in block['text'] and not any(
+                        existing['text'] == label for existing in source_links):
+                    source_links.append({'text': label, 'href': href})
+            if source_links:
+                block['links'] = source_links[:12]
             last_position = match_pos
         else:
             match_pos = last_position + 0.01
@@ -858,6 +874,7 @@ def update(client: WebClient, old: dict, now: datetime) -> dict:
                     if previous.get('media_version') == MEDIA_VERSION:
                         item['media_version'] = MEDIA_VERSION
                         item['blocks'] = previous.get('blocks', [])
+                        item['link_version'] = previous.get('link_version', 0)
             results[feed.key] = {'status': 'ok', 'last_success': now.isoformat(), 'items': items}
             print(f'INFO {feed.site} / {feed.section}: {len(items)}件')
         except Exception as exc:
@@ -893,7 +910,8 @@ def update(client: WebClient, old: dict, now: datetime) -> dict:
         if record['status'] != 'ok':
             continue
         for item in record['items']:
-            if item.get('body') and item.get('media_version') == MEDIA_VERSION:
+            if (item.get('body') and item.get('media_version') == MEDIA_VERSION
+                    and item.get('link_version') == LINK_VERSION):
                 continue
             try:
                 document = client.fetch_article(feed, item['url'])
@@ -938,6 +956,7 @@ def update(client: WebClient, old: dict, now: datetime) -> dict:
                         print(f'INFO 画像未取得 {feed.site}: {type(error).__name__}: {clean(str(error))[:100]}')
                 item['blocks'] = complete_blocks
                 item['media_version'] = MEDIA_VERSION
+                item['link_version'] = LINK_VERSION
             except Exception as exc:
                 if not item.get('body'):
                     item['body'] = []
@@ -948,6 +967,41 @@ def update(client: WebClient, old: dict, now: datetime) -> dict:
 
 def e(value: str) -> str:
     return html.escape(str(value), quote=True)
+
+
+
+def linked_text(value: str, source_links: list[dict] | None = None) -> str:
+    """Render only validated original anchors and URL literals; escape other text."""
+    found = []
+    for link in source_links or []:
+        if not isinstance(link, dict):
+            continue
+        label, url = link.get('text', ''), safe_article_link(link.get('href', ''), 'https://example.com/')
+        if not label or not url or label not in value:
+            continue
+        start = 0
+        while True:
+            pos = value.find(label, start)
+            if pos < 0:
+                break
+            found.append((pos, pos + len(label), url))
+            start = pos + len(label)
+    # Auto-link bare HTTPS URLs that occur in a paragraph.
+    for match in re.finditer(r'https://[^\s<>「」『』]+', value):
+        candidate = match.group().rstrip('.,;:)]}。）、')
+        url = safe_article_link(candidate, 'https://example.com/')
+        if url:
+            found.append((match.start(), match.start() + len(candidate), url))
+    found.sort(key=lambda span: (span[0], -(span[1]-span[0])))
+    parts, end = [], 0
+    for start, finish, url in found:
+        if start < end:
+            continue
+        parts.append(e(value[end:start]))
+        parts.append(f'<a href="{e(url)}" target="_blank" rel="noopener noreferrer nofollow">{e(value[start:finish])}</a>')
+        end = finish
+    parts.append(e(value[end:]))
+    return ''.join(parts)
 
 
 def render(snapshot: dict) -> str:
@@ -1019,7 +1073,7 @@ def render(snapshot: dict) -> str:
                 caption = f'<figcaption>{e(block.get("caption", ""))}</figcaption>' if block.get('caption') else ''
                 html_blocks.append(f'<figure><img src="{e(asset)}" alt="記事に掲載された画像" loading="lazy" decoding="async">{caption}</figure>')
             elif block.get('type') == 'text' and isinstance(block.get('text'), str) and block['text'].strip():
-                html_blocks.append(f'<p>{e(block["text"])}</p>')
+                html_blocks.append(f'<p>{linked_text(block["text"], block.get("links"))}</p>')
         paragraphs = ''.join(html_blocks)
         note = e(item.get('note') or '本文を取得できませんでした。出典元の記事をご確認ください。')
         content = f'<div class="article-body">{paragraphs}</div>' if paragraphs else f'<p class="notice">{note}</p>'
@@ -1042,13 +1096,13 @@ def render(snapshot: dict) -> str:
 <style>
 *{{box-sizing:border-box}}html{{scroll-behavior:auto}}body{{margin:0;background:#fff;color:#202020;font-family:"Noto Sans JP","Hiragino Sans","Yu Gothic",sans-serif;font-size:17px;line-height:1.85;overflow-wrap:anywhere}}
 main{{max-width:1440px;margin:auto;padding:0 24px 56px}}header{{position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid #bbb;padding:4px 0}}.header-row{{display:flex;align-items:center;gap:10px 18px;min-height:34px}}
-h1{{font-size:23px;line-height:1.3;margin:0;flex:none}}h1 a{{color:inherit;text-decoration:none}}h2{{font-size:20px;line-height:1.55;margin:0 0 8px}}a{{color:#174c86;text-underline-offset:3px}}a:focus-visible,button:focus-visible,select:focus-visible{{outline:2px solid #14532d;outline-offset:3px}}
+h1{{font-size:23px;line-height:1.3;margin:0;flex:none}}h1 a{{color:inherit;text-decoration:none}}h2{{font-size:20px;line-height:1.55;margin:0 0 8px}}.feed article h2{{color:#14532d}}a{{color:#174c86;text-underline-offset:3px}}a:focus-visible,button:focus-visible,select:focus-visible{{outline:2px solid #14532d;outline-offset:3px}}
 .update-controls{{margin-left:auto;display:flex;flex-direction:column;align-items:flex-end;line-height:1.25}}.new-filter{{border:0;background:transparent;color:#555;font:inherit;font-size:14px;padding:2px 0;cursor:pointer}}.updated{{font-size:14px;color:#555}}
 [hidden]{{display:none!important}}.layout{{display:grid;grid-template-columns:minmax(230px,320px) minmax(0,1fr);gap:36px;align-items:start}}
 nav{{font-size:14px;position:sticky;top:calc(var(--header-height,42px) + 8px);max-height:calc(100dvh - var(--header-height,42px) - 16px);overflow:auto;padding-top:12px}}
 nav h2{{font-size:14px;line-height:1.4;margin:0 0 4px}}.category{{margin:0 0 18px}}.category ul{{list-style:none;margin:0;padding:0}}.category li{{padding:2px 0;min-width:0}}.category li a{{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}}.source-status{{margin-top:22px;border-top:1px solid #ddd;padding-top:12px}}.source-status summary{{font-weight:600;cursor:pointer}}.source-status ul{{list-style:none;padding:0;margin:8px 0 0}}.source-status li{{margin-bottom:7px;line-height:1.4}}.source-state{{display:block;color:#777;font-size:12px}}.source-summary{{font-size:13px;color:#666;margin:6px 0 0}}
 article{{border-top:1px solid #bbb;padding:24px 0;scroll-margin-top:calc(var(--header-height,42px) + 12px)}}.feed article:first-child,.feed article.visible-first{{border-top:0;padding-top:12px}}
-.meta{{font-size:14px;color:#555;margin:4px 0 8px}}.separator{{color:#aaa}}.new-label{{font-weight:700;color:#b42318;margin-left:6px}}.stale-label{{color:#777;border:1px solid #aaa;border-radius:3px;font-size:12px;padding:0 4px;margin-left:7px}}.article-body p{{margin:0 0 16px;white-space:pre-wrap}}figure{{margin:0 0 18px}}figure img{{display:block;width:auto;max-width:300px;height:auto;max-height:300px;object-fit:contain}}figcaption{{font-size:14px;color:#555;line-height:1.55;margin-top:5px}}.notice{{font-size:14px;color:#666}}.empty{{margin:22px 0;color:#555}}.menu-toggle,.pull-refresh{{display:none}}
+.meta{{font-size:14px;color:#555;margin:4px 0 8px}}.meta a{{color:inherit}}.separator{{color:#aaa}}.new-label{{font-weight:700;color:#b42318;margin-left:6px}}.stale-label{{color:#777;border:1px solid #aaa;border-radius:3px;font-size:12px;padding:0 4px;margin-left:7px}}.article-body p{{margin:0 0 16px;white-space:pre-wrap}}figure{{margin:0 0 18px}}figure img{{display:block;width:auto;max-width:300px;height:auto;max-height:300px;object-fit:contain}}figcaption{{font-size:14px;color:#555;line-height:1.55;margin-top:5px}}.notice{{font-size:14px;color:#666}}.empty{{margin:22px 0;color:#555}}.menu-toggle,.pull-refresh{{display:none}}
 @media(max-width:700px){{body{{line-height:1.75}}main{{padding:0 16px 36px}}header{{padding:1px 0;min-height:42px}}.header-row{{gap:6px 10px}}h1{{font-size:20px}}.new-filter{{font-size:14px;padding:0}}.layout{{display:block}}.menu-toggle{{display:inline-flex;align-items:center;justify-content:center;flex:none;order:3;margin-left:auto;width:32px;height:34px;border:0;background:transparent;color:inherit;padding:4px}}.hamburger{{display:flex;flex-direction:column;gap:4px}}.hamburger span{{display:block;width:20px;height:2px;background:currentColor}}.layout nav{{display:none;position:fixed;top:var(--header-height,42px);left:0;right:0;z-index:19;max-height:calc(100dvh - var(--header-height,42px));overflow:auto;padding:12px 16px;background:#fff;border-bottom:1px solid #bbb;box-shadow:0 5px 10px #0002}}body.menu-open .layout nav{{display:block}}.pull-refresh{{display:block;position:fixed;top:0;left:50%;z-index:25;padding:3px 14px;background:#14532d;color:#fff;border-radius:0 0 12px 12px;font-size:14px;pointer-events:none;transform:translate(-50%,-110%);transition:transform .15s}}.pull-refresh.active{{transform:translate(-50%,0)}}article{{padding:18px 0}}h2{{font-size:18px}}}}
 @media print{{header{{position:static}}.menu-toggle,nav,.pull-refresh{{display:none!important}}main{{max-width:none;padding:0}}.layout{{display:block}}}}
 </style></head><body><div class="pull-refresh" role="status" aria-live="polite">下に引いて更新</div><main id="top"><header><div class="header-row">

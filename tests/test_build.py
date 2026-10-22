@@ -354,6 +354,37 @@ class ScraperTests(unittest.TestCase):
         self.assertIn('システムメンテナンスは終了し、通常通りご利用いただけます。', item['body'])
         self.assertFalse(item.get('note'))
 
+
+    def test_green_title_grey_source_link(self):
+        f = self.feed('winkeirin-topics')
+        snapshot = mod.load_snapshot(None)
+        snapshot['feeds'] = {f.key: {'status': 'ok', 'items': [{
+            'title': '公式のお知らせ', 'date': '2026-10-22',
+            'url': 'https://www.winticket.jp/keirin/topics/abc123',
+            'body': ['平素よりご利用いただきありがとうございます。']}]}}
+        output = mod.render(snapshot)
+        self.assertIn('.feed article h2{color:#14532d}', output)
+        self.assertIn('.meta a{color:inherit}', output)
+
+    def test_links_in_article_paragraph_and_literal_url(self):
+        markup = '''<main><article><h1>サービスのお知らせ</h1>
+        <p>詳しくは<a href="https://example.org/details?x=1&amp;y=2">こちら</a>を確認してください。</p>
+        <p>リンク先はhttps://example.org/noticeをご覧ください。</p>
+        </article></main>'''
+        blocks = mod.ordered_article_media(
+            markup, 'サービスのお知らせ',
+            ['詳しくはこちらを確認してください。',
+             'リンク先はhttps://example.org/noticeをご覧ください。'],
+            'https://www.chariloto.com/articles/1234', False)
+        self.assertEqual(blocks[0]['links'][0]['text'], 'こちら')
+        self.assertEqual(blocks[0]['links'][0]['href'], 'https://example.org/details?x=1&y=2')
+        output = mod.linked_text(blocks[0]['text'], blocks[0]['links'])
+        self.assertIn('href="https://example.org/details?x=1&amp;y=2"', output)
+        literal = mod.linked_text(blocks[1]['text'])
+        self.assertIn('href="https://example.org/notice"', literal)
+        self.assertNotIn('href="javascript:', mod.linked_text(
+            'こちらをご覧ください', [{'text': 'こちら', 'href': 'javascript:alert(1)'}]))
+
     def test_cache_on_failed_feeds(self):
         class Client:
             def fetch_article(self, feed, url):
