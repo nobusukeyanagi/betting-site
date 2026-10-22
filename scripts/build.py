@@ -531,7 +531,7 @@ def extract_oddspark_body(document: str, headline: str) -> list[str]:
         value = clean(str(node))
         if (not value or normalized(value) == title or
                 value in ('コンテンツ', '//コンテンツ') or
-                (date_from(value) and len(value) <= 24)):
+                re.fullmatch(r'20\d{2}[/\.\-年]\d{1,2}[/\.\-月]\d{1,2}日?(?:\s*\([^)]{1,3}\))?', value)):
             continue
         if stop.match(value):
             break
