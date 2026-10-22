@@ -1077,7 +1077,7 @@ def linked_text(value: str, source_links: list[dict] | None = None) -> str:
             found.append((pos, pos + len(label), url))
             start = pos + len(label)
     # Auto-link bare HTTPS URLs that occur in a paragraph.
-    for match in re.finditer(r"""https://[A-Za-z0-9._~:/?#\[\]@!r'https://[^\s<>「」『』]+''()*+,;=%-]+""", value):
+    for match in re.finditer(r"""https://[A-Za-z0-9._~:/?#\[\]@!$&'()*+,;=%-]+""", value):
         candidate = match.group().rstrip('.,;:)]}。）、')
         url = safe_article_link(candidate, 'https://example.com/')
         if url:
