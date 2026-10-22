@@ -845,14 +845,14 @@ def update(client: WebClient, old: dict, now: datetime) -> dict:
                     previous = old_by_url[item['url']]
                     # Discard old Odds Park bodies polluted with shared headers.
                     old_body_is_valid = (
-                        (not feed.key.startswith('odds-') or previous.get('body_extractor') == 'odds-v3')
+                        (not feed.key.startswith('odds-') or previous.get('body_extractor') == 'odds-v4')
                         and (feed.key not in ('netkeirin', 'minnano')
                              or previous.get('body_extractor') == 'notice-v1'))
                     if old_body_is_valid:
                         item['body'] = previous.get('body', [])
                         item['note'] = previous.get('note', '')
                         if feed.key.startswith('odds-'):
-                            item['body_extractor'] = 'odds-v3'
+                            item['body_extractor'] = 'odds-v4'
                         elif feed.key in ('netkeirin', 'minnano'):
                             item['body_extractor'] = 'notice-v1'
                     if previous.get('media_version') == MEDIA_VERSION:
@@ -920,7 +920,7 @@ def update(client: WebClient, old: dict, now: datetime) -> dict:
                     item['body'] = paragraphs
                     item['note'] = ''
                     if feed.key.startswith('odds-'):
-                        item['body_extractor'] = 'odds-v3'
+                        item['body_extractor'] = 'odds-v4'
                     elif feed.key in ('netkeirin', 'minnano'):
                         item['body_extractor'] = 'notice-v1'
                 blocks = ordered_article_media(document, item['title'], item['body'], item['url'],
