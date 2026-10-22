@@ -23,6 +23,21 @@ for id in ("25833","25484"):
         print("PROBE main_nodes",[(x.name,x.get("class"),len(x.get_text(" ",strip=True))) for x in soup.select("main,article,[class*=body],[class*=content]")[:16]],flush=True)
         print("PROBE scripts_detail",[(i, len(x.string or ""), (x.string or "")[:115].replace("\\n"," "), [ (k,(x.string or "").lower().find(k.lower())) for k in ("__next_f","body","content","いつも","メンテナンス","title","25833") if k.lower() in (x.string or "").lower()]) for i,x in enumerate(soup.find_all("script")) if len(x.string or "") > 400][:25],flush=True)
         print("PROBE current_main_html",str(soup.find("main"))[:1200] if soup.find("main") else "",flush=True)
+        import json, re
+        for script in soup.find_all("script"):
+            data=script.string or ""
+            if not data.startswith("self.__next_f.push("):
+                continue
+            try:
+                pair=json.loads(data.split("push(",1)[1].rsplit(")",1)[0])
+                value=pair[1] if len(pair)>1 else ""
+            except Exception:
+                continue
+            marks=[(k,value.find(k)) for k in ("htmlContent","25833","25484","いつも","メンテナンス","<p","<img","<div","content") if k in value]
+            if marks:
+                ix=min((i for k,i in marks if k in ("htmlContent","<p","<img","<div") ),default=0)
+                print("PROBE flight",id,"length",len(value),"marks",marks,"around",repr(value[max(0,ix-250):ix+550]),flush=True)
+
         if id=="25833":
             scripts=[x.get("src") for x in soup.select("script[src]") if "_next/static" in (x.get("src") or "")]
             print("PROBE chunk_count",len(scripts),"paths",scripts[:30],flush=True)
