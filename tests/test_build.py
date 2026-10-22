@@ -209,9 +209,9 @@ class ScraperTests(unittest.TestCase):
         }
         page = mod.render(snap)
         index = page.split('<nav id="news-nav"', 1)[1].split('</nav>', 1)[0]
-        left_ids = re.findall(r'<li data-new="(?:true|false)"><a href="#(news-\\d+)"', index)
-        right_ids = re.findall(r'<article id="(news-\\d+)"', page)
-        right_titles = re.findall(r'<article id="news-\\d+" data-new="false"><h2>(.*?)</h2>', page)
+        left_ids = re.findall(r'<li data-new="(?:true|false)"><a href="#(news-\d+)"', index)
+        right_ids = re.findall(r'<article id="(news-\d+)"', page)
+        right_titles = re.findall(r'<article id="news-\d+" data-new="false"><h2>(.*?)</h2>', page)
         self.assertEqual(left_ids, right_ids)
         self.assertEqual(right_titles, ['WINTICKET新しい記事', 'WINTICKET古い記事',
                                        'オッズパーク最新記事', 'Betimoの記事'])
