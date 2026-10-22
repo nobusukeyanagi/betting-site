@@ -443,6 +443,65 @@ class ScraperTests(unittest.TestCase):
         self.assertIn('<li data-new="false"><a href="#news-2"', page)
         self.assertIn("NEWのみ表示中", page)
 
+
+    def test_minnano_next_flight_inline_article_html(self):
+        import json
+        title = '【メンテナンス終了のお知らせとお詫び】みんなの競輪緊急メンテナンス終了について'
+        html_body = ('いつも「みんなの競輪」をご利用いただき、誠にありがとうございます。\r\n\r\n'
+                     '2026年10月22日（木）00:00頃より、PHPの脆弱性に伴う緊急メンテナンスを実施しました。\r\n'
+                     '<b>■ 復旧日時</b>\r\n【2026年10月22日（木）09:40】')
+        flight = 'e:["$","$L18",null,{"htmlContent":' + json.dumps(html_body, ensure_ascii=False) + '}]'
+        document = ('<h2>' + title + '</h2><!--$!--><template data-dgst="BAILOUT_TO_CLIENT_SIDE_RENDERING"></template>'
+                    '<script>self.__next_f.push(' + json.dumps([1, flight], ensure_ascii=False) + ')</script>')
+        obtained_html = mod.extract_minnano_flight_html(document)
+        self.assertEqual(obtained_html, html_body)
+        paragraphs = mod.minnano_flight_paragraphs(obtained_html)
+        self.assertEqual(paragraphs, [
+            'いつも「みんなの競輪」をご利用いただき、誠にありがとうございます。',
+            '2026年10月22日（木）00:00頃より、PHPの脆弱性に伴う緊急メンテナンスを実施しました。',
+            '■ 復旧日時',
+            '【2026年10月22日（木）09:40】'])
+
+    def test_minnano_next_flight_referenced_html(self):
+        import json
+        html = ('<img src="https://www.example.org/picture.jpg">'
+                '応募方法や当選条件についてご案内いたします。\r\n'
+                '<b>■ 抽選予定日</b>\r\n10月21日（水）')
+        fragment = 'e:["$","$L1a",null,{"htmlContent":"$1b"}]'
+        html_record = '1b:' + html
+        page = ('<h2>キャンペーンのお知らせ</h2>' +
+                '<script>self.__next_f.push(' + json.dumps([1, fragment]) + ')</script>' +
+                '<script>self.__next_f.push(' + json.dumps([1, html_record]) + ')</script>')
+        self.assertEqual(mod.extract_minnano_flight_html(page), html)
+        self.assertIn('■ 抽選予定日', mod.minnano_flight_paragraphs(html))
+
+    def test_minnano_article_prefers_flight_and_replaces_old_excerpt(self):
+        import json
+        feed = self.feed('minnano')
+        url = 'https://bet.minnano-keirin.com/info/25833'
+        title = '緊急メンテナンス終了のお知らせ'
+        body = 'いつもみんなの競輪をご利用いただきありがとうございます。\r\n緊急メンテナンスは無事終了いたしました。'
+        flight = 'e:["$","$L18",null,{"htmlContent":' + json.dumps(body, ensure_ascii=False) + '}]'
+        document = ('<h2>' + title + '</h2><p>2026/10/22 10:13</p>' +
+                    '<script>self.__next_f.push(' + json.dumps([1, flight], ensure_ascii=False) + ')</script>')
+        class Client:
+            def fetch(self, f):
+                if f.key == 'minnano':
+                    return '<a href="/info/25833">' + title + '</a>'
+                raise RuntimeError('unavailable')
+            def fetch_article(self, f, x):
+                return document
+            def save_image(self, url, directory):
+                raise RuntimeError('not used')
+        old = {'feeds': {'minnano': {'status': 'ok', 'items': [{
+            'title': title, 'url': url, 'body': ['応募受付期間'], 'body_extractor': 'notice-v1',
+            'date': '2026-10-22'}]}}}
+        result = mod.update(Client(), old, datetime(2026, 10, 22, tzinfo=ZoneInfo('Asia/Tokyo')))
+        article = result['feeds']['minnano']['items'][0]
+        self.assertEqual(article['body'], [
+            'いつもみんなの競輪をご利用いただきありがとうございます。',
+            '緊急メンテナンスは無事終了いたしました。'])
+        self.assertEqual(article['body_extractor'], 'minnano-flight-v1')
     def test_cache_on_failed_feeds(self):
         class Client:
             def fetch_article(self, feed, url):

@@ -873,6 +873,81 @@ def extract_notice_body(document: str, title: str, site: str) -> list[str]:
     return blocks if sum(map(len, blocks)) >= 40 else []
 
 
+
+def extract_minnano_flight_html(document: str) -> str:
+    """Read the published article HTML from Next.js React Flight data.
+
+    Minnano's articles can be client-rendered (BAILOUT_TO_CLIENT_SIDE_RENDERING).
+    Their public server response still includes the HTML as an htmlContent prop,
+    either inline or as a referenced Flight record. Decode strings as JSON;
+    never execute scripts or rely on a browser.
+    """
+    soup = BeautifulSoup(document, 'html.parser')
+    payloads = []
+    for script in soup.find_all('script'):
+        raw = script.string or ''
+        if not raw.startswith('self.__next_f.push('):
+            continue
+        try:
+            packet = json.loads(raw[len('self.__next_f.push('):].rstrip('); \n'))
+        except (ValueError, TypeError):
+            continue
+        if isinstance(packet, list) and len(packet) > 1 and packet[0] == 1 and isinstance(packet[1], str):
+            payloads.append(packet[1])
+
+    def resolve(key: str) -> str:
+        if not re.fullmatch(r'[a-fA-F0-9]{1,8}', key):
+            return ''
+        # Flight records can be separated by newlines in the same script.
+        for payload in payloads:
+            found = re.search(r'(?m)(?:^|\n)' + re.escape(key) +
+                              r':([\s\S]*?)(?=\n[0-9a-fA-F]{1,8}:|\Z)', payload)
+            if found:
+                return found.group(1)
+        return ''
+
+    for payload in payloads:
+        for match in re.finditer(r'"htmlContent"\s*:\s*("(?:\\.|[^"\\])*")', payload):
+            try:
+                value = json.loads(match.group(1))
+            except (ValueError, TypeError):
+                continue
+            if not isinstance(value, str):
+                continue
+            ref = re.fullmatch(r'\$(?:L)?([a-fA-F0-9]{1,8})', value)
+            if ref:
+                value = resolve(ref.group(1))
+            # The body is neither the generic site description nor the page title.
+            if value and len(clean(BeautifulSoup(value, 'html.parser').get_text(' ', strip=True))) >= 25:
+                return value
+    return ''
+
+
+def minnano_flight_paragraphs(markup: str) -> list[str]:
+    """Preserve the actual notice's newline structure and inline formatting."""
+    if not markup:
+        return []
+    fragment = BeautifulSoup(markup, 'html.parser')
+    for unwanted in fragment.select('script,style,noscript,iframe,form,button'):
+        unwanted.decompose()
+    for br in fragment.find_all('br'):
+        br.replace_with('\n')
+    for tag in fragment.select('p,div,li,h1,h2,h3,h4,h5,h6,blockquote'):
+        tag.insert_before('\n')
+        tag.append('\n')
+    lines = fragment.get_text('', strip=False).replace('\r\n', '\n').replace('\r', '\n')
+    result, total = [], 0
+    for part in lines.split('\n'):
+        value = clean(part)
+        if not value:
+            continue
+        if total + len(value) > MAX_BODY_CHARS:
+            break
+        total += len(value)
+        result.append(value)
+    return result if total >= 25 else []
+
+
 def extract_minnano_json_body(document: str, title: str) -> list[str]:
     """Use publicly embedded page-state article HTML when SSR omits the body."""
     soup = BeautifulSoup(document, 'html.parser')
@@ -955,15 +1030,17 @@ def update(client: WebClient, old: dict, now: datetime) -> dict:
                     # Discard old Odds Park bodies polluted with shared headers.
                     old_body_is_valid = (
                         (not feed.key.startswith('odds-') or previous.get('body_extractor') == 'odds-v4')
-                        and (feed.key not in ('netkeirin', 'minnano')
-                             or previous.get('body_extractor') == 'notice-v1'))
+                        and (feed.key != 'netkeirin' or previous.get('body_extractor') == 'notice-v1')
+                        and (feed.key != 'minnano' or previous.get('body_extractor') == 'minnano-flight-v1'))
                     if old_body_is_valid:
                         item['body'] = previous.get('body', [])
                         item['note'] = previous.get('note', '')
                         if feed.key.startswith('odds-'):
                             item['body_extractor'] = 'odds-v4'
-                        elif feed.key in ('netkeirin', 'minnano'):
+                        elif feed.key == 'netkeirin':
                             item['body_extractor'] = 'notice-v1'
+                        elif feed.key == 'minnano':
+                            item['body_extractor'] = 'minnano-flight-v1'
                     if previous.get('media_version') == MEDIA_VERSION:
                         item['media_version'] = MEDIA_VERSION
                         item['blocks'] = previous.get('blocks', [])
@@ -1011,19 +1088,26 @@ def update(client: WebClient, old: dict, now: datetime) -> dict:
                 if not item.get('body'):
                     if feed.key.startswith('odds-'):
                         paragraphs = extract_oddspark_body(document, item['title'])
-                    elif feed.key in ('netkeirin', 'minnano'):
+                    elif feed.key == 'netkeirin':
                         paragraphs = extract_notice_body(document, item['title'], feed.key)
-                        if not paragraphs and feed.key == 'minnano':
-                            paragraphs = extract_minnano_json_body(document, item['title'])
-                        if not paragraphs and feed.key == 'minnano':
-                            try:
-                                rendered = client.render_article(feed, item['url'])
-                                paragraphs = (extract_notice_body(rendered, item['title'], 'minnano')
-                                              or extract_minnano_json_body(rendered, item['title']))
-                                if paragraphs:
-                                    document = rendered
-                            except (OSError, RuntimeError, subprocess.TimeoutExpired) as error:
-                                print(f'INFO ブラウザ本文未取得 みんなの競輪: {clean(str(error))[:100]}')
+                    elif feed.key == 'minnano':
+                        flight_html = extract_minnano_flight_html(document)
+                        paragraphs = minnano_flight_paragraphs(flight_html)
+                        if flight_html and paragraphs:
+                            # Add the server-delivered article HTML to a synthetic
+                            # document so existing image/link extraction sees it.
+                            html_lines = flight_html.replace('
+', '
+').replace('', '
+')
+                            article_markup = html_lines.replace('
+', '<br>')
+                            document = ('<article><h1>' + html.escape(item['title']) +
+                                        '</h1><div class="article-body"><p>' +
+                                        article_markup + '</p></div></article>')
+                        if not paragraphs:
+                            paragraphs = (extract_notice_body(document, item['title'], feed.key)
+                                          or extract_minnano_json_body(document, item['title']))
                     else:
                         paragraphs = extract_body(document, item['title'])
                     if not paragraphs:
@@ -1032,8 +1116,10 @@ def update(client: WebClient, old: dict, now: datetime) -> dict:
                     item['note'] = ''
                     if feed.key.startswith('odds-'):
                         item['body_extractor'] = 'odds-v4'
-                    elif feed.key in ('netkeirin', 'minnano'):
+                    elif feed.key == 'netkeirin':
                         item['body_extractor'] = 'notice-v1'
+                    elif feed.key == 'minnano':
+                        item['body_extractor'] = 'minnano-flight-v1'
                 blocks = ordered_article_media(document, item['title'], item['body'], item['url'],
                                                feed.key.startswith('odds-'))
                 complete_blocks = []
