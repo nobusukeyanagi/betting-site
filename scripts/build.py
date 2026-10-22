@@ -510,13 +510,19 @@ def render(snapshot: dict) -> str:
     unique = {}
     for item in all_items:
         unique.setdefault(item['url'], item)
-    all_items = sorted(unique.values(), key=lambda item: (item.get('date', ''), -item['_rank']), reverse=True)
-    groups: dict[str, list[str]] = {site: [] for site in dict.fromkeys(f.site for f in FEEDS)}
-    articles, site_counts = [], {}
+    # Match the right-hand article order to the left-hand site-grouped index.
+    # Preserve newest-first ordering within each site and the eight-item cap.
+    site_order = list(dict.fromkeys(feed.site for feed in FEEDS))
+    items_by_site: dict[str, list[dict]] = {site: [] for site in site_order}
+    chronological = sorted(unique.values(), key=lambda item: (item.get('date', ''), -item['_rank']), reverse=True)
+    for item in chronological:
+        site_items = items_by_site[item['site']]
+        if len(site_items) < MAX_PER_SITE:
+            site_items.append(item)
+    all_items = [item for site in site_order for item in items_by_site[site]]
+    groups: dict[str, list[str]] = {site: [] for site in site_order}
+    articles = []
     for item in all_items:
-        if site_counts.get(item['site'], 0) >= MAX_PER_SITE:
-            continue
-        site_counts[item['site']] = site_counts.get(item['site'], 0) + 1
         ident = f'news-{len(articles) + 1}'
         new = 'true' if item.get('new') and not item.get('stale') else 'false'
         title, site, section = e(item['title']), e(item['site']), e(item['section'])

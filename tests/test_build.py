@@ -142,6 +142,31 @@ class ScraperTests(unittest.TestCase):
         self.assertEqual(page.count('<article id="news-'), 8)
         self.assertEqual(page.count('<li data-new="false"><a href="#news-'), 8)
 
+    def test_right_column_order_matches_left_site_grouping(self):
+        import re
+        snap = mod.load_snapshot(None)
+        snap['feeds'] = {
+            'winkeirin-topics': {'status': 'ok', 'items': [
+                {'title': 'WINTICKET古い記事', 'url': 'https://www.winticket.jp/keirin/topics/old123',
+                 'date': '2026-10-07', 'body': ['本文A']},
+                {'title': 'WINTICKET新しい記事', 'url': 'https://www.winticket.jp/keirin/topics/new123',
+                 'date': '2026-10-15', 'body': ['本文B']}]},
+            'odds-info': {'status': 'ok', 'items': [
+                {'title': 'オッズパーク最新記事', 'url': 'https://www.oddspark.com/info/2026/10/post-687.html',
+                 'date': '2026-10-22', 'body': ['本文C']}]},
+            'betimo': {'status': 'ok', 'items': [
+                {'title': 'Betimoの記事', 'url': 'https://www.betimo.co.jp/news/261019',
+                 'date': '2026-10-20', 'body': ['本文D']}]},
+        }
+        page = mod.render(snap)
+        index = page.split('<nav id="news-nav"', 1)[1].split('</nav>', 1)[0]
+        left_ids = re.findall(r'<li data-new="(?:true|false)"><a href="#(news-\\d+)"', index)
+        right_ids = re.findall(r'<article id="(news-\\d+)"', page)
+        right_titles = re.findall(r'<article id="news-\\d+" data-new="false"><h2>(.*?)</h2>', page)
+        self.assertEqual(left_ids, right_ids)
+        self.assertEqual(right_titles, ['WINTICKET新しい記事', 'WINTICKET古い記事',
+                                       'オッズパーク最新記事', 'Betimoの記事'])
+
     def test_cache_on_failed_feeds(self):
         class Client:
             def fetch_article(self, feed, url):
