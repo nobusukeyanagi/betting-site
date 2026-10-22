@@ -1104,6 +1104,15 @@ def update(client: WebClient, old: dict, now: datetime) -> dict:
                         if not paragraphs:
                             paragraphs = (extract_notice_body(document, item['title'], feed.key)
                                           or extract_minnano_json_body(document, item['title']))
+                        if not paragraphs and hasattr(client, 'render_article'):
+                            try:
+                                rendered = client.render_article(feed, item['url'])
+                                paragraphs = (extract_notice_body(rendered, item['title'], 'minnano')
+                                              or extract_minnano_json_body(rendered, item['title']))
+                                if paragraphs:
+                                    document = rendered
+                            except (OSError, RuntimeError, subprocess.TimeoutExpired) as error:
+                                print(f'INFO ブラウザ本文未取得 みんなの競輪: {clean(str(error))[:100]}')
                     else:
                         paragraphs = extract_body(document, item['title'])
                     if not paragraphs:
