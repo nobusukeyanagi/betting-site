@@ -19,7 +19,7 @@ from datetime import datetime
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
-from bs4 import BeautifulSoup, NavigableString, Tag
+from bs4 import BeautifulSoup, Comment, NavigableString, Tag
 
 JST = ZoneInfo('Asia/Tokyo')
 VERSION = 1
@@ -453,13 +453,15 @@ def extract_oddspark_body(document: str, headline: str) -> list[str]:
                 if stop.match(marker):
                     break
             continue
-        if not isinstance(node, NavigableString) or not str(node).strip():
+        if not isinstance(node, NavigableString) or isinstance(node, Comment) or not str(node).strip():
             continue
         ancestors = [node.parent, *node.parents]
         if any(parent.name in ignored for parent in ancestors if isinstance(parent, Tag)):
             continue
         value = clean(str(node))
-        if not value or normalized(value) == title or date_from(value) and len(value) <= 24:
+        if (not value or normalized(value) == title or
+                value in ('コンテンツ', '//コンテンツ') or
+                (date_from(value) and len(value) <= 24)):
             continue
         if stop.match(value):
             break
@@ -501,11 +503,11 @@ def update(client: WebClient, old: dict, now: datetime) -> dict:
                 if item['url'] in old_by_url:
                     previous = old_by_url[item['url']]
                     # Discard old Odds Park bodies polluted with shared headers.
-                    if not feed.key.startswith('odds-') or previous.get('body_extractor') == 'odds-v2':
+                    if not feed.key.startswith('odds-') or previous.get('body_extractor') == 'odds-v3':
                         item['body'] = previous.get('body', [])
                         item['note'] = previous.get('note', '')
                         if feed.key.startswith('odds-'):
-                            item['body_extractor'] = 'odds-v2'
+                            item['body_extractor'] = 'odds-v3'
             results[feed.key] = {'status': 'ok', 'last_success': now.isoformat(), 'items': items}
             print(f'INFO {feed.site} / {feed.section}: {len(items)}件')
         except Exception as exc:
@@ -551,7 +553,7 @@ def update(client: WebClient, old: dict, now: datetime) -> dict:
                 item['body'] = blocks
                 item['note'] = ''
                 if feed.key.startswith('odds-'):
-                    item['body_extractor'] = 'odds-v2'
+                    item['body_extractor'] = 'odds-v3'
             except Exception as exc:
                 item['body'] = []
                 item['note'] = '本文を取得できませんでした。出典元の記事をご確認ください。'

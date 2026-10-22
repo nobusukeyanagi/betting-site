@@ -148,13 +148,13 @@ class ScraperTests(unittest.TestCase):
           <p>よくあるご質問</p><p>総合TOP</p></div>
           <div class="content"><h3>お知らせ</h3>
           <h4>【障害】ネット新聞の配信遅延につきまして</h4>
-          <time>2026/10/22</time>
+          <time>2026/10/22</time><!--コンテンツ-->
           <div class="notice-text">
           <p>平素よりオッズパークをご利用いただき誠にありがとうございます。</p>
           <p>現在、オッズパークサイトにおいてネット新聞が閲覧できない状態となっております。</p>
           <p>復旧次第、改めてお知らせにてご案内させていただきます。</p>
           <p>お客様にはご不便、ご迷惑をお掛けしますことを深くお詫び申し上げます。</p>
-          </div>
+          </div><!--//コンテンツ-->
           <a href="#">ページ先頭へ↑</a><a href="/info/">お知らせTOPへ</a>
           </div><h3>バックナンバー</h3><p>2026年10月</p></body></html>"""
         blocks = mod.extract_oddspark_body(document, '【障害】ネット新聞の配信遅延につきまして')
@@ -187,7 +187,7 @@ class ScraperTests(unittest.TestCase):
         updated = mod.update(client, old, datetime(2026, 10, 22, tzinfo=ZoneInfo('Asia/Tokyo')))
         entry = updated['feeds']['odds-info']['items'][0]
         self.assertEqual(len(client.calls), 1)
-        self.assertEqual(entry['body_extractor'], 'odds-v2')
+        self.assertEqual(entry['body_extractor'], 'odds-v3')
         self.assertNotIn('ログイン', entry['body'])
         self.assertIn('現在ネット新聞が閲覧できない状態です。', entry['body'])
 
