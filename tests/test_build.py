@@ -187,7 +187,7 @@ class ScraperTests(unittest.TestCase):
         updated = mod.update(client, old, datetime(2026, 10, 22, tzinfo=ZoneInfo('Asia/Tokyo')))
         entry = updated['feeds']['odds-info']['items'][0]
         self.assertEqual(len(client.calls), 1)
-        self.assertEqual(entry['body_extractor'], 'odds-v3')
+        self.assertEqual(entry['body_extractor'], 'odds-v4')
         self.assertNotIn('ログイン', entry['body'])
         self.assertIn('現在ネット新聞が閲覧できない状態です。', entry['body'])
 
