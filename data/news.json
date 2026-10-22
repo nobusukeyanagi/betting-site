@@ -1,5 +1,1623 @@
 {
   "format_version": 1,
-  "updated": "",
-  "feeds": {}
+  "updated": "2026-10-22T13:10:33.151462+09:00",
+  "feeds": {
+    "gamboo": {
+      "status": "unavailable",
+      "last_success": "",
+      "items": [],
+      "message": "サイト側のアクセス確認画面が表示されました"
+    },
+    "winkeirin-topics": {
+      "status": "ok",
+      "last_success": "2026-10-22T13:10:33.151462+09:00",
+      "items": [
+        {
+          "title": "【お知らせ】小田原競輪F1 初日 第10レースの開催中止について",
+          "url": "https://www.winticket.jp/keirin/topics/3ugXHe9NcdrDx6qn9LHYhC",
+          "date": "2026-10-20",
+          "feed": "winkeirin-topics",
+          "site": "WINTICKET",
+          "section": "競輪・お知らせ",
+          "new": false
+        },
+        {
+          "title": "【不具合・復旧済み】au回線・softbank回線を用いた本人確認について",
+          "url": "https://www.winticket.jp/keirin/topics/jZrMkvS5gu2nZgrkarim5D",
+          "date": "2026-10-19",
+          "feed": "winkeirin-topics",
+          "site": "WINTICKET",
+          "section": "競輪・お知らせ",
+          "new": false
+        },
+        {
+          "title": "【不具合・復旧済み】WINTICKETが繋がらない",
+          "url": "https://www.winticket.jp/keirin/topics/piThBjoME1UPH4m4JsW7gn",
+          "date": "2026-10-08",
+          "feed": "winkeirin-topics",
+          "site": "WINTICKET",
+          "section": "競輪・お知らせ",
+          "new": false
+        },
+        {
+          "title": "【お知らせ】いわき平競輪F2 初日 第7レースの開催中止について",
+          "url": "https://www.winticket.jp/keirin/topics/sq56MuiX93NLq1wQ1K4bN8",
+          "date": "2026-10-04",
+          "feed": "winkeirin-topics",
+          "site": "WINTICKET",
+          "section": "競輪・お知らせ",
+          "new": false
+        },
+        {
+          "title": "【不具合・復旧済み】iOSアプリが強制終了する",
+          "url": "https://www.winticket.jp/keirin/topics/ov4nvWKUyhSNvmRMe1tr5m",
+          "date": "2026-09-29",
+          "feed": "winkeirin-topics",
+          "site": "WINTICKET",
+          "section": "競輪・お知らせ",
+          "new": false
+        },
+        {
+          "title": "車券の購入は20歳になってから、競輪は適度に楽しみましょう",
+          "url": "https://www.winticket.jp/keirin/topics/tawAMvH9PTH1XpBZksKhjU",
+          "date": "",
+          "feed": "winkeirin-topics",
+          "site": "WINTICKET",
+          "section": "競輪・お知らせ",
+          "new": false
+        },
+        {
+          "title": "競輪の払戻金の支払を受けた方へ",
+          "url": "https://www.winticket.jp/keirin/topics/42mfTHrZAHbWNV3Yus3VA8",
+          "date": "",
+          "feed": "winkeirin-topics",
+          "site": "WINTICKET",
+          "section": "競輪・お知らせ",
+          "new": false
+        }
+      ]
+    },
+    "winkeirin-column": {
+      "status": "ok",
+      "last_success": "2026-10-22T13:10:33.151462+09:00",
+      "items": [
+        {
+          "title": "【新機能】アプリを閉じてもレースを見続けられる！",
+          "url": "https://www.winticket.jp/keirin/column/tnmGexKZMG52sT5GmUz4a4",
+          "date": "2026-10-05",
+          "feed": "winkeirin-column",
+          "site": "WINTICKET",
+          "section": "競輪・コラム",
+          "new": false
+        },
+        {
+          "title": "【新機能】レース結果がまとめて確認できる！",
+          "url": "https://www.winticket.jp/keirin/column/wsUPdyWiehcqpXmApc6aQ2",
+          "date": "2026-09-28",
+          "feed": "winkeirin-column",
+          "site": "WINTICKET",
+          "section": "競輪・コラム",
+          "new": false
+        },
+        {
+          "title": "【新機能】選手メモ機能をリリースしました",
+          "url": "https://www.winticket.jp/keirin/column/mPiEgcvTJkmHykt5iK2Njd",
+          "date": "2026-07-16",
+          "feed": "winkeirin-column",
+          "site": "WINTICKET",
+          "section": "競輪・コラム",
+          "new": false
+        },
+        {
+          "title": "【新機能】競走得点の推移がわかる！",
+          "url": "https://www.winticket.jp/keirin/column/n8Gpk7zcYqHUJCYPfVzTv8",
+          "date": "2026-07-09",
+          "feed": "winkeirin-column",
+          "site": "WINTICKET",
+          "section": "競輪・コラム",
+          "new": false
+        },
+        {
+          "title": "【お知らせ】長押しでダイジェストがアップデート！",
+          "url": "https://www.winticket.jp/keirin/column/pRJPTZ46JUwRmUDuVZnGHM",
+          "date": "2026-06-19",
+          "feed": "winkeirin-column",
+          "site": "WINTICKET",
+          "section": "競輪・コラム",
+          "new": false
+        },
+        {
+          "title": "【新機能】投票額分配に「抑え」機能を追加しました！",
+          "url": "https://www.winticket.jp/keirin/column/wuZAhZEF8okyoFThyrjdzY",
+          "date": "2026-06-03",
+          "feed": "winkeirin-column",
+          "site": "WINTICKET",
+          "section": "競輪・コラム",
+          "new": false
+        },
+        {
+          "title": "【新機能】\"ラインパワー\"が見られるようになりました",
+          "url": "https://www.winticket.jp/keirin/column/d22CWBEhdX2MvmntaiYicn",
+          "date": "2026-05-19",
+          "feed": "winkeirin-column",
+          "site": "WINTICKET",
+          "section": "競輪・コラム",
+          "new": false
+        },
+        {
+          "title": "【新機能】「レース視聴中の買い目表示」機能",
+          "url": "https://www.winticket.jp/keirin/column/oGhX2YmLG773QYkfje1JLQ",
+          "date": "2026-05-18",
+          "feed": "winkeirin-column",
+          "site": "WINTICKET",
+          "section": "競輪・コラム",
+          "new": false
+        }
+      ]
+    },
+    "winauto-topics": {
+      "status": "ok",
+      "last_success": "2026-10-22T13:10:33.151462+09:00",
+      "items": [
+        {
+          "title": "【不具合・復旧済み】au回線・softbank回線を用いた本人確認について",
+          "url": "https://www.winticket.jp/autorace/topics/jZrMkvS5gu2nZgrkarim5D",
+          "date": "2026-10-19",
+          "feed": "winauto-topics",
+          "site": "WINTICKET",
+          "section": "オート・お知らせ",
+          "new": false
+        },
+        {
+          "title": "【お知らせ】浜松オートレース 最終日 第1～4レースの開催中止について",
+          "url": "https://www.winticket.jp/autorace/topics/qNVpCWvdm4GEGdVZEtc146",
+          "date": "2026-10-12",
+          "feed": "winauto-topics",
+          "site": "WINTICKET",
+          "section": "オート・お知らせ",
+          "new": false
+        },
+        {
+          "title": "【不具合・復旧済み】WINTICKETが繋がらない",
+          "url": "https://www.winticket.jp/autorace/topics/piThBjoME1UPH4m4JsW7gn",
+          "date": "2026-10-08",
+          "feed": "winauto-topics",
+          "site": "WINTICKET",
+          "section": "オート・お知らせ",
+          "new": false
+        },
+        {
+          "title": "【お知らせ】伊勢崎オートレース 最終日 第2～5レースの開催中止について",
+          "url": "https://www.winticket.jp/autorace/topics/8boFZetcp7FZm6NtNGdKek",
+          "date": "2026-10-01",
+          "feed": "winauto-topics",
+          "site": "WINTICKET",
+          "section": "オート・お知らせ",
+          "new": false
+        },
+        {
+          "title": "【不具合・復旧済み】iOSアプリが強制終了する",
+          "url": "https://www.winticket.jp/autorace/topics/ov4nvWKUyhSNvmRMe1tr5m",
+          "date": "2026-09-29",
+          "feed": "winauto-topics",
+          "site": "WINTICKET",
+          "section": "オート・お知らせ",
+          "new": false
+        },
+        {
+          "title": "【お知らせ】PayPayポイントの付与タイミングが変わります",
+          "url": "https://www.winticket.jp/autorace/topics/24nMgjPj1qNXZF9Eq3SKA6",
+          "date": "2026-09-02",
+          "feed": "winauto-topics",
+          "site": "WINTICKET",
+          "section": "オート・お知らせ",
+          "new": false
+        },
+        {
+          "title": "【お詫び・復旧済み】9月1日（火）のキャンペーンポイント付与に遅れが生じています",
+          "url": "https://www.winticket.jp/autorace/topics/kPcgFxjh9SgfNpUuQ417vR",
+          "date": "2026-08-31",
+          "feed": "winauto-topics",
+          "site": "WINTICKET",
+          "section": "オート・お知らせ",
+          "new": false
+        },
+        {
+          "title": "【お知らせ】伊勢崎オート 初日 第11レース、 第12レースの開催中止について",
+          "url": "https://www.winticket.jp/autorace/topics/wtTM79YC3JXravwZmDAQiG",
+          "date": "2026-08-26",
+          "feed": "winauto-topics",
+          "site": "WINTICKET",
+          "section": "オート・お知らせ",
+          "new": false
+        },
+        {
+          "title": "【不具合・復旧済み】ゆうちょ銀行で精算ができない",
+          "url": "https://www.winticket.jp/autorace/topics/7LZnrfUYjhmRjcvVp2MWfL",
+          "date": "2026-08-26",
+          "feed": "winauto-topics",
+          "site": "WINTICKET",
+          "section": "オート・お知らせ",
+          "new": false
+        },
+        {
+          "title": "【お知らせ】飯塚オートG1 最終日 第6レース、第7レース、第8レースの開催中止",
+          "url": "https://www.winticket.jp/autorace/topics/mbQgVxA8X4RVGjTcd1ABwH",
+          "date": "2026-08-25",
+          "feed": "winauto-topics",
+          "site": "WINTICKET",
+          "section": "オート・お知らせ",
+          "new": false
+        },
+        {
+          "title": "【お詫び】新規登録ポイントの付与遅延について",
+          "url": "https://www.winticket.jp/autorace/topics/mUS6ZtrHKcUfy761F3kVYo",
+          "date": "2026-08-19",
+          "feed": "winauto-topics",
+          "site": "WINTICKET",
+          "section": "オート・お知らせ",
+          "new": false
+        },
+        {
+          "title": "【不具合・復旧済み】クレジットカード（Visa）のチャージができない",
+          "url": "https://www.winticket.jp/autorace/topics/gZGqGbgUNkZ8r6sdUexjk9",
+          "date": "2026-08-18",
+          "feed": "winauto-topics",
+          "site": "WINTICKET",
+          "section": "オート・お知らせ",
+          "new": false
+        }
+      ]
+    },
+    "winauto-column": {
+      "status": "ok",
+      "last_success": "2026-10-22T13:10:33.151462+09:00",
+      "items": [
+        {
+          "title": "オートレースは公営競技のなかで最高峰のスピード！危険と隣合わせの理由も紹介",
+          "url": "https://www.winticket.jp/autorace/column/5zfpCQmw2T7T65JzUkFneM",
+          "date": "2021-03-03",
+          "feed": "winauto-column",
+          "site": "WINTICKET",
+          "section": "オート・コラム",
+          "new": false
+        },
+        {
+          "title": "オートレースに必勝法はあるの？勝率を上げるためのコツを紹介",
+          "url": "https://www.winticket.jp/autorace/column/gVV5ci8WCeEWMxoXYmX8W7",
+          "date": "2021-03-03",
+          "feed": "winauto-column",
+          "site": "WINTICKET",
+          "section": "オート・コラム",
+          "new": false
+        },
+        {
+          "title": "オートレースの無観客開催解除はいつ？各場の感染予防対策を紹介",
+          "url": "https://www.winticket.jp/autorace/column/s4bJnHwfP4mdWqrRWRBYsN",
+          "date": "2021-03-03",
+          "feed": "winauto-column",
+          "site": "WINTICKET",
+          "section": "オート・コラム",
+          "new": false
+        }
+      ]
+    },
+    "odds-info": {
+      "status": "ok",
+      "last_success": "2026-10-22T13:10:33.151462+09:00",
+      "items": [
+        {
+          "title": "【障害】ネット新聞の配信遅延につきまして",
+          "url": "https://www.oddspark.com/info/2026/10/post-687.html",
+          "date": "2026-10-22",
+          "feed": "odds-info",
+          "site": "オッズパーク",
+          "section": "お知らせ",
+          "new": false
+        },
+        {
+          "title": "【お知らせ】PeXのポイント交換に関するご案内",
+          "url": "https://www.oddspark.com/info/2026/10/pex.html",
+          "date": "2026-10-20",
+          "feed": "odds-info",
+          "site": "オッズパーク",
+          "section": "お知らせ",
+          "new": false
+        },
+        {
+          "title": "【オッズパークLive】10/22(木)-10/25(日) 熊本競輪 開設76周年記念火の国杯争奪戦GIII ライブ配信について",
+          "url": "https://www.oddspark.com/info/2026/10/live1022-1025-76giii.html",
+          "date": "2026-10-20",
+          "feed": "odds-info",
+          "site": "オッズパーク",
+          "section": "お知らせ",
+          "new": false
+        },
+        {
+          "title": "【開催情報】10月20日（火）小田原競輪 第10R中止について",
+          "url": "https://www.oddspark.com/info/2026/10/1020-10r.html",
+          "date": "2026-10-20",
+          "feed": "odds-info",
+          "site": "オッズパーク",
+          "section": "お知らせ",
+          "new": false
+        },
+        {
+          "title": "【開催情報】10月20日（火）盛岡競馬 第1R・第2R取り止めについて",
+          "url": "https://www.oddspark.com/info/2026/10/1020-1r.html",
+          "date": "2026-10-20",
+          "feed": "odds-info",
+          "site": "オッズパーク",
+          "section": "お知らせ",
+          "new": false
+        },
+        {
+          "title": "【復旧済】【障害】仮受精算のご利用がしづらい事象について",
+          "url": "https://www.oddspark.com/info/2026/10/post-686.html",
+          "date": "2026-10-17",
+          "feed": "odds-info",
+          "site": "オッズパーク",
+          "section": "お知らせ",
+          "new": false
+        },
+        {
+          "title": "【更新】【お知らせ】10月1日（木）から11月30日（月）の期間中、対象の競輪場/オートレース場/競馬場に来場＆エントリーでOPコイン500円分をもれなくプレゼント！ポスターからのエントリー終了のお知らせ",
+          "url": "https://www.oddspark.com/info/2026/10/1011130op500.html",
+          "date": "2026-10-16",
+          "feed": "odds-info",
+          "site": "オッズパーク",
+          "section": "お知らせ",
+          "new": false
+        },
+        {
+          "title": "【キャンペーン】【10/29(木)10時まで】10月度ポイント還元キャンペーン景品発送・付与について",
+          "url": "https://www.oddspark.com/info/2026/10/10291010.html",
+          "date": "2026-10-16",
+          "feed": "odds-info",
+          "site": "オッズパーク",
+          "section": "お知らせ",
+          "new": false
+        },
+        {
+          "title": "【メンテナンス】重要なお知らせ（10月15日現在）",
+          "url": "https://www.oddspark.com/info/2026/10/-930.html",
+          "date": "2026-10-15",
+          "feed": "odds-info",
+          "site": "オッズパーク",
+          "section": "お知らせ",
+          "new": false
+        },
+        {
+          "title": "【開催情報】10月12日（月）浜松オート 1R-4R中止について",
+          "url": "https://www.oddspark.com/info/2026/10/1012-1r-3r.html",
+          "date": "2026-10-12",
+          "feed": "odds-info",
+          "site": "オッズパーク",
+          "section": "お知らせ",
+          "new": false
+        },
+        {
+          "title": "【復旧済】【障害】オッズパークアプリにおける一時的な投票不具合について",
+          "url": "https://www.oddspark.com/info/2026/10/post-685.html",
+          "date": "2026-10-11",
+          "feed": "odds-info",
+          "site": "オッズパーク",
+          "section": "お知らせ",
+          "new": false
+        },
+        {
+          "title": "【復旧済】【障害】 分ポイント還元キャンペーンの付与ポイント表示誤り",
+          "url": "https://www.oddspark.com/info/2026/10/2026930.html",
+          "date": "2026-09-30",
+          "feed": "odds-info",
+          "site": "オッズパーク",
+          "section": "お知らせ",
+          "new": false
+        }
+      ]
+    },
+    "odds-pickup": {
+      "status": "ok",
+      "last_success": "2026-10-22T13:10:33.151462+09:00",
+      "items": [
+        {
+          "title": "【更新】【お知らせ】10月1日（木）から11月30日（月）の期間中、対象の競輪場/オートレース場/競馬場に来場＆エントリーでOPコイン500円分をもれなくプレゼント！ポスターからのエントリー終了のお知らせ",
+          "url": "https://www.oddspark.com/pickup/2026/10/1011130op500.html",
+          "date": "2026-10-16",
+          "feed": "odds-pickup",
+          "site": "オッズパーク",
+          "section": "ピックアップ",
+          "new": false
+        },
+        {
+          "title": "2026年9月の【競輪】Starter PACKの予想-的中結果",
+          "url": "https://www.oddspark.com/pickup/2026/10/20269starter-pack--1.html",
+          "date": "2026-10-15",
+          "feed": "odds-pickup",
+          "site": "オッズパーク",
+          "section": "ピックアップ",
+          "new": false
+        },
+        {
+          "title": "【10/18(日)応募締切！】松浦悠士選手＆有吉辰也選手が広島に登場！SG日本選手権オートレース観戦イベント開催！",
+          "url": "https://www.oddspark.com/pickup/2026/10/1018sg.html",
+          "date": "2026-10-14",
+          "feed": "odds-pickup",
+          "site": "オッズパーク",
+          "section": "ピックアップ",
+          "new": false
+        },
+        {
+          "title": "夢を追いかける、その姿にエールを。「ラブライブ！」×「オッズパーク」コラボプロジェクト！第3弾は10月3日（土）・4日（日）に松阪競輪場で開催！",
+          "url": "https://www.oddspark.com/pickup/2026/10/31034.html",
+          "date": "2026-10-02",
+          "feed": "odds-pickup",
+          "site": "オッズパーク",
+          "section": "ピックアップ",
+          "new": false
+        },
+        {
+          "title": "-10/2(金) ミッドナイト配信 『オッズパークpresents 林雄一のギャンブル人生』レギュラー配信について",
+          "url": "https://www.oddspark.com/pickup/2026/09/2026101-102-presents.html",
+          "date": "2026-10-01",
+          "feed": "odds-pickup",
+          "site": "オッズパーク",
+          "section": "ピックアップ",
+          "new": false
+        },
+        {
+          "title": "【お知らせ】夢を追いかける、その姿にエールを。「ラブライブ！」×「オッズパーク」コラボプロジェクト！第2弾は9月20日（日）・21日（月・祝）に富山競輪場で開催！",
+          "url": "https://www.oddspark.com/pickup/2026/09/292021.html",
+          "date": "2026-09-18",
+          "feed": "odds-pickup",
+          "site": "オッズパーク",
+          "section": "ピックアップ",
+          "new": false
+        },
+        {
+          "title": "【HUK Campus Live特別放送】JRA騎手 岩田康誠ジョッキーの生出演について",
+          "url": "https://www.oddspark.com/pickup/2026/09/huk-campus-livejra.html",
+          "date": "2026-09-15",
+          "feed": "odds-pickup",
+          "site": "オッズパーク",
+          "section": "ピックアップ",
+          "new": false
+        },
+        {
+          "title": "2026年8月の【競輪】Starter PACKの予想-的中結果",
+          "url": "https://www.oddspark.com/pickup/2026/09/20268starter-pack-.html",
+          "date": "2026-09-08",
+          "feed": "odds-pickup",
+          "site": "オッズパーク",
+          "section": "ピックアップ",
+          "new": false
+        },
+        {
+          "title": "【応募者全員プレゼント】2027年オッズパークオリジナル卓上カレンダーについて",
+          "url": "https://www.oddspark.com/pickup/2026/09/2027.html",
+          "date": "2026-09-03",
+          "feed": "odds-pickup",
+          "site": "オッズパーク",
+          "section": "ピックアップ",
+          "new": false
+        },
+        {
+          "title": "【オートレース】黒川京介選手 密着ドキュメンタリー「【走録】【番外編】SGオートレースグランプリを終えて。」YouTube配信について",
+          "url": "https://www.oddspark.com/pickup/2026/08/-sgyoutube.html",
+          "date": "2026-08-18",
+          "feed": "odds-pickup",
+          "site": "オッズパーク",
+          "section": "ピックアップ",
+          "new": false
+        },
+        {
+          "title": "2026年7月の【競輪】Starter PACKの予想-的中結果",
+          "url": "https://www.oddspark.com/pickup/2026/08/20267starter-pack-.html",
+          "date": "2026-08-12",
+          "feed": "odds-pickup",
+          "site": "オッズパーク",
+          "section": "ピックアップ",
+          "new": false
+        },
+        {
+          "title": "【オートレース】「公益財団法人JKAからのお知らせ」新・公式ロゴマークを発表！",
+          "url": "https://www.oddspark.com/pickup/2026/08/jka.html",
+          "date": "2026-08-11",
+          "feed": "odds-pickup",
+          "site": "オッズパーク",
+          "section": "ピックアップ",
+          "new": false
+        }
+      ]
+    },
+    "kdreams": {
+      "status": "ok",
+      "last_success": "2026-10-22T13:10:33.151462+09:00",
+      "items": [
+        {
+          "title": "【宇都宮競輪場へ行こう 】ポイントカードのお申込みについて",
+          "url": "https://info2.kdreams.jp/entry/2025/02/10/173000",
+          "date": "2026-10-21",
+          "feed": "kdreams",
+          "site": "楽天Kドリームス",
+          "section": "インフォメーション",
+          "new": false
+        },
+        {
+          "title": "【10月】楽天Kドリームスブース営業スケジュール",
+          "url": "https://info2.kdreams.jp/entry/2026/10/20/191000",
+          "date": "2026-10-20",
+          "feed": "kdreams",
+          "site": "楽天Kドリームス",
+          "section": "インフォメーション",
+          "new": false
+        },
+        {
+          "title": "10/21～10/23 いわき平競輪F2（函館市営）K３発売について",
+          "url": "https://info2.kdreams.jp/entry/2026/10/20/183000_1",
+          "date": "2026-10-20",
+          "feed": "kdreams",
+          "site": "楽天Kドリームス",
+          "section": "インフォメーション",
+          "new": false
+        },
+        {
+          "title": "10/21 四日市競輪（初日） K5前売発売について",
+          "url": "https://info2.kdreams.jp/entry/2026/10/20/183000",
+          "date": "2026-10-20",
+          "feed": "kdreams",
+          "site": "楽天Kドリームス",
+          "section": "インフォメーション",
+          "new": false
+        },
+        {
+          "title": "10/20 小田原競輪(初日)第10レース中止について",
+          "url": "https://info2.kdreams.jp/entry/2026/10/20/153132",
+          "date": "2026-10-20",
+          "feed": "kdreams",
+          "site": "楽天Kドリームス",
+          "section": "インフォメーション",
+          "new": false
+        },
+        {
+          "title": "ゴールドカップレース(G3)京王閣競輪場 楽天Kドリームス現場スタッフより",
+          "url": "https://info2.kdreams.jp/entry/2026/10/19/110000",
+          "date": "2026-10-19",
+          "feed": "kdreams",
+          "site": "楽天Kドリームス",
+          "section": "インフォメーション",
+          "new": false
+        },
+        {
+          "title": "宇都宮ジャパンカップ 楽天Kドリームス現場スタッフより",
+          "url": "https://info2.kdreams.jp/entry/2026/10/19/100000",
+          "date": "2026-10-19",
+          "feed": "kdreams",
+          "site": "楽天Kドリームス",
+          "section": "インフォメーション",
+          "new": false
+        },
+        {
+          "title": "【結果一覧】10/14～10/18 UCI2026世界選手権トラック（中国･上海）～🥈🥈🥉🥉🥉🥉メダル6個獲得おめでとうございます！",
+          "url": "https://info2.kdreams.jp/entry/2026/10/17/100000",
+          "date": "2026-10-18",
+          "feed": "kdreams",
+          "site": "楽天Kドリームス",
+          "section": "インフォメーション",
+          "new": false
+        },
+        {
+          "title": "【締切10月17日21時まで】10月18日（日）『2026世界選手権トラック』を渋谷で見よう！presented by チーム楽天Kドリームス",
+          "url": "https://info2.kdreams.jp/entry/2026/10/07/100000_1",
+          "date": "2026-10-16",
+          "feed": "kdreams",
+          "site": "楽天Kドリームス",
+          "section": "インフォメーション",
+          "new": false
+        },
+        {
+          "title": "10月31日(土)～11月1日(日) 防府競輪場に楽天Kドリームスブース出店！",
+          "url": "https://info2.kdreams.jp/entry/2026/10/15/100714",
+          "date": "2026-10-15",
+          "feed": "kdreams",
+          "site": "楽天Kドリームス",
+          "section": "インフォメーション",
+          "new": false
+        }
+      ]
+    },
+    "chariloto": {
+      "status": "ok",
+      "last_success": "2026-10-22T13:10:33.151462+09:00",
+      "items": [
+        {
+          "title": "車券は20歳になってから",
+          "url": "https://www.chariloto.com/articles/27",
+          "date": "",
+          "feed": "chariloto",
+          "site": "チャリロト",
+          "section": "ニュース",
+          "new": false
+        },
+        {
+          "title": "【続報】【重要】キャンペーン応募フォーム・お問い合わせフォームの一時利用停止延長について",
+          "url": "https://www.chariloto.com/articles/7528",
+          "date": "2026-10-22",
+          "feed": "chariloto",
+          "site": "チャリロト",
+          "section": "ニュース",
+          "new": false
+        },
+        {
+          "title": "【続報】10/22（木）「当たるんです」システムメンテナンス時間延長について",
+          "url": "https://www.chariloto.com/articles/7527",
+          "date": "2026-10-22",
+          "feed": "chariloto",
+          "site": "チャリロト",
+          "section": "ニュース",
+          "new": false
+        },
+        {
+          "title": "【チャリロトAグループ】4,000万円以上キャリーオーバー発生中！",
+          "url": "https://www.chariloto.com/articles/6775",
+          "date": "2026-10-22",
+          "feed": "chariloto",
+          "site": "チャリロト",
+          "section": "ニュース",
+          "new": false
+        },
+        {
+          "title": "10/21（水）「当たるんです」システムメンテナンスについて",
+          "url": "https://www.chariloto.com/articles/7526",
+          "date": "2026-10-21",
+          "feed": "chariloto",
+          "site": "チャリロト",
+          "section": "ニュース",
+          "new": false
+        },
+        {
+          "title": "【緊急】【アプリ・メンテナンス】10/21（水）アプリ緊急メンテナンスについて",
+          "url": "https://www.chariloto.com/articles/7525",
+          "date": "2026-10-21",
+          "feed": "chariloto",
+          "site": "チャリロト",
+          "section": "ニュース",
+          "new": false
+        },
+        {
+          "title": "【重要】キャンペーン応募フォーム・お問い合わせフォームの一時利用停止について",
+          "url": "https://www.chariloto.com/articles/7524",
+          "date": "2026-10-21",
+          "feed": "chariloto",
+          "site": "チャリロト",
+          "section": "ニュース",
+          "new": false
+        },
+        {
+          "title": "＼要応募／【お米が当たる！】チャージキャンペーン！",
+          "url": "https://www.chariloto.com/articles/7431",
+          "date": "2026-10-21",
+          "feed": "chariloto",
+          "site": "チャリロト",
+          "section": "ニュース",
+          "new": false
+        },
+        {
+          "title": "【Perfecta Navi】レースレポート掲載中！【京王閣競輪G3ナイター】",
+          "url": "https://www.chariloto.com/articles/7521",
+          "date": "2026-10-21",
+          "feed": "chariloto",
+          "site": "チャリロト",
+          "section": "ニュース",
+          "new": false
+        },
+        {
+          "title": "競輪獲得賞金ランキング",
+          "url": "https://www.chariloto.com/articles/5728",
+          "date": "2026-10-21",
+          "feed": "chariloto",
+          "site": "チャリロト",
+          "section": "ニュース",
+          "new": false
+        },
+        {
+          "title": "【チャリロトGグループ】2,000万円以上キャリーオーバー発生中！",
+          "url": "https://www.chariloto.com/articles/6876",
+          "date": "2026-10-21",
+          "feed": "chariloto",
+          "site": "チャリロト",
+          "section": "ニュース",
+          "new": false
+        },
+        {
+          "title": "【500名様に馬刺しが当たる！】熊本G3「熊本地震復興事業火の国杯争奪戦」投票キャンペーン！",
+          "url": "https://www.chariloto.com/articles/7435",
+          "date": "2026-10-20",
+          "feed": "chariloto",
+          "site": "チャリロト",
+          "section": "ニュース",
+          "new": false
+        }
+      ]
+    },
+    "keirinjp": {
+      "status": "unavailable",
+      "last_success": "",
+      "items": [],
+      "message": "robots.txtにより取得できません"
+    },
+    "autorace-campaign": {
+      "status": "ok",
+      "last_success": "2026-10-22T13:10:33.151462+09:00",
+      "items": [
+        {
+          "title": "浜松 公式ファンクラブ会員限定「SG第58回日本選手権オートレース 表彰式ご招待」",
+          "url": "https://autorace.jp/news/campaign/2026/10/01/038719",
+          "date": "2026-10-01",
+          "feed": "autorace-campaign",
+          "site": "AUTORACE.JP",
+          "section": "キャンペーン",
+          "new": false
+        },
+        {
+          "title": "情報 おうちごはんを楽しく！10月の投票キャンペーン ～31日(土)",
+          "url": "https://autorace.jp/news/campaign/2026/10/01/038724",
+          "date": "2026-10-01",
+          "feed": "autorace-campaign",
+          "site": "AUTORACE.JP",
+          "section": "キャンペーン",
+          "new": false
+        },
+        {
+          "title": "情報 AUTORACE.JP投票 新規登録キャンペーン 2026年10月",
+          "url": "https://autorace.jp/news/campaign/2026/10/01/038727",
+          "date": "2026-10-01",
+          "feed": "autorace-campaign",
+          "site": "AUTORACE.JP",
+          "section": "キャンペーン",
+          "new": false
+        },
+        {
+          "title": "情報 【オートレースクイズ】公式Xで新ロゴマーク入りオリジナルTHERMOSボトルが当たるキャンペーンがスタート！",
+          "url": "https://autorace.jp/news/campaign/2026/09/25/038753",
+          "date": "2026-09-25",
+          "feed": "autorace-campaign",
+          "site": "AUTORACE.JP",
+          "section": "キャンペーン",
+          "new": false
+        },
+        {
+          "title": "伊勢崎 公式ファンクラブ会員限定「特別GI共同通信社杯プレミアムカップは5日間全レースでマイル5％還元！」",
+          "url": "https://autorace.jp/news/campaign/2026/09/10/038650",
+          "date": "2026-09-10",
+          "feed": "autorace-campaign",
+          "site": "AUTORACE.JP",
+          "section": "キャンペーン",
+          "new": false
+        },
+        {
+          "title": "情報 オートレースの秋！ 秋の大感謝祭キャンペーン ～30日(水)",
+          "url": "https://autorace.jp/news/campaign/2026/09/01/038594",
+          "date": "2026-09-01",
+          "feed": "autorace-campaign",
+          "site": "AUTORACE.JP",
+          "section": "キャンペーン",
+          "new": false
+        },
+        {
+          "title": "情報 AUTORACE.JP投票 新規登録キャンペーン 2026年9月",
+          "url": "https://autorace.jp/news/campaign/2026/09/01/038617",
+          "date": "2026-09-01",
+          "feed": "autorace-campaign",
+          "site": "AUTORACE.JP",
+          "section": "キャンペーン",
+          "new": false
+        },
+        {
+          "title": "情報 公式ファンクラブ会員限定「川口オート ロッカー見学会」",
+          "url": "https://autorace.jp/news/campaign/2026/08/21/038590",
+          "date": "2026-08-21",
+          "feed": "autorace-campaign",
+          "site": "AUTORACE.JP",
+          "section": "キャンペーン",
+          "new": false
+        },
+        {
+          "title": "情報 変なホテル×オトもっち コラボルーム 無料宿泊プレゼントキャンペーン 第2弾",
+          "url": "https://autorace.jp/news/campaign/2026/08/20/038542",
+          "date": "2026-08-20",
+          "feed": "autorace-campaign",
+          "site": "AUTORACE.JP",
+          "section": "キャンペーン",
+          "new": false
+        },
+        {
+          "title": "伊勢崎 公式ファンクラブ会員限定「SG第30回オートレースグランプリは6日間全レースでマイル5％還元！」",
+          "url": "https://autorace.jp/news/campaign/2026/08/07/038454",
+          "date": "2026-08-07",
+          "feed": "autorace-campaign",
+          "site": "AUTORACE.JP",
+          "section": "キャンペーン",
+          "new": false
+        },
+        {
+          "title": "情報 AUTORACE.JP投票 新規登録キャンペーン 8月",
+          "url": "https://autorace.jp/news/campaign/2026/08/01/038395",
+          "date": "2026-08-01",
+          "feed": "autorace-campaign",
+          "site": "AUTORACE.JP",
+          "section": "キャンペーン",
+          "new": false
+        },
+        {
+          "title": "情報 暑さを吹き飛ばせ！夏休み満喫投票キャンペーン！ ～31日(月)",
+          "url": "https://autorace.jp/news/campaign/2026/08/01/038430",
+          "date": "2026-08-01",
+          "feed": "autorace-campaign",
+          "site": "AUTORACE.JP",
+          "section": "キャンペーン",
+          "new": false
+        }
+      ]
+    },
+    "autorace-event": {
+      "status": "ok",
+      "last_success": "2026-10-22T13:10:33.151462+09:00",
+      "items": [
+        {
+          "title": "浜松 【選手サイン入りグッズがもらえる！】「直撃！前検フラッシュインタビュー（SG日本選手権）」選手への質問大募集！",
+          "url": "https://autorace.jp/news/event/2026/10/17/038820",
+          "date": "2026-10-17",
+          "feed": "autorace-event",
+          "site": "AUTORACE.JP",
+          "section": "イベント",
+          "new": false
+        },
+        {
+          "title": "情報 10/18(日)『船橋感謝祭』イベント開催します！☛オートレースふなばし",
+          "url": "https://autorace.jp/news/event/2026/10/13/038811",
+          "date": "2026-10-13",
+          "feed": "autorace-event",
+          "site": "AUTORACE.JP",
+          "section": "イベント",
+          "new": false
+        },
+        {
+          "title": "情報 11/3(火・祝) 「出張オートレース！ ～パブリックビューイング＆ファンミーティング～ in 広島 Supported by オッズパーク」開催！",
+          "url": "https://autorace.jp/news/event/2026/10/08/038749",
+          "date": "2026-10-08",
+          "feed": "autorace-event",
+          "site": "AUTORACE.JP",
+          "section": "イベント",
+          "new": false
+        },
+        {
+          "title": "情報 10/18(日)北市唯選手トークショーを開催します！☛オートレース一宮",
+          "url": "https://autorace.jp/news/event/2026/10/06/038778",
+          "date": "2026-10-06",
+          "feed": "autorace-event",
+          "site": "AUTORACE.JP",
+          "section": "イベント",
+          "new": false
+        },
+        {
+          "title": "情報 【10/1 待望の生配信スタート！】『爆走！オート塾』山陽オーバーミッドナイト生配信！",
+          "url": "https://autorace.jp/news/event/2026/09/30/038759",
+          "date": "2026-09-30",
+          "feed": "autorace-event",
+          "site": "AUTORACE.JP",
+          "section": "イベント",
+          "new": false
+        }
+      ]
+    },
+    "autorace-update": {
+      "status": "ok",
+      "last_success": "2026-10-22T13:10:33.151462+09:00",
+      "items": [
+        {
+          "title": "情報 [AutoRace.JP] 機能改善のご案内",
+          "url": "https://autorace.jp/news/update/2025/04/14/036522",
+          "date": "2025-04-14",
+          "feed": "autorace-update",
+          "site": "AUTORACE.JP",
+          "section": "アップデート",
+          "new": false
+        },
+        {
+          "title": "情報 [AutoRace.JP] 機能改善のご案内",
+          "url": "https://autorace.jp/news/update/2024/12/23/036081",
+          "date": "2024-12-23",
+          "feed": "autorace-update",
+          "site": "AUTORACE.JP",
+          "section": "アップデート",
+          "new": false
+        },
+        {
+          "title": "情報 [AutoRace.JP] 機能改善のご案内",
+          "url": "https://autorace.jp/news/update/2024/10/07/035695",
+          "date": "2024-10-07",
+          "feed": "autorace-update",
+          "site": "AUTORACE.JP",
+          "section": "アップデート",
+          "new": false
+        },
+        {
+          "title": "情報 [公式ファンクラブ] 機能改善のご案内",
+          "url": "https://autorace.jp/news/update/2024/07/08/035432",
+          "date": "2024-07-08",
+          "feed": "autorace-update",
+          "site": "AUTORACE.JP",
+          "section": "アップデート",
+          "new": false
+        },
+        {
+          "title": "情報 [AutoRace.JP投票] 精算先口座の登録について",
+          "url": "https://autorace.jp/news/update/2024/06/28/035434",
+          "date": "2024-06-28",
+          "feed": "autorace-update",
+          "site": "AUTORACE.JP",
+          "section": "アップデート",
+          "new": false
+        },
+        {
+          "title": "情報 [AutoRace.JP] 機能改善のご案内",
+          "url": "https://autorace.jp/news/update/2024/04/23/035144",
+          "date": "2024-04-23",
+          "feed": "autorace-update",
+          "site": "AUTORACE.JP",
+          "section": "アップデート",
+          "new": false
+        },
+        {
+          "title": "情報 [AutoRace.JP投票] 機能改善のご案内",
+          "url": "https://autorace.jp/news/update/2024/03/31/035040",
+          "date": "2024-03-31",
+          "feed": "autorace-update",
+          "site": "AUTORACE.JP",
+          "section": "アップデート",
+          "new": false
+        },
+        {
+          "title": "情報 [AutoRace.JPレース情報]5/9 機能改善のご案内",
+          "url": "https://autorace.jp/news/update/2023/05/09/033898",
+          "date": "2023-05-09",
+          "feed": "autorace-update",
+          "site": "AUTORACE.JP",
+          "section": "アップデート",
+          "new": false
+        }
+      ]
+    },
+    "netkeirin": {
+      "status": "ok",
+      "last_success": "2026-10-22T13:10:33.151462+09:00",
+      "items": [
+        {
+          "title": "お知らせ 【復旧】一部予想情報が表示されない事象について※10月22日 7時30分更新",
+          "url": "https://keirin.netkeiba.com/info/info_detail/?id=1585",
+          "date": "2026-10-22",
+          "feed": "netkeirin",
+          "site": "netkeirin",
+          "section": "キャンペーン・お知らせ",
+          "new": false
+        },
+        {
+          "title": "メンテナンス 【復旧】緊急システムメンテナンス終了のお知らせ",
+          "url": "https://keirin.netkeiba.com/info/info_detail/?id=1584",
+          "date": "2026-10-21",
+          "feed": "netkeirin",
+          "site": "netkeirin",
+          "section": "キャンペーン・お知らせ",
+          "new": false
+        },
+        {
+          "title": "キャンペーン 【10/09〜10/12】新規登録者限定チャージキャンペーン",
+          "url": "https://keirin.netkeiba.com/info/info_detail/?id=1575",
+          "date": "2026-10-08",
+          "feed": "netkeirin",
+          "site": "netkeirin",
+          "section": "キャンペーン・お知らせ",
+          "new": false
+        },
+        {
+          "title": "キャンペーン 【10/09〜10/12】抽選で100名様に選手オリジナルQUOカードが当たる！投票キャンペーン",
+          "url": "https://keirin.netkeiba.com/info/info_detail/?id=1571",
+          "date": "2026-10-08",
+          "feed": "netkeirin",
+          "site": "netkeirin",
+          "section": "キャンペーン・お知らせ",
+          "new": false
+        },
+        {
+          "title": "のめり込む不安のある方へ",
+          "url": "https://keirin.netkeiba.com/info/info_detail/?id=53",
+          "date": "",
+          "feed": "netkeirin",
+          "site": "netkeirin",
+          "section": "キャンペーン・お知らせ",
+          "new": false
+        }
+      ]
+    },
+    "dmm": {
+      "status": "unavailable",
+      "last_success": "",
+      "items": [],
+      "message": "記事リンクが見つかりません（動的表示・構造変更の可能性）"
+    },
+    "minnano": {
+      "status": "ok",
+      "last_success": "2026-10-22T13:10:33.151462+09:00",
+      "items": [
+        {
+          "title": "10:13 【メンテナンス終了のお知らせとお詫び】みんなの競輪緊急メンテナンス終了について",
+          "url": "https://bet.minnano-keirin.com/info/25833",
+          "date": "2026-10-22",
+          "feed": "minnano",
+          "site": "みんなの競輪",
+          "section": "お知らせ",
+          "new": false
+        },
+        {
+          "title": "10:00 【重要】「払戻金のご精算」の一時停止に関するお知らせ",
+          "url": "https://bet.minnano-keirin.com/info/25831",
+          "date": "2026-10-22",
+          "feed": "minnano",
+          "site": "みんなの競輪",
+          "section": "お知らせ",
+          "new": false
+        },
+        {
+          "title": "00:00 【10月20日】「京王閣競輪G3ナイター」決勝レースで最大5%還元！",
+          "url": "https://bet.minnano-keirin.com/info/24517",
+          "date": "2026-10-20",
+          "feed": "minnano",
+          "site": "みんなの競輪",
+          "section": "お知らせ",
+          "new": false
+        },
+        {
+          "title": "00:00 【10月20日限定】チャージで2人に1人！海鮮丼セットが当たる！",
+          "url": "https://bet.minnano-keirin.com/info/25484",
+          "date": "2026-10-20",
+          "feed": "minnano",
+          "site": "みんなの競輪",
+          "section": "お知らせ",
+          "new": false
+        },
+        {
+          "title": "00:00 【10月23日～10月25日】抽選でみんなの競輪オリジナルトートバッグが当たる！「防府競輪F2モーニング 投票キャンペーン」",
+          "url": "https://bet.minnano-keirin.com/info/25497",
+          "date": "2026-10-20",
+          "feed": "minnano",
+          "site": "みんなの競輪",
+          "section": "お知らせ",
+          "new": false
+        },
+        {
+          "title": "19:00 【10月17日～10月20日】「京王閣競輪G3ナイター」みんなの競輪 オリジナル攻略データ《みんなの競輪グッズプレゼント有り》",
+          "url": "https://bet.minnano-keirin.com/info/24731",
+          "date": "2026-10-18",
+          "feed": "minnano",
+          "site": "みんなの競輪",
+          "section": "お知らせ",
+          "new": false
+        }
+      ]
+    },
+    "tipstar": {
+      "status": "ok",
+      "last_success": "2026-10-22T13:10:33.151462+09:00",
+      "items": [
+        {
+          "title": "【10/23】チャージで1/2 （ニブイチ）キャンペーン",
+          "url": "https://about.tipstar.com/news/20261022_1",
+          "date": "2026-10-22",
+          "feed": "tipstar",
+          "site": "TIPSTAR",
+          "section": "お知らせ",
+          "new": false
+        },
+        {
+          "title": "【10/21〜】「うちいくTV」の「ヤルヲ」が公認ユーザーとして「カキコミ」に期間限定で登場！",
+          "url": "https://about.tipstar.com/news/20261021_88",
+          "date": "2026-10-20",
+          "feed": "tipstar",
+          "site": "TIPSTAR",
+          "section": "お知らせ",
+          "new": false
+        },
+        {
+          "title": "（解消済み： 09:40）クレジットカード決済でのVISA本人認証サービスが利用できない不具合について",
+          "url": "https://about.tipstar.com/news/20261020_99",
+          "date": "2026-10-20",
+          "feed": "tipstar",
+          "site": "TIPSTAR",
+          "section": "お知らせ",
+          "new": false
+        },
+        {
+          "title": "【10/19〜11/1】ウルトラティップスター 的中演出＆出現確率のご案内",
+          "url": "https://about.tipstar.com/news/20261016_5",
+          "date": "2026-10-16",
+          "feed": "tipstar",
+          "site": "TIPSTAR",
+          "section": "お知らせ",
+          "new": false
+        },
+        {
+          "title": "【10/18～10/31】ちょこっとチャージでちょこっといいこと",
+          "url": "https://about.tipstar.com/news/20261016_1",
+          "date": "2026-10-16",
+          "feed": "tipstar",
+          "site": "TIPSTAR",
+          "section": "お知らせ",
+          "new": false
+        },
+        {
+          "title": "【TIPSTARアップデート情報】出走表を並び予想順に並び替えできるようになりました",
+          "url": "https://about.tipstar.com/news/20261014_77",
+          "date": "2026-10-14",
+          "feed": "tipstar",
+          "site": "TIPSTAR",
+          "section": "お知らせ",
+          "new": false
+        },
+        {
+          "title": "【TIPSTARアップデート情報】レースのアーカイブ映像をシェアできるようになりました",
+          "url": "https://about.tipstar.com/news/20261014_66",
+          "date": "2026-10-14",
+          "feed": "tipstar",
+          "site": "TIPSTAR",
+          "section": "お知らせ",
+          "new": false
+        },
+        {
+          "title": "ver9.30.0サービスアップデートのお知らせ",
+          "url": "https://about.tipstar.com/news/20261014_88",
+          "date": "2026-10-14",
+          "feed": "tipstar",
+          "site": "TIPSTAR",
+          "section": "お知らせ",
+          "new": false
+        },
+        {
+          "title": "一部のレース結果が正常に反映されない不具合について",
+          "url": "https://about.tipstar.com/news/20261009_99",
+          "date": "2026-10-09",
+          "feed": "tipstar",
+          "site": "TIPSTAR",
+          "section": "お知らせ",
+          "new": false
+        },
+        {
+          "title": "（追記： 13:00）【10/5〜11/1】ウルトラティップスター",
+          "url": "https://about.tipstar.com/news/20261002_3",
+          "date": "2026-10-02",
+          "feed": "tipstar",
+          "site": "TIPSTAR",
+          "section": "お知らせ",
+          "new": false
+        },
+        {
+          "title": "前のページへ",
+          "url": "https://about.tipstar.com/news/index.html",
+          "date": "2026-10-22",
+          "feed": "tipstar",
+          "site": "TIPSTAR",
+          "section": "お知らせ",
+          "new": false
+        },
+        {
+          "title": "次のページへ",
+          "url": "https://about.tipstar.com/news/index_2.html",
+          "date": "2026-10-22",
+          "feed": "tipstar",
+          "site": "TIPSTAR",
+          "section": "お知らせ",
+          "new": false
+        }
+      ]
+    },
+    "lotoplace": {
+      "status": "ok",
+      "last_success": "2026-10-22T13:10:33.151462+09:00",
+      "items": [
+        {
+          "title": "車券は２０歳になってから",
+          "url": "https://www.lotoplace.jp/articles/8",
+          "date": "",
+          "feed": "lotoplace",
+          "site": "Loto Place",
+          "section": "ニュース",
+          "new": false
+        },
+        {
+          "title": "購入限度額の設定",
+          "url": "https://www.lotoplace.jp/articles/617",
+          "date": "",
+          "feed": "lotoplace",
+          "site": "Loto Place",
+          "section": "ニュース",
+          "new": false
+        },
+        {
+          "title": "【重要・追記】10/22（木）AI予想情報の表示におけるシステム不具合につきまして",
+          "url": "https://www.lotoplace.jp/articles/1428",
+          "date": "2026-10-22",
+          "feed": "lotoplace",
+          "site": "Loto Place",
+          "section": "ニュース",
+          "new": false
+        },
+        {
+          "title": "【AI予想】高配当ベスト10をお知らせします！（集計期間： ～ ）",
+          "url": "https://www.lotoplace.jp/articles/1427",
+          "date": "2026-09-01",
+          "feed": "lotoplace",
+          "site": "Loto Place",
+          "section": "ニュース",
+          "new": false
+        },
+        {
+          "title": "【還元キャンペーン】投票金額の１％ポイント還元！！！【自動エントリー】",
+          "url": "https://www.lotoplace.jp/articles/1426",
+          "date": "2026-10-01",
+          "feed": "lotoplace",
+          "site": "Loto Place",
+          "section": "ニュース",
+          "new": false
+        },
+        {
+          "title": "【AI予想】高配当ベスト10をお知らせします！（集計期間： ～ ）",
+          "url": "https://www.lotoplace.jp/articles/1425",
+          "date": "2026-08-01",
+          "feed": "lotoplace",
+          "site": "Loto Place",
+          "section": "ニュース",
+          "new": false
+        },
+        {
+          "title": "【還元キャンペーン】投票金額の１％ポイント還元！！！【自動エントリー】",
+          "url": "https://www.lotoplace.jp/articles/1424",
+          "date": "2026-09-01",
+          "feed": "lotoplace",
+          "site": "Loto Place",
+          "section": "ニュース",
+          "new": false
+        },
+        {
+          "title": "【AI予想】高配当ベスト10をお知らせします！（集計期間： ～ ）",
+          "url": "https://www.lotoplace.jp/articles/1423",
+          "date": "2026-07-01",
+          "feed": "lotoplace",
+          "site": "Loto Place",
+          "section": "ニュース",
+          "new": false
+        },
+        {
+          "title": "【還元キャンペーン】投票金額の１％ポイント還元！！！【自動エントリー】",
+          "url": "https://www.lotoplace.jp/articles/1422",
+          "date": "2026-08-01",
+          "feed": "lotoplace",
+          "site": "Loto Place",
+          "section": "ニュース",
+          "new": false
+        },
+        {
+          "title": "【AI予想】高配当ベスト10をお知らせします！（集計期間： ～ ）",
+          "url": "https://www.lotoplace.jp/articles/1421",
+          "date": "2026-06-01",
+          "feed": "lotoplace",
+          "site": "Loto Place",
+          "section": "ニュース",
+          "new": false
+        },
+        {
+          "title": "【還元キャンペーン】投票金額の１％ポイント還元！！！【自動エントリー】",
+          "url": "https://www.lotoplace.jp/articles/1420",
+          "date": "2026-07-01",
+          "feed": "lotoplace",
+          "site": "Loto Place",
+          "section": "ニュース",
+          "new": false
+        },
+        {
+          "title": "【AI予想】高配当ベスト10をお知らせします！（集計期間： ～ ）",
+          "url": "https://www.lotoplace.jp/articles/1419",
+          "date": "2026-05-01",
+          "feed": "lotoplace",
+          "site": "Loto Place",
+          "section": "ニュース",
+          "new": false
+        }
+      ]
+    },
+    "atarundesu": {
+      "status": "unavailable",
+      "last_success": "",
+      "items": [],
+      "message": "robots.txtを確認できません"
+    },
+    "pist6": {
+      "status": "ok",
+      "last_success": "2026-10-22T13:10:33.151462+09:00",
+      "items": [
+        {
+          "title": "【FAIRLADY Z 大集合】11月1日（日）に開催！",
+          "url": "https://chiba.pist6.com/news/10390.html",
+          "date": "2026-10-01",
+          "feed": "pist6",
+          "site": "PIST6",
+          "section": "ニュース",
+          "new": false
+        },
+        {
+          "title": "【PIST6秋まつり2026】10月24日(土)、25日(日)に開催決定！",
+          "url": "https://chiba.pist6.com/news/10285.html",
+          "date": "2026-09-19",
+          "feed": "pist6",
+          "site": "PIST6",
+          "section": "ニュース",
+          "new": false
+        },
+        {
+          "title": "〈10/31〉PIST6おやこ補助輪卒業教室 開催のお知らせ🚲",
+          "url": "https://chiba.pist6.com/news/10280.html",
+          "date": "2026-09-18",
+          "feed": "pist6",
+          "site": "PIST6",
+          "section": "ニュース",
+          "new": false
+        },
+        {
+          "title": "【イベントレポート】「PIST6真夏のサイクルフェス2026」（8/16）を開催しました！",
+          "url": "https://chiba.pist6.com/news/10250.html",
+          "date": "2026-08-29",
+          "feed": "pist6",
+          "site": "PIST6",
+          "section": "ニュース",
+          "new": false
+        },
+        {
+          "title": "【イベントレポート】「PIST6夏まつり2026」（7/25-26）を開催しました！",
+          "url": "https://chiba.pist6.com/news/10156.html",
+          "date": "2026-08-29",
+          "feed": "pist6",
+          "site": "PIST6",
+          "section": "ニュース",
+          "new": false
+        },
+        {
+          "title": "〈9/19〉PIST6おやこ補助輪卒業教室 開催のお知らせ🚲",
+          "url": "https://chiba.pist6.com/news/10143.html",
+          "date": "2026-08-15",
+          "feed": "pist6",
+          "site": "PIST6",
+          "section": "ニュース",
+          "new": false
+        },
+        {
+          "title": "〈9/19〉サイクルダンジョン レベルアップSTAGE 開催のお知らせ🚲",
+          "url": "https://chiba.pist6.com/news/10228.html",
+          "date": "2026-08-15",
+          "feed": "pist6",
+          "site": "PIST6",
+          "section": "ニュース",
+          "new": false
+        },
+        {
+          "title": "【PIST6真夏のサイクルフェス2026】開催！〈8/16〉 ※8/14更新",
+          "url": "https://chiba.pist6.com/news/9979.html",
+          "date": "2026-07-24",
+          "feed": "pist6",
+          "site": "PIST6",
+          "section": "ニュース",
+          "new": false
+        },
+        {
+          "title": "2026年7月のイベントスケジュールのご案内",
+          "url": "https://chiba.pist6.com/news/9880.html",
+          "date": "2026-06-26",
+          "feed": "pist6",
+          "site": "PIST6",
+          "section": "ニュース",
+          "new": false
+        },
+        {
+          "title": "〈7/12〉サイクルダンジョン レベルアップSTAGE 開催のお知らせ🚲",
+          "url": "https://chiba.pist6.com/news/9913.html",
+          "date": "2026-06-21",
+          "feed": "pist6",
+          "site": "PIST6",
+          "section": "ニュース",
+          "new": false
+        },
+        {
+          "title": "【PIST6夏まつり2026】7月25日(土)、26(日)に開催！大人気イベントが今年もやってくる！",
+          "url": "https://chiba.pist6.com/news/9819.html",
+          "date": "2026-05-29",
+          "feed": "pist6",
+          "site": "PIST6",
+          "section": "ニュース",
+          "new": false
+        },
+        {
+          "title": "【PIST6おやこ補助輪卒業教室】開催！〈6/14〉",
+          "url": "https://chiba.pist6.com/news/9829.html",
+          "date": "2026-05-22",
+          "feed": "pist6",
+          "site": "PIST6",
+          "section": "ニュース",
+          "new": false
+        }
+      ]
+    },
+    "aokei": {
+      "status": "ok",
+      "last_success": "2026-10-22T13:10:33.151462+09:00",
+      "items": [
+        {
+          "title": "車券は２０歳になってから",
+          "url": "https://www.aokei-stadium.com/articles/46",
+          "date": "",
+          "feed": "aokei",
+          "site": "AOKEIスタジアム",
+          "section": "ニュース",
+          "new": false
+        },
+        {
+          "title": "購入限度額の設定",
+          "url": "https://www.aokei-stadium.com/articles/135",
+          "date": "",
+          "feed": "aokei",
+          "site": "AOKEIスタジアム",
+          "section": "ニュース",
+          "new": false
+        },
+        {
+          "title": "【京王閣競輪】開設77周年記念 ゴールドカップGⅢ 投票キャンペーン",
+          "url": "https://www.aokei-stadium.com/articles/157",
+          "date": "2026-10-20",
+          "feed": "aokei",
+          "site": "AOKEIスタジアム",
+          "section": "ニュース",
+          "new": false
+        },
+        {
+          "title": "(伊勢崎オートレース)SG第30回オートレースグランプリ 投票キャンペーン",
+          "url": "https://www.aokei-stadium.com/articles/156",
+          "date": "2026-08-12",
+          "feed": "aokei",
+          "site": "AOKEIスタジアム",
+          "section": "ニュース",
+          "new": false
+        },
+        {
+          "title": "【復旧】チャリカ会員様のチャージ・精算利用再開のお知らせ",
+          "url": "https://www.aokei-stadium.com/articles/155",
+          "date": "2026-06-04",
+          "feed": "aokei",
+          "site": "AOKEIスタジアム",
+          "section": "ニュース",
+          "new": false
+        },
+        {
+          "title": "【重要・追記】4/28（火）玉野競輪におけるシステム不具合の現状と本日の対応について",
+          "url": "https://www.aokei-stadium.com/articles/154",
+          "date": "2026-04-28",
+          "feed": "aokei",
+          "site": "AOKEIスタジアム",
+          "section": "ニュース",
+          "new": false
+        },
+        {
+          "title": "「KEIRIN ADVANCE」試行実施のご案内",
+          "url": "https://www.aokei-stadium.com/articles/153",
+          "date": "2026-04-06",
+          "feed": "aokei",
+          "site": "AOKEIスタジアム",
+          "section": "ニュース",
+          "new": false
+        },
+        {
+          "title": "【重要】競輪およびオートレースのポイント還元制度変更について",
+          "url": "https://www.aokei-stadium.com/articles/151",
+          "date": "2026-01-21",
+          "feed": "aokei",
+          "site": "AOKEIスタジアム",
+          "section": "ニュース",
+          "new": false
+        },
+        {
+          "title": "【重要】競輪及びオートレースの「広告・宣伝指針」改定に伴う、キャンペーン及びポイント制度の変更について",
+          "url": "https://www.aokei-stadium.com/articles/152",
+          "date": "2026-01-21",
+          "feed": "aokei",
+          "site": "AOKEIスタジアム",
+          "section": "ニュース",
+          "new": false
+        },
+        {
+          "title": "(伊勢崎オートレース)第49回シルクカップGⅠ 投票キャンペーン",
+          "url": "https://www.aokei-stadium.com/articles/150",
+          "date": "2026-01-08",
+          "feed": "aokei",
+          "site": "AOKEIスタジアム",
+          "section": "ニュース",
+          "new": false
+        },
+        {
+          "title": "【重要】競輪くじ（Dokanto!、Dokanto!4twoおよびチャリロト）キャンセル上限回数に関するお知らせ",
+          "url": "https://www.aokei-stadium.com/articles/149",
+          "date": "2025-11-27",
+          "feed": "aokei",
+          "site": "AOKEIスタジアム",
+          "section": "ニュース",
+          "new": false
+        },
+        {
+          "title": "(小倉競輪)競輪祭GⅠ・競輪祭女子王座戦GⅠ 投票キャンペーン",
+          "url": "https://www.aokei-stadium.com/articles/148",
+          "date": "2025-11-18",
+          "feed": "aokei",
+          "site": "AOKEIスタジアム",
+          "section": "ニュース",
+          "new": false
+        }
+      ]
+    },
+    "betimo": {
+      "status": "ok",
+      "last_success": "2026-10-22T13:10:33.151462+09:00",
+      "items": [
+        {
+          "title": "Betimo、みんなの銀行と「金融を活用した価値共創にかかる基本合意書」を締結",
+          "url": "https://www.betimo.co.jp/news/261019",
+          "date": "2026-10-19",
+          "feed": "betimo",
+          "site": "Betimo",
+          "section": "ニュースリリース",
+          "new": false
+        },
+        {
+          "title": "競輪のゴールシーンを、先に見る。Betimo、全出走選手の着順・着差を予想する新機能「着順着差予想」を提供開始",
+          "url": "https://www.betimo.co.jp/news/260918",
+          "date": "2026-09-18",
+          "feed": "betimo",
+          "site": "Betimo",
+          "section": "ニュースリリース",
+          "new": false
+        },
+        {
+          "title": "競輪投票サービス「Betimo」、新規登録で1,000ポイントプレゼントキャンペーンを開始",
+          "url": "https://www.betimo.co.jp/news/260320",
+          "date": "2026-03-20",
+          "feed": "betimo",
+          "site": "Betimo",
+          "section": "ニュースリリース",
+          "new": false
+        },
+        {
+          "title": "新トーク企画「Betimoプレミアムトーク」開始のお知らせ",
+          "url": "https://www.betimo.co.jp/news/260123",
+          "date": "2026-01-23",
+          "feed": "betimo",
+          "site": "Betimo",
+          "section": "ニュースリリース",
+          "new": false
+        },
+        {
+          "title": "競輪ネット投票サービス「Betimo（ベティモ）」提供開始のお知らせ",
+          "url": "https://www.betimo.co.jp/news/251210",
+          "date": "2025-12-10",
+          "feed": "betimo",
+          "site": "Betimo",
+          "section": "ニュースリリース",
+          "new": false
+        }
+      ]
+    }
+  }
 }
