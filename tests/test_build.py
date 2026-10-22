@@ -268,6 +268,71 @@ class ScraperTests(unittest.TestCase):
         self.assertIn('<figcaption>告知画像</figcaption>', page)
         self.assertNotIn('src="https://127.0.0.1/private.png"', page)
 
+    def test_winticket_duplicate_notice_across_races(self):
+        snap = mod.load_snapshot(None)
+        snap['feeds'] = {
+            'winkeirin-topics': {'status': 'ok', 'items': [
+                {'title': '本人確認の不具合について',
+                 'url': 'https://www.winticket.jp/keirin/topics/abc123',
+                 'date': '2026-10-22', 'body': ['お知らせ本文です。']}]},
+            'winauto-topics': {'status': 'ok', 'items': [
+                {'title': '本人確認の不具合について',
+                 'url': 'https://www.winticket.jp/autorace/topics/abc123',
+                 'date': '2026-10-22', 'body': ['お知らせ本文です。']}]}
+        }
+        page = mod.render(snap)
+        self.assertEqual(page.count('<article id="news-'), 1)
+        self.assertEqual(page.count('<li data-new="false"><a href="#news-'), 1)
+
+    def test_oddspark_line_breaks(self):
+        doc = ('<h4>メンテナンスのご案内</h4><div>'
+               '初めにご案内いたします。<br>■期間<br>'
+               '2026/10/22 10:00〜12:00<br>ご協力をお願いいたします。'
+               '</div><a href="#">ページ先頭へ</a>')
+        got = mod.extract_oddspark_body(doc, 'メンテナンスのご案内')
+        self.assertEqual(got, [
+            '初めにご案内いたします。',
+            '■期間', '2026/10/22 10:00〜12:00', 'ご協力をお願いいたします。'])
+
+    def test_netkeirin_notice_extracts_true_body(self):
+        doc = """<nav>競輪情報 レース 予想</nav>
+            <h1>【復旧】緊急システムメンテナンス終了のお知らせ</h1>
+            <time>2026年10月21日(水)</time>
+            <div><p>いつもnetkeirinをご利用いただき、誠にありがとうございます。</p>
+            <p>作業が完了し、現在は通常通りサービスをご利用いただける状態となっております。</p>
+            <p>■実施期間</p><p>2026/10/21(水) 22:30 〜 2026/10/22(木) 06:00</p>
+            <p>引き続きnetkeirinをよろしくお願い申し上げます。</p></div>
+            <a href="#">このニュースをポストする</a>
+            <h2>競輪 キャンペーン・お知らせ一覧</h2>
+            <h2>お知らせを探す</h2><p>カテゴリから探す</p>"""
+        result = mod.extract_notice_body(
+            doc, 'メンテナンス 【復旧】緊急システムメンテナンス終了のお知らせ', 'netkeirin')
+        self.assertGreaterEqual(len(result), 4)
+        self.assertIn('■実施期間', result)
+        self.assertNotIn('カテゴリから探す', result)
+        self.assertNotIn('レース', result)
+
+    def test_minnano_article_html_and_empty_placeholder(self):
+        title = '【メンテナンス終了のお知らせ】復旧について'
+        doc = ('<a>戻る</a><h2>' + title + '</h2><time>2026/10/22 10:13</time>'
+               '<section class="body"><p>いつもご利用いただきありがとうございます。</p>'
+               '<p>システムメンテナンスは終了いたしました。現在は通常通りご利用いただけます。</p></section>'
+               '<footer><a>運営会社</a></footer>')
+        blocks = mod.extract_notice_body(doc, '10:13 ' + title, 'minnano')
+        self.assertEqual(len(blocks), 2)
+        self.assertFalse(mod.extract_notice_body(
+            '<h2>' + title + '</h2><time>2026/10/22 10:13</time><footer>運営会社</footer>',
+            title, 'minnano'))
+        self.assertNotIn('運営会社', blocks)
+
+    def test_tipstar_pagination_is_not_article(self):
+        feed = self.feed('tipstar')
+        doc = (('<a href="/news/page/2">次のページへ</a>'
+                '<a href="/news/page/1">前のページへ</a>'
+                '<a href="/news/20261022_1">今月のキャンペーン開始について</a>'))
+        items = mod.extract_articles(feed, doc)
+        self.assertEqual([i['title'] for i in items], ['今月のキャンペーン開始について'])
+
     def test_cache_on_failed_feeds(self):
         class Client:
             def fetch_article(self, feed, url):

@@ -688,12 +688,15 @@ def extract_notice_body(document: str, title: str, site: str) -> list[str]:
     for tag in soup.select('script,style,noscript,template'):
         tag.decompose()
 
-    normalized = clean(title)
+    normalized = clean(title).translate(str.maketrans({'〖': '【', '〗': '】'}))
     if site == 'netkeirin':
         normalized = re.sub(r'^(?:お知らせ|メンテナンス|キャンペーン|イベント)\s+', '', normalized)
+    else:
+        normalized = re.sub(r'^\d{1,2}:\d{2}\s+', '', normalized)
     allowed_headings = 'h1,h2,h3' if site == 'netkeirin' else 'h1,h2,h3,h4'
     heading = next((tag for tag in soup.select(allowed_headings)
-                    if clean(tag.get_text(' ', strip=True)) == normalized), None)
+                    if clean(tag.get_text(' ', strip=True)).translate(
+                        str.maketrans({'〖': '【', '〗': '】'})) == normalized), None)
     if heading is None:
         return []
     ignore = {'nav', 'header', 'footer', 'aside', 'script', 'style', 'noscript', 'button'}
@@ -749,7 +752,7 @@ def extract_notice_body(document: str, title: str, site: str) -> list[str]:
 def extract_minnano_json_body(document: str, title: str) -> list[str]:
     """Use publicly embedded page-state article HTML when SSR omits the body."""
     soup = BeautifulSoup(document, 'html.parser')
-    normalized = clean(title)
+    normalized = re.sub(r'^\d{1,2}:\d{2}\s+', '', clean(title))
     texts: list[str] = []
     for tag in soup.select('script[type="application/json"], script#__NEXT_DATA__, script#__NUXT_DATA__'):
         raw = tag.string or tag.get_text()

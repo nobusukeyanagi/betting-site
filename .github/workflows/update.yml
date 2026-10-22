@@ -50,7 +50,18 @@ jobs:
           git add -A data
           if ! git diff --cached --quiet; then
             git commit -m "chore: update betting-site news snapshot"
-            git push origin "HEAD:${GITHUB_REF_NAME}"
+            # Manual source edits may land during long image downloads.
+            # Rebase generated data on the latest main without force-pushing.
+            for attempt in 1 2 3; do
+              git fetch origin "${GITHUB_REF_NAME}"
+              git rebase -X theirs "origin/${GITHUB_REF_NAME}"
+              if git push origin "HEAD:${GITHUB_REF_NAME}"; then
+                exit 0
+              fi
+              sleep 2
+            done
+            echo "Could not persist the snapshot after 3 safe retries" >&2
+            exit 1
           fi
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v6
