@@ -216,6 +216,58 @@ class ScraperTests(unittest.TestCase):
         self.assertEqual(right_titles, ['WINTICKET新しい記事', 'WINTICKET古い記事',
                                        'オッズパーク最新記事', 'Betimoの記事'])
 
+    def test_article_image_keeps_text_order_and_ignores_header_logo(self):
+        document = """<html><body><header><img src="/images/logo.png" alt="サイトロゴ"></header>
+        <main><article><h1>イベント開催のご案内</h1>
+        <p>キャンペーンを実施しますので、ぜひご参加ください。</p>
+        <figure><img data-src="/images/notice.jpg" width="640" height="480">
+        <figcaption>キャンペーン告知画像</figcaption></figure>
+        <p>詳しい応募方法は公式サイトにてご確認ください。</p>
+        </article></main></body></html>"""
+        blocks = mod.ordered_article_media(
+            document, 'イベント開催のご案内',
+            ['キャンペーンを実施しますので、ぜひご参加ください。',
+             '詳しい応募方法は公式サイトにてご確認ください。'],
+            'https://www.chariloto.com/articles/12345', False)
+        self.assertEqual([block['type'] for block in blocks], ['text', 'image', 'text'])
+        self.assertEqual(blocks[1]['url'], 'https://www.chariloto.com/images/notice.jpg')
+        self.assertEqual(blocks[1]['caption'], 'キャンペーン告知画像')
+        self.assertNotIn('logo.png', repr(blocks))
+
+    def test_oddspark_article_image_scope_and_secure_source(self):
+        document = """<html><body><header><img src="/logo.jpg"></header>
+        <h4>キャンペーンのお知らせ</h4>
+        <p>キャンペーンを期間限定で開催しています。</p>
+        <img src="https://127.0.0.1/private.png">
+        <img src="/info/2026/10/campaign.png" width="600" height="300">
+        <p>詳細は公式ページをご確認ください。</p>
+        <a href="/info/">お知らせTOPへ</a>
+        <img src="/footer-ad.jpg"></body></html>"""
+        blocks = mod.ordered_article_media(
+            document, 'キャンペーンのお知らせ',
+            ['キャンペーンを期間限定で開催しています。',
+             '詳細は公式ページをご確認ください。'],
+            'https://www.oddspark.com/info/2026/10/post-687.html', True)
+        self.assertEqual(len([b for b in blocks if b['type'] == 'image']), 1)
+        self.assertIn('campaign.png', repr(blocks))
+        self.assertNotIn('footer-ad', repr(blocks))
+
+    def test_render_image_matches_racing_news_dimensions(self):
+        feed = self.feed('chariloto')
+        snap = mod.load_snapshot(None)
+        snap['feeds'] = {feed.key: {'status': 'ok', 'items': [{
+            'title': 'キャンペーン', 'url': 'https://www.chariloto.com/articles/12345',
+            'date': '2026-10-22', 'body': ['前後の文章'],
+            'media_version': mod.MEDIA_VERSION,
+            'blocks': [{'type': 'text', 'text': '前後の文章'},
+                       {'type': 'image', 'src': 'images/' + 'a'*24 + '.jpg',
+                        'caption': '告知画像'}]}]}}
+        page = mod.render(snap)
+        self.assertIn('max-width:300px;height:auto;max-height:300px;object-fit:contain', page)
+        self.assertIn('<figure><img src="images/' + 'a'*24 + '.jpg"', page)
+        self.assertIn('<figcaption>告知画像</figcaption>', page)
+        self.assertNotIn('src="https://127.0.0.1/private.png"', page)
+
     def test_cache_on_failed_feeds(self):
         class Client:
             def fetch_article(self, feed, url):
