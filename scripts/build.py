@@ -216,6 +216,46 @@ def extract_articles(feed: Feed, document: str) -> list[dict]:
     return items
 
 
+
+def extract_embedded_news(feed: Feed, document: str) -> list[dict]:
+    """Read explicitly published article objects in the HTML's embedded JSON."""
+    soup = BeautifulSoup(document, 'html.parser')
+    items: list[dict] = []
+    seen: set[str] = set()
+
+    def walk(obj, depth: int = 0) -> None:
+        if depth > 24 or len(items) >= feed.limit:
+            return
+        if isinstance(obj, dict):
+            title = clean(str(obj.get('title') or obj.get('headline') or
+                              obj.get('newsTitle') or obj.get('name') or ''))
+            href = obj.get('url') or obj.get('href') or obj.get('link') or obj.get('path')
+            if not href and isinstance(obj.get('slug'), str):
+                href = '/news/' + obj['slug']
+            url = safe_url(feed, href) if isinstance(href, str) else None
+            if url and url not in seen and 6 <= len(title) <= 240:
+                seen.add(url)
+                published = obj.get('publishedAt') or obj.get('date') or obj.get('createdAt') or ''
+                items.append({'title': title, 'url': url, 'date': date_from(str(published)),
+                              'feed': feed.key, 'site': feed.site, 'section': feed.section})
+            for value in obj.values():
+                if isinstance(value, (dict, list)):
+                    walk(value, depth+1)
+        elif isinstance(obj, list):
+            for value in obj[:120]:
+                walk(value, depth+1)
+
+    for tag in soup.select('script[type="application/json"],script[type="application/ld+json"],script#__NEXT_DATA__,script#__NUXT_DATA__'):
+        raw = tag.string or tag.get_text()
+        if not raw or len(raw) > MAX_BYTES:
+            continue
+        try:
+            walk(json.loads(raw))
+        except (ValueError, TypeError):
+            continue
+    return items
+
+
 class WebClient:
     def __init__(self):
         self.robots: dict[str, urllib.robotparser.RobotFileParser] = {}
@@ -268,11 +308,26 @@ class WebClient:
             raise RuntimeError('robots.txtにより取得できません')
 
     def fetch(self, feed: Feed) -> str:
-        self._check_robots(feed.url)
+        target = feed.url
+        if feed.key == 'keirinjp':
+            # The official mobile page is a public alternate to the PC view;
+            # only try it when its own robots rules permit retrieval.
+            alternatives = (feed.url, 'https://keirin.jp/sp/topicslist')
+            for candidate in alternatives:
+                try:
+                    self._check_robots(candidate)
+                    target = candidate
+                    break
+                except RuntimeError:
+                    continue
+            else:
+                raise RuntimeError('PC・スマートフォン版ともrobots.txtにより取得できません')
+        else:
+            self._check_robots(target)
         # Avoid bursts to sites; check for challenge page without bypassing it.
         time.sleep(max(0, 0.5 - (time.monotonic() - self.last)))
-        host = urllib.parse.urlsplit(feed.url).hostname
-        doc = self._read(feed.url, host)
+        host = urllib.parse.urlsplit(target).hostname
+        doc = self._read(target, host)
         if any(marker in doc[:6000].lower() for marker in (
             'verify that you\'re not a robot', 'cf-chl-', 'enable javascript and reload the page',
             'javascript is disabled</h',
@@ -295,6 +350,30 @@ class WebClient:
             raise RuntimeError('サイト側のアクセス確認画面が表示されました')
         return document
 
+
+
+
+    def render_listing(self, feed: Feed) -> str:
+        """Use an ordinary headless browser for public JS-rendered listing pages."""
+        if feed.key not in ('dmm', 'keirinjp'):
+            raise RuntimeError('ブラウザ表示対象外です')
+        self._check_robots(feed.url)
+        binary = next((shutil.which(name) for name in
+                       ('google-chrome', 'google-chrome-stable', 'chromium', 'chromium-browser')
+                       if shutil.which(name)), None)
+        if not binary:
+            raise RuntimeError('Chromeが利用できません')
+        process = subprocess.run([
+            binary, '--headless=new', '--disable-gpu', '--disable-extensions',
+            '--disable-dev-shm-usage', '--no-first-run',
+            '--virtual-time-budget=7000', '--dump-dom', feed.url
+        ], stdout=subprocess.PIPE, stderr=subprocess.PIPE, timeout=24, check=False)
+        if process.returncode or not process.stdout or len(process.stdout) > MAX_BYTES:
+            raise RuntimeError('Chromeで記事一覧を取得できませんでした')
+        output = process.stdout.decode('utf-8', 'replace')
+        if 'verify that you' in output[:6000].lower() and 'robot' in output[:6000].lower():
+            raise RuntimeError('アクセス確認画面が表示されました')
+        return output
 
 
     def render_article(self, feed: Feed, url: str) -> str:
@@ -849,9 +928,20 @@ def update(client: WebClient, old: dict, now: datetime) -> dict:
         prior = old.get('feeds', {}).get(feed.key, {})
         previous_items = prior.get('items') if isinstance(prior.get('items'), list) else []
         try:
-            items = extract_articles(feed, client.fetch(feed))
+            document = client.fetch(feed)
+            items = extract_articles(feed, document)
+            if not items and feed.key == 'dmm':
+                items = extract_embedded_news(feed, document)
+            if not items and feed.key in ('dmm', 'keirinjp') and hasattr(client, 'render_listing'):
+                try:
+                    rendered = client.render_listing(feed)
+                    items = extract_articles(feed, rendered)
+                    if not items and feed.key == 'dmm':
+                        items = extract_embedded_news(feed, rendered)
+                except (OSError, RuntimeError, subprocess.TimeoutExpired) as error:
+                    print(f'INFO ブラウザ一覧未取得 {feed.site}: {clean(str(error))[:100]}')
             if not items:
-                raise RuntimeError('記事リンクが見つかりません（動的表示・構造変更の可能性）')
+                raise RuntimeError('公開HTMLに記事リンクが見つかりません（動的表示・構造変更の可能性）')
             seen_old = {i['url'] for i in previous_items if 'url' in i}
             old_by_url = {i['url']: i for i in previous_items if 'url' in i}
             for item in items:
@@ -987,7 +1077,7 @@ def linked_text(value: str, source_links: list[dict] | None = None) -> str:
             found.append((pos, pos + len(label), url))
             start = pos + len(label)
     # Auto-link bare HTTPS URLs that occur in a paragraph.
-    for match in re.finditer(r'https://[^\s<>「」『』]+', value):
+    for match in re.finditer(r"""https://[A-Za-z0-9._~:/?#\[\]@!r'https://[^\s<>「」『』]+''()*+,;=%-]+""", value):
         candidate = match.group().rstrip('.,;:)]}。）、')
         url = safe_article_link(candidate, 'https://example.com/')
         if url:

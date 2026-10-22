@@ -385,6 +385,38 @@ class ScraperTests(unittest.TestCase):
         self.assertNotIn('href="javascript:', mod.linked_text(
             'こちらをご覧ください', [{'text': 'こちら', 'href': 'javascript:alert(1)'}]))
 
+
+    def test_dmm_embedded_json_news(self):
+        feed = self.feed('dmm')
+        payload = '<script type="application/json">' + __import__('json').dumps({
+            'pageProps': {'articles': [
+                {'title': 'ポイント還元キャンペーンのご案内',
+                 'slug': 'point_campaign',
+                 'publishedAt': '2026-10-22T01:00:00+09:00'},
+                {'title': '公式メンテナンスのお知らせ',
+                 'url': '/news/maintenance', 'date': '2026-10-21'},
+                {'title': 'ダウンロードリンク', 'url': 'https://another.example/news/fake'}
+            ]}
+        }, ensure_ascii=False) + '</script>'
+        items = mod.extract_embedded_news(feed, payload)
+        self.assertEqual(len(items), 2)
+        self.assertEqual(items[0]['url'], 'https://keirin.dmm.com/news/point_campaign')
+        self.assertEqual(items[0]['date'], '2026-10-22')
+
+    def test_dmm_listing_fallback_from_public_embedded_json(self):
+        class Client:
+            def fetch(self, feed):
+                if feed.key == 'dmm':
+                    return '<script type="application/json">{"news":[{"title":"開催情報更新のお知らせ","path":"/news/test_notice","date":"2026-10-22"}]}</script>'
+                raise RuntimeError('unavailable')
+            def fetch_article(self, feed, url):
+                return '<article><h1>開催情報更新のお知らせ</h1><p>新しい情報をお知らせいたします。</p><p>詳細は公式ページをご確認ください。</p></article>'
+            def save_image(self, url, directory):
+                raise RuntimeError('not used')
+        result = mod.update(Client(), mod.load_snapshot(None),
+                            datetime(2026, 10, 22, tzinfo=ZoneInfo('Asia/Tokyo')))
+        self.assertEqual(len(result['feeds']['dmm']['items']), 1)
+
     def test_cache_on_failed_feeds(self):
         class Client:
             def fetch_article(self, feed, url):
