@@ -1,6 +1,6 @@
 {
   "format_version": 1,
-  "updated": "2026-10-25T03:33:33.939171+09:00",
+  "updated": "2026-10-26T03:42:06.322607+09:00",
   "feeds": {
     "gamboo": {
       "status": "unavailable",
@@ -10,7 +10,7 @@
     },
     "winkeirin-topics": {
       "status": "ok",
-      "last_success": "2026-10-25T03:33:33.939171+09:00",
+      "last_success": "2026-10-26T03:42:06.322607+09:00",
       "items": [
         {
           "title": "【不具合・復旧済み】ドコモSMTBネット銀行の口座連携・チャージ・精算ができない",
@@ -255,7 +255,7 @@
     },
     "winkeirin-column": {
       "status": "ok",
-      "last_success": "2026-10-25T03:33:33.939171+09:00",
+      "last_success": "2026-10-26T03:42:06.322607+09:00",
       "items": [
         {
           "title": "【新機能】アプリを閉じてもレースを見続けられる！",
@@ -413,7 +413,7 @@
     },
     "winauto-topics": {
       "status": "ok",
-      "last_success": "2026-10-25T03:33:33.939171+09:00",
+      "last_success": "2026-10-26T03:42:06.322607+09:00",
       "items": [
         {
           "title": "【お知らせ】伊勢崎オートレース 4日目の一部レース開催中止について",
@@ -422,7 +422,7 @@
           "feed": "winauto-topics",
           "site": "WINTICKET",
           "section": "オート・お知らせ",
-          "new": true,
+          "new": false,
           "body": [
             "いつもWINTICKETをご利用いただき、誠にありがとうございます。",
             "2026年10月24日（土）伊勢崎オートレース 4日目の第3レースにつきましては、オイル漏れのためレース不成立、第4レースから第5レースは、レース中止となりました。 ご迷惑をおかけいたしますが、ご理解ご了承のほど、よろしくお願い申し上げます。",
@@ -430,6 +430,7 @@
             "引き続きWINTICKETをよろしくお願いいたします。"
           ],
           "note": "",
+          "media_version": 1,
           "blocks": [
             {
               "type": "text",
@@ -448,7 +449,6 @@
               "text": "引き続きWINTICKETをよろしくお願いいたします。"
             }
           ],
-          "media_version": 1,
           "link_version": 1
         },
         {
@@ -790,7 +790,7 @@
     },
     "winauto-column": {
       "status": "ok",
-      "last_success": "2026-10-25T03:33:33.939171+09:00",
+      "last_success": "2026-10-26T03:42:06.322607+09:00",
       "items": []
     },
     "odds-info": {
@@ -1429,7 +1429,7 @@
     },
     "kdreams": {
       "status": "ok",
-      "last_success": "2026-10-25T03:33:33.939171+09:00",
+      "last_success": "2026-10-26T03:42:06.322607+09:00",
       "items": [
         {
           "title": "【重要】緊急メンテナンスに伴うサービス一時停止のお知らせ",
@@ -1438,7 +1438,7 @@
           "feed": "kdreams",
           "site": "楽天Kドリームス",
           "section": "インフォメーション",
-          "new": true,
+          "new": false,
           "body": [
             "平素より楽天Kドリームスをご利用いただき、誠にありがとうございます。",
             "2026年10月21日（水）23時00分より緊急メンテナンスを実施しておりますが、WEBサイト・アプリともに復旧作業に時間を要しており、サービスの再開時期は現時点で未定です。 本件は、世界中の数多くのウェブサイトで共通して利用されている基本システム（PHP）において、重大な修正対応が必要となったことに伴うものです。 お客様には多大なご不便をおかけしており、深くお詫び申し上げます。",
@@ -1451,6 +1451,7 @@
             "■ 今後のご案内 復旧の見通しが立ち次第、本お知らせまたは公式Xにてお知らせいたします。"
           ],
           "note": "",
+          "media_version": 1,
           "blocks": [
             {
               "type": "text",
@@ -1495,7 +1496,6 @@
               "text": "■ 今後のご案内 復旧の見通しが立ち次第、本お知らせまたは公式Xにてお知らせいたします。"
             }
           ],
-          "media_version": 1,
           "link_version": 1
         },
         {
@@ -1889,8 +1889,133 @@
     },
     "chariloto": {
       "status": "ok",
-      "last_success": "2026-10-25T03:33:33.939171+09:00",
+      "last_success": "2026-10-26T03:42:06.322607+09:00",
       "items": [
+        {
+          "title": "【Perfecta Navi】レースレポート掲載中！【熊本競輪G3】",
+          "url": "https://www.chariloto.com/articles/7521",
+          "date": "2026-10-25",
+          "feed": "chariloto",
+          "site": "チャリロト",
+          "section": "ニュース",
+          "new": true,
+          "body": [
+            "令和8年熊本地震復興事業・熊本競輪開設76周年記念「火の国杯争奪戦」G3",
+            "3日目",
+            "レース結果",
+            "PerfectaNavi"
+          ],
+          "note": "",
+          "blocks": [
+            {
+              "type": "text",
+              "text": "令和8年熊本地震復興事業・熊本競輪開設76周年記念「火の国杯争奪戦」G3"
+            },
+            {
+              "type": "text",
+              "text": "3日目"
+            },
+            {
+              "type": "text",
+              "text": "レース結果"
+            },
+            {
+              "type": "text",
+              "text": "PerfectaNavi"
+            },
+            {
+              "type": "image",
+              "src": "images/e27a138922a79cdd4353a9bb.jpg",
+              "caption": ""
+            }
+          ],
+          "media_version": 1,
+          "link_version": 1
+        },
+        {
+          "title": "【チャリロトCグループ】1,000万円以上キャリーオーバー発生中！",
+          "url": "https://www.chariloto.com/articles/7459",
+          "date": "2026-10-25",
+          "feed": "chariloto",
+          "site": "チャリロト",
+          "section": "ニュース",
+          "new": false,
+          "body": [
+            "【ご投票はこちら】",
+            "・WEB版の方 https://www.chariloto.com/keirin_jushous",
+            "・アプリご利用の方 「競輪くじ」タブからご購入下さい。"
+          ],
+          "note": "",
+          "media_version": 1,
+          "blocks": [
+            {
+              "type": "image",
+              "src": "images/3bad89e4993e2adcd941206f.png",
+              "caption": ""
+            },
+            {
+              "type": "text",
+              "text": "【ご投票はこちら】"
+            },
+            {
+              "type": "text",
+              "text": "・WEB版の方 https://www.chariloto.com/keirin_jushous",
+              "links": [
+                {
+                  "text": "https://www.chariloto.com/keirin_jushous",
+                  "href": "https://www.chariloto.com/keirin_jushous"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "text": "・アプリご利用の方 「競輪くじ」タブからご購入下さい。"
+            }
+          ],
+          "link_version": 1
+        },
+        {
+          "title": "【チャリロトAグループ】4,000万円以上キャリーオーバー発生中！",
+          "url": "https://www.chariloto.com/articles/6775",
+          "date": "2026-10-25",
+          "feed": "chariloto",
+          "site": "チャリロト",
+          "section": "ニュース",
+          "new": false,
+          "body": [
+            "【ご投票はこちら】",
+            "・WEB版の方 https://www.chariloto.com/keirin_jushous",
+            "・アプリご利用の方 「競輪くじ」タブからご購入下さい。"
+          ],
+          "note": "",
+          "media_version": 1,
+          "blocks": [
+            {
+              "type": "image",
+              "src": "images/976553e4d616012a85222a45.png",
+              "caption": ""
+            },
+            {
+              "type": "text",
+              "text": "【ご投票はこちら】"
+            },
+            {
+              "type": "text",
+              "text": "・WEB版の方 https://www.chariloto.com/keirin_jushous",
+              "links": [
+                {
+                  "text": "https://www.chariloto.com/keirin_jushous",
+                  "href": "https://www.chariloto.com/keirin_jushous"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "text": "・アプリご利用の方 「競輪くじ」タブからご購入下さい。"
+            }
+          ],
+          "link_version": 1
+        },
         {
           "title": "【行くだけで最大2,000円分】10/31～11/3 防府競輪場でチェックインイベント開催！（アプリ限定）",
           "url": "https://www.chariloto.com/articles/7442",
@@ -1898,7 +2023,7 @@
           "feed": "chariloto",
           "site": "チャリロト",
           "section": "ニュース",
-          "new": true,
+          "new": false,
           "body": [
             "周防国府杯争奪戦（G3）開催中の2026年10月31日（土）～11月3日（火・祝）に防府競輪場に来場し、チャリロトのアプリで",
             "チェックイン",
@@ -1943,6 +2068,7 @@
             "をご確認ください。"
           ],
           "note": "",
+          "media_version": 1,
           "blocks": [
             {
               "type": "text",
@@ -2130,91 +2256,6 @@
               "text": "をご確認ください。"
             }
           ],
-          "media_version": 1,
-          "link_version": 1
-        },
-        {
-          "title": "【チャリロトCグループ】1,000万円以上キャリーオーバー発生中！",
-          "url": "https://www.chariloto.com/articles/7459",
-          "date": "2026-10-24",
-          "feed": "chariloto",
-          "site": "チャリロト",
-          "section": "ニュース",
-          "new": false,
-          "body": [
-            "【ご投票はこちら】",
-            "・WEB版の方 https://www.chariloto.com/keirin_jushous",
-            "・アプリご利用の方 「競輪くじ」タブからご購入下さい。"
-          ],
-          "note": "",
-          "media_version": 1,
-          "blocks": [
-            {
-              "type": "image",
-              "src": "images/3bad89e4993e2adcd941206f.png",
-              "caption": ""
-            },
-            {
-              "type": "text",
-              "text": "【ご投票はこちら】"
-            },
-            {
-              "type": "text",
-              "text": "・WEB版の方 https://www.chariloto.com/keirin_jushous",
-              "links": [
-                {
-                  "text": "https://www.chariloto.com/keirin_jushous",
-                  "href": "https://www.chariloto.com/keirin_jushous"
-                }
-              ]
-            },
-            {
-              "type": "text",
-              "text": "・アプリご利用の方 「競輪くじ」タブからご購入下さい。"
-            }
-          ],
-          "link_version": 1
-        },
-        {
-          "title": "【チャリロトAグループ】4,000万円以上キャリーオーバー発生中！",
-          "url": "https://www.chariloto.com/articles/6775",
-          "date": "2026-10-24",
-          "feed": "chariloto",
-          "site": "チャリロト",
-          "section": "ニュース",
-          "new": true,
-          "body": [
-            "【ご投票はこちら】",
-            "・WEB版の方 https://www.chariloto.com/keirin_jushous",
-            "・アプリご利用の方 「競輪くじ」タブからご購入下さい。"
-          ],
-          "note": "",
-          "blocks": [
-            {
-              "type": "image",
-              "src": "images/976553e4d616012a85222a45.png",
-              "caption": ""
-            },
-            {
-              "type": "text",
-              "text": "【ご投票はこちら】"
-            },
-            {
-              "type": "text",
-              "text": "・WEB版の方 https://www.chariloto.com/keirin_jushous",
-              "links": [
-                {
-                  "text": "https://www.chariloto.com/keirin_jushous",
-                  "href": "https://www.chariloto.com/keirin_jushous"
-                }
-              ]
-            },
-            {
-              "type": "text",
-              "text": "・アプリご利用の方 「競輪くじ」タブからご購入下さい。"
-            }
-          ],
-          "media_version": 1,
           "link_version": 1
         },
         {
@@ -2505,72 +2546,6 @@
             }
           ],
           "link_version": 1
-        },
-        {
-          "title": "【重要】セキュリティ強化に伴う再ログインのお願い（10月22日実施）",
-          "url": "https://www.chariloto.com/articles/7533",
-          "date": "2026-10-22",
-          "feed": "chariloto",
-          "site": "チャリロト",
-          "section": "ニュース",
-          "new": false,
-          "body": [
-            "平素よりチャリロトをご利用いただき、誠にありがとうございます。",
-            "この度、お客様により安全にサービスをご利用いただくためのセキュリティ強化の一環として、以下の日時にて全アカウントを対象としたログイン状態のリセットを実施いたします。",
-            "■実施日時",
-            "2026年10月22日（木）19:57 （予定）",
-            "■対象",
-            "チャリロトをご利用のすべてのお客様（Web版、アプリ版共通）",
-            "■お客様へのお願い",
-            "上記日時以降、チャリロトへアクセスした際に自動的にログアウトされた状態となります。",
-            "大変お手数ではございますが、サービスをご利用の際は、再度ログインID（メールアドレス）およびパスワードをご入力のうえ、ログインをお願いいたします。",
-            "また、アカウント情報の適切な管理ならびにセキュリティ強化へのご協力をお願いいたします。"
-          ],
-          "note": "",
-          "media_version": 1,
-          "blocks": [
-            {
-              "type": "text",
-              "text": "平素よりチャリロトをご利用いただき、誠にありがとうございます。"
-            },
-            {
-              "type": "text",
-              "text": "この度、お客様により安全にサービスをご利用いただくためのセキュリティ強化の一環として、以下の日時にて全アカウントを対象としたログイン状態のリセットを実施いたします。"
-            },
-            {
-              "type": "text",
-              "text": "■実施日時"
-            },
-            {
-              "type": "text",
-              "text": "2026年10月22日（木）19:57 （予定）"
-            },
-            {
-              "type": "text",
-              "text": "■対象"
-            },
-            {
-              "type": "text",
-              "text": "チャリロトをご利用のすべてのお客様（Web版、アプリ版共通）"
-            },
-            {
-              "type": "text",
-              "text": "■お客様へのお願い"
-            },
-            {
-              "type": "text",
-              "text": "上記日時以降、チャリロトへアクセスした際に自動的にログアウトされた状態となります。"
-            },
-            {
-              "type": "text",
-              "text": "大変お手数ではございますが、サービスをご利用の際は、再度ログインID（メールアドレス）およびパスワードをご入力のうえ、ログインをお願いいたします。"
-            },
-            {
-              "type": "text",
-              "text": "また、アカウント情報の適切な管理ならびにセキュリティ強化へのご協力をお願いいたします。"
-            }
-          ],
-          "link_version": 1
         }
       ]
     },
@@ -2582,7 +2557,7 @@
     },
     "autorace-campaign": {
       "status": "ok",
-      "last_success": "2026-10-25T03:33:33.939171+09:00",
+      "last_success": "2026-10-26T03:42:06.322607+09:00",
       "items": [
         {
           "title": "浜松 公式ファンクラブ会員限定「SG第58回日本選手権オートレースは6日間全レースでマイル5％還元！」",
@@ -2722,7 +2697,7 @@
     },
     "autorace-event": {
       "status": "ok",
-      "last_success": "2026-10-25T03:33:33.939171+09:00",
+      "last_success": "2026-10-26T03:42:06.322607+09:00",
       "items": [
         {
           "title": "情報 公営競技3競技のレジェンドvs人気Mリーガー！「異種4競技麻雀対決」が実現！YouTube企画『SWITCH OFF』番外編！",
@@ -2731,7 +2706,7 @@
           "feed": "autorace-event",
           "site": "AUTORACE.JP",
           "section": "イベント",
-          "new": true,
+          "new": false,
           "body": [
             "公営競技3競技のレジェンドvs人気Mリーガー！「異種4競技麻雀対決」が実現！YouTube企画『SWITCH OFF』番外編！",
             "レース場を離れた選手の素の姿に密着！公式YouTube企画 『SWITCH OFF（スイッチオフ）』",
@@ -2742,6 +2717,7 @@
             "ネット口座をお持ちの方は、即日で登録完了。 スマホ・パソコンからご投票できます。 登録費や年会費などは無くご登録は無料です。 お気軽にAUTORACE.JP投票をお試しください。"
           ],
           "note": "",
+          "media_version": 1,
           "blocks": [
             {
               "type": "text",
@@ -2802,7 +2778,6 @@
               "text": "ネット口座をお持ちの方は、即日で登録完了。 スマホ・パソコンからご投票できます。 登録費や年会費などは無くご登録は無料です。 お気軽にAUTORACE.JP投票をお試しください。"
             }
           ],
-          "media_version": 1,
           "link_version": 1
         },
         {
@@ -2812,7 +2787,7 @@
           "feed": "autorace-event",
           "site": "AUTORACE.JP",
           "section": "イベント",
-          "new": true,
+          "new": false,
           "body": [
             "浜松オートにUFOキャッチャーが登場！新ロゴマークグッズをゲットしよう！",
             "大人気！UFOキャッチャー企画第2弾！",
@@ -2825,6 +2800,7 @@
             "ネット口座をお持ちの方は、即日で登録完了。 スマホ・パソコンからご投票できます。 登録費や年会費などは無くご登録は無料です。 お気軽にAUTORACE.JP投票をお試しください。"
           ],
           "note": "",
+          "media_version": 1,
           "blocks": [
             {
               "type": "text",
@@ -2873,7 +2849,6 @@
               "text": "ネット口座をお持ちの方は、即日で登録完了。 スマホ・パソコンからご投票できます。 登録費や年会費などは無くご登録は無料です。 お気軽にAUTORACE.JP投票をお試しください。"
             }
           ],
-          "media_version": 1,
           "link_version": 1
         },
         {
@@ -3291,12 +3266,12 @@
     },
     "autorace-update": {
       "status": "ok",
-      "last_success": "2026-10-25T03:33:33.939171+09:00",
+      "last_success": "2026-10-26T03:42:06.322607+09:00",
       "items": []
     },
     "netkeirin": {
       "status": "ok",
-      "last_success": "2026-10-25T03:33:33.939171+09:00",
+      "last_success": "2026-10-26T03:42:06.322607+09:00",
       "items": [
         {
           "title": "お知らせ 【復旧】一部予想情報が表示されない事象について※10月22日 7時30分更新",
@@ -3488,8 +3463,374 @@
     },
     "minnano": {
       "status": "ok",
-      "last_success": "2026-10-25T03:33:33.939171+09:00",
+      "last_success": "2026-10-26T03:42:06.322607+09:00",
       "items": [
+        {
+          "title": "12:00 【10月28日～10月30日限定】抽選でみんなの競輪オリジナルTシャツが当たる！「別府競輪F2モーニング 投票キャンペーン」",
+          "url": "https://bet.minnano-keirin.com/info/25499",
+          "date": "2026-10-25",
+          "feed": "minnano",
+          "site": "みんなの競輪",
+          "section": "お知らせ",
+          "new": true,
+          "body": [
+            "10月28日(水)～10月30日(金)「別府競輪F2モーニング」にて、「みんなの競輪」の冠協賛レースを開催！条件達成で《みんなの競輪オリジナルTシャツ》を抽選で10名様にプレゼント！",
+            "【キャンペーン対象日・対象レース】",
+            "・10月28日(水)～10月30日(金)「別府競輪F2モーニング」全レース",
+            "【エントリー方法】",
+            "・キャンペーン対象開催において、以下のエントリー条件を満たすこと。",
+            "(1)対象レースの3連単を合計5,000円分以上購入",
+            "(2)本フォーム内の「応募する」ボタンを押下してエントリー",
+            "【賞品（抽選でプレゼント）】",
+            "みんなの競輪オリジナルグッズ（Tシャツ） 10名様",
+            "【本キャンペーン注意事項】",
+            "※本キャンペーンは応募フォームよりエントリーが必要となります。",
+            "※ご当選時の賞品は、本サービスにご登録の住所に賞品をお送りいたします。郵送先を変更する場合は、マイページよりご変更ください。",
+            "※キャンペーンの開催期間、および賞品発送時期は予告なく変更となる場合がございます。",
+            "※競走が不成立・開催中止・順延・または選手の欠場などで返金となった場合、その投票はキャンペーンの対象外となります。",
+            "※該当の競輪開催が中止となった場合、本キャンペーンも中止いたします。",
+            "※その他、本キャンペーンは予告なく内容の変更・または中止となる場合がございます。"
+          ],
+          "note": "",
+          "body_extractor": "minnano-flight-v2",
+          "blocks": [
+            {
+              "type": "text",
+              "text": "10月28日(水)～10月30日(金)「別府競輪F2モーニング」にて、「みんなの競輪」の冠協賛レースを開催！条件達成で《みんなの競輪オリジナルTシャツ》を抽選で10名様にプレゼント！"
+            },
+            {
+              "type": "text",
+              "text": "【キャンペーン対象日・対象レース】"
+            },
+            {
+              "type": "text",
+              "text": "・10月28日(水)～10月30日(金)「別府競輪F2モーニング」全レース"
+            },
+            {
+              "type": "text",
+              "text": "【エントリー方法】"
+            },
+            {
+              "type": "text",
+              "text": "・キャンペーン対象開催において、以下のエントリー条件を満たすこと。"
+            },
+            {
+              "type": "text",
+              "text": "(1)対象レースの3連単を合計5,000円分以上購入"
+            },
+            {
+              "type": "text",
+              "text": "(2)本フォーム内の「応募する」ボタンを押下してエントリー"
+            },
+            {
+              "type": "text",
+              "text": "【賞品（抽選でプレゼント）】"
+            },
+            {
+              "type": "text",
+              "text": "みんなの競輪オリジナルグッズ（Tシャツ） 10名様"
+            },
+            {
+              "type": "text",
+              "text": "【本キャンペーン注意事項】"
+            },
+            {
+              "type": "text",
+              "text": "※本キャンペーンは応募フォームよりエントリーが必要となります。"
+            },
+            {
+              "type": "text",
+              "text": "※ご当選時の賞品は、本サービスにご登録の住所に賞品をお送りいたします。郵送先を変更する場合は、マイページよりご変更ください。"
+            },
+            {
+              "type": "text",
+              "text": "※キャンペーンの開催期間、および賞品発送時期は予告なく変更となる場合がございます。"
+            },
+            {
+              "type": "text",
+              "text": "※競走が不成立・開催中止・順延・または選手の欠場などで返金となった場合、その投票はキャンペーンの対象外となります。"
+            },
+            {
+              "type": "text",
+              "text": "※該当の競輪開催が中止となった場合、本キャンペーンも中止いたします。"
+            },
+            {
+              "type": "text",
+              "text": "※その他、本キャンペーンは予告なく内容の変更・または中止となる場合がございます。"
+            }
+          ],
+          "media_version": 1,
+          "link_version": 1
+        },
+        {
+          "title": "00:00 【重要】投票還元ポイントの付与日変更について",
+          "url": "https://bet.minnano-keirin.com/info/23851",
+          "date": "2026-10-25",
+          "feed": "minnano",
+          "site": "みんなの競輪",
+          "section": "お知らせ",
+          "new": true,
+          "body": [
+            "Tbd4,いつも「みんなの競輪」をご利用いただき、誠にありがとうございます。",
+            "このたびユーザー様のお問い合わせ・ご要望にお応えし、10月の競輪投票分より、毎月付与しております投票還元ポイントの付与日を変更いたします。",
+            "これまで当月の投票分について、翌月1日にまとめてポイントを付与しておりましたが、今後は毎月3回に分けてポイントを付与いたします。",
+            "なお、ポイント還元の対象および還元率に変更はございません。",
+            "■変更内容",
+            "【変更前】",
+            "当月1日～末日の投票分 → 翌月1日にポイント付与",
+            "【変更後】",
+            "・1日～10日の投票分 → 当月11日にポイント付与",
+            "・11日～20日の投票分 → 当月21日にポイント付与",
+            "・21日～末日の投票分 → 翌月1日にポイント付与",
+            "■ポイント還元内容",
+            "ポイント還元の条件に変更はございません。",
+            "・全レース：対象となる投票金額の1％分をポイント還元",
+            "※ワイド・重勝式は対象外です。",
+            "・ナイター・ミッドナイトの決勝レース および グレードレース決勝レース：対象となる投票金額の最大5％分をポイント還元",
+            "※全会員対象の「投票1％還元キャンペーン」と合わせて、トータルで最大5％分のポイントを還元いたします。",
+            "※全レース1％還元・決勝レース5％還元については、同一の付与日でも反映される時間が異なります。",
+            "■注意事項",
+            "※ポイント付与の対象期間は、投票を行った日を基準として判定いたします。",
+            "※ワイド・重勝式の投票は、キャンペーン対象外となります。",
+            "※付与したポイントの有効期限は180日間です。",
+            "※競走が不成立・開催中止・順延・または選手の欠場などで返金となった場合、その投票はキャンペーンの対象外となります。",
+            "※対象の競輪開催が中止順延となった場合、翌日の決勝レースが対象となります。",
+            "※明らかな同一ユーザーによる複数アカウントでの投票は、キャンペーン対象外となります。",
+            "※システムの状況等により、ポイントの反映までに時間を要する場合がございます。",
+            "※キャンペーンの開催期間、付与時期は予告なく変更となる場合がございます。",
+            "今後も、より便利に「みんなの競輪」をご利用いただけるよう、サービスの改善に努めてまいります。",
+            "引き続き「みんなの競輪」をよろしくお願いいたします。e:[\"$\",\"div\",null,{\"className\":\"sp-footer-spacing-padding flex min-h-screen flex-col md:pb-0\",\"children\":[[\"$\",\"div\",null,{\"className\":\"flex md:flex-1\",\"children\":[[\"$\",\"div\",null,{\"className\":\"hidden md:block\",\"children\":[\"$\",\"$L16\",null,{}]}],[\"$\",\"div\",null,{\"className\":\"flex min-w-0 flex-1 flex-col justify-between\",\"children\":[[\"$\",\"div\",null,{\"children\":[\"$\",\"main\",null,{\"className\":\"m-4 mb-24 rounded-xl bg-white p-4 md:m-auto md:mt-[50px] md:mb-20 md:min-h-auto md:w-[789px] md:rounded-2xl md:bg-white md:p-10\",\"children\":[\"$\",\"div\",null,{\"className\":\"text-default flex flex-col gap-4 rounded-lg bg-white\",\"children\":[[\"$\",\"$L17\",null,{\"href\":\"/info\",\"className\":\"inline-flex items-center gap-2\",\"children\":[[\"$\",\"svg\",null,{\"width\":16,\"height\":16,\"viewBox\":\"0 0 12 20\",\"fill\":\"#888888\",\"xmlns\":\"http://www.w3.org/2000/svg\",\"children\":[\"$\",\"path\",null,{\"d\":\"M10 20L0 10L10 0L11.775 1.775L3.55 10L11.775 18.225L10 20Z\",\"fill\":\"#888888\"}]}],[\"$\",\"span\",null,{\"className\":\"font-[Noto_Sans_JP,sans-serif] text-[14px] leading-[1.5] tracking-[-0.02em] text-[#888888]\",\"children\":\"戻る\"}]]}],[\"$\",\"section\",null,{\"children\":[[\"$\",\"h2\",null,{\"className\":\"text-xl font-bold\",\"children\":\"【重要】投票還元ポイントの付与日変更について\"}],[\"$\",\"div\",null,{\"className\":\"text-[#888]\",\"children\":\"2026/10/25 00:00\"}]]}],false,[\"$\",\"$L18\",null,{\"htmlContent\":\"$19\"}]]}]}]}],[\"$\",\"footer\",null,{\"className\":\"hidden md:flex bg-default w-full flex-col gap-5 px-4 py-8 pb-[87px] text-white md:gap-10 md:pb-8\",\"children\":[\"$\",\"div\",null,{\"className\":\"flex flex-col gap-10 text-xs text-white md:gap-6\",\"children\":[[\"$\",\"div\",null,{\"className\":\"grid grid-cols-2 gap-5 md:flex md:flex-wrap md:gap-x-12 md:gap-y-2\",\"children\":[[\"$\",\"$L17\",null,{\"href\":\"/about\",\"children\":\"運営会社\"}],[\"$\",\"$L17\",null,{\"href\":\"/about/terms\",\"children\":\"利用規約\"}],[\"$\",\"$L17\",null,{\"href\":\"/about/privacy-policy\",\"children\":\"プライバシーポリシー\"}],[\"$\",\"$L17\",null,{\"href\":\"/about/commercial-transaction\",\"children\":\"特定商取引法に基づく表示\"}],[\"$\",\"$L17\",null,{\"href\":\"/about/security-policy\",\"children\":\"情報セキュリティ方針\"}],[\"$\",\"$L17\",null,{\"href\":\"/mypage/faq\",\"children\":\"よくある質問\"}],[\"$\",\"$L17\",null,{\"href\":\"/mypage/contact\",\"children\":\"お問い合わせ\"}]]}],[\"$\",\"div\",null,{\"className\":\"flex flex-col gap-5 md:flex-row md:flex-wrap md:gap-x-7 md:gap-y-2\",\"children\":[[\"$\",\"$L17\",null,{\"href\":\"/login/gamble-notice\",\"className\":\"flex items-center gap-2\",\"children\":[[\"$\",\"div\",null,{\"children\":\"車券の購入は20歳になってから、競輪は適度に楽しみましょう\"}],[\"$\",\"svg\",null,{\"width\":8,\"height\":12,\"viewBox\":\"0 0 8 12\",\"fill\":\"none\",\"xmlns\":\"http://www.w3.org/2000/svg\",\"children\":[\"$\",\"path\",null,{\"d\":\"M2 5.24537e-07L8 6L2 12L0.6 10.6L5.2 6L0.599999 1.4L2 5.24537e-07Z\",\"fill\":\"white\"}]}]]}],[\"$\",\"$L17\",null,{\"href\":\"/login/gambling-addiction\",\"className\":\"flex items-center gap-2\",\"children\":[\"$L1a\",\"$L1b\"]}],\"$L1c\"]}],\"$L1d\"]}]}]]}]]}],\"$L1e\"]}]"
+          ],
+          "note": "",
+          "body_extractor": "minnano-flight-v2",
+          "blocks": [
+            {
+              "type": "text",
+              "text": "Tbd4,いつも「みんなの競輪」をご利用いただき、誠にありがとうございます。"
+            },
+            {
+              "type": "text",
+              "text": "このたびユーザー様のお問い合わせ・ご要望にお応えし、10月の競輪投票分より、毎月付与しております投票還元ポイントの付与日を変更いたします。"
+            },
+            {
+              "type": "text",
+              "text": "これまで当月の投票分について、翌月1日にまとめてポイントを付与しておりましたが、今後は毎月3回に分けてポイントを付与いたします。"
+            },
+            {
+              "type": "text",
+              "text": "なお、ポイント還元の対象および還元率に変更はございません。"
+            },
+            {
+              "type": "text",
+              "text": "■変更内容"
+            },
+            {
+              "type": "text",
+              "text": "【変更前】"
+            },
+            {
+              "type": "text",
+              "text": "当月1日～末日の投票分 → 翌月1日にポイント付与"
+            },
+            {
+              "type": "text",
+              "text": "【変更後】"
+            },
+            {
+              "type": "text",
+              "text": "・1日～10日の投票分 → 当月11日にポイント付与"
+            },
+            {
+              "type": "text",
+              "text": "・11日～20日の投票分 → 当月21日にポイント付与"
+            },
+            {
+              "type": "text",
+              "text": "・21日～末日の投票分 → 翌月1日にポイント付与"
+            },
+            {
+              "type": "text",
+              "text": "■ポイント還元内容"
+            },
+            {
+              "type": "text",
+              "text": "ポイント還元の条件に変更はございません。"
+            },
+            {
+              "type": "text",
+              "text": "・全レース：対象となる投票金額の1％分をポイント還元"
+            },
+            {
+              "type": "text",
+              "text": "※ワイド・重勝式は対象外です。"
+            },
+            {
+              "type": "text",
+              "text": "・ナイター・ミッドナイトの決勝レース および グレードレース決勝レース：対象となる投票金額の最大5％分をポイント還元"
+            },
+            {
+              "type": "text",
+              "text": "※全会員対象の「投票1％還元キャンペーン」と合わせて、トータルで最大5％分のポイントを還元いたします。"
+            },
+            {
+              "type": "text",
+              "text": "※全レース1％還元・決勝レース5％還元については、同一の付与日でも反映される時間が異なります。"
+            },
+            {
+              "type": "text",
+              "text": "■注意事項"
+            },
+            {
+              "type": "text",
+              "text": "※ポイント付与の対象期間は、投票を行った日を基準として判定いたします。"
+            },
+            {
+              "type": "text",
+              "text": "※ワイド・重勝式の投票は、キャンペーン対象外となります。"
+            },
+            {
+              "type": "text",
+              "text": "※付与したポイントの有効期限は180日間です。"
+            },
+            {
+              "type": "text",
+              "text": "※競走が不成立・開催中止・順延・または選手の欠場などで返金となった場合、その投票はキャンペーンの対象外となります。"
+            },
+            {
+              "type": "text",
+              "text": "※対象の競輪開催が中止順延となった場合、翌日の決勝レースが対象となります。"
+            },
+            {
+              "type": "text",
+              "text": "※明らかな同一ユーザーによる複数アカウントでの投票は、キャンペーン対象外となります。"
+            },
+            {
+              "type": "text",
+              "text": "※システムの状況等により、ポイントの反映までに時間を要する場合がございます。"
+            },
+            {
+              "type": "text",
+              "text": "※キャンペーンの開催期間、付与時期は予告なく変更となる場合がございます。"
+            },
+            {
+              "type": "text",
+              "text": "今後も、より便利に「みんなの競輪」をご利用いただけるよう、サービスの改善に努めてまいります。"
+            },
+            {
+              "type": "text",
+              "text": "引き続き「みんなの競輪」をよろしくお願いいたします。e:[\"$\",\"div\",null,{\"className\":\"sp-footer-spacing-padding flex min-h-screen flex-col md:pb-0\",\"children\":[[\"$\",\"div\",null,{\"className\":\"flex md:flex-1\",\"children\":[[\"$\",\"div\",null,{\"className\":\"hidden md:block\",\"children\":[\"$\",\"$L16\",null,{}]}],[\"$\",\"div\",null,{\"className\":\"flex min-w-0 flex-1 flex-col justify-between\",\"children\":[[\"$\",\"div\",null,{\"children\":[\"$\",\"main\",null,{\"className\":\"m-4 mb-24 rounded-xl bg-white p-4 md:m-auto md:mt-[50px] md:mb-20 md:min-h-auto md:w-[789px] md:rounded-2xl md:bg-white md:p-10\",\"children\":[\"$\",\"div\",null,{\"className\":\"text-default flex flex-col gap-4 rounded-lg bg-white\",\"children\":[[\"$\",\"$L17\",null,{\"href\":\"/info\",\"className\":\"inline-flex items-center gap-2\",\"children\":[[\"$\",\"svg\",null,{\"width\":16,\"height\":16,\"viewBox\":\"0 0 12 20\",\"fill\":\"#888888\",\"xmlns\":\"http://www.w3.org/2000/svg\",\"children\":[\"$\",\"path\",null,{\"d\":\"M10 20L0 10L10 0L11.775 1.775L3.55 10L11.775 18.225L10 20Z\",\"fill\":\"#888888\"}]}],[\"$\",\"span\",null,{\"className\":\"font-[Noto_Sans_JP,sans-serif] text-[14px] leading-[1.5] tracking-[-0.02em] text-[#888888]\",\"children\":\"戻る\"}]]}],[\"$\",\"section\",null,{\"children\":[[\"$\",\"h2\",null,{\"className\":\"text-xl font-bold\",\"children\":\"【重要】投票還元ポイントの付与日変更について\"}],[\"$\",\"div\",null,{\"className\":\"text-[#888]\",\"children\":\"2026/10/25 00:00\"}]]}],false,[\"$\",\"$L18\",null,{\"htmlContent\":\"$19\"}]]}]}]}],[\"$\",\"footer\",null,{\"className\":\"hidden md:flex bg-default w-full flex-col gap-5 px-4 py-8 pb-[87px] text-white md:gap-10 md:pb-8\",\"children\":[\"$\",\"div\",null,{\"className\":\"flex flex-col gap-10 text-xs text-white md:gap-6\",\"children\":[[\"$\",\"div\",null,{\"className\":\"grid grid-cols-2 gap-5 md:flex md:flex-wrap md:gap-x-12 md:gap-y-2\",\"children\":[[\"$\",\"$L17\",null,{\"href\":\"/about\",\"children\":\"運営会社\"}],[\"$\",\"$L17\",null,{\"href\":\"/about/terms\",\"children\":\"利用規約\"}],[\"$\",\"$L17\",null,{\"href\":\"/about/privacy-policy\",\"children\":\"プライバシーポリシー\"}],[\"$\",\"$L17\",null,{\"href\":\"/about/commercial-transaction\",\"children\":\"特定商取引法に基づく表示\"}],[\"$\",\"$L17\",null,{\"href\":\"/about/security-policy\",\"children\":\"情報セキュリティ方針\"}],[\"$\",\"$L17\",null,{\"href\":\"/mypage/faq\",\"children\":\"よくある質問\"}],[\"$\",\"$L17\",null,{\"href\":\"/mypage/contact\",\"children\":\"お問い合わせ\"}]]}],[\"$\",\"div\",null,{\"className\":\"flex flex-col gap-5 md:flex-row md:flex-wrap md:gap-x-7 md:gap-y-2\",\"children\":[[\"$\",\"$L17\",null,{\"href\":\"/login/gamble-notice\",\"className\":\"flex items-center gap-2\",\"children\":[[\"$\",\"div\",null,{\"children\":\"車券の購入は20歳になってから、競輪は適度に楽しみましょう\"}],[\"$\",\"svg\",null,{\"width\":8,\"height\":12,\"viewBox\":\"0 0 8 12\",\"fill\":\"none\",\"xmlns\":\"http://www.w3.org/2000/svg\",\"children\":[\"$\",\"path\",null,{\"d\":\"M2 5.24537e-07L8 6L2 12L0.6 10.6L5.2 6L0.599999 1.4L2 5.24537e-07Z\",\"fill\":\"white\"}]}]]}],[\"$\",\"$L17\",null,{\"href\":\"/login/gambling-addiction\",\"className\":\"flex items-center gap-2\",\"children\":[\"$L1a\",\"$L1b\"]}],\"$L1c\"]}],\"$L1d\"]}]}]]}]]}],\"$L1e\"]}]"
+            }
+          ],
+          "media_version": 1,
+          "link_version": 1
+        },
+        {
+          "title": "00:00 【10月25日】「熊本競輪G3」決勝レースで最大5%還元！",
+          "url": "https://bet.minnano-keirin.com/info/24908",
+          "date": "2026-10-25",
+          "feed": "minnano",
+          "site": "みんなの競輪",
+          "section": "お知らせ",
+          "new": false,
+          "body": [
+            "2026年10月25日（日）、「熊本競輪G3」の「決勝レース（第12R）」に投票（ワイド・重勝式を除く）された方に、ご投票金額の最大5%分のポイントをプレゼント！",
+            "【キャンペーン対象日・対象レース】",
+            "2026年10月25日（日） 「熊本競輪G3」 決勝レース（第12R）",
+            "※事前のエントリーは不要です。",
+            "【賞品】（もれなくプレゼント）",
+            "投票金額の最大5%分のポイント",
+            "ポイント付与例：キャンペーン期間中に「ナイター競輪・ミッドナイト競輪」決勝レースで合計10,000円分のご投票→500円分のポイント（最大5％分※）をプレゼント！",
+            "【ポイント付与予定日】",
+            "2026年11月1日(日)",
+            "※全会員様が対象の「投票1％還元キャンペーン」と合わせて、トータルで最大5％分のポイント還元となります。",
+            "※本キャンペーン分のポイント（4％分）は、1％還元とは異なるタイミングにて集計・付与を実施いたします。",
+            "【本キャンペーン注意事項】",
+            "※ワイド・重勝式の投票は、キャンペーン対象外となります。",
+            "※キャンペーンの開催期間、付与時期は予告なく変更となる場合がございます。",
+            "※付与したポイントの有効期限は180日間です。",
+            "※競走が不成立・開催中止・順延・または選手の欠場などで返金となった場合、その投票はキャンペーンの対象外となります。",
+            "※対象の競輪開催が中止順延となった場合、翌日の決勝レースが対象となります。",
+            "※明らかな同一ユーザーによる複数アカウントでの投票は、キャンペーン対象外となります。"
+          ],
+          "note": "",
+          "body_extractor": "minnano-flight-v2",
+          "media_version": 1,
+          "blocks": [
+            {
+              "type": "text",
+              "text": "2026年10月25日（日）、「熊本競輪G3」の「決勝レース（第12R）」に投票（ワイド・重勝式を除く）された方に、ご投票金額の最大5%分のポイントをプレゼント！"
+            },
+            {
+              "type": "text",
+              "text": "【キャンペーン対象日・対象レース】"
+            },
+            {
+              "type": "text",
+              "text": "2026年10月25日（日） 「熊本競輪G3」 決勝レース（第12R）"
+            },
+            {
+              "type": "text",
+              "text": "※事前のエントリーは不要です。"
+            },
+            {
+              "type": "text",
+              "text": "【賞品】（もれなくプレゼント）"
+            },
+            {
+              "type": "text",
+              "text": "投票金額の最大5%分のポイント"
+            },
+            {
+              "type": "text",
+              "text": "ポイント付与例：キャンペーン期間中に「ナイター競輪・ミッドナイト競輪」決勝レースで合計10,000円分のご投票→500円分のポイント（最大5％分※）をプレゼント！"
+            },
+            {
+              "type": "text",
+              "text": "【ポイント付与予定日】"
+            },
+            {
+              "type": "text",
+              "text": "2026年11月1日(日)"
+            },
+            {
+              "type": "text",
+              "text": "※全会員様が対象の「投票1％還元キャンペーン」と合わせて、トータルで最大5％分のポイント還元となります。"
+            },
+            {
+              "type": "text",
+              "text": "※本キャンペーン分のポイント（4％分）は、1％還元とは異なるタイミングにて集計・付与を実施いたします。"
+            },
+            {
+              "type": "text",
+              "text": "【本キャンペーン注意事項】"
+            },
+            {
+              "type": "text",
+              "text": "※ワイド・重勝式の投票は、キャンペーン対象外となります。"
+            },
+            {
+              "type": "text",
+              "text": "※キャンペーンの開催期間、付与時期は予告なく変更となる場合がございます。"
+            },
+            {
+              "type": "text",
+              "text": "※付与したポイントの有効期限は180日間です。"
+            },
+            {
+              "type": "text",
+              "text": "※競走が不成立・開催中止・順延・または選手の欠場などで返金となった場合、その投票はキャンペーンの対象外となります。"
+            },
+            {
+              "type": "text",
+              "text": "※対象の競輪開催が中止順延となった場合、翌日の決勝レースが対象となります。"
+            },
+            {
+              "type": "text",
+              "text": "※明らかな同一ユーザーによる複数アカウントでの投票は、キャンペーン対象外となります。"
+            }
+          ],
+          "link_version": 1
+        },
         {
           "title": "00:00 【10月31日～11月3日】「防府競輪G3」みんなの競輪 オリジナル攻略データ《特製クオカードプレゼント有り》",
           "url": "https://bet.minnano-keirin.com/info/24906",
@@ -3497,7 +3838,7 @@
           "feed": "minnano",
           "site": "みんなの競輪",
           "section": "お知らせ",
-          "new": true,
+          "new": false,
           "body": [
             "T11f6,10月31日(土)～11月3日(火)は、「防府競輪G3・周防国府杯争奪戦」開催！本ページでは、予想に役立つオリジナル攻略データをご紹介！",
             "【「防府競輪G3」みんなの競輪オリジナル攻略データ】",
@@ -3564,6 +3905,7 @@
           ],
           "note": "",
           "body_extractor": "minnano-flight-v2",
+          "media_version": 1,
           "blocks": [
             {
               "type": "text",
@@ -3812,441 +4154,6 @@
             {
               "type": "text",
               "text": "※対象開催が中止・順延となった場合、本キャンペーンも中止・順延いたします。e:[\"$\",\"div\",null,{\"className\":\"sp-footer-spacing-padding flex min-h-screen flex-col md:pb-0\",\"children\":[[\"$\",\"div\",null,{\"className\":\"flex md:flex-1\",\"children\":[[\"$\",\"div\",null,{\"className\":\"hidden md:block\",\"children\":[\"$\",\"$L17\",null,{}]}],[\"$\",\"div\",null,{\"className\":\"flex min-w-0 flex-1 flex-col justify-between\",\"children\":[[\"$\",\"div\",null,{\"children\":[\"$\",\"main\",null,{\"className\":\"m-4 mb-24 rounded-xl bg-white p-4 md:m-auto md:mt-[50px] md:mb-20 md:min-h-auto md:w-[789px] md:rounded-2xl md:bg-white md:p-10\",\"children\":[\"$\",\"div\",null,{\"className\":\"text-default flex flex-col gap-4 rounded-lg bg-white\",\"children\":[[\"$\",\"$L18\",null,{\"href\":\"/info\",\"className\":\"inline-flex items-center gap-2\",\"children\":[[\"$\",\"svg\",null,{\"width\":16,\"height\":16,\"viewBox\":\"0 0 12 20\",\"fill\":\"#888888\",\"xmlns\":\"http://www.w3.org/2000/svg\",\"children\":[\"$\",\"path\",null,{\"d\":\"M10 20L0 10L10 0L11.775 1.775L3.55 10L11.775 18.225L10 20Z\",\"fill\":\"#888888\"}]}],[\"$\",\"span\",null,{\"className\":\"font-[Noto_Sans_JP,sans-serif] text-[14px] leading-[1.5] tracking-[-0.02em] text-[#888888]\",\"children\":\"戻る\"}]]}],[\"$\",\"section\",null,{\"children\":[[\"$\",\"h2\",null,{\"className\":\"text-xl font-bold\",\"children\":\"【10月31日～11月3日】「防府競輪G3」みんなの競輪 オリジナル攻略データ《特製クオカードプレゼント有り》\"}],[\"$\",\"div\",null,{\"className\":\"text-[#888]\",\"children\":\"2026/10/25 00:00\"}]]}],\"$L19\",[\"$\",\"$L1a\",null,{\"htmlContent\":\"$1b\"}]]}]}]}],\"$L1c\"]}]]}],\"$L1d\"]}]"
-            }
-          ],
-          "media_version": 1,
-          "link_version": 1
-        },
-        {
-          "title": "00:00 【10月25日】「熊本競輪G3」決勝レースで最大5%還元！",
-          "url": "https://bet.minnano-keirin.com/info/24908",
-          "date": "2026-10-25",
-          "feed": "minnano",
-          "site": "みんなの競輪",
-          "section": "お知らせ",
-          "new": true,
-          "body": [
-            "2026年10月25日（日）、「熊本競輪G3」の「決勝レース（第12R）」に投票（ワイド・重勝式を除く）された方に、ご投票金額の最大5%分のポイントをプレゼント！",
-            "【キャンペーン対象日・対象レース】",
-            "2026年10月25日（日） 「熊本競輪G3」 決勝レース（第12R）",
-            "※事前のエントリーは不要です。",
-            "【賞品】（もれなくプレゼント）",
-            "投票金額の最大5%分のポイント",
-            "ポイント付与例：キャンペーン期間中に「ナイター競輪・ミッドナイト競輪」決勝レースで合計10,000円分のご投票→500円分のポイント（最大5％分※）をプレゼント！",
-            "【ポイント付与予定日】",
-            "2026年11月1日(日)",
-            "※全会員様が対象の「投票1％還元キャンペーン」と合わせて、トータルで最大5％分のポイント還元となります。",
-            "※本キャンペーン分のポイント（4％分）は、1％還元とは異なるタイミングにて集計・付与を実施いたします。",
-            "【本キャンペーン注意事項】",
-            "※ワイド・重勝式の投票は、キャンペーン対象外となります。",
-            "※キャンペーンの開催期間、付与時期は予告なく変更となる場合がございます。",
-            "※付与したポイントの有効期限は180日間です。",
-            "※競走が不成立・開催中止・順延・または選手の欠場などで返金となった場合、その投票はキャンペーンの対象外となります。",
-            "※対象の競輪開催が中止順延となった場合、翌日の決勝レースが対象となります。",
-            "※明らかな同一ユーザーによる複数アカウントでの投票は、キャンペーン対象外となります。"
-          ],
-          "note": "",
-          "body_extractor": "minnano-flight-v2",
-          "blocks": [
-            {
-              "type": "text",
-              "text": "2026年10月25日（日）、「熊本競輪G3」の「決勝レース（第12R）」に投票（ワイド・重勝式を除く）された方に、ご投票金額の最大5%分のポイントをプレゼント！"
-            },
-            {
-              "type": "text",
-              "text": "【キャンペーン対象日・対象レース】"
-            },
-            {
-              "type": "text",
-              "text": "2026年10月25日（日） 「熊本競輪G3」 決勝レース（第12R）"
-            },
-            {
-              "type": "text",
-              "text": "※事前のエントリーは不要です。"
-            },
-            {
-              "type": "text",
-              "text": "【賞品】（もれなくプレゼント）"
-            },
-            {
-              "type": "text",
-              "text": "投票金額の最大5%分のポイント"
-            },
-            {
-              "type": "text",
-              "text": "ポイント付与例：キャンペーン期間中に「ナイター競輪・ミッドナイト競輪」決勝レースで合計10,000円分のご投票→500円分のポイント（最大5％分※）をプレゼント！"
-            },
-            {
-              "type": "text",
-              "text": "【ポイント付与予定日】"
-            },
-            {
-              "type": "text",
-              "text": "2026年11月1日(日)"
-            },
-            {
-              "type": "text",
-              "text": "※全会員様が対象の「投票1％還元キャンペーン」と合わせて、トータルで最大5％分のポイント還元となります。"
-            },
-            {
-              "type": "text",
-              "text": "※本キャンペーン分のポイント（4％分）は、1％還元とは異なるタイミングにて集計・付与を実施いたします。"
-            },
-            {
-              "type": "text",
-              "text": "【本キャンペーン注意事項】"
-            },
-            {
-              "type": "text",
-              "text": "※ワイド・重勝式の投票は、キャンペーン対象外となります。"
-            },
-            {
-              "type": "text",
-              "text": "※キャンペーンの開催期間、付与時期は予告なく変更となる場合がございます。"
-            },
-            {
-              "type": "text",
-              "text": "※付与したポイントの有効期限は180日間です。"
-            },
-            {
-              "type": "text",
-              "text": "※競走が不成立・開催中止・順延・または選手の欠場などで返金となった場合、その投票はキャンペーンの対象外となります。"
-            },
-            {
-              "type": "text",
-              "text": "※対象の競輪開催が中止順延となった場合、翌日の決勝レースが対象となります。"
-            },
-            {
-              "type": "text",
-              "text": "※明らかな同一ユーザーによる複数アカウントでの投票は、キャンペーン対象外となります。"
-            }
-          ],
-          "media_version": 1,
-          "link_version": 1
-        },
-        {
-          "title": "00:00 【10月22日～10月25日】「熊本競輪G3」みんなの競輪 オリジナル攻略データ《特製クオカードプレゼント有り》",
-          "url": "https://bet.minnano-keirin.com/info/24735",
-          "date": "2026-10-23",
-          "feed": "minnano",
-          "site": "みんなの競輪",
-          "section": "お知らせ",
-          "new": false,
-          "body": [
-            "T1205,10月22日(木)～10月25日(日)は、「熊本競輪G3・火の国杯争奪戦」開催！本ページでは、予想に役立つオリジナル攻略データをご紹介！",
-            "【「熊本競輪G3」みんなの競輪オリジナル攻略データ】",
-            "《①決まり手データ》",
-            "（集計対象→2026年1月～2026年9月に 熊本競輪場で開催されたS級戦 全146レース）",
-            "■1着の決まり手",
-            "・逃げ：13.01％",
-            "・捲り：32.88％",
-            "・差し：54.11％",
-            "■2着の決まり手",
-            "・逃げ：16.33%",
-            "・捲り：14.97%",
-            "・差し：30.61%",
-            "・マーク：38.10%",
-            "★注目ポイント★ 捲り・差しが圧倒的有利",
-            "1着の決まり手は差しが54％超えで最多。捲りも30％を超えており、後ろから差し込む選手に有利なバンク。",
-            "《②着順別車番データ》",
-            "(集計対象→2026年2月に 熊本競輪場で開催されたG1 全48レース）",
-            "■1着の車番",
-            "・1番車：16.67%",
-            "・2番車：22.92%",
-            "・3番車：18.75%",
-            "・4番車：0.00％",
-            "・5番車：6.25%",
-            "・6番車：4.17%",
-            "・7番車：18.75%",
-            "・8番車：4.17%",
-            "・9番車：8.33%",
-            "■2着の車番",
-            "・1番車：14.58%",
-            "・2番車：12.50%",
-            "・3番車：12.50%",
-            "・4番車：14.58%",
-            "・5番車：14.58%",
-            "・6番車：6.25%",
-            "・7番車：8.33%",
-            "・8番車：6.25%",
-            "・9番車：10.42%",
-            "★注目ポイント★ 内枠有利の傾向強め",
-            "1番車・2番車・3番車の内枠勢が上位を分け合っており、内枠有利の傾向が強め。外枠では7番車も健闘。",
-            "《③平均配当データ》",
-            "（集計対象→2026年1月～2026年9月に 熊本競輪場で開催されたS級戦 全146レース）",
-            "■2車単の配当",
-            "・最高配当：22,710円",
-            "・平均配当：3,264円",
-            "・万車券率：7.53％（合計11レース）",
-            "■3連単の配当",
-            "・最高配当：327,530円",
-            "・平均配当：20,984円",
-            "・万車券率：42.47％（合計62レース）",
-            "★注目ポイント★ 平均配当・万車券率高めで万車券も狙いやすい",
-            "直線が長くゴール前で態勢が変わるレースが多いため、平均配当は高め。高配当も十分狙える",
-            "こちらのデータもご参考に、「熊本競輪G3」のご投票をお楽しみください！",
-            "【「熊本競輪G3」 クオカードプレゼント！】",
-            "・応募期限→10月25日(日) 23:59まで",
-            "・本フォーム内の「応募する」ボタンを押してエントリー！",
-            "■賞品（抽選でプレゼント）",
-            "・抽選で10名様→熊本競輪G3 特製クオカード",
-            "■本キャンペーン注意事項",
-            "※本キャンペーンは応募フォームよりエントリーが必要となります。",
-            "※ご当選時の賞品は、本サービスにご登録の住所に賞品をお送りいたします。郵送先を変更する場合は、マイページよりご変更ください。",
-            "※キャンペーンの開催期間、および賞品や付与時期は予告なく変更となる場合がございます。",
-            "※対象開催が中止・順延となった場合、本キャンペーンも中止・順延いたします。e:[\"$\",\"div\",null,{\"className\":\"sp-footer-spacing-padding flex min-h-screen flex-col md:pb-0\",\"children\":[[\"$\",\"div\",null,{\"className\":\"flex md:flex-1\",\"children\":[[\"$\",\"div\",null,{\"className\":\"hidden md:block\",\"children\":[\"$\",\"$L17\",null,{}]}],[\"$\",\"div\",null,{\"className\":\"flex min-w-0 flex-1 flex-col justify-between\",\"children\":[[\"$\",\"div\",null,{\"children\":[\"$\",\"main\",null,{\"className\":\"m-4 mb-24 rounded-xl bg-white p-4 md:m-auto md:mt-[50px] md:mb-20 md:min-h-auto md:w-[789px] md:rounded-2xl md:bg-white md:p-10\",\"children\":[\"$\",\"div\",null,{\"className\":\"text-default flex flex-col gap-4 rounded-lg bg-white\",\"children\":[[\"$\",\"$L18\",null,{\"href\":\"/info\",\"className\":\"inline-flex items-center gap-2\",\"children\":[[\"$\",\"svg\",null,{\"width\":16,\"height\":16,\"viewBox\":\"0 0 12 20\",\"fill\":\"#888888\",\"xmlns\":\"http://www.w3.org/2000/svg\",\"children\":[\"$\",\"path\",null,{\"d\":\"M10 20L0 10L10 0L11.775 1.775L3.55 10L11.775 18.225L10 20Z\",\"fill\":\"#888888\"}]}],[\"$\",\"span\",null,{\"className\":\"font-[Noto_Sans_JP,sans-serif] text-[14px] leading-[1.5] tracking-[-0.02em] text-[#888888]\",\"children\":\"戻る\"}]]}],[\"$\",\"section\",null,{\"children\":[[\"$\",\"h2\",null,{\"className\":\"text-xl font-bold\",\"children\":\"【10月22日～10月25日】「熊本競輪G3」みんなの競輪 オリジナル攻略データ《特製クオカードプレゼント有り》\"}],[\"$\",\"div\",null,{\"className\":\"text-[#888]\",\"children\":\"2026/10/23 00:00\"}]]}],\"$L19\",[\"$\",\"$L1a\",null,{\"htmlContent\":\"$1b\"}]]}]}]}],\"$L1c\"]}]]}],\"$L1d\"]}]"
-          ],
-          "note": "",
-          "body_extractor": "minnano-flight-v2",
-          "media_version": 1,
-          "blocks": [
-            {
-              "type": "text",
-              "text": "T1205,10月22日(木)～10月25日(日)は、「熊本競輪G3・火の国杯争奪戦」開催！本ページでは、予想に役立つオリジナル攻略データをご紹介！"
-            },
-            {
-              "type": "text",
-              "text": "【「熊本競輪G3」みんなの競輪オリジナル攻略データ】"
-            },
-            {
-              "type": "text",
-              "text": "《①決まり手データ》"
-            },
-            {
-              "type": "text",
-              "text": "（集計対象→2026年1月～2026年9月に 熊本競輪場で開催されたS級戦 全146レース）"
-            },
-            {
-              "type": "text",
-              "text": "■1着の決まり手"
-            },
-            {
-              "type": "text",
-              "text": "・逃げ：13.01％"
-            },
-            {
-              "type": "text",
-              "text": "・捲り：32.88％"
-            },
-            {
-              "type": "text",
-              "text": "・差し：54.11％"
-            },
-            {
-              "type": "text",
-              "text": "■2着の決まり手"
-            },
-            {
-              "type": "text",
-              "text": "・逃げ：16.33%"
-            },
-            {
-              "type": "text",
-              "text": "・捲り：14.97%"
-            },
-            {
-              "type": "text",
-              "text": "・差し：30.61%"
-            },
-            {
-              "type": "text",
-              "text": "・マーク：38.10%"
-            },
-            {
-              "type": "text",
-              "text": "★注目ポイント★ 捲り・差しが圧倒的有利"
-            },
-            {
-              "type": "text",
-              "text": "1着の決まり手は差しが54％超えで最多。捲りも30％を超えており、後ろから差し込む選手に有利なバンク。"
-            },
-            {
-              "type": "text",
-              "text": "《②着順別車番データ》"
-            },
-            {
-              "type": "text",
-              "text": "(集計対象→2026年2月に 熊本競輪場で開催されたG1 全48レース）"
-            },
-            {
-              "type": "text",
-              "text": "■1着の車番"
-            },
-            {
-              "type": "text",
-              "text": "・1番車：16.67%"
-            },
-            {
-              "type": "text",
-              "text": "・2番車：22.92%"
-            },
-            {
-              "type": "text",
-              "text": "・3番車：18.75%"
-            },
-            {
-              "type": "text",
-              "text": "・4番車：0.00％"
-            },
-            {
-              "type": "text",
-              "text": "・5番車：6.25%"
-            },
-            {
-              "type": "text",
-              "text": "・6番車：4.17%"
-            },
-            {
-              "type": "text",
-              "text": "・7番車：18.75%"
-            },
-            {
-              "type": "text",
-              "text": "・8番車：4.17%"
-            },
-            {
-              "type": "text",
-              "text": "・9番車：8.33%"
-            },
-            {
-              "type": "text",
-              "text": "■2着の車番"
-            },
-            {
-              "type": "text",
-              "text": "・1番車：14.58%"
-            },
-            {
-              "type": "text",
-              "text": "・2番車：12.50%"
-            },
-            {
-              "type": "text",
-              "text": "・3番車：12.50%"
-            },
-            {
-              "type": "text",
-              "text": "・4番車：14.58%"
-            },
-            {
-              "type": "text",
-              "text": "・5番車：14.58%"
-            },
-            {
-              "type": "text",
-              "text": "・6番車：6.25%"
-            },
-            {
-              "type": "text",
-              "text": "・7番車：8.33%"
-            },
-            {
-              "type": "text",
-              "text": "・8番車：6.25%"
-            },
-            {
-              "type": "text",
-              "text": "・9番車：10.42%"
-            },
-            {
-              "type": "text",
-              "text": "★注目ポイント★ 内枠有利の傾向強め"
-            },
-            {
-              "type": "text",
-              "text": "1番車・2番車・3番車の内枠勢が上位を分け合っており、内枠有利の傾向が強め。外枠では7番車も健闘。"
-            },
-            {
-              "type": "text",
-              "text": "《③平均配当データ》"
-            },
-            {
-              "type": "text",
-              "text": "（集計対象→2026年1月～2026年9月に 熊本競輪場で開催されたS級戦 全146レース）"
-            },
-            {
-              "type": "text",
-              "text": "■2車単の配当"
-            },
-            {
-              "type": "text",
-              "text": "・最高配当：22,710円"
-            },
-            {
-              "type": "text",
-              "text": "・平均配当：3,264円"
-            },
-            {
-              "type": "text",
-              "text": "・万車券率：7.53％（合計11レース）"
-            },
-            {
-              "type": "text",
-              "text": "■3連単の配当"
-            },
-            {
-              "type": "text",
-              "text": "・最高配当：327,530円"
-            },
-            {
-              "type": "text",
-              "text": "・平均配当：20,984円"
-            },
-            {
-              "type": "text",
-              "text": "・万車券率：42.47％（合計62レース）"
-            },
-            {
-              "type": "text",
-              "text": "★注目ポイント★ 平均配当・万車券率高めで万車券も狙いやすい"
-            },
-            {
-              "type": "text",
-              "text": "直線が長くゴール前で態勢が変わるレースが多いため、平均配当は高め。高配当も十分狙える"
-            },
-            {
-              "type": "text",
-              "text": "こちらのデータもご参考に、「熊本競輪G3」のご投票をお楽しみください！"
-            },
-            {
-              "type": "text",
-              "text": "【「熊本競輪G3」 クオカードプレゼント！】"
-            },
-            {
-              "type": "text",
-              "text": "・応募期限→10月25日(日) 23:59まで"
-            },
-            {
-              "type": "text",
-              "text": "・本フォーム内の「応募する」ボタンを押してエントリー！"
-            },
-            {
-              "type": "text",
-              "text": "■賞品（抽選でプレゼント）"
-            },
-            {
-              "type": "text",
-              "text": "・抽選で10名様→熊本競輪G3 特製クオカード"
-            },
-            {
-              "type": "text",
-              "text": "■本キャンペーン注意事項"
-            },
-            {
-              "type": "text",
-              "text": "※本キャンペーンは応募フォームよりエントリーが必要となります。"
-            },
-            {
-              "type": "text",
-              "text": "※ご当選時の賞品は、本サービスにご登録の住所に賞品をお送りいたします。郵送先を変更する場合は、マイページよりご変更ください。"
-            },
-            {
-              "type": "text",
-              "text": "※キャンペーンの開催期間、および賞品や付与時期は予告なく変更となる場合がございます。"
-            },
-            {
-              "type": "text",
-              "text": "※対象開催が中止・順延となった場合、本キャンペーンも中止・順延いたします。e:[\"$\",\"div\",null,{\"className\":\"sp-footer-spacing-padding flex min-h-screen flex-col md:pb-0\",\"children\":[[\"$\",\"div\",null,{\"className\":\"flex md:flex-1\",\"children\":[[\"$\",\"div\",null,{\"className\":\"hidden md:block\",\"children\":[\"$\",\"$L17\",null,{}]}],[\"$\",\"div\",null,{\"className\":\"flex min-w-0 flex-1 flex-col justify-between\",\"children\":[[\"$\",\"div\",null,{\"children\":[\"$\",\"main\",null,{\"className\":\"m-4 mb-24 rounded-xl bg-white p-4 md:m-auto md:mt-[50px] md:mb-20 md:min-h-auto md:w-[789px] md:rounded-2xl md:bg-white md:p-10\",\"children\":[\"$\",\"div\",null,{\"className\":\"text-default flex flex-col gap-4 rounded-lg bg-white\",\"children\":[[\"$\",\"$L18\",null,{\"href\":\"/info\",\"className\":\"inline-flex items-center gap-2\",\"children\":[[\"$\",\"svg\",null,{\"width\":16,\"height\":16,\"viewBox\":\"0 0 12 20\",\"fill\":\"#888888\",\"xmlns\":\"http://www.w3.org/2000/svg\",\"children\":[\"$\",\"path\",null,{\"d\":\"M10 20L0 10L10 0L11.775 1.775L3.55 10L11.775 18.225L10 20Z\",\"fill\":\"#888888\"}]}],[\"$\",\"span\",null,{\"className\":\"font-[Noto_Sans_JP,sans-serif] text-[14px] leading-[1.5] tracking-[-0.02em] text-[#888888]\",\"children\":\"戻る\"}]]}],[\"$\",\"section\",null,{\"children\":[[\"$\",\"h2\",null,{\"className\":\"text-xl font-bold\",\"children\":\"【10月22日～10月25日】「熊本競輪G3」みんなの競輪 オリジナル攻略データ《特製クオカードプレゼント有り》\"}],[\"$\",\"div\",null,{\"className\":\"text-[#888]\",\"children\":\"2026/10/23 00:00\"}]]}],\"$L19\",[\"$\",\"$L1a\",null,{\"htmlContent\":\"$1b\"}]]}]}]}],\"$L1c\"]}]]}],\"$L1d\"]}]"
             }
           ],
           "link_version": 1
@@ -4504,79 +4411,12 @@
             }
           ],
           "link_version": 1
-        },
-        {
-          "title": "10:00 【重要】「払戻金のご精算」の一時停止に関するお知らせ",
-          "url": "https://bet.minnano-keirin.com/info/25831",
-          "date": "2026-10-22",
-          "feed": "minnano",
-          "site": "みんなの競輪",
-          "section": "お知らせ",
-          "new": false,
-          "body": [
-            "いつも「みんなの競輪」をご利用いただき、誠にありがとうございます。",
-            "現在、システムの安全確認を行っている影響により、予防的な措置として、ご登録口座への「払戻金のご精算」を一時的に停止しております。",
-            "なお、サイトへのアクセス、ログイン、車券の購入をはじめ、アカウントへの「チャージ」につきましては、通常通りご利用いただけます。",
-            "■一時停止している機能",
-            "・払戻金のご精算（ご登録口座への出金）操作",
-            "■停止期間",
-            "2026年10月22日（木）9:30 ～",
-            "※安全の確認が取れ次第、速やかに再開いたします。再開の目途が立ちましたら、追ってお知らせいたします。",
-            "ご利用のお客さまには、急な一部機能の停止により多大なるご不便とご迷惑をおかけしますことを、深くお詫び申し上げます。",
-            "お客さまに安心してお楽しみいただくための安全確保の措置となりますので、何卒ご理解とご協力を賜りますようお願い申し上げます。"
-          ],
-          "note": "",
-          "body_extractor": "minnano-flight-v2",
-          "media_version": 1,
-          "blocks": [
-            {
-              "type": "text",
-              "text": "いつも「みんなの競輪」をご利用いただき、誠にありがとうございます。"
-            },
-            {
-              "type": "text",
-              "text": "現在、システムの安全確認を行っている影響により、予防的な措置として、ご登録口座への「払戻金のご精算」を一時的に停止しております。"
-            },
-            {
-              "type": "text",
-              "text": "なお、サイトへのアクセス、ログイン、車券の購入をはじめ、アカウントへの「チャージ」につきましては、通常通りご利用いただけます。"
-            },
-            {
-              "type": "text",
-              "text": "■一時停止している機能"
-            },
-            {
-              "type": "text",
-              "text": "・払戻金のご精算（ご登録口座への出金）操作"
-            },
-            {
-              "type": "text",
-              "text": "■停止期間"
-            },
-            {
-              "type": "text",
-              "text": "2026年10月22日（木）9:30 ～"
-            },
-            {
-              "type": "text",
-              "text": "※安全の確認が取れ次第、速やかに再開いたします。再開の目途が立ちましたら、追ってお知らせいたします。"
-            },
-            {
-              "type": "text",
-              "text": "ご利用のお客さまには、急な一部機能の停止により多大なるご不便とご迷惑をおかけしますことを、深くお詫び申し上げます。"
-            },
-            {
-              "type": "text",
-              "text": "お客さまに安心してお楽しみいただくための安全確保の措置となりますので、何卒ご理解とご協力を賜りますようお願い申し上げます。"
-            }
-          ],
-          "link_version": 1
         }
       ]
     },
     "tipstar": {
       "status": "ok",
-      "last_success": "2026-10-25T03:33:33.939171+09:00",
+      "last_success": "2026-10-26T03:42:06.322607+09:00",
       "items": [
         {
           "title": "【10/23】チャージで1/2 （ニブイチ）キャンペーン",
@@ -7446,7 +7286,7 @@
     },
     "pist6": {
       "status": "ok",
-      "last_success": "2026-10-25T03:33:33.939171+09:00",
+      "last_success": "2026-10-26T03:42:06.322607+09:00",
       "items": [
         {
           "title": "【FAIRLADY Z 大集合】11月1日（日）に開催！",
@@ -9449,7 +9289,7 @@
     },
     "betimo": {
       "status": "ok",
-      "last_success": "2026-10-25T03:33:33.939171+09:00",
+      "last_success": "2026-10-26T03:42:06.322607+09:00",
       "items": [
         {
           "title": "Betimo、みんなの銀行と「金融を活用した価値共創にかかる基本合意書」を締結",
