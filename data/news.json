@@ -1,16 +1,16 @@
 {
   "format_version": 1,
-  "updated": "2026-10-27T05:52:58.832436+09:00",
+  "updated": "2026-10-28T05:24:24.919275+09:00",
   "feeds": {
     "gamboo": {
       "status": "unavailable",
       "last_success": "",
       "items": [],
-      "message": "サイト側のアクセス確認画面が表示されました"
+      "message": "robots.txtを確認できません"
     },
     "winkeirin-topics": {
       "status": "ok",
-      "last_success": "2026-10-27T05:52:58.832436+09:00",
+      "last_success": "2026-10-28T05:24:24.919275+09:00",
       "items": [
         {
           "title": "【不具合・復旧済み】ドコモSMTBネット銀行の口座連携・チャージ・精算ができない",
@@ -255,7 +255,7 @@
     },
     "winkeirin-column": {
       "status": "ok",
-      "last_success": "2026-10-27T05:52:58.832436+09:00",
+      "last_success": "2026-10-28T05:24:24.919275+09:00",
       "items": [
         {
           "title": "【新機能】アプリを閉じてもレースを見続けられる！",
@@ -413,7 +413,7 @@
     },
     "winauto-topics": {
       "status": "ok",
-      "last_success": "2026-10-27T05:52:58.832436+09:00",
+      "last_success": "2026-10-28T05:24:24.919275+09:00",
       "items": [
         {
           "title": "【お知らせ】伊勢崎オートレース 4日目の一部レース開催中止について",
@@ -790,7 +790,7 @@
     },
     "winauto-column": {
       "status": "ok",
-      "last_success": "2026-10-27T05:52:58.832436+09:00",
+      "last_success": "2026-10-28T05:24:24.919275+09:00",
       "items": []
     },
     "odds-info": {
@@ -1429,8 +1429,79 @@
     },
     "kdreams": {
       "status": "ok",
-      "last_success": "2026-10-27T05:52:58.832436+09:00",
+      "last_success": "2026-10-28T05:24:24.919275+09:00",
       "items": [
+        {
+          "title": "【重要】サービス再開のお知らせ",
+          "url": "https://info2.kdreams.jp/entry/2026/10/27/090000",
+          "date": "2026-10-27",
+          "feed": "kdreams",
+          "site": "楽天Kドリームス",
+          "section": "インフォメーション",
+          "new": true,
+          "body": [
+            "平素より楽天Kドリームスをご利用いただき、誠にありがとうございます。",
+            "2026年10月21日（水）23時00分より緊急メンテナンスを実施し、サービスを停止しておりましたが、復旧作業が完了しました。 【10月27日（火）５時00分】 より WEBサイト・アプリともに サービスを再開いたしました。",
+            "サービス停止中は、お客様に多大なるご不便とご迷惑をおかけしましたことを、深くお詫び申し上げます。",
+            "■払戻金精算申込フォームの受付停止について サービス再開に伴い、「払戻金精算申込フォーム」の受付を停止いたしました。",
+            "払戻金精算申込フォームからお申込みいただいた方は、「自動精算設定」が「毎日」に変更されております。",
+            "元の設定（精算サイクル）に戻したい場合は、大変お手数ですが、マイページからご自身で再設定いただくか、デルカカスタマーセンターまでご連絡ください。",
+            "【自動精算設定の確認・変更方法】 ・ WEBサイト 【デルカマイページ】→【登録情報確認・変更】→【自動精算設定】",
+            "・ アプリ 画面下部の【その他】→【マイページ】",
+            "■払戻金のお受け取りについて サービス再開後は、通常どおり払戻金をお受け取りいただけます。",
+            "現在、以下のサービスは再開に向けて準備中です。 ・Kレーティング",
+            "※9時18分に再開しております。"
+          ],
+          "note": "",
+          "blocks": [
+            {
+              "type": "text",
+              "text": "平素より楽天Kドリームスをご利用いただき、誠にありがとうございます。"
+            },
+            {
+              "type": "text",
+              "text": "2026年10月21日（水）23時00分より緊急メンテナンスを実施し、サービスを停止しておりましたが、復旧作業が完了しました。 【10月27日（火）５時00分】 より WEBサイト・アプリともに サービスを再開いたしました。"
+            },
+            {
+              "type": "text",
+              "text": "サービス停止中は、お客様に多大なるご不便とご迷惑をおかけしましたことを、深くお詫び申し上げます。"
+            },
+            {
+              "type": "text",
+              "text": "■払戻金精算申込フォームの受付停止について サービス再開に伴い、「払戻金精算申込フォーム」の受付を停止いたしました。"
+            },
+            {
+              "type": "text",
+              "text": "払戻金精算申込フォームからお申込みいただいた方は、「自動精算設定」が「毎日」に変更されております。"
+            },
+            {
+              "type": "text",
+              "text": "元の設定（精算サイクル）に戻したい場合は、大変お手数ですが、マイページからご自身で再設定いただくか、デルカカスタマーセンターまでご連絡ください。"
+            },
+            {
+              "type": "text",
+              "text": "【自動精算設定の確認・変更方法】 ・ WEBサイト 【デルカマイページ】→【登録情報確認・変更】→【自動精算設定】"
+            },
+            {
+              "type": "text",
+              "text": "・ アプリ 画面下部の【その他】→【マイページ】"
+            },
+            {
+              "type": "text",
+              "text": "■払戻金のお受け取りについて サービス再開後は、通常どおり払戻金をお受け取りいただけます。"
+            },
+            {
+              "type": "text",
+              "text": "現在、以下のサービスは再開に向けて準備中です。 ・Kレーティング"
+            },
+            {
+              "type": "text",
+              "text": "※9時18分に再開しております。"
+            }
+          ],
+          "media_version": 1,
+          "link_version": 1
+        },
         {
           "title": "【重要】緊急メンテナンスに伴うサービス一時停止のお知らせ",
           "url": "https://info2.kdreams.jp/entry/2026/10/24/160829",
@@ -1816,81 +1887,55 @@
             }
           ],
           "link_version": 1
-        },
-        {
-          "title": "宇都宮ジャパンカップ 楽天Kドリームス現場スタッフより",
-          "url": "https://info2.kdreams.jp/entry/2026/10/19/100000",
-          "date": "2026-10-19",
-          "feed": "kdreams",
-          "site": "楽天Kドリームス",
-          "section": "インフォメーション",
-          "new": false,
-          "body": [
-            "こんにちは！楽天Kドリームス現場スタッフです。 10月16日(金)～10月18日(日)に 宇都宮ジャパンカップ サイクルロードレース が開催⤴10月17日(土)はオリオン通り、10月18日(日)は森林公園内で 楽天Kドリームスブースを出店いたしました。",
-            "楽天Kドリームスブースでは 「宇都宮競輪場へ行こう」 の会員募集を行いました。宇都宮競輪場にポイントカードをお持ちいただくとグルメギフトやオリジナルグッズと賞品交換ができます。WEBからも申込ができますので、詳細は下記ページにてご確認ください。",
-            "go-keirin.jp",
-            "10月17日(土)、オリオン通りの会場は商店街にあり、終日賑わっておりました。表彰式には 眞杉匠 選手 も登壇し、地元での人気の高さが伺えました。",
-            "10月18日(日)、森林公園の会場は早朝から賑わっておりました。側道にテントを張って前日からスタンバイしていた方もいたそうです！！",
-            "それではまた皆様にお会いできるのを楽しみにしております。",
-            "次回のブース出店予定 日程：10 月31日(土)～11月1日(日) 場所：防府競輪場",
-            "info2.kdreams.jp"
-          ],
-          "note": "",
-          "media_version": 1,
-          "blocks": [
-            {
-              "type": "text",
-              "text": "こんにちは！楽天Kドリームス現場スタッフです。 10月16日(金)～10月18日(日)に 宇都宮ジャパンカップ サイクルロードレース が開催⤴10月17日(土)はオリオン通り、10月18日(日)は森林公園内で 楽天Kドリームスブースを出店いたしました。"
-            },
-            {
-              "type": "text",
-              "text": "楽天Kドリームスブースでは 「宇都宮競輪場へ行こう」 の会員募集を行いました。宇都宮競輪場にポイントカードをお持ちいただくとグルメギフトやオリジナルグッズと賞品交換ができます。WEBからも申込ができますので、詳細は下記ページにてご確認ください。"
-            },
-            {
-              "type": "text",
-              "text": "go-keirin.jp",
-              "links": [
-                {
-                  "text": "go-keirin.jp",
-                  "href": "https://go-keirin.jp/utsunomiya/pc/index.html"
-                }
-              ]
-            },
-            {
-              "type": "text",
-              "text": "10月17日(土)、オリオン通りの会場は商店街にあり、終日賑わっておりました。表彰式には 眞杉匠 選手 も登壇し、地元での人気の高さが伺えました。"
-            },
-            {
-              "type": "text",
-              "text": "10月18日(日)、森林公園の会場は早朝から賑わっておりました。側道にテントを張って前日からスタンバイしていた方もいたそうです！！"
-            },
-            {
-              "type": "text",
-              "text": "それではまた皆様にお会いできるのを楽しみにしております。"
-            },
-            {
-              "type": "text",
-              "text": "次回のブース出店予定 日程：10 月31日(土)～11月1日(日) 場所：防府競輪場"
-            },
-            {
-              "type": "text",
-              "text": "info2.kdreams.jp",
-              "links": [
-                {
-                  "text": "info2.kdreams.jp",
-                  "href": "https://info2.kdreams.jp/entry/2026/10/15/100714"
-                }
-              ]
-            }
-          ],
-          "link_version": 1
         }
       ]
     },
     "chariloto": {
       "status": "ok",
-      "last_success": "2026-10-27T05:52:58.832436+09:00",
+      "last_success": "2026-10-28T05:24:24.919275+09:00",
       "items": [
+        {
+          "title": "【チャリロトAグループ】4,000万円以上キャリーオーバー発生中！",
+          "url": "https://www.chariloto.com/articles/6775",
+          "date": "2026-10-27",
+          "feed": "chariloto",
+          "site": "チャリロト",
+          "section": "ニュース",
+          "new": false,
+          "body": [
+            "【ご投票はこちら】",
+            "・WEB版の方 https://www.chariloto.com/keirin_jushous",
+            "・アプリご利用の方 「競輪くじ」タブからご購入下さい。"
+          ],
+          "note": "",
+          "media_version": 1,
+          "blocks": [
+            {
+              "type": "image",
+              "src": "images/976553e4d616012a85222a45.png",
+              "caption": ""
+            },
+            {
+              "type": "text",
+              "text": "【ご投票はこちら】"
+            },
+            {
+              "type": "text",
+              "text": "・WEB版の方 https://www.chariloto.com/keirin_jushous",
+              "links": [
+                {
+                  "text": "https://www.chariloto.com/keirin_jushous",
+                  "href": "https://www.chariloto.com/keirin_jushous"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "text": "・アプリご利用の方 「競輪くじ」タブからご購入下さい。"
+            }
+          ],
+          "link_version": 1
+        },
         {
           "title": "【メンテナンス】10/27（火）チャリカ新規入会メンテナンスのお知らせ",
           "url": "https://www.chariloto.com/articles/7540",
@@ -1898,7 +1943,7 @@
           "feed": "chariloto",
           "site": "チャリロト",
           "section": "ニュース",
-          "new": true,
+          "new": false,
           "body": [
             "いつもチャリロトをご利用いただきありがとうございます。",
             "下記の期間におきまして、システムメンテナンス実施に伴いチャリカ新規入会のサービスが停止いたしますので、お知らせいたします。",
@@ -1910,6 +1955,7 @@
             "今後ともチャリロトをどうぞよろしくお願いいたします。"
           ],
           "note": "",
+          "media_version": 1,
           "blocks": [
             {
               "type": "text",
@@ -1944,7 +1990,6 @@
               "text": "今後ともチャリロトをどうぞよろしくお願いいたします。"
             }
           ],
-          "media_version": 1,
           "link_version": 1
         },
         {
@@ -1954,7 +1999,7 @@
           "feed": "chariloto",
           "site": "チャリロト",
           "section": "ニュース",
-          "new": true,
+          "new": false,
           "body": [
             "いつもチャリロトをご利用いただきありがとうございます。",
             "システムメンテナンス実施に伴い、下記の期間チャリロトアプリでもメンテナンスを実施いたします。",
@@ -1966,6 +2011,7 @@
             "今後ともチャリロトをどうぞよろしくお願いいたします。"
           ],
           "note": "",
+          "media_version": 1,
           "blocks": [
             {
               "type": "text",
@@ -2000,7 +2046,6 @@
               "text": "今後ともチャリロトをどうぞよろしくお願いいたします。"
             }
           ],
-          "media_version": 1,
           "link_version": 1
         },
         {
@@ -2010,7 +2055,7 @@
           "feed": "chariloto",
           "site": "チャリロト",
           "section": "ニュース",
-          "new": true,
+          "new": false,
           "body": [
             "いつもチャリロトをご利用いただきありがとうございます。",
             "下記の期間におきまして、システムメンテナンス実施に伴いサービスが停止いたしますので、お知らせいたします。",
@@ -2021,6 +2066,7 @@
             "今後ともチャリロトをどうぞよろしくお願いいたします。"
           ],
           "note": "",
+          "media_version": 1,
           "blocks": [
             {
               "type": "text",
@@ -2051,7 +2097,6 @@
               "text": "今後ともチャリロトをどうぞよろしくお願いいたします。"
             }
           ],
-          "media_version": 1,
           "link_version": 1
         },
         {
@@ -2102,7 +2147,7 @@
           "feed": "chariloto",
           "site": "チャリロト",
           "section": "ニュース",
-          "new": true,
+          "new": false,
           "body": [
             "順位 ｜ 選手名 ｜ 級班/期別 ｜ 府県 ｜ 獲得賞金",
             "1位 ｜ 古性 優作 日本選手権競輪 優勝 高松宮記念杯競輪 優勝 SS/100期 大阪 271,631,822円 ｜ SS/100期 ｜ 大阪 ｜ 271,631,822円",
@@ -2178,6 +2223,7 @@
             "20位 ｜ 畠山 ひすい ｜ L1/122期 ｜ 神奈川 ｜ 14,605,000円"
           ],
           "note": "",
+          "media_version": 1,
           "blocks": [
             {
               "type": "text",
@@ -2466,49 +2512,6 @@
             {
               "type": "text",
               "text": "20位 ｜ 畠山 ひすい ｜ L1/122期 ｜ 神奈川 ｜ 14,605,000円"
-            }
-          ],
-          "media_version": 1,
-          "link_version": 1
-        },
-        {
-          "title": "【チャリロトAグループ】4,000万円以上キャリーオーバー発生中！",
-          "url": "https://www.chariloto.com/articles/6775",
-          "date": "2026-10-26",
-          "feed": "chariloto",
-          "site": "チャリロト",
-          "section": "ニュース",
-          "new": false,
-          "body": [
-            "【ご投票はこちら】",
-            "・WEB版の方 https://www.chariloto.com/keirin_jushous",
-            "・アプリご利用の方 「競輪くじ」タブからご購入下さい。"
-          ],
-          "note": "",
-          "media_version": 1,
-          "blocks": [
-            {
-              "type": "image",
-              "src": "images/976553e4d616012a85222a45.png",
-              "caption": ""
-            },
-            {
-              "type": "text",
-              "text": "【ご投票はこちら】"
-            },
-            {
-              "type": "text",
-              "text": "・WEB版の方 https://www.chariloto.com/keirin_jushous",
-              "links": [
-                {
-                  "text": "https://www.chariloto.com/keirin_jushous",
-                  "href": "https://www.chariloto.com/keirin_jushous"
-                }
-              ]
-            },
-            {
-              "type": "text",
-              "text": "・アプリご利用の方 「競輪くじ」タブからご購入下さい。"
             }
           ],
           "link_version": 1
@@ -2807,7 +2810,7 @@
     },
     "autorace-campaign": {
       "status": "ok",
-      "last_success": "2026-10-27T05:52:58.832436+09:00",
+      "last_success": "2026-10-28T05:24:24.919275+09:00",
       "items": [
         {
           "title": "浜松 公式ファンクラブ会員限定「SG第58回日本選手権オートレースは6日間全レースでマイル5％還元！」",
@@ -2947,8 +2950,64 @@
     },
     "autorace-event": {
       "status": "ok",
-      "last_success": "2026-10-27T05:52:58.832436+09:00",
+      "last_success": "2026-10-28T05:24:24.919275+09:00",
       "items": [
+        {
+          "title": "情報 10月29日は「オートレース発祥の日」！",
+          "url": "https://autorace.jp/news/event/2026/10/27/038872",
+          "date": "2026-10-27",
+          "feed": "autorace-event",
+          "site": "AUTORACE.JP",
+          "section": "イベント",
+          "new": true,
+          "body": [
+            "10月29日は「オートレース発祥の日」！",
+            "10月29日は「オートレース発祥の日」記念日です。",
+            "オートレースは1950年10月29日、千葉県船橋市にある船橋競馬場のコース内側で初めてオートレースが開催され、以来、75年の年月が経過し、多くのお客様に楽しんでいただけるレジャーの一つとしてご愛顧いただいております。",
+            "登録費・年会費無料のAUTORACE.JP投票に登録して、「オートレース」をもっと楽しもう！",
+            "ネット口座をお持ちの方は、即日で登録完了。 スマホ・パソコンからご投票できます。 登録費や年会費などは無くご登録は無料です。 お気軽にAUTORACE.JP投票をお試しください。"
+          ],
+          "note": "",
+          "blocks": [
+            {
+              "type": "text",
+              "text": "10月29日は「オートレース発祥の日」！"
+            },
+            {
+              "type": "text",
+              "text": "10月29日は「オートレース発祥の日」記念日です。"
+            },
+            {
+              "type": "text",
+              "text": "オートレースは1950年10月29日、千葉県船橋市にある船橋競馬場のコース内側で初めてオートレースが開催され、以来、75年の年月が経過し、多くのお客様に楽しんでいただけるレジャーの一つとしてご愛顧いただいております。"
+            },
+            {
+              "type": "image",
+              "src": "images/c9de3bb4043087be4ddc9c9d.jpg",
+              "caption": ""
+            },
+            {
+              "type": "image",
+              "src": "images/b039f14f3b55728c6b2a5468.jpg",
+              "caption": ""
+            },
+            {
+              "type": "text",
+              "text": "登録費・年会費無料のAUTORACE.JP投票に登録して、「オートレース」をもっと楽しもう！"
+            },
+            {
+              "type": "image",
+              "src": "images/68bcdf64ecd56ee0f8a34c97.jpg",
+              "caption": ""
+            },
+            {
+              "type": "text",
+              "text": "ネット口座をお持ちの方は、即日で登録完了。 スマホ・パソコンからご投票できます。 登録費や年会費などは無くご登録は無料です。 お気軽にAUTORACE.JP投票をお試しください。"
+            }
+          ],
+          "media_version": 1,
+          "link_version": 1
+        },
         {
           "title": "情報 公営競技3競技のレジェンドvs人気Mリーガー！「異種4競技麻雀対決」が実現！YouTube企画『SWITCH OFF』番外編！",
           "url": "https://autorace.jp/news/event/2026/10/24/038849",
@@ -3415,113 +3474,17 @@
             }
           ],
           "link_version": 1
-        },
-        {
-          "title": "情報 10/18(日)北市唯選手トークショーを開催します！☛オートレース一宮",
-          "url": "https://autorace.jp/news/event/2026/10/06/038778",
-          "date": "2026-10-06",
-          "feed": "autorace-event",
-          "site": "AUTORACE.JP",
-          "section": "イベント",
-          "new": false,
-          "body": [
-            "10/18(日)北市唯選手トークショーを開催します！☛オートレース一宮",
-            "10/18（日）に、オートレース一宮にて",
-            "北市唯選手のトークイベントが開催されます！(MC水野舞さん)",
-            "お時間ある方はぜひご来場くださいませ。",
-            "☆北市唯選手トークショー(MC水野舞さん)",
-            "日 時：１０月１８日（日）",
-            "場 所： オートレース一宮1階オートレースカウンター",
-            "出演者：北市唯選手（浜松37期）・MC水野舞",
-            "内 容：☆北市唯選手トークショー（飯塚9R発売中：14時21分頃 ～）",
-            "★水野舞による予想会＆★オートレースグッズの当たる抽選会（飯 塚10R発売中:14時53分頃～）",
-            "抽選券配布：（開門～飯塚6R発売中 ※無くなり次第終了）",
-            "★オートレースVR体験（開門～飯塚6R締切：13時10分頃ま で）",
-            "登録費・年会費無料のAUTORACE.JP投票に登録して、「オートレース」をもっと楽しもう！",
-            "ネット口座をお持ちの方は、即日で登録完了。 スマホ・パソコンからご投票できます。 登録費や年会費などは無くご登録は無料です。 お気軽にAUTORACE.JP投票をお試しください。"
-          ],
-          "note": "",
-          "media_version": 1,
-          "blocks": [
-            {
-              "type": "text",
-              "text": "10/18(日)北市唯選手トークショーを開催します！☛オートレース一宮"
-            },
-            {
-              "type": "text",
-              "text": "10/18（日）に、オートレース一宮にて"
-            },
-            {
-              "type": "text",
-              "text": "北市唯選手のトークイベントが開催されます！(MC水野舞さん)"
-            },
-            {
-              "type": "text",
-              "text": "お時間ある方はぜひご来場くださいませ。"
-            },
-            {
-              "type": "text",
-              "text": "☆北市唯選手トークショー(MC水野舞さん)"
-            },
-            {
-              "type": "text",
-              "text": "日 時：１０月１８日（日）"
-            },
-            {
-              "type": "text",
-              "text": "場 所： オートレース一宮1階オートレースカウンター"
-            },
-            {
-              "type": "text",
-              "text": "出演者：北市唯選手（浜松37期）・MC水野舞"
-            },
-            {
-              "type": "text",
-              "text": "内 容：☆北市唯選手トークショー（飯塚9R発売中：14時21分頃 ～）"
-            },
-            {
-              "type": "text",
-              "text": "★水野舞による予想会＆★オートレースグッズの当たる抽選会（飯 塚10R発売中:14時53分頃～）"
-            },
-            {
-              "type": "text",
-              "text": "抽選券配布：（開門～飯塚6R発売中 ※無くなり次第終了）"
-            },
-            {
-              "type": "text",
-              "text": "★オートレースVR体験（開門～飯塚6R締切：13時10分頃ま で）"
-            },
-            {
-              "type": "image",
-              "src": "images/df7194de6fda2070ebc75f47.png",
-              "caption": ""
-            },
-            {
-              "type": "text",
-              "text": "登録費・年会費無料のAUTORACE.JP投票に登録して、「オートレース」をもっと楽しもう！"
-            },
-            {
-              "type": "image",
-              "src": "images/68bcdf64ecd56ee0f8a34c97.jpg",
-              "caption": ""
-            },
-            {
-              "type": "text",
-              "text": "ネット口座をお持ちの方は、即日で登録完了。 スマホ・パソコンからご投票できます。 登録費や年会費などは無くご登録は無料です。 お気軽にAUTORACE.JP投票をお試しください。"
-            }
-          ],
-          "link_version": 1
         }
       ]
     },
     "autorace-update": {
       "status": "ok",
-      "last_success": "2026-10-27T05:52:58.832436+09:00",
+      "last_success": "2026-10-28T05:24:24.919275+09:00",
       "items": []
     },
     "netkeirin": {
       "status": "ok",
-      "last_success": "2026-10-27T05:52:58.832436+09:00",
+      "last_success": "2026-10-28T05:24:24.919275+09:00",
       "items": [
         {
           "title": "リリース 【アップデート】アプリv2.12.0を公開しました",
@@ -3530,7 +3493,7 @@
           "feed": "netkeirin",
           "site": "netkeirin",
           "section": "キャンペーン・お知らせ",
-          "new": true,
+          "new": false,
           "body": [],
           "note": "本文を取得できませんでした。出典元の記事をご確認ください。"
         },
@@ -3724,8 +3687,165 @@
     },
     "minnano": {
       "status": "ok",
-      "last_success": "2026-10-27T05:52:58.832436+09:00",
+      "last_success": "2026-10-28T05:24:24.919275+09:00",
       "items": [
+        {
+          "title": "00:00 【10月28日限定】チャージで3人に1人！種なし甘柿が当たる！",
+          "url": "https://bet.minnano-keirin.com/info/26002",
+          "date": "2026-10-28",
+          "feed": "minnano",
+          "site": "みんなの競輪",
+          "section": "お知らせ",
+          "new": true,
+          "body": [
+            "T9d3,",
+            "※賞品画像はイメージです",
+            "10月28日（水）に「みんなの競輪」で5万円以上のチャージ（払戻金チャージを除く）を行い、応募フォームからエントリーされた方の中から、3人に1人に福岡県産種なし甘柿をプレゼント！",
+            "【キャンペーン対象日】",
+            "・10月28日（水）",
+            "【抽選予定日】",
+            "・10月29日（木）",
+            "【エントリー方法】",
+            "・キャンペーン対象期間中において、以下のエントリー条件を満たすこと。",
+            "(1)5万円以上のチャージ（払戻金チャージを除く）",
+            "(2)本フォーム内の「応募する」ボタンを押下してエントリー",
+            "【賞品（3人に1人が当選）】",
+            "・《福岡県産種なし甘柿》 4〜6玉（約1.5㎏）",
+            "※賞品は抽選のうえ、当選された方へ後日お届けいたします。",
+            "※個数は重量により変動いたします。",
+            "【はずれた方にもダブルチャンス！】",
+            "惜しくもご当選とならなかった方の中から抽選で5名様に、高級ふりかけパックをプレゼント！",
+            "※賞品は抽選のうえ、当選された方へ後日お届けいたします。",
+            "【本キャンペーン注意事項】",
+            "※本キャンペーンは応募フォームよりエントリーが必要となります。",
+            "※キャンペーン対象期間中に5万円以上のチャージ（払戻金チャージを除く）を行った方が対象となります。",
+            "※ご当選時の賞品は、みんなの競輪にご登録の住所に発送いたします。事前にご登録の住所をご確認ください。",
+            "※キャンペーンの開催期間、および賞品発送時期は予告なく変更となる場合がございます。",
+            "※条件を満たしていない場合、本キャンペーンの対象外となります。",
+            "※その他、本キャンペーンは予告なく内容の変更・または中止となる場合がございます。",
+            "【賞品に関する注意事項】",
+            "※発送元は提携企業となります。",
+            "※賞味期限／消費期限は商品ごとに異なります。ご注意ください。e:[\"$\",\"div\",null,{\"className\":\"sp-footer-spacing-padding flex min-h-screen flex-col md:pb-0\",\"children\":[[\"$\",\"div\",null,{\"className\":\"flex md:flex-1\",\"children\":[[\"$\",\"div\",null,{\"className\":\"hidden md:block\",\"children\":[\"$\",\"$L17\",null,{}]}],[\"$\",\"div\",null,{\"className\":\"flex min-w-0 flex-1 flex-col justify-between\",\"children\":[[\"$\",\"div\",null,{\"children\":[\"$\",\"main\",null,{\"className\":\"m-4 mb-24 rounded-xl bg-white p-4 md:m-auto md:mt-[50px] md:mb-20 md:min-h-auto md:w-[789px] md:rounded-2xl md:bg-white md:p-10\",\"children\":[\"$\",\"div\",null,{\"className\":\"text-default flex flex-col gap-4 rounded-lg bg-white\",\"children\":[[\"$\",\"$L18\",null,{\"href\":\"/info\",\"className\":\"inline-flex items-center gap-2\",\"children\":[[\"$\",\"svg\",null,{\"width\":16,\"height\":16,\"viewBox\":\"0 0 12 20\",\"fill\":\"#888888\",\"xmlns\":\"http://www.w3.org/2000/svg\",\"children\":[\"$\",\"path\",null,{\"d\":\"M10 20L0 10L10 0L11.775 1.775L3.55 10L11.775 18.225L10 20Z\",\"fill\":\"#888888\"}]}],[\"$\",\"span\",null,{\"className\":\"font-[Noto_Sans_JP,sans-serif] text-[14px] leading-[1.5] tracking-[-0.02em] text-[#888888]\",\"children\":\"戻る\"}]]}],[\"$\",\"section\",null,{\"children\":[[\"$\",\"h2\",null,{\"className\":\"text-xl font-bold\",\"children\":\"【10月28日限定】チャージで3人に1人！種なし甘柿が当たる！\"}],[\"$\",\"div\",null,{\"className\":\"text-[#888]\",\"children\":\"2026/10/28 00:00\"}]]}],\"$L19\",[\"$\",\"$L1a\",null,{\"htmlContent\":\"$1b\"}]]}]}]}],[\"$\",\"footer\",null,{\"className\":\"hidden md:flex bg-default w-full flex-col gap-5 px-4 py-8 pb-[87px] text-white md:gap-10 md:pb-8\",\"children\":[\"$\",\"div\",null,{\"className\":\"flex flex-col gap-10 text-xs text-white md:gap-6\",\"children\":[[\"$\",\"div\",null,{\"className\":\"grid grid-cols-2 gap-5 md:flex md:flex-wrap md:gap-x-12 md:gap-y-2\",\"children\":[[\"$\",\"$L18\",null,{\"href\":\"/about\",\"children\":\"運営会社\"}],[\"$\",\"$L18\",null,{\"href\":\"/about/terms\",\"children\":\"利用規約\"}],[\"$\",\"$L18\",null,{\"href\":\"/about/privacy-policy\",\"children\":\"プライバシーポリシー\"}],[\"$\",\"$L18\",null,{\"href\":\"/about/commercial-transaction\",\"children\":\"特定商取引法に基づく表示\"}],[\"$\",\"$L18\",null,{\"href\":\"/about/security-policy\",\"children\":\"情報セキュリティ方針\"}],[\"$\",\"$L18\",null,{\"href\":\"/mypage/faq\",\"children\":\"よくある質問\"}],[\"$\",\"$L18\",null,{\"href\":\"/mypage/contact\",\"children\":\"お問い合わせ\"}]]}],[\"$\",\"div\",null,{\"className\":\"flex flex-col gap-5 md:flex-row md:flex-wrap md:gap-x-7 md:gap-y-2\",\"children\":[[\"$\",\"$L18\",null,{\"href\":\"/login/gamble-notice\",\"className\":\"flex items-center gap-2\",\"children\":[[\"$\",\"div\",null,{\"children\":\"車券の購入は20歳になってから、競輪は適度に楽しみましょう\"}],[\"$\",\"svg\",null,{\"width\":8,\"height\":12,\"viewBox\":\"0 0 8 12\",\"fill\":\"none\",\"xmlns\":\"http://www.w3.org/2000/svg\",\"children\":[\"$\",\"path\",null,{\"d\":\"M2 5.24537e-07L8 6L2 12L0.6 10.6L5.2 6L0.599999 1.4L2 5.24537e-07Z\",\"fill\":\"white\"}]}]]}],[\"$\",\"$L18\",null,{\"href\":\"/login/gambling-addiction\",\"className\":\"flex items-center gap-2\",\"children\":[[\"$\",\"div\",null,{\"children\":\"車券の購入にのめり込む不安のある方のご相談\"}],[\"$\",\"svg\",null,{\"width\":8,\"height\":12,\"viewBox\":\"0 0 8 12\",\"fill\":\"none\",\"xmlns\":\"http://www.w3.org/2000/svg\",\"children\":\"$L1c\"}]]}],\"$L1d\"]}],\"$L1e\"]}]}]]}]]}],\"$L1f\"]}]"
+          ],
+          "note": "",
+          "body_extractor": "minnano-flight-v2",
+          "blocks": [
+            {
+              "type": "text",
+              "text": "T9d3,"
+            },
+            {
+              "type": "text",
+              "text": "※賞品画像はイメージです"
+            },
+            {
+              "type": "text",
+              "text": "10月28日（水）に「みんなの競輪」で5万円以上のチャージ（払戻金チャージを除く）を行い、応募フォームからエントリーされた方の中から、3人に1人に福岡県産種なし甘柿をプレゼント！"
+            },
+            {
+              "type": "text",
+              "text": "【キャンペーン対象日】"
+            },
+            {
+              "type": "text",
+              "text": "・10月28日（水）"
+            },
+            {
+              "type": "text",
+              "text": "【抽選予定日】"
+            },
+            {
+              "type": "text",
+              "text": "・10月29日（木）"
+            },
+            {
+              "type": "text",
+              "text": "【エントリー方法】"
+            },
+            {
+              "type": "text",
+              "text": "・キャンペーン対象期間中において、以下のエントリー条件を満たすこと。"
+            },
+            {
+              "type": "text",
+              "text": "(1)5万円以上のチャージ（払戻金チャージを除く）"
+            },
+            {
+              "type": "text",
+              "text": "(2)本フォーム内の「応募する」ボタンを押下してエントリー"
+            },
+            {
+              "type": "text",
+              "text": "【賞品（3人に1人が当選）】"
+            },
+            {
+              "type": "text",
+              "text": "・《福岡県産種なし甘柿》 4〜6玉（約1.5㎏）"
+            },
+            {
+              "type": "text",
+              "text": "※賞品は抽選のうえ、当選された方へ後日お届けいたします。"
+            },
+            {
+              "type": "text",
+              "text": "※個数は重量により変動いたします。"
+            },
+            {
+              "type": "text",
+              "text": "【はずれた方にもダブルチャンス！】"
+            },
+            {
+              "type": "text",
+              "text": "惜しくもご当選とならなかった方の中から抽選で5名様に、高級ふりかけパックをプレゼント！"
+            },
+            {
+              "type": "text",
+              "text": "※賞品は抽選のうえ、当選された方へ後日お届けいたします。"
+            },
+            {
+              "type": "text",
+              "text": "【本キャンペーン注意事項】"
+            },
+            {
+              "type": "text",
+              "text": "※本キャンペーンは応募フォームよりエントリーが必要となります。"
+            },
+            {
+              "type": "text",
+              "text": "※キャンペーン対象期間中に5万円以上のチャージ（払戻金チャージを除く）を行った方が対象となります。"
+            },
+            {
+              "type": "text",
+              "text": "※ご当選時の賞品は、みんなの競輪にご登録の住所に発送いたします。事前にご登録の住所をご確認ください。"
+            },
+            {
+              "type": "text",
+              "text": "※キャンペーンの開催期間、および賞品発送時期は予告なく変更となる場合がございます。"
+            },
+            {
+              "type": "text",
+              "text": "※条件を満たしていない場合、本キャンペーンの対象外となります。"
+            },
+            {
+              "type": "text",
+              "text": "※その他、本キャンペーンは予告なく内容の変更・または中止となる場合がございます。"
+            },
+            {
+              "type": "text",
+              "text": "【賞品に関する注意事項】"
+            },
+            {
+              "type": "text",
+              "text": "※発送元は提携企業となります。"
+            },
+            {
+              "type": "text",
+              "text": "※賞味期限／消費期限は商品ごとに異なります。ご注意ください。e:[\"$\",\"div\",null,{\"className\":\"sp-footer-spacing-padding flex min-h-screen flex-col md:pb-0\",\"children\":[[\"$\",\"div\",null,{\"className\":\"flex md:flex-1\",\"children\":[[\"$\",\"div\",null,{\"className\":\"hidden md:block\",\"children\":[\"$\",\"$L17\",null,{}]}],[\"$\",\"div\",null,{\"className\":\"flex min-w-0 flex-1 flex-col justify-between\",\"children\":[[\"$\",\"div\",null,{\"children\":[\"$\",\"main\",null,{\"className\":\"m-4 mb-24 rounded-xl bg-white p-4 md:m-auto md:mt-[50px] md:mb-20 md:min-h-auto md:w-[789px] md:rounded-2xl md:bg-white md:p-10\",\"children\":[\"$\",\"div\",null,{\"className\":\"text-default flex flex-col gap-4 rounded-lg bg-white\",\"children\":[[\"$\",\"$L18\",null,{\"href\":\"/info\",\"className\":\"inline-flex items-center gap-2\",\"children\":[[\"$\",\"svg\",null,{\"width\":16,\"height\":16,\"viewBox\":\"0 0 12 20\",\"fill\":\"#888888\",\"xmlns\":\"http://www.w3.org/2000/svg\",\"children\":[\"$\",\"path\",null,{\"d\":\"M10 20L0 10L10 0L11.775 1.775L3.55 10L11.775 18.225L10 20Z\",\"fill\":\"#888888\"}]}],[\"$\",\"span\",null,{\"className\":\"font-[Noto_Sans_JP,sans-serif] text-[14px] leading-[1.5] tracking-[-0.02em] text-[#888888]\",\"children\":\"戻る\"}]]}],[\"$\",\"section\",null,{\"children\":[[\"$\",\"h2\",null,{\"className\":\"text-xl font-bold\",\"children\":\"【10月28日限定】チャージで3人に1人！種なし甘柿が当たる！\"}],[\"$\",\"div\",null,{\"className\":\"text-[#888]\",\"children\":\"2026/10/28 00:00\"}]]}],\"$L19\",[\"$\",\"$L1a\",null,{\"htmlContent\":\"$1b\"}]]}]}]}],[\"$\",\"footer\",null,{\"className\":\"hidden md:flex bg-default w-full flex-col gap-5 px-4 py-8 pb-[87px] text-white md:gap-10 md:pb-8\",\"children\":[\"$\",\"div\",null,{\"className\":\"flex flex-col gap-10 text-xs text-white md:gap-6\",\"children\":[[\"$\",\"div\",null,{\"className\":\"grid grid-cols-2 gap-5 md:flex md:flex-wrap md:gap-x-12 md:gap-y-2\",\"children\":[[\"$\",\"$L18\",null,{\"href\":\"/about\",\"children\":\"運営会社\"}],[\"$\",\"$L18\",null,{\"href\":\"/about/terms\",\"children\":\"利用規約\"}],[\"$\",\"$L18\",null,{\"href\":\"/about/privacy-policy\",\"children\":\"プライバシーポリシー\"}],[\"$\",\"$L18\",null,{\"href\":\"/about/commercial-transaction\",\"children\":\"特定商取引法に基づく表示\"}],[\"$\",\"$L18\",null,{\"href\":\"/about/security-policy\",\"children\":\"情報セキュリティ方針\"}],[\"$\",\"$L18\",null,{\"href\":\"/mypage/faq\",\"children\":\"よくある質問\"}],[\"$\",\"$L18\",null,{\"href\":\"/mypage/contact\",\"children\":\"お問い合わせ\"}]]}],[\"$\",\"div\",null,{\"className\":\"flex flex-col gap-5 md:flex-row md:flex-wrap md:gap-x-7 md:gap-y-2\",\"children\":[[\"$\",\"$L18\",null,{\"href\":\"/login/gamble-notice\",\"className\":\"flex items-center gap-2\",\"children\":[[\"$\",\"div\",null,{\"children\":\"車券の購入は20歳になってから、競輪は適度に楽しみましょう\"}],[\"$\",\"svg\",null,{\"width\":8,\"height\":12,\"viewBox\":\"0 0 8 12\",\"fill\":\"none\",\"xmlns\":\"http://www.w3.org/2000/svg\",\"children\":[\"$\",\"path\",null,{\"d\":\"M2 5.24537e-07L8 6L2 12L0.6 10.6L5.2 6L0.599999 1.4L2 5.24537e-07Z\",\"fill\":\"white\"}]}]]}],[\"$\",\"$L18\",null,{\"href\":\"/login/gambling-addiction\",\"className\":\"flex items-center gap-2\",\"children\":[[\"$\",\"div\",null,{\"children\":\"車券の購入にのめり込む不安のある方のご相談\"}],[\"$\",\"svg\",null,{\"width\":8,\"height\":12,\"viewBox\":\"0 0 8 12\",\"fill\":\"none\",\"xmlns\":\"http://www.w3.org/2000/svg\",\"children\":\"$L1c\"}]]}],\"$L1d\"]}],\"$L1e\"]}]}]]}]]}],\"$L1f\"]}]"
+            }
+          ],
+          "media_version": 1,
+          "link_version": 1
+        },
         {
           "title": "12:00 【10月31日～11月3日】「防府競輪G3」みんなの競輪 オリジナル攻略データ《特製クオカードプレゼント有り》",
           "url": "https://bet.minnano-keirin.com/info/24906",
@@ -4570,114 +4690,12 @@
             }
           ],
           "link_version": 1
-        },
-        {
-          "title": "10:13 【メンテナンス終了のお知らせとお詫び】みんなの競輪緊急メンテナンス終了について",
-          "url": "https://bet.minnano-keirin.com/info/25833",
-          "date": "2026-10-22",
-          "feed": "minnano",
-          "site": "みんなの競輪",
-          "section": "お知らせ",
-          "new": false,
-          "body": [
-            "いつも「みんなの競輪」をご利用いただき、誠にありがとうございます。",
-            "2026年10月22日（木）00:00頃より、PHPの脆弱性に伴う緊急メンテナンスを実施してまいりました。",
-            "メンテナンスを進めた結果、【2026年10月22日（木）09:40】に終了し、現在は通常どおりご利用いただける状態となっております。",
-            "長時間にわたり、ご利用のお客様には多大なるご迷惑とご不便をおかけしましたことを、心より深くお詫び申し上げます。",
-            "■ 復旧日時",
-            "【2026年10月22日（木）09:40】",
-            "■ 影響範囲",
-            "「みんなの競輪」におけるすべてのサービス",
-            "・車券の購入（投票）",
-            "・チャージ（入金）、精算（出金）の手続き",
-            "・その他、会員マイページ等の全機能",
-            "■ 現在の状況",
-            "現在はメンテナンス終了し、すべてのサービスを通常どおりご利用いただけます。",
-            "正常に画面が表示されない場合は、ページの再読み込みやブラウザの再起動をお試しいただいたうえで、再度アクセスしていただきますようお願いいたします。",
-            "今後もお客様に安心してサービスをご利用いただけるよう、関係各所と連携し、安定したサービス運営に努めてまいります。",
-            "この度はお客様に多大なるご迷惑とご不便をおかけしましたことを、重ねて深くお詫び申し上げます。",
-            "今後とも「みんなの競輪」をよろしくお願い申し上げます。"
-          ],
-          "note": "",
-          "body_extractor": "minnano-flight-v2",
-          "media_version": 1,
-          "blocks": [
-            {
-              "type": "text",
-              "text": "いつも「みんなの競輪」をご利用いただき、誠にありがとうございます。"
-            },
-            {
-              "type": "text",
-              "text": "2026年10月22日（木）00:00頃より、PHPの脆弱性に伴う緊急メンテナンスを実施してまいりました。"
-            },
-            {
-              "type": "text",
-              "text": "メンテナンスを進めた結果、【2026年10月22日（木）09:40】に終了し、現在は通常どおりご利用いただける状態となっております。"
-            },
-            {
-              "type": "text",
-              "text": "長時間にわたり、ご利用のお客様には多大なるご迷惑とご不便をおかけしましたことを、心より深くお詫び申し上げます。"
-            },
-            {
-              "type": "text",
-              "text": "■ 復旧日時"
-            },
-            {
-              "type": "text",
-              "text": "【2026年10月22日（木）09:40】"
-            },
-            {
-              "type": "text",
-              "text": "■ 影響範囲"
-            },
-            {
-              "type": "text",
-              "text": "「みんなの競輪」におけるすべてのサービス"
-            },
-            {
-              "type": "text",
-              "text": "・車券の購入（投票）"
-            },
-            {
-              "type": "text",
-              "text": "・チャージ（入金）、精算（出金）の手続き"
-            },
-            {
-              "type": "text",
-              "text": "・その他、会員マイページ等の全機能"
-            },
-            {
-              "type": "text",
-              "text": "■ 現在の状況"
-            },
-            {
-              "type": "text",
-              "text": "現在はメンテナンス終了し、すべてのサービスを通常どおりご利用いただけます。"
-            },
-            {
-              "type": "text",
-              "text": "正常に画面が表示されない場合は、ページの再読み込みやブラウザの再起動をお試しいただいたうえで、再度アクセスしていただきますようお願いいたします。"
-            },
-            {
-              "type": "text",
-              "text": "今後もお客様に安心してサービスをご利用いただけるよう、関係各所と連携し、安定したサービス運営に努めてまいります。"
-            },
-            {
-              "type": "text",
-              "text": "この度はお客様に多大なるご迷惑とご不便をおかけしましたことを、重ねて深くお詫び申し上げます。"
-            },
-            {
-              "type": "text",
-              "text": "今後とも「みんなの競輪」をよろしくお願い申し上げます。"
-            }
-          ],
-          "link_version": 1
         }
       ]
     },
     "tipstar": {
       "status": "ok",
-      "last_success": "2026-10-27T05:52:58.832436+09:00",
+      "last_success": "2026-10-28T05:24:24.919275+09:00",
       "items": [
         {
           "title": "【10/23】チャージで1/2 （ニブイチ）キャンペーン",
@@ -7547,7 +7565,7 @@
     },
     "pist6": {
       "status": "ok",
-      "last_success": "2026-10-27T05:52:58.832436+09:00",
+      "last_success": "2026-10-28T05:24:24.919275+09:00",
       "items": [
         {
           "title": "【FAIRLADY Z 大集合】11月1日（日）に開催！",
@@ -9550,7 +9568,7 @@
     },
     "betimo": {
       "status": "ok",
-      "last_success": "2026-10-27T05:52:58.832436+09:00",
+      "last_success": "2026-10-28T05:24:24.919275+09:00",
       "items": [
         {
           "title": "Betimo、みんなの銀行と「金融を活用した価値共創にかかる基本合意書」を締結",
