@@ -1,6 +1,6 @@
 {
   "format_version": 1,
-  "updated": "2026-11-03T08:17:15.931267+09:00",
+  "updated": "2026-11-04T06:28:38.173224+09:00",
   "feeds": {
     "gamboo": {
       "status": "unavailable",
@@ -10,7 +10,7 @@
     },
     "winkeirin-topics": {
       "status": "ok",
-      "last_success": "2026-11-03T08:17:15.931267+09:00",
+      "last_success": "2026-11-04T06:28:38.173224+09:00",
       "items": [
         {
           "title": "【不具合・復旧済み】一部のお客様でWebブラウザ版が繋がりづらい",
@@ -19,7 +19,7 @@
           "feed": "winkeirin-topics",
           "site": "WINTICKET",
           "section": "競輪・お知らせ",
-          "new": true,
+          "new": false,
           "body": [
             "本不具合は、2026年11月2日（月）18:30頃に復旧いたしました。",
             "この度は、ご不便・ご迷惑をおかけし、誠に申し訳ございません。",
@@ -35,6 +35,7 @@
             "引き続きWINTICKETをよろしくお願いいたします。"
           ],
           "note": "",
+          "media_version": 1,
           "blocks": [
             {
               "type": "text",
@@ -85,7 +86,6 @@
               "text": "引き続きWINTICKETをよろしくお願いいたします。"
             }
           ],
-          "media_version": 1,
           "link_version": 1
         },
         {
@@ -95,7 +95,7 @@
           "feed": "winkeirin-topics",
           "site": "WINTICKET",
           "section": "競輪・お知らせ",
-          "new": true,
+          "new": false,
           "body": [
             "いつもWINTICKETをご利用いただき、誠にありがとうございます。",
             "2026年11月2日（月）防府競輪G3 3日目の第2レースにつきまして、1番選手の欠場により公正安全なレースができないと判断したため、開催中止となりました。 ご迷惑をおかけいたしますが、ご理解ご了承のほど、よろしくお願い申し上げます。",
@@ -103,6 +103,7 @@
             "引き続きWINTICKETをよろしくお願いいたします。"
           ],
           "note": "",
+          "media_version": 1,
           "blocks": [
             {
               "type": "text",
@@ -121,7 +122,6 @@
               "text": "引き続きWINTICKETをよろしくお願いいたします。"
             }
           ],
-          "media_version": 1,
           "link_version": 1
         },
         {
@@ -392,12 +392,12 @@
     },
     "winkeirin-column": {
       "status": "ok",
-      "last_success": "2026-11-03T08:17:15.931267+09:00",
+      "last_success": "2026-11-04T06:28:38.173224+09:00",
       "items": []
     },
     "winauto-topics": {
       "status": "ok",
-      "last_success": "2026-11-03T08:17:15.931267+09:00",
+      "last_success": "2026-11-04T06:28:38.173224+09:00",
       "items": [
         {
           "title": "【不具合・復旧済み】一部のお客様でWebブラウザ版が繋がりづらい",
@@ -406,7 +406,7 @@
           "feed": "winauto-topics",
           "site": "WINTICKET",
           "section": "オート・お知らせ",
-          "new": true,
+          "new": false,
           "body": [
             "本不具合は、2026年11月2日（月）18:30頃に復旧いたしました。",
             "この度は、ご不便・ご迷惑をおかけし、誠に申し訳ございません。",
@@ -422,6 +422,7 @@
             "引き続きWINTICKETをよろしくお願いいたします。"
           ],
           "note": "",
+          "media_version": 1,
           "blocks": [
             {
               "type": "text",
@@ -472,7 +473,6 @@
               "text": "引き続きWINTICKETをよろしくお願いいたします。"
             }
           ],
-          "media_version": 1,
           "link_version": 1
         },
         {
@@ -829,7 +829,7 @@
     },
     "winauto-column": {
       "status": "ok",
-      "last_success": "2026-11-03T08:17:15.931267+09:00",
+      "last_success": "2026-11-04T06:28:38.173224+09:00",
       "items": []
     },
     "odds-info": {
@@ -1468,7 +1468,7 @@
     },
     "kdreams": {
       "status": "ok",
-      "last_success": "2026-11-03T08:17:15.931267+09:00",
+      "last_success": "2026-11-04T06:28:38.173224+09:00",
       "items": [
         {
           "title": "11月7日(土)～8(日) 四日市競輪場に楽天Kドリームスブース出店！",
@@ -1477,7 +1477,7 @@
           "feed": "kdreams",
           "site": "楽天Kドリームス",
           "section": "インフォメーション",
-          "new": true,
+          "new": false,
           "body": [
             "四日市競輪場で 11月5日(木)～11月8日(日)に 泗水杯争奪戦 (G3) が開催されます！ 開催三日目と最終日の二日間 、 楽天Kドリームスブースを出店いたしますので、ぜひご来場ください。",
             "日程：11月7日(土)～8日(日) 時間 ：14:00～20:00(各種受付の締め切り時間とさせていただきます)",
@@ -1490,6 +1490,7 @@
             "ブースでのデルカチャージは 手数料無料！ チャージ受付、操作方法のご案内などスタッフへお声掛けください。"
           ],
           "note": "",
+          "media_version": 1,
           "blocks": [
             {
               "type": "text",
@@ -1533,7 +1534,6 @@
               "text": "ブースでのデルカチャージは 手数料無料！ チャージ受付、操作方法のご案内などスタッフへお声掛けください。"
             }
           ],
-          "media_version": 1,
           "link_version": 1
         },
         {
@@ -1543,7 +1543,7 @@
           "feed": "kdreams",
           "site": "楽天Kドリームス",
           "section": "インフォメーション",
-          "new": true,
+          "new": false,
           "body": [
             "11月 2 日(月) 防府競輪(３日目)第2レースは中止となりました。 第2レースの車券は全て返還となります。",
             "■返還されたデルカポイントの確認方法 【PC・スマートフォンサイト】 マイページ＞デルカマイページ＞利用履歴 【アプリ】 その他＞マイページ＞デルカマイページ＞利用履歴",
@@ -1552,6 +1552,7 @@
             "keirin.kdreams.jp"
           ],
           "note": "",
+          "media_version": 1,
           "blocks": [
             {
               "type": "text",
@@ -1586,7 +1587,6 @@
               ]
             }
           ],
-          "media_version": 1,
           "link_version": 1
         },
         {
@@ -1596,7 +1596,7 @@
           "feed": "kdreams",
           "site": "楽天Kドリームス",
           "section": "インフォメーション",
-          "new": true,
+          "new": false,
           "body": [
             "こんにちは！楽天Kドリームス現場スタッフです。 防府競輪場で10月31日(土)～11月3日(火祝)に 周防国府杯争奪戦(G3) が開催⤴ 開催初日とニ日目の二日間、楽天Kドリームスブースを出店いたしました。",
             "日中は半袖でも過ごせるほどの陽気の中、今回も多くのお客様にご来場いただけましたた。いつも皆様本当にありがとうございます。",
@@ -1609,6 +1609,7 @@
             "yokkaichikeirin.com"
           ],
           "note": "",
+          "media_version": 1,
           "blocks": [
             {
               "type": "text",
@@ -1659,7 +1660,6 @@
               ]
             }
           ],
-          "media_version": 1,
           "link_version": 1
         },
         {
@@ -1933,8 +1933,220 @@
     },
     "chariloto": {
       "status": "ok",
-      "last_success": "2026-11-03T08:17:15.931267+09:00",
+      "last_success": "2026-11-04T06:28:38.173224+09:00",
       "items": [
+        {
+          "title": "【Perfecta Navi】レースレポート掲載中！【防府競輪G3・浜松オートSG】",
+          "url": "https://www.chariloto.com/articles/7551",
+          "date": "2026-11-03",
+          "feed": "chariloto",
+          "site": "チャリロト",
+          "section": "ニュース",
+          "new": true,
+          "body": [
+            "防府市制施行90周年記念 防府競輪開設77周年記念「周防国府杯争奪戦」G3",
+            "3日目",
+            "レース結果",
+            "PerfectaNavi",
+            "最終日",
+            "レース結果",
+            "PerfectaNavi",
+            "浜松オートSG「第58回日本選手権オートレース」",
+            "最終日",
+            "レース結果",
+            "PerfectaNavi"
+          ],
+          "note": "",
+          "blocks": [
+            {
+              "type": "text",
+              "text": "防府市制施行90周年記念 防府競輪開設77周年記念「周防国府杯争奪戦」G3"
+            },
+            {
+              "type": "text",
+              "text": "3日目"
+            },
+            {
+              "type": "text",
+              "text": "レース結果"
+            },
+            {
+              "type": "text",
+              "text": "PerfectaNavi"
+            },
+            {
+              "type": "image",
+              "src": "images/a5459e827111c73f2bd52fdb.jpg",
+              "caption": ""
+            },
+            {
+              "type": "text",
+              "text": "最終日"
+            },
+            {
+              "type": "text",
+              "text": "レース結果"
+            },
+            {
+              "type": "text",
+              "text": "PerfectaNavi"
+            },
+            {
+              "type": "image",
+              "src": "images/17cbb5e6940d63a789d8f803.jpg",
+              "caption": ""
+            },
+            {
+              "type": "text",
+              "text": "浜松オートSG「第58回日本選手権オートレース」"
+            },
+            {
+              "type": "text",
+              "text": "最終日"
+            },
+            {
+              "type": "text",
+              "text": "レース結果"
+            },
+            {
+              "type": "text",
+              "text": "PerfectaNavi"
+            },
+            {
+              "type": "image",
+              "src": "images/98beea49cedd4c4358aa1ae1.jpg",
+              "caption": ""
+            }
+          ],
+          "media_version": 1,
+          "link_version": 1
+        },
+        {
+          "title": "【200名様にお米が当たる！】四日市G3ナイター「泗水杯争奪戦」投票キャンペーン！",
+          "url": "https://www.chariloto.com/articles/7503",
+          "date": "2026-11-03",
+          "feed": "chariloto",
+          "site": "チャリロト",
+          "section": "ニュース",
+          "new": true,
+          "body": [
+            "キャンペーンに応募する",
+            "会員登録はこちら",
+            "いつもチャリロトをご利用いただき、ありがとうございます。",
+            "11月5日（木）～ 11月8日（日）に四日市競輪場で開催されるG3ナイター「泗水杯争奪戦」にて、",
+            "合計1万円以上投票",
+            "していただいたネット会員様の中から",
+            "抽選で200名様",
+            "に",
+            "「ぺーちゃんねる」でもおなじみの加藤慎平さんオススメのお米",
+            "をプレゼントいたします！",
+            "ひと粒ひと粒が大きく、ふっくら艶やかな炊き上がりが楽しめる「龍の瞳」。口いっぱいに広がる豊かな甘みと旨みを堪能できる逸品です。",
+            "・龍の瞳 （精米2kg）",
+            "慎平さんが選んだ、とっておきのお米。",
+            "まずは炊きたてをそのまま、ひと口味わってみてください！",
+            "岐阜のレジェンド・元グランプリレーサー加藤慎平さんより",
+            "コンディション作りに追われる毎日だったからこそ、食事の時間が何よりの楽しみであり活力でした。",
+            "龍の瞳は、僕の生まれ故郷である岐阜発祥のブランド米ですが、単にお腹を満たすためだけのお米じゃないんですよね。",
+            "圧倒的な大粒と強い甘みが格別で、ハードなトレーニング後でも自然とおかわりが進んでしまう。",
+            "現役時代の身体作りに欠かせない相棒でした。",
+            "お米ひとつでここまで食卓のテンションが変わるのかと驚くはずです。",
+            "ぜひお腹いっぱい、その圧倒的な美味しさを楽しんでください！"
+          ],
+          "note": "",
+          "blocks": [
+            {
+              "type": "text",
+              "text": "キャンペーンに応募する"
+            },
+            {
+              "type": "text",
+              "text": "会員登録はこちら"
+            },
+            {
+              "type": "text",
+              "text": "いつもチャリロトをご利用いただき、ありがとうございます。"
+            },
+            {
+              "type": "text",
+              "text": "11月5日（木）～ 11月8日（日）に四日市競輪場で開催されるG3ナイター「泗水杯争奪戦」にて、"
+            },
+            {
+              "type": "text",
+              "text": "合計1万円以上投票"
+            },
+            {
+              "type": "text",
+              "text": "していただいたネット会員様の中から"
+            },
+            {
+              "type": "text",
+              "text": "抽選で200名様"
+            },
+            {
+              "type": "text",
+              "text": "に"
+            },
+            {
+              "type": "text",
+              "text": "「ぺーちゃんねる」でもおなじみの加藤慎平さんオススメのお米"
+            },
+            {
+              "type": "text",
+              "text": "をプレゼントいたします！"
+            },
+            {
+              "type": "text",
+              "text": "ひと粒ひと粒が大きく、ふっくら艶やかな炊き上がりが楽しめる「龍の瞳」。口いっぱいに広がる豊かな甘みと旨みを堪能できる逸品です。"
+            },
+            {
+              "type": "text",
+              "text": "・龍の瞳 （精米2kg）"
+            },
+            {
+              "type": "text",
+              "text": "慎平さんが選んだ、とっておきのお米。"
+            },
+            {
+              "type": "text",
+              "text": "まずは炊きたてをそのまま、ひと口味わってみてください！"
+            },
+            {
+              "type": "image",
+              "src": "images/123a87c6a5a5ca469a87859f.png",
+              "caption": ""
+            },
+            {
+              "type": "text",
+              "text": "岐阜のレジェンド・元グランプリレーサー加藤慎平さんより"
+            },
+            {
+              "type": "text",
+              "text": "コンディション作りに追われる毎日だったからこそ、食事の時間が何よりの楽しみであり活力でした。"
+            },
+            {
+              "type": "text",
+              "text": "龍の瞳は、僕の生まれ故郷である岐阜発祥のブランド米ですが、単にお腹を満たすためだけのお米じゃないんですよね。"
+            },
+            {
+              "type": "text",
+              "text": "圧倒的な大粒と強い甘みが格別で、ハードなトレーニング後でも自然とおかわりが進んでしまう。"
+            },
+            {
+              "type": "text",
+              "text": "現役時代の身体作りに欠かせない相棒でした。"
+            },
+            {
+              "type": "text",
+              "text": "お米ひとつでここまで食卓のテンションが変わるのかと驚くはずです。"
+            },
+            {
+              "type": "text",
+              "text": "ぜひお腹いっぱい、その圧倒的な美味しさを楽しんでください！"
+            }
+          ],
+          "media_version": 1,
+          "link_version": 1
+        },
         {
           "title": "青森の名産品が当たる！青森競輪F1 アップル3キャンペーン",
           "url": "https://www.chariloto.com/articles/7520",
@@ -1942,7 +2154,7 @@
           "feed": "chariloto",
           "site": "チャリロト",
           "section": "ニュース",
-          "new": true,
+          "new": false,
           "body": [
             "青森競輪 F1",
             "2026年11月3日（火・祝）～ 11月5日（木）",
@@ -1954,6 +2166,7 @@
             "上記対象開催の車券を当サイトより合計3,000円以上ご投票されたお客様が対象。 全ての券種（競輪通常車券）が対象です。"
           ],
           "note": "",
+          "media_version": 1,
           "blocks": [
             {
               "type": "image",
@@ -1998,7 +2211,6 @@
               "text": "上記対象開催の車券を当サイトより合計3,000円以上ご投票されたお客様が対象。 全ての券種（競輪通常車券）が対象です。"
             }
           ],
-          "media_version": 1,
           "link_version": 1
         },
         {
@@ -2008,7 +2220,7 @@
           "feed": "chariloto",
           "site": "チャリロト",
           "section": "ニュース",
-          "new": true,
+          "new": false,
           "body": [
             "本日11/2の「当たるんです4（浜松デイ開催）」は、対象の12Rが不成立となったため、全額返還となります。",
             "変更内容は以下となります。",
@@ -2019,6 +2231,7 @@
             "今後ともチャリロトをどうぞよろしくお願いいたします。"
           ],
           "note": "",
+          "media_version": 1,
           "blocks": [
             {
               "type": "text",
@@ -2049,7 +2262,6 @@
               "text": "今後ともチャリロトをどうぞよろしくお願いいたします。"
             }
           ],
-          "media_version": 1,
           "link_version": 1
         },
         {
@@ -2059,7 +2271,7 @@
           "feed": "chariloto",
           "site": "チャリロト",
           "section": "ニュース",
-          "new": true,
+          "new": false,
           "body": [
             "いつもチャリロトをご利用いただき、誠にありがとうございます。",
             "本日（11/2）の防府競輪（3日目）第2レースは、選手急病による欠場のため中止となりました。",
@@ -2067,6 +2279,7 @@
             "ご迷惑をおかけいたしますが、ご理解ご了承くださいますようお願いいたします。"
           ],
           "note": "",
+          "media_version": 1,
           "blocks": [
             {
               "type": "text",
@@ -2085,7 +2298,6 @@
               "text": "ご迷惑をおかけいたしますが、ご理解ご了承くださいますようお願いいたします。"
             }
           ],
-          "media_version": 1,
           "link_version": 1
         },
         {
@@ -2095,13 +2307,14 @@
           "feed": "chariloto",
           "site": "チャリロト",
           "section": "ニュース",
-          "new": true,
+          "new": false,
           "body": [
             "【ご投票はこちら】",
             "・WEB版の方 https://www.chariloto.com/keirin_jushous",
             "・アプリご利用の方 「競輪くじ」タブからご購入下さい。"
           ],
           "note": "",
+          "media_version": 1,
           "blocks": [
             {
               "type": "image",
@@ -2127,7 +2340,6 @@
               "text": "・アプリご利用の方 「競輪くじ」タブからご購入下さい。"
             }
           ],
-          "media_version": 1,
           "link_version": 1
         },
         {
@@ -2232,79 +2444,6 @@
             }
           ],
           "link_version": 1
-        },
-        {
-          "title": "10月第3回 月間キャッシュバック実施日程のお知らせ",
-          "url": "https://www.chariloto.com/articles/7547",
-          "date": "2026-11-01",
-          "feed": "chariloto",
-          "site": "チャリロト",
-          "section": "ニュース",
-          "new": false,
-          "body": [
-            "月額キャッシュバック対象集計期間 ｜ 月額キャッシュバック日",
-            "2026年10月21日～10月末日投票分 ｜ 2026年11月2日（月）",
-            "＜ランクアップ制度及びキャッシュバック率の変更＞"
-          ],
-          "note": "",
-          "media_version": 1,
-          "blocks": [
-            {
-              "type": "text",
-              "text": "月額キャッシュバック対象集計期間 ｜ 月額キャッシュバック日"
-            },
-            {
-              "type": "text",
-              "text": "2026年10月21日～10月末日投票分 ｜ 2026年11月2日（月）"
-            },
-            {
-              "type": "text",
-              "text": "＜ランクアップ制度及びキャッシュバック率の変更＞"
-            }
-          ],
-          "link_version": 1
-        },
-        {
-          "title": "【チャリロトGグループ】2,000万円以上キャリーオーバー発生中！",
-          "url": "https://www.chariloto.com/articles/6876",
-          "date": "2026-11-01",
-          "feed": "chariloto",
-          "site": "チャリロト",
-          "section": "ニュース",
-          "new": false,
-          "body": [
-            "【ご投票はこちら】",
-            "・WEB版の方 https://www.chariloto.com/keirin_jushous",
-            "・アプリご利用の方 「競輪くじ」タブからご購入下さい。"
-          ],
-          "note": "",
-          "media_version": 1,
-          "blocks": [
-            {
-              "type": "image",
-              "src": "images/68a27e87400a7d606debfb3b.png",
-              "caption": ""
-            },
-            {
-              "type": "text",
-              "text": "【ご投票はこちら】"
-            },
-            {
-              "type": "text",
-              "text": "・WEB版の方 https://www.chariloto.com/keirin_jushous",
-              "links": [
-                {
-                  "text": "https://www.chariloto.com/keirin_jushous",
-                  "href": "https://www.chariloto.com/keirin_jushous"
-                }
-              ]
-            },
-            {
-              "type": "text",
-              "text": "・アプリご利用の方 「競輪くじ」タブからご購入下さい。"
-            }
-          ],
-          "link_version": 1
         }
       ]
     },
@@ -2316,7 +2455,7 @@
     },
     "autorace-campaign": {
       "status": "ok",
-      "last_success": "2026-11-03T08:17:15.931267+09:00",
+      "last_success": "2026-11-04T06:28:38.173224+09:00",
       "items": [
         {
           "title": "情報 冬のはじまりをあたたかく。11月の投票キャンペーン ～30日(月)",
@@ -2377,7 +2516,7 @@
           "feed": "autorace-campaign",
           "site": "AUTORACE.JP",
           "section": "キャンペーン",
-          "new": true,
+          "new": false,
           "body": [
             "公式ファンクラブ会員限定「SG第58回日本選手権オートレース 表彰式ご招待」",
             "いつもオートレースをお楽しみいただき、ありがとうございます！",
@@ -2395,6 +2534,7 @@
             "ネット口座をお持ちの方は、即日で登録完了。 スマホ・パソコンからご投票できます。 登録費や年会費などは無くご登録は無料です。 お気軽にAUTORACE.JP投票をお試しください。"
           ],
           "note": "",
+          "media_version": 1,
           "blocks": [
             {
               "type": "text",
@@ -2475,14 +2615,13 @@
               "text": "ネット口座をお持ちの方は、即日で登録完了。 スマホ・パソコンからご投票できます。 登録費や年会費などは無くご登録は無料です。 お気軽にAUTORACE.JP投票をお試しください。"
             }
           ],
-          "media_version": 1,
           "link_version": 1
         }
       ]
     },
     "autorace-event": {
       "status": "ok",
-      "last_success": "2026-11-03T08:17:15.931267+09:00",
+      "last_success": "2026-11-04T06:28:38.173224+09:00",
       "items": [
         {
           "title": "情報 10月29日は「オートレース発祥の日」！",
@@ -2854,12 +2993,12 @@
     },
     "autorace-update": {
       "status": "ok",
-      "last_success": "2026-11-03T08:17:15.931267+09:00",
+      "last_success": "2026-11-04T06:28:38.173224+09:00",
       "items": []
     },
     "netkeirin": {
       "status": "ok",
-      "last_success": "2026-11-03T08:17:15.931267+09:00",
+      "last_success": "2026-11-04T06:28:38.173224+09:00",
       "items": [
         {
           "title": "キャンペーン 【10/31〜11/3】ウマい車券 防府G3ポイント還元キャンペーン",
@@ -3371,7 +3510,7 @@
     },
     "minnano": {
       "status": "ok",
-      "last_success": "2026-11-03T08:17:15.931267+09:00",
+      "last_success": "2026-11-04T06:28:38.173224+09:00",
       "items": [
         {
           "title": "00:00 【11月3日】「防府競輪G3」決勝レースで最大5%還元！",
@@ -3380,7 +3519,7 @@
           "feed": "minnano",
           "site": "みんなの競輪",
           "section": "お知らせ",
-          "new": true,
+          "new": false,
           "body": [
             "2026年11月3日（火）、「防府競輪G3」の「決勝レース（第12R）」に投票（ワイド・重勝式を除く）された方に、ご投票金額の最大5%分のポイントをプレゼント！",
             "【キャンペーン対象日・対象レース】",
@@ -3403,6 +3542,7 @@
           ],
           "note": "",
           "body_extractor": "minnano-flight-v2",
+          "media_version": 1,
           "blocks": [
             {
               "type": "text",
@@ -3477,212 +3617,12 @@
               "text": "※明らかな同一ユーザーによる複数アカウントでの投票は、キャンペーン対象外となります。"
             }
           ],
-          "media_version": 1,
-          "link_version": 1
-        },
-        {
-          "title": "11:30 【緊急】本日の「防府競輪2R」は中止となりました。",
-          "url": "https://bet.minnano-keirin.com/info/24326",
-          "date": "2026-11-02",
-          "feed": "minnano",
-          "site": "みんなの競輪",
-          "section": "お知らせ",
-          "new": true,
-          "body": [
-            "いつも「みんなの競輪」をご利用くださいましてありがとうございます。",
-            "本日開催の「防府競輪2R」は中止となりました。",
-            "ご購入いただきました車券は返還となります。",
-            "お客様にはご迷惑をおかけいたしますが、ご了承くださいますようお願いいたします。"
-          ],
-          "note": "",
-          "body_extractor": "minnano-flight-v2",
-          "blocks": [
-            {
-              "type": "text",
-              "text": "いつも「みんなの競輪」をご利用くださいましてありがとうございます。"
-            },
-            {
-              "type": "text",
-              "text": "本日開催の「防府競輪2R」は中止となりました。"
-            },
-            {
-              "type": "text",
-              "text": "ご購入いただきました車券は返還となります。"
-            },
-            {
-              "type": "text",
-              "text": "お客様にはご迷惑をおかけいたしますが、ご了承くださいますようお願いいたします。"
-            }
-          ],
-          "media_version": 1,
-          "link_version": 1
-        },
-        {
-          "title": "00:00 【11月1日限定】チャージで2人に1人！海鮮丼セットが当たる！",
-          "url": "https://bet.minnano-keirin.com/info/26525",
-          "date": "2026-11-01",
-          "feed": "minnano",
-          "site": "みんなの競輪",
-          "section": "お知らせ",
-          "new": false,
-          "body": [
-            "T9ee,",
-            "※発送元：山内鮮魚店",
-            "※賞品画像はイメージです",
-            "11月1日（日）に「みんなの競輪」で10万円以上のチャージ（払戻金チャージを除く）を行い、応募フォームからエントリーされた方の中から、2人に1人に山内鮮魚店《海鮮丼セット》をプレゼント！",
-            "【キャンペーン対象日】",
-            "・11月1日（日）00:00～23:59",
-            "【抽選予定日】",
-            "・11月2日（月）",
-            "【エントリー方法】",
-            "・キャンペーン対象期間中において、以下のエントリー条件を満たすこと。",
-            "(1)10万円以上のチャージ（払戻金チャージを除く）",
-            "(2)本フォーム内の「応募する」ボタンを押下してエントリー",
-            "【賞品（2人に1人が当選）】",
-            "・《6種の海鮮丼セット》 合計450g",
-            "※発送元：山内鮮魚店",
-            "※賞品は抽選のうえ、当選された方へ後日お届けいたします。",
-            "【はずれた方にもダブルチャンス！】",
-            "惜しくもご当選とならなかった方の中から抽選で5名様に、高級ふりかけパックをプレゼント！",
-            "※賞品は抽選のうえ、当選された方へ後日お届けいたします。",
-            "【本キャンペーン注意事項】",
-            "※本キャンペーンは応募フォームよりエントリーが必要となります。",
-            "※キャンペーン対象期間中に10万円以上のチャージ（払戻金チャージを除く）を行った方が対象となります。",
-            "※ご当選時の賞品は、みんなの競輪にご登録の住所に発送いたします。事前にご登録の住所をご確認ください。",
-            "※キャンペーンの開催期間、および賞品発送時期は予告なく変更となる場合がございます。",
-            "※条件を満たしていない場合、本キャンペーンの対象外となります。",
-            "※その他、本キャンペーンは予告なく内容の変更・または中止となる場合がございます。",
-            "【賞品に関する注意事項】",
-            "※発送元は提携企業となります。",
-            "※賞味期限／消費期限は商品ごとに異なります。ご注意ください。e:[\"$\",\"div\",null,{\"className\":\"sp-footer-spacing-padding flex min-h-screen flex-col md:pb-0\",\"children\":[[\"$\",\"div\",null,{\"className\":\"flex md:flex-1\",\"children\":[[\"$\",\"div\",null,{\"className\":\"hidden md:block\",\"children\":[\"$\",\"$L17\",null,{}]}],[\"$\",\"div\",null,{\"className\":\"flex min-w-0 flex-1 flex-col justify-between\",\"children\":[[\"$\",\"div\",null,{\"children\":[\"$\",\"main\",null,{\"className\":\"m-4 mb-24 rounded-xl bg-white p-4 md:m-auto md:mt-[50px] md:mb-20 md:min-h-auto md:w-[789px] md:rounded-2xl md:bg-white md:p-10\",\"children\":[\"$\",\"div\",null,{\"className\":\"text-default flex flex-col gap-4 rounded-lg bg-white\",\"children\":[[\"$\",\"$L18\",null,{\"href\":\"/info\",\"className\":\"inline-flex items-center gap-2\",\"children\":[[\"$\",\"svg\",null,{\"width\":16,\"height\":16,\"viewBox\":\"0 0 12 20\",\"fill\":\"#888888\",\"xmlns\":\"http://www.w3.org/2000/svg\",\"children\":[\"$\",\"path\",null,{\"d\":\"M10 20L0 10L10 0L11.775 1.775L3.55 10L11.775 18.225L10 20Z\",\"fill\":\"#888888\"}]}],[\"$\",\"span\",null,{\"className\":\"font-[Noto_Sans_JP,sans-serif] text-[14px] leading-[1.5] tracking-[-0.02em] text-[#888888]\",\"children\":\"戻る\"}]]}],[\"$\",\"section\",null,{\"children\":[[\"$\",\"h2\",null,{\"className\":\"text-xl font-bold\",\"children\":\"【11月1日限定】チャージで2人に1人！海鮮丼セットが当たる！\"}],[\"$\",\"div\",null,{\"className\":\"text-[#888]\",\"children\":\"2026/11/01 00:00\"}]]}],\"$L19\",[\"$\",\"$L1a\",null,{\"htmlContent\":\"$1b\"}]]}]}]}],[\"$\",\"footer\",null,{\"className\":\"hidden md:flex bg-default w-full flex-col gap-5 px-4 py-8 pb-[87px] text-white md:gap-10 md:pb-8\",\"children\":[\"$\",\"div\",null,{\"className\":\"flex flex-col gap-10 text-xs text-white md:gap-6\",\"children\":[[\"$\",\"div\",null,{\"className\":\"grid grid-cols-2 gap-5 md:flex md:flex-wrap md:gap-x-12 md:gap-y-2\",\"children\":[[\"$\",\"$L18\",null,{\"href\":\"/about\",\"children\":\"運営会社\"}],[\"$\",\"$L18\",null,{\"href\":\"/about/terms\",\"children\":\"利用規約\"}],[\"$\",\"$L18\",null,{\"href\":\"/about/privacy-policy\",\"children\":\"プライバシーポリシー\"}],[\"$\",\"$L18\",null,{\"href\":\"/about/commercial-transaction\",\"children\":\"特定商取引法に基づく表示\"}],[\"$\",\"$L18\",null,{\"href\":\"/about/security-policy\",\"children\":\"情報セキュリティ方針\"}],[\"$\",\"$L18\",null,{\"href\":\"/mypage/faq\",\"children\":\"よくある質問\"}],[\"$\",\"$L18\",null,{\"href\":\"/mypage/contact\",\"children\":\"お問い合わせ\"}]]}],[\"$\",\"div\",null,{\"className\":\"flex flex-col gap-5 md:flex-row md:flex-wrap md:gap-x-7 md:gap-y-2\",\"children\":[[\"$\",\"$L18\",null,{\"href\":\"/login/gamble-notice\",\"className\":\"flex items-center gap-2\",\"children\":[[\"$\",\"div\",null,{\"children\":\"車券の購入は20歳になってから、競輪は適度に楽しみましょう\"}],[\"$\",\"svg\",null,{\"width\":8,\"height\":12,\"viewBox\":\"0 0 8 12\",\"fill\":\"none\",\"xmlns\":\"http://www.w3.org/2000/svg\",\"children\":[\"$\",\"path\",null,{\"d\":\"M2 5.24537e-07L8 6L2 12L0.6 10.6L5.2 6L0.599999 1.4L2 5.24537e-07Z\",\"fill\":\"white\"}]}]]}],[\"$\",\"$L18\",null,{\"href\":\"/login/gambling-addiction\",\"className\":\"flex items-center gap-2\",\"children\":[[\"$\",\"div\",null,{\"children\":\"車券の購入にのめり込む不安のある方のご相談\"}],[\"$\",\"svg\",null,{\"width\":8,\"height\":12,\"viewBox\":\"0 0 8 12\",\"fill\":\"none\",\"xmlns\":\"http://www.w3.org/2000/svg\",\"children\":\"$L1c\"}]]}],\"$L1d\"]}],\"$L1e\"]}]}]]}]]}],\"$L1f\"]}]"
-          ],
-          "note": "",
-          "body_extractor": "minnano-flight-v2",
-          "media_version": 1,
-          "blocks": [
-            {
-              "type": "text",
-              "text": "T9ee,"
-            },
-            {
-              "type": "text",
-              "text": "※発送元：山内鮮魚店"
-            },
-            {
-              "type": "text",
-              "text": "※賞品画像はイメージです"
-            },
-            {
-              "type": "text",
-              "text": "11月1日（日）に「みんなの競輪」で10万円以上のチャージ（払戻金チャージを除く）を行い、応募フォームからエントリーされた方の中から、2人に1人に山内鮮魚店《海鮮丼セット》をプレゼント！"
-            },
-            {
-              "type": "text",
-              "text": "【キャンペーン対象日】"
-            },
-            {
-              "type": "text",
-              "text": "・11月1日（日）00:00～23:59"
-            },
-            {
-              "type": "text",
-              "text": "【抽選予定日】"
-            },
-            {
-              "type": "text",
-              "text": "・11月2日（月）"
-            },
-            {
-              "type": "text",
-              "text": "【エントリー方法】"
-            },
-            {
-              "type": "text",
-              "text": "・キャンペーン対象期間中において、以下のエントリー条件を満たすこと。"
-            },
-            {
-              "type": "text",
-              "text": "(1)10万円以上のチャージ（払戻金チャージを除く）"
-            },
-            {
-              "type": "text",
-              "text": "(2)本フォーム内の「応募する」ボタンを押下してエントリー"
-            },
-            {
-              "type": "text",
-              "text": "【賞品（2人に1人が当選）】"
-            },
-            {
-              "type": "text",
-              "text": "・《6種の海鮮丼セット》 合計450g"
-            },
-            {
-              "type": "text",
-              "text": "※発送元：山内鮮魚店"
-            },
-            {
-              "type": "text",
-              "text": "※賞品は抽選のうえ、当選された方へ後日お届けいたします。"
-            },
-            {
-              "type": "text",
-              "text": "【はずれた方にもダブルチャンス！】"
-            },
-            {
-              "type": "text",
-              "text": "惜しくもご当選とならなかった方の中から抽選で5名様に、高級ふりかけパックをプレゼント！"
-            },
-            {
-              "type": "text",
-              "text": "※賞品は抽選のうえ、当選された方へ後日お届けいたします。"
-            },
-            {
-              "type": "text",
-              "text": "【本キャンペーン注意事項】"
-            },
-            {
-              "type": "text",
-              "text": "※本キャンペーンは応募フォームよりエントリーが必要となります。"
-            },
-            {
-              "type": "text",
-              "text": "※キャンペーン対象期間中に10万円以上のチャージ（払戻金チャージを除く）を行った方が対象となります。"
-            },
-            {
-              "type": "text",
-              "text": "※ご当選時の賞品は、みんなの競輪にご登録の住所に発送いたします。事前にご登録の住所をご確認ください。"
-            },
-            {
-              "type": "text",
-              "text": "※キャンペーンの開催期間、および賞品発送時期は予告なく変更となる場合がございます。"
-            },
-            {
-              "type": "text",
-              "text": "※条件を満たしていない場合、本キャンペーンの対象外となります。"
-            },
-            {
-              "type": "text",
-              "text": "※その他、本キャンペーンは予告なく内容の変更・または中止となる場合がございます。"
-            },
-            {
-              "type": "text",
-              "text": "【賞品に関する注意事項】"
-            },
-            {
-              "type": "text",
-              "text": "※発送元は提携企業となります。"
-            },
-            {
-              "type": "text",
-              "text": "※賞味期限／消費期限は商品ごとに異なります。ご注意ください。e:[\"$\",\"div\",null,{\"className\":\"sp-footer-spacing-padding flex min-h-screen flex-col md:pb-0\",\"children\":[[\"$\",\"div\",null,{\"className\":\"flex md:flex-1\",\"children\":[[\"$\",\"div\",null,{\"className\":\"hidden md:block\",\"children\":[\"$\",\"$L17\",null,{}]}],[\"$\",\"div\",null,{\"className\":\"flex min-w-0 flex-1 flex-col justify-between\",\"children\":[[\"$\",\"div\",null,{\"children\":[\"$\",\"main\",null,{\"className\":\"m-4 mb-24 rounded-xl bg-white p-4 md:m-auto md:mt-[50px] md:mb-20 md:min-h-auto md:w-[789px] md:rounded-2xl md:bg-white md:p-10\",\"children\":[\"$\",\"div\",null,{\"className\":\"text-default flex flex-col gap-4 rounded-lg bg-white\",\"children\":[[\"$\",\"$L18\",null,{\"href\":\"/info\",\"className\":\"inline-flex items-center gap-2\",\"children\":[[\"$\",\"svg\",null,{\"width\":16,\"height\":16,\"viewBox\":\"0 0 12 20\",\"fill\":\"#888888\",\"xmlns\":\"http://www.w3.org/2000/svg\",\"children\":[\"$\",\"path\",null,{\"d\":\"M10 20L0 10L10 0L11.775 1.775L3.55 10L11.775 18.225L10 20Z\",\"fill\":\"#888888\"}]}],[\"$\",\"span\",null,{\"className\":\"font-[Noto_Sans_JP,sans-serif] text-[14px] leading-[1.5] tracking-[-0.02em] text-[#888888]\",\"children\":\"戻る\"}]]}],[\"$\",\"section\",null,{\"children\":[[\"$\",\"h2\",null,{\"className\":\"text-xl font-bold\",\"children\":\"【11月1日限定】チャージで2人に1人！海鮮丼セットが当たる！\"}],[\"$\",\"div\",null,{\"className\":\"text-[#888]\",\"children\":\"2026/11/01 00:00\"}]]}],\"$L19\",[\"$\",\"$L1a\",null,{\"htmlContent\":\"$1b\"}]]}]}]}],[\"$\",\"footer\",null,{\"className\":\"hidden md:flex bg-default w-full flex-col gap-5 px-4 py-8 pb-[87px] text-white md:gap-10 md:pb-8\",\"children\":[\"$\",\"div\",null,{\"className\":\"flex flex-col gap-10 text-xs text-white md:gap-6\",\"children\":[[\"$\",\"div\",null,{\"className\":\"grid grid-cols-2 gap-5 md:flex md:flex-wrap md:gap-x-12 md:gap-y-2\",\"children\":[[\"$\",\"$L18\",null,{\"href\":\"/about\",\"children\":\"運営会社\"}],[\"$\",\"$L18\",null,{\"href\":\"/about/terms\",\"children\":\"利用規約\"}],[\"$\",\"$L18\",null,{\"href\":\"/about/privacy-policy\",\"children\":\"プライバシーポリシー\"}],[\"$\",\"$L18\",null,{\"href\":\"/about/commercial-transaction\",\"children\":\"特定商取引法に基づく表示\"}],[\"$\",\"$L18\",null,{\"href\":\"/about/security-policy\",\"children\":\"情報セキュリティ方針\"}],[\"$\",\"$L18\",null,{\"href\":\"/mypage/faq\",\"children\":\"よくある質問\"}],[\"$\",\"$L18\",null,{\"href\":\"/mypage/contact\",\"children\":\"お問い合わせ\"}]]}],[\"$\",\"div\",null,{\"className\":\"flex flex-col gap-5 md:flex-row md:flex-wrap md:gap-x-7 md:gap-y-2\",\"children\":[[\"$\",\"$L18\",null,{\"href\":\"/login/gamble-notice\",\"className\":\"flex items-center gap-2\",\"children\":[[\"$\",\"div\",null,{\"children\":\"車券の購入は20歳になってから、競輪は適度に楽しみましょう\"}],[\"$\",\"svg\",null,{\"width\":8,\"height\":12,\"viewBox\":\"0 0 8 12\",\"fill\":\"none\",\"xmlns\":\"http://www.w3.org/2000/svg\",\"children\":[\"$\",\"path\",null,{\"d\":\"M2 5.24537e-07L8 6L2 12L0.6 10.6L5.2 6L0.599999 1.4L2 5.24537e-07Z\",\"fill\":\"white\"}]}]]}],[\"$\",\"$L18\",null,{\"href\":\"/login/gambling-addiction\",\"className\":\"flex items-center gap-2\",\"children\":[[\"$\",\"div\",null,{\"children\":\"車券の購入にのめり込む不安のある方のご相談\"}],[\"$\",\"svg\",null,{\"width\":8,\"height\":12,\"viewBox\":\"0 0 8 12\",\"fill\":\"none\",\"xmlns\":\"http://www.w3.org/2000/svg\",\"children\":\"$L1c\"}]]}],\"$L1d\"]}],\"$L1e\"]}]}]]}]]}],\"$L1f\"]}]"
-            }
-          ],
           "link_version": 1
         },
         {
           "title": "00:00 【11月12日～11月15日】「立川競輪G3」みんなの競輪 オリジナル攻略データ《特製クオカードプレゼント有り》",
           "url": "https://bet.minnano-keirin.com/info/25979",
-          "date": "2026-11-01",
+          "date": "2026-11-03",
           "feed": "minnano",
           "site": "みんなの競輪",
           "section": "お知らせ",
@@ -4007,13 +3947,539 @@
           "link_version": 1
         },
         {
+          "title": "00:00 【11月5日～11月8日】「四日市競輪G3ナイター」みんなの競輪 オリジナル攻略データ《特製クオカードプレゼント有り》",
+          "url": "https://bet.minnano-keirin.com/info/26001",
+          "date": "2026-11-03",
+          "feed": "minnano",
+          "site": "みんなの競輪",
+          "section": "お知らせ",
+          "new": true,
+          "body": [
+            "T11d4,11月5日(木)～11月8日(日)は、「四日市競輪G3ナイター・泗水杯争奪戦」開催！本ページでは、予想に役立つオリジナル攻略データをご紹介！",
+            "【「四日市競輪G3ナイター」みんなの競輪オリジナル攻略データ】",
+            "《①決まり手データ》",
+            "（集計対象→2025年10月～2026年10月に 四日市競輪場で開催されたS級戦 全183レース）",
+            "■1着の決まり手",
+            "・逃げ：11.35％",
+            "・捲り：27.57％",
+            "・差し：61.08％",
+            "■2着の決まり手",
+            "・逃げ：21.55%",
+            "・捲り：17.68%",
+            "・差し：26.52%",
+            "・マーク：34.25%",
+            "★注目ポイント★ 差しの決まり手が60％超",
+            "差しの決まり手が60％に迫る追い込み有利のバンク。直線が長くカントもきつい",
+            "《②着順別車番データ》",
+            "(集計対象→2025年11月に 四日市競輪場で開催されたG3 全48レース）",
+            "■1着の車番",
+            "・1番車：22.92%",
+            "・2番車：8.33%",
+            "・3番車：2.08%",
+            "・4番車：6.25％",
+            "・5番車：20.83%",
+            "・6番車：4.17%",
+            "・7番車：27.08％",
+            "・8番車：6.25%",
+            "・9番車：2.08%",
+            "■2着の車番",
+            "・1番車：22.92%",
+            "・2番車：4.17%",
+            "・3番車：12.50%",
+            "・4番車：12.50%",
+            "・5番車：12.50%",
+            "・6番車：4.17%",
+            "・7番車：14.58%",
+            "・8番車：10.42%",
+            "・9番車：6.25%",
+            "★注目ポイント★ 1・5・7番車の連対率が異常に高い",
+            "1・5・7番車だけの勝率で合計70％に迫る。当然この3つの車番に注目",
+            "《③平均配当データ》",
+            "（集計対象→2025年10月～2026年10月に 四日市競輪場で開催されたS級戦 全183レース）",
+            "■2車単の配当",
+            "・最高配当：56,870円",
+            "・平均配当：3,068円",
+            "・万車券率：4.92％（合計9レース）",
+            "■3連単の配当",
+            "・最高配当：414,440円",
+            "・平均配当：16,107円",
+            "・万車券率：30.60％（合計56レース）",
+            "★注目ポイント★ 万車券率は高くないが大型配当がやや多め",
+            "万車券は3～4Rに1回だが、10万円以上の配当も散発し平均配当は引き上げられる",
+            "こちらのデータもご参考に、「四日市競輪G3ナイター」のご投票をお楽しみください！",
+            "【「四日市競輪G3ナイター」 クオカードプレゼント！】",
+            "・応募期限→11月8日(日) 23:59まで",
+            "・本フォーム内の「応募する」ボタンを押してエントリー！",
+            "■賞品（抽選でプレゼント）",
+            "・抽選で10名様→四日市競輪G3ナイター 特製クオカード",
+            "■本キャンペーン注意事項",
+            "※本キャンペーンは応募フォームよりエントリーが必要となります。",
+            "※ご当選時の賞品は、本サービスにご登録の住所に賞品をお送りいたします。郵送先を変更する場合は、マイページよりご変更ください。",
+            "※キャンペーンの開催期間、および賞品や付与時期は予告なく変更となる場合がございます。",
+            "※対象開催が中止・順延となった場合、本キャンペーンも中止・順延いたします。e:[\"$\",\"div\",null,{\"className\":\"sp-footer-spacing-padding flex min-h-screen flex-col md:pb-0\",\"children\":[[\"$\",\"div\",null,{\"className\":\"flex md:flex-1\",\"children\":[[\"$\",\"div\",null,{\"className\":\"hidden md:block\",\"children\":[\"$\",\"$L17\",null,{}]}],[\"$\",\"div\",null,{\"className\":\"flex min-w-0 flex-1 flex-col justify-between\",\"children\":[[\"$\",\"div\",null,{\"children\":[\"$\",\"main\",null,{\"className\":\"m-4 mb-24 rounded-xl bg-white p-4 md:m-auto md:mt-[50px] md:mb-20 md:min-h-auto md:w-[789px] md:rounded-2xl md:bg-white md:p-10\",\"children\":[\"$\",\"div\",null,{\"className\":\"text-default flex flex-col gap-4 rounded-lg bg-white\",\"children\":[[\"$\",\"$L18\",null,{\"href\":\"/info\",\"className\":\"inline-flex items-center gap-2\",\"children\":[[\"$\",\"svg\",null,{\"width\":16,\"height\":16,\"viewBox\":\"0 0 12 20\",\"fill\":\"#888888\",\"xmlns\":\"http://www.w3.org/2000/svg\",\"children\":[\"$\",\"path\",null,{\"d\":\"M10 20L0 10L10 0L11.775 1.775L3.55 10L11.775 18.225L10 20Z\",\"fill\":\"#888888\"}]}],[\"$\",\"span\",null,{\"className\":\"font-[Noto_Sans_JP,sans-serif] text-[14px] leading-[1.5] tracking-[-0.02em] text-[#888888]\",\"children\":\"戻る\"}]]}],[\"$\",\"section\",null,{\"children\":[[\"$\",\"h2\",null,{\"className\":\"text-xl font-bold\",\"children\":\"【11月5日～11月8日】「四日市競輪G3ナイター」みんなの競輪 オリジナル攻略データ《特製クオカードプレゼント有り》\"}],[\"$\",\"div\",null,{\"className\":\"text-[#888]\",\"children\":\"2026/11/03 00:00\"}]]}],\"$L19\",[\"$\",\"$L1a\",null,{\"htmlContent\":\"$1b\"}]]}]}]}],\"$L1c\"]}]]}],\"$L1d\"]}]"
+          ],
+          "note": "",
+          "body_extractor": "minnano-flight-v2",
+          "blocks": [
+            {
+              "type": "text",
+              "text": "T11d4,11月5日(木)～11月8日(日)は、「四日市競輪G3ナイター・泗水杯争奪戦」開催！本ページでは、予想に役立つオリジナル攻略データをご紹介！"
+            },
+            {
+              "type": "text",
+              "text": "【「四日市競輪G3ナイター」みんなの競輪オリジナル攻略データ】"
+            },
+            {
+              "type": "text",
+              "text": "《①決まり手データ》"
+            },
+            {
+              "type": "text",
+              "text": "（集計対象→2025年10月～2026年10月に 四日市競輪場で開催されたS級戦 全183レース）"
+            },
+            {
+              "type": "text",
+              "text": "■1着の決まり手"
+            },
+            {
+              "type": "text",
+              "text": "・逃げ：11.35％"
+            },
+            {
+              "type": "text",
+              "text": "・捲り：27.57％"
+            },
+            {
+              "type": "text",
+              "text": "・差し：61.08％"
+            },
+            {
+              "type": "text",
+              "text": "■2着の決まり手"
+            },
+            {
+              "type": "text",
+              "text": "・逃げ：21.55%"
+            },
+            {
+              "type": "text",
+              "text": "・捲り：17.68%"
+            },
+            {
+              "type": "text",
+              "text": "・差し：26.52%"
+            },
+            {
+              "type": "text",
+              "text": "・マーク：34.25%"
+            },
+            {
+              "type": "text",
+              "text": "★注目ポイント★ 差しの決まり手が60％超"
+            },
+            {
+              "type": "text",
+              "text": "差しの決まり手が60％に迫る追い込み有利のバンク。直線が長くカントもきつい"
+            },
+            {
+              "type": "text",
+              "text": "《②着順別車番データ》"
+            },
+            {
+              "type": "text",
+              "text": "(集計対象→2025年11月に 四日市競輪場で開催されたG3 全48レース）"
+            },
+            {
+              "type": "text",
+              "text": "■1着の車番"
+            },
+            {
+              "type": "text",
+              "text": "・1番車：22.92%"
+            },
+            {
+              "type": "text",
+              "text": "・2番車：8.33%"
+            },
+            {
+              "type": "text",
+              "text": "・3番車：2.08%"
+            },
+            {
+              "type": "text",
+              "text": "・4番車：6.25％"
+            },
+            {
+              "type": "text",
+              "text": "・5番車：20.83%"
+            },
+            {
+              "type": "text",
+              "text": "・6番車：4.17%"
+            },
+            {
+              "type": "text",
+              "text": "・7番車：27.08％"
+            },
+            {
+              "type": "text",
+              "text": "・8番車：6.25%"
+            },
+            {
+              "type": "text",
+              "text": "・9番車：2.08%"
+            },
+            {
+              "type": "text",
+              "text": "■2着の車番"
+            },
+            {
+              "type": "text",
+              "text": "・1番車：22.92%"
+            },
+            {
+              "type": "text",
+              "text": "・2番車：4.17%"
+            },
+            {
+              "type": "text",
+              "text": "・3番車：12.50%"
+            },
+            {
+              "type": "text",
+              "text": "・4番車：12.50%"
+            },
+            {
+              "type": "text",
+              "text": "・5番車：12.50%"
+            },
+            {
+              "type": "text",
+              "text": "・6番車：4.17%"
+            },
+            {
+              "type": "text",
+              "text": "・7番車：14.58%"
+            },
+            {
+              "type": "text",
+              "text": "・8番車：10.42%"
+            },
+            {
+              "type": "text",
+              "text": "・9番車：6.25%"
+            },
+            {
+              "type": "text",
+              "text": "★注目ポイント★ 1・5・7番車の連対率が異常に高い"
+            },
+            {
+              "type": "text",
+              "text": "1・5・7番車だけの勝率で合計70％に迫る。当然この3つの車番に注目"
+            },
+            {
+              "type": "text",
+              "text": "《③平均配当データ》"
+            },
+            {
+              "type": "text",
+              "text": "（集計対象→2025年10月～2026年10月に 四日市競輪場で開催されたS級戦 全183レース）"
+            },
+            {
+              "type": "text",
+              "text": "■2車単の配当"
+            },
+            {
+              "type": "text",
+              "text": "・最高配当：56,870円"
+            },
+            {
+              "type": "text",
+              "text": "・平均配当：3,068円"
+            },
+            {
+              "type": "text",
+              "text": "・万車券率：4.92％（合計9レース）"
+            },
+            {
+              "type": "text",
+              "text": "■3連単の配当"
+            },
+            {
+              "type": "text",
+              "text": "・最高配当：414,440円"
+            },
+            {
+              "type": "text",
+              "text": "・平均配当：16,107円"
+            },
+            {
+              "type": "text",
+              "text": "・万車券率：30.60％（合計56レース）"
+            },
+            {
+              "type": "text",
+              "text": "★注目ポイント★ 万車券率は高くないが大型配当がやや多め"
+            },
+            {
+              "type": "text",
+              "text": "万車券は3～4Rに1回だが、10万円以上の配当も散発し平均配当は引き上げられる"
+            },
+            {
+              "type": "text",
+              "text": "こちらのデータもご参考に、「四日市競輪G3ナイター」のご投票をお楽しみください！"
+            },
+            {
+              "type": "text",
+              "text": "【「四日市競輪G3ナイター」 クオカードプレゼント！】"
+            },
+            {
+              "type": "text",
+              "text": "・応募期限→11月8日(日) 23:59まで"
+            },
+            {
+              "type": "text",
+              "text": "・本フォーム内の「応募する」ボタンを押してエントリー！"
+            },
+            {
+              "type": "text",
+              "text": "■賞品（抽選でプレゼント）"
+            },
+            {
+              "type": "text",
+              "text": "・抽選で10名様→四日市競輪G3ナイター 特製クオカード"
+            },
+            {
+              "type": "text",
+              "text": "■本キャンペーン注意事項"
+            },
+            {
+              "type": "text",
+              "text": "※本キャンペーンは応募フォームよりエントリーが必要となります。"
+            },
+            {
+              "type": "text",
+              "text": "※ご当選時の賞品は、本サービスにご登録の住所に賞品をお送りいたします。郵送先を変更する場合は、マイページよりご変更ください。"
+            },
+            {
+              "type": "text",
+              "text": "※キャンペーンの開催期間、および賞品や付与時期は予告なく変更となる場合がございます。"
+            },
+            {
+              "type": "text",
+              "text": "※対象開催が中止・順延となった場合、本キャンペーンも中止・順延いたします。e:[\"$\",\"div\",null,{\"className\":\"sp-footer-spacing-padding flex min-h-screen flex-col md:pb-0\",\"children\":[[\"$\",\"div\",null,{\"className\":\"flex md:flex-1\",\"children\":[[\"$\",\"div\",null,{\"className\":\"hidden md:block\",\"children\":[\"$\",\"$L17\",null,{}]}],[\"$\",\"div\",null,{\"className\":\"flex min-w-0 flex-1 flex-col justify-between\",\"children\":[[\"$\",\"div\",null,{\"children\":[\"$\",\"main\",null,{\"className\":\"m-4 mb-24 rounded-xl bg-white p-4 md:m-auto md:mt-[50px] md:mb-20 md:min-h-auto md:w-[789px] md:rounded-2xl md:bg-white md:p-10\",\"children\":[\"$\",\"div\",null,{\"className\":\"text-default flex flex-col gap-4 rounded-lg bg-white\",\"children\":[[\"$\",\"$L18\",null,{\"href\":\"/info\",\"className\":\"inline-flex items-center gap-2\",\"children\":[[\"$\",\"svg\",null,{\"width\":16,\"height\":16,\"viewBox\":\"0 0 12 20\",\"fill\":\"#888888\",\"xmlns\":\"http://www.w3.org/2000/svg\",\"children\":[\"$\",\"path\",null,{\"d\":\"M10 20L0 10L10 0L11.775 1.775L3.55 10L11.775 18.225L10 20Z\",\"fill\":\"#888888\"}]}],[\"$\",\"span\",null,{\"className\":\"font-[Noto_Sans_JP,sans-serif] text-[14px] leading-[1.5] tracking-[-0.02em] text-[#888888]\",\"children\":\"戻る\"}]]}],[\"$\",\"section\",null,{\"children\":[[\"$\",\"h2\",null,{\"className\":\"text-xl font-bold\",\"children\":\"【11月5日～11月8日】「四日市競輪G3ナイター」みんなの競輪 オリジナル攻略データ《特製クオカードプレゼント有り》\"}],[\"$\",\"div\",null,{\"className\":\"text-[#888]\",\"children\":\"2026/11/03 00:00\"}]]}],\"$L19\",[\"$\",\"$L1a\",null,{\"htmlContent\":\"$1b\"}]]}]}]}],\"$L1c\"]}]]}],\"$L1d\"]}]"
+            }
+          ],
+          "media_version": 1,
+          "link_version": 1
+        },
+        {
+          "title": "11:30 【緊急】本日の「防府競輪2R」は中止となりました。",
+          "url": "https://bet.minnano-keirin.com/info/24326",
+          "date": "2026-11-02",
+          "feed": "minnano",
+          "site": "みんなの競輪",
+          "section": "お知らせ",
+          "new": false,
+          "body": [
+            "いつも「みんなの競輪」をご利用くださいましてありがとうございます。",
+            "本日開催の「防府競輪2R」は中止となりました。",
+            "ご購入いただきました車券は返還となります。",
+            "お客様にはご迷惑をおかけいたしますが、ご了承くださいますようお願いいたします。"
+          ],
+          "note": "",
+          "body_extractor": "minnano-flight-v2",
+          "media_version": 1,
+          "blocks": [
+            {
+              "type": "text",
+              "text": "いつも「みんなの競輪」をご利用くださいましてありがとうございます。"
+            },
+            {
+              "type": "text",
+              "text": "本日開催の「防府競輪2R」は中止となりました。"
+            },
+            {
+              "type": "text",
+              "text": "ご購入いただきました車券は返還となります。"
+            },
+            {
+              "type": "text",
+              "text": "お客様にはご迷惑をおかけいたしますが、ご了承くださいますようお願いいたします。"
+            }
+          ],
+          "link_version": 1
+        },
+        {
+          "title": "00:00 【11月1日限定】チャージで2人に1人！海鮮丼セットが当たる！",
+          "url": "https://bet.minnano-keirin.com/info/26525",
+          "date": "2026-11-01",
+          "feed": "minnano",
+          "site": "みんなの競輪",
+          "section": "お知らせ",
+          "new": false,
+          "body": [
+            "T9ee,",
+            "※発送元：山内鮮魚店",
+            "※賞品画像はイメージです",
+            "11月1日（日）に「みんなの競輪」で10万円以上のチャージ（払戻金チャージを除く）を行い、応募フォームからエントリーされた方の中から、2人に1人に山内鮮魚店《海鮮丼セット》をプレゼント！",
+            "【キャンペーン対象日】",
+            "・11月1日（日）00:00～23:59",
+            "【抽選予定日】",
+            "・11月2日（月）",
+            "【エントリー方法】",
+            "・キャンペーン対象期間中において、以下のエントリー条件を満たすこと。",
+            "(1)10万円以上のチャージ（払戻金チャージを除く）",
+            "(2)本フォーム内の「応募する」ボタンを押下してエントリー",
+            "【賞品（2人に1人が当選）】",
+            "・《6種の海鮮丼セット》 合計450g",
+            "※発送元：山内鮮魚店",
+            "※賞品は抽選のうえ、当選された方へ後日お届けいたします。",
+            "【はずれた方にもダブルチャンス！】",
+            "惜しくもご当選とならなかった方の中から抽選で5名様に、高級ふりかけパックをプレゼント！",
+            "※賞品は抽選のうえ、当選された方へ後日お届けいたします。",
+            "【本キャンペーン注意事項】",
+            "※本キャンペーンは応募フォームよりエントリーが必要となります。",
+            "※キャンペーン対象期間中に10万円以上のチャージ（払戻金チャージを除く）を行った方が対象となります。",
+            "※ご当選時の賞品は、みんなの競輪にご登録の住所に発送いたします。事前にご登録の住所をご確認ください。",
+            "※キャンペーンの開催期間、および賞品発送時期は予告なく変更となる場合がございます。",
+            "※条件を満たしていない場合、本キャンペーンの対象外となります。",
+            "※その他、本キャンペーンは予告なく内容の変更・または中止となる場合がございます。",
+            "【賞品に関する注意事項】",
+            "※発送元は提携企業となります。",
+            "※賞味期限／消費期限は商品ごとに異なります。ご注意ください。e:[\"$\",\"div\",null,{\"className\":\"sp-footer-spacing-padding flex min-h-screen flex-col md:pb-0\",\"children\":[[\"$\",\"div\",null,{\"className\":\"flex md:flex-1\",\"children\":[[\"$\",\"div\",null,{\"className\":\"hidden md:block\",\"children\":[\"$\",\"$L17\",null,{}]}],[\"$\",\"div\",null,{\"className\":\"flex min-w-0 flex-1 flex-col justify-between\",\"children\":[[\"$\",\"div\",null,{\"children\":[\"$\",\"main\",null,{\"className\":\"m-4 mb-24 rounded-xl bg-white p-4 md:m-auto md:mt-[50px] md:mb-20 md:min-h-auto md:w-[789px] md:rounded-2xl md:bg-white md:p-10\",\"children\":[\"$\",\"div\",null,{\"className\":\"text-default flex flex-col gap-4 rounded-lg bg-white\",\"children\":[[\"$\",\"$L18\",null,{\"href\":\"/info\",\"className\":\"inline-flex items-center gap-2\",\"children\":[[\"$\",\"svg\",null,{\"width\":16,\"height\":16,\"viewBox\":\"0 0 12 20\",\"fill\":\"#888888\",\"xmlns\":\"http://www.w3.org/2000/svg\",\"children\":[\"$\",\"path\",null,{\"d\":\"M10 20L0 10L10 0L11.775 1.775L3.55 10L11.775 18.225L10 20Z\",\"fill\":\"#888888\"}]}],[\"$\",\"span\",null,{\"className\":\"font-[Noto_Sans_JP,sans-serif] text-[14px] leading-[1.5] tracking-[-0.02em] text-[#888888]\",\"children\":\"戻る\"}]]}],[\"$\",\"section\",null,{\"children\":[[\"$\",\"h2\",null,{\"className\":\"text-xl font-bold\",\"children\":\"【11月1日限定】チャージで2人に1人！海鮮丼セットが当たる！\"}],[\"$\",\"div\",null,{\"className\":\"text-[#888]\",\"children\":\"2026/11/01 00:00\"}]]}],\"$L19\",[\"$\",\"$L1a\",null,{\"htmlContent\":\"$1b\"}]]}]}]}],[\"$\",\"footer\",null,{\"className\":\"hidden md:flex bg-default w-full flex-col gap-5 px-4 py-8 pb-[87px] text-white md:gap-10 md:pb-8\",\"children\":[\"$\",\"div\",null,{\"className\":\"flex flex-col gap-10 text-xs text-white md:gap-6\",\"children\":[[\"$\",\"div\",null,{\"className\":\"grid grid-cols-2 gap-5 md:flex md:flex-wrap md:gap-x-12 md:gap-y-2\",\"children\":[[\"$\",\"$L18\",null,{\"href\":\"/about\",\"children\":\"運営会社\"}],[\"$\",\"$L18\",null,{\"href\":\"/about/terms\",\"children\":\"利用規約\"}],[\"$\",\"$L18\",null,{\"href\":\"/about/privacy-policy\",\"children\":\"プライバシーポリシー\"}],[\"$\",\"$L18\",null,{\"href\":\"/about/commercial-transaction\",\"children\":\"特定商取引法に基づく表示\"}],[\"$\",\"$L18\",null,{\"href\":\"/about/security-policy\",\"children\":\"情報セキュリティ方針\"}],[\"$\",\"$L18\",null,{\"href\":\"/mypage/faq\",\"children\":\"よくある質問\"}],[\"$\",\"$L18\",null,{\"href\":\"/mypage/contact\",\"children\":\"お問い合わせ\"}]]}],[\"$\",\"div\",null,{\"className\":\"flex flex-col gap-5 md:flex-row md:flex-wrap md:gap-x-7 md:gap-y-2\",\"children\":[[\"$\",\"$L18\",null,{\"href\":\"/login/gamble-notice\",\"className\":\"flex items-center gap-2\",\"children\":[[\"$\",\"div\",null,{\"children\":\"車券の購入は20歳になってから、競輪は適度に楽しみましょう\"}],[\"$\",\"svg\",null,{\"width\":8,\"height\":12,\"viewBox\":\"0 0 8 12\",\"fill\":\"none\",\"xmlns\":\"http://www.w3.org/2000/svg\",\"children\":[\"$\",\"path\",null,{\"d\":\"M2 5.24537e-07L8 6L2 12L0.6 10.6L5.2 6L0.599999 1.4L2 5.24537e-07Z\",\"fill\":\"white\"}]}]]}],[\"$\",\"$L18\",null,{\"href\":\"/login/gambling-addiction\",\"className\":\"flex items-center gap-2\",\"children\":[[\"$\",\"div\",null,{\"children\":\"車券の購入にのめり込む不安のある方のご相談\"}],[\"$\",\"svg\",null,{\"width\":8,\"height\":12,\"viewBox\":\"0 0 8 12\",\"fill\":\"none\",\"xmlns\":\"http://www.w3.org/2000/svg\",\"children\":\"$L1c\"}]]}],\"$L1d\"]}],\"$L1e\"]}]}]]}]]}],\"$L1f\"]}]"
+          ],
+          "note": "",
+          "body_extractor": "minnano-flight-v2",
+          "media_version": 1,
+          "blocks": [
+            {
+              "type": "text",
+              "text": "T9ee,"
+            },
+            {
+              "type": "text",
+              "text": "※発送元：山内鮮魚店"
+            },
+            {
+              "type": "text",
+              "text": "※賞品画像はイメージです"
+            },
+            {
+              "type": "text",
+              "text": "11月1日（日）に「みんなの競輪」で10万円以上のチャージ（払戻金チャージを除く）を行い、応募フォームからエントリーされた方の中から、2人に1人に山内鮮魚店《海鮮丼セット》をプレゼント！"
+            },
+            {
+              "type": "text",
+              "text": "【キャンペーン対象日】"
+            },
+            {
+              "type": "text",
+              "text": "・11月1日（日）00:00～23:59"
+            },
+            {
+              "type": "text",
+              "text": "【抽選予定日】"
+            },
+            {
+              "type": "text",
+              "text": "・11月2日（月）"
+            },
+            {
+              "type": "text",
+              "text": "【エントリー方法】"
+            },
+            {
+              "type": "text",
+              "text": "・キャンペーン対象期間中において、以下のエントリー条件を満たすこと。"
+            },
+            {
+              "type": "text",
+              "text": "(1)10万円以上のチャージ（払戻金チャージを除く）"
+            },
+            {
+              "type": "text",
+              "text": "(2)本フォーム内の「応募する」ボタンを押下してエントリー"
+            },
+            {
+              "type": "text",
+              "text": "【賞品（2人に1人が当選）】"
+            },
+            {
+              "type": "text",
+              "text": "・《6種の海鮮丼セット》 合計450g"
+            },
+            {
+              "type": "text",
+              "text": "※発送元：山内鮮魚店"
+            },
+            {
+              "type": "text",
+              "text": "※賞品は抽選のうえ、当選された方へ後日お届けいたします。"
+            },
+            {
+              "type": "text",
+              "text": "【はずれた方にもダブルチャンス！】"
+            },
+            {
+              "type": "text",
+              "text": "惜しくもご当選とならなかった方の中から抽選で5名様に、高級ふりかけパックをプレゼント！"
+            },
+            {
+              "type": "text",
+              "text": "※賞品は抽選のうえ、当選された方へ後日お届けいたします。"
+            },
+            {
+              "type": "text",
+              "text": "【本キャンペーン注意事項】"
+            },
+            {
+              "type": "text",
+              "text": "※本キャンペーンは応募フォームよりエントリーが必要となります。"
+            },
+            {
+              "type": "text",
+              "text": "※キャンペーン対象期間中に10万円以上のチャージ（払戻金チャージを除く）を行った方が対象となります。"
+            },
+            {
+              "type": "text",
+              "text": "※ご当選時の賞品は、みんなの競輪にご登録の住所に発送いたします。事前にご登録の住所をご確認ください。"
+            },
+            {
+              "type": "text",
+              "text": "※キャンペーンの開催期間、および賞品発送時期は予告なく変更となる場合がございます。"
+            },
+            {
+              "type": "text",
+              "text": "※条件を満たしていない場合、本キャンペーンの対象外となります。"
+            },
+            {
+              "type": "text",
+              "text": "※その他、本キャンペーンは予告なく内容の変更・または中止となる場合がございます。"
+            },
+            {
+              "type": "text",
+              "text": "【賞品に関する注意事項】"
+            },
+            {
+              "type": "text",
+              "text": "※発送元は提携企業となります。"
+            },
+            {
+              "type": "text",
+              "text": "※賞味期限／消費期限は商品ごとに異なります。ご注意ください。e:[\"$\",\"div\",null,{\"className\":\"sp-footer-spacing-padding flex min-h-screen flex-col md:pb-0\",\"children\":[[\"$\",\"div\",null,{\"className\":\"flex md:flex-1\",\"children\":[[\"$\",\"div\",null,{\"className\":\"hidden md:block\",\"children\":[\"$\",\"$L17\",null,{}]}],[\"$\",\"div\",null,{\"className\":\"flex min-w-0 flex-1 flex-col justify-between\",\"children\":[[\"$\",\"div\",null,{\"children\":[\"$\",\"main\",null,{\"className\":\"m-4 mb-24 rounded-xl bg-white p-4 md:m-auto md:mt-[50px] md:mb-20 md:min-h-auto md:w-[789px] md:rounded-2xl md:bg-white md:p-10\",\"children\":[\"$\",\"div\",null,{\"className\":\"text-default flex flex-col gap-4 rounded-lg bg-white\",\"children\":[[\"$\",\"$L18\",null,{\"href\":\"/info\",\"className\":\"inline-flex items-center gap-2\",\"children\":[[\"$\",\"svg\",null,{\"width\":16,\"height\":16,\"viewBox\":\"0 0 12 20\",\"fill\":\"#888888\",\"xmlns\":\"http://www.w3.org/2000/svg\",\"children\":[\"$\",\"path\",null,{\"d\":\"M10 20L0 10L10 0L11.775 1.775L3.55 10L11.775 18.225L10 20Z\",\"fill\":\"#888888\"}]}],[\"$\",\"span\",null,{\"className\":\"font-[Noto_Sans_JP,sans-serif] text-[14px] leading-[1.5] tracking-[-0.02em] text-[#888888]\",\"children\":\"戻る\"}]]}],[\"$\",\"section\",null,{\"children\":[[\"$\",\"h2\",null,{\"className\":\"text-xl font-bold\",\"children\":\"【11月1日限定】チャージで2人に1人！海鮮丼セットが当たる！\"}],[\"$\",\"div\",null,{\"className\":\"text-[#888]\",\"children\":\"2026/11/01 00:00\"}]]}],\"$L19\",[\"$\",\"$L1a\",null,{\"htmlContent\":\"$1b\"}]]}]}]}],[\"$\",\"footer\",null,{\"className\":\"hidden md:flex bg-default w-full flex-col gap-5 px-4 py-8 pb-[87px] text-white md:gap-10 md:pb-8\",\"children\":[\"$\",\"div\",null,{\"className\":\"flex flex-col gap-10 text-xs text-white md:gap-6\",\"children\":[[\"$\",\"div\",null,{\"className\":\"grid grid-cols-2 gap-5 md:flex md:flex-wrap md:gap-x-12 md:gap-y-2\",\"children\":[[\"$\",\"$L18\",null,{\"href\":\"/about\",\"children\":\"運営会社\"}],[\"$\",\"$L18\",null,{\"href\":\"/about/terms\",\"children\":\"利用規約\"}],[\"$\",\"$L18\",null,{\"href\":\"/about/privacy-policy\",\"children\":\"プライバシーポリシー\"}],[\"$\",\"$L18\",null,{\"href\":\"/about/commercial-transaction\",\"children\":\"特定商取引法に基づく表示\"}],[\"$\",\"$L18\",null,{\"href\":\"/about/security-policy\",\"children\":\"情報セキュリティ方針\"}],[\"$\",\"$L18\",null,{\"href\":\"/mypage/faq\",\"children\":\"よくある質問\"}],[\"$\",\"$L18\",null,{\"href\":\"/mypage/contact\",\"children\":\"お問い合わせ\"}]]}],[\"$\",\"div\",null,{\"className\":\"flex flex-col gap-5 md:flex-row md:flex-wrap md:gap-x-7 md:gap-y-2\",\"children\":[[\"$\",\"$L18\",null,{\"href\":\"/login/gamble-notice\",\"className\":\"flex items-center gap-2\",\"children\":[[\"$\",\"div\",null,{\"children\":\"車券の購入は20歳になってから、競輪は適度に楽しみましょう\"}],[\"$\",\"svg\",null,{\"width\":8,\"height\":12,\"viewBox\":\"0 0 8 12\",\"fill\":\"none\",\"xmlns\":\"http://www.w3.org/2000/svg\",\"children\":[\"$\",\"path\",null,{\"d\":\"M2 5.24537e-07L8 6L2 12L0.6 10.6L5.2 6L0.599999 1.4L2 5.24537e-07Z\",\"fill\":\"white\"}]}]]}],[\"$\",\"$L18\",null,{\"href\":\"/login/gambling-addiction\",\"className\":\"flex items-center gap-2\",\"children\":[[\"$\",\"div\",null,{\"children\":\"車券の購入にのめり込む不安のある方のご相談\"}],[\"$\",\"svg\",null,{\"width\":8,\"height\":12,\"viewBox\":\"0 0 8 12\",\"fill\":\"none\",\"xmlns\":\"http://www.w3.org/2000/svg\",\"children\":\"$L1c\"}]]}],\"$L1d\"]}],\"$L1e\"]}]}]]}]]}],\"$L1f\"]}]"
+            }
+          ],
+          "link_version": 1
+        },
+        {
           "title": "00:00 「みんなの競輪」チャージ・投票方法のご案内",
           "url": "https://bet.minnano-keirin.com/info/348",
           "date": "2026-11-01",
           "feed": "minnano",
           "site": "みんなの競輪",
           "section": "お知らせ",
-          "new": true,
+          "new": false,
           "body": [
             "T2479,みんなの競輪でのチャージ・投票方法をご紹介します。",
             "※画像はスマートフォン版の投票画面となります。",
@@ -4060,6 +4526,7 @@
           ],
           "note": "",
           "body_extractor": "minnano-flight-v2",
+          "media_version": 1,
           "blocks": [
             {
               "type": "text",
@@ -4236,341 +4703,13 @@
               ]
             }
           ],
-          "media_version": 1,
-          "link_version": 1
-        },
-        {
-          "title": "12:00 【10月31日～11月3日】「防府競輪G3」みんなの競輪 オリジナル攻略データ《特製クオカードプレゼント有り》",
-          "url": "https://bet.minnano-keirin.com/info/24906",
-          "date": "2026-10-31",
-          "feed": "minnano",
-          "site": "みんなの競輪",
-          "section": "お知らせ",
-          "new": false,
-          "body": [
-            "T11f6,10月31日(土)～11月3日(火)は、「防府競輪G3・周防国府杯争奪戦」開催！本ページでは、予想に役立つオリジナル攻略データをご紹介！",
-            "【「防府競輪G3」みんなの競輪オリジナル攻略データ】",
-            "《①決まり手データ》",
-            "（集計対象→2026年3月～2026年10月に 防府競輪場で開催されたS級戦 全123レース）",
-            "■1着の決まり手",
-            "・逃げ：24.39％",
-            "・捲り：34.15％",
-            "・差し：41.46％",
-            "■2着の決まり手",
-            "・逃げ：19.51%",
-            "・捲り：16.26%",
-            "・差し：25.20%",
-            "・マーク：39.02%",
-            "★注目ポイント★ 逃げ・捲りの自力決まり手が多い",
-            "逃げ・捲りの合計が60％に迫る自力有利のバンク。ライン先頭の選手から狙いたい",
-            "《②着順別車番データ》",
-            "(集計対象→2026年3月に 防府競輪場で開催されたG2 全47レース）",
-            "■1着の車番",
-            "・1番車：14.89%",
-            "・2番車：8.51%",
-            "・3番車：19.15%",
-            "・4番車：10.64％",
-            "・5番車：8.51%",
-            "・6番車：6.38%",
-            "・7番車：10.64％",
-            "・8番車：6.38%",
-            "・9番車：14.89%",
-            "■2着の車番",
-            "・1番車：17.02%",
-            "・2番車：6.38%",
-            "・3番車：6.38%",
-            "・4番車：2.13%",
-            "・5番車：14.89%",
-            "・6番車：2.13%",
-            "・7番車：27.66%",
-            "・8番車：6.38%",
-            "・9番車：17.02%",
-            "★注目ポイント★ 3番車が勝率トップも大きな傾向無し",
-            "3番車の勝率が最も高いが、4・6・8番車までまんべんなく表れており大きな傾向は見られない。",
-            "《③平均配当データ》",
-            "（集計対象→2026年3月～2026年10月に 防府競輪場で開催されたS級戦 全123レース）",
-            "■2車単の配当",
-            "・最高配当：45,290円",
-            "・平均配当：2,488円",
-            "・万車券率：2.44％（合計3レース）",
-            "■3連単の配当",
-            "・最高配当：299,550円",
-            "・平均配当：14,837円",
-            "・万車券率：34.96％（合計43レース）",
-            "★注目ポイント★ 平均配当・万車券率ともに水準程度",
-            "最高配当もあまり高くなく、基本はスピードのある自力選手が勝ち切るので、平穏な決着が多い。",
-            "こちらのデータもご参考に、「防府競輪G3」のご投票をお楽しみください！",
-            "【「防府競輪G3」 クオカードプレゼント！】",
-            "・応募期限→11月3日(火) 23:59まで",
-            "・本フォーム内の「応募する」ボタンを押してエントリー！",
-            "■賞品（抽選でプレゼント）",
-            "・抽選で15名様→防府競輪G3 特製クオカード",
-            "■本キャンペーン注意事項",
-            "※本キャンペーンは応募フォームよりエントリーが必要となります。",
-            "※ご当選時の賞品は、本サービスにご登録の住所に賞品をお送りいたします。郵送先を変更する場合は、マイページよりご変更ください。",
-            "※キャンペーンの開催期間、および賞品や付与時期は予告なく変更となる場合がございます。",
-            "※対象開催が中止・順延となった場合、本キャンペーンも中止・順延いたします。e:[\"$\",\"div\",null,{\"className\":\"sp-footer-spacing-padding flex min-h-screen flex-col md:pb-0\",\"children\":[[\"$\",\"div\",null,{\"className\":\"flex md:flex-1\",\"children\":[[\"$\",\"div\",null,{\"className\":\"hidden md:block\",\"children\":[\"$\",\"$L17\",null,{}]}],[\"$\",\"div\",null,{\"className\":\"flex min-w-0 flex-1 flex-col justify-between\",\"children\":[[\"$\",\"div\",null,{\"children\":[\"$\",\"main\",null,{\"className\":\"m-4 mb-24 rounded-xl bg-white p-4 md:m-auto md:mt-[50px] md:mb-20 md:min-h-auto md:w-[789px] md:rounded-2xl md:bg-white md:p-10\",\"children\":[\"$\",\"div\",null,{\"className\":\"text-default flex flex-col gap-4 rounded-lg bg-white\",\"children\":[[\"$\",\"$L18\",null,{\"href\":\"/info\",\"className\":\"inline-flex items-center gap-2\",\"children\":[[\"$\",\"svg\",null,{\"width\":16,\"height\":16,\"viewBox\":\"0 0 12 20\",\"fill\":\"#888888\",\"xmlns\":\"http://www.w3.org/2000/svg\",\"children\":[\"$\",\"path\",null,{\"d\":\"M10 20L0 10L10 0L11.775 1.775L3.55 10L11.775 18.225L10 20Z\",\"fill\":\"#888888\"}]}],[\"$\",\"span\",null,{\"className\":\"font-[Noto_Sans_JP,sans-serif] text-[14px] leading-[1.5] tracking-[-0.02em] text-[#888888]\",\"children\":\"戻る\"}]]}],[\"$\",\"section\",null,{\"children\":[[\"$\",\"h2\",null,{\"className\":\"text-xl font-bold\",\"children\":\"【10月31日～11月3日】「防府競輪G3」みんなの競輪 オリジナル攻略データ《特製クオカードプレゼント有り》\"}],[\"$\",\"div\",null,{\"className\":\"text-[#888]\",\"children\":\"2026/10/25 00:00\"}]]}],\"$L19\",[\"$\",\"$L1a\",null,{\"htmlContent\":\"$1b\"}]]}]}]}],\"$L1c\"]}]]}],\"$L1d\"]}]"
-          ],
-          "note": "",
-          "body_extractor": "minnano-flight-v2",
-          "media_version": 1,
-          "blocks": [
-            {
-              "type": "text",
-              "text": "T11f6,10月31日(土)～11月3日(火)は、「防府競輪G3・周防国府杯争奪戦」開催！本ページでは、予想に役立つオリジナル攻略データをご紹介！"
-            },
-            {
-              "type": "text",
-              "text": "【「防府競輪G3」みんなの競輪オリジナル攻略データ】"
-            },
-            {
-              "type": "text",
-              "text": "《①決まり手データ》"
-            },
-            {
-              "type": "text",
-              "text": "（集計対象→2026年3月～2026年10月に 防府競輪場で開催されたS級戦 全123レース）"
-            },
-            {
-              "type": "text",
-              "text": "■1着の決まり手"
-            },
-            {
-              "type": "text",
-              "text": "・逃げ：24.39％"
-            },
-            {
-              "type": "text",
-              "text": "・捲り：34.15％"
-            },
-            {
-              "type": "text",
-              "text": "・差し：41.46％"
-            },
-            {
-              "type": "text",
-              "text": "■2着の決まり手"
-            },
-            {
-              "type": "text",
-              "text": "・逃げ：19.51%"
-            },
-            {
-              "type": "text",
-              "text": "・捲り：16.26%"
-            },
-            {
-              "type": "text",
-              "text": "・差し：25.20%"
-            },
-            {
-              "type": "text",
-              "text": "・マーク：39.02%"
-            },
-            {
-              "type": "text",
-              "text": "★注目ポイント★ 逃げ・捲りの自力決まり手が多い"
-            },
-            {
-              "type": "text",
-              "text": "逃げ・捲りの合計が60％に迫る自力有利のバンク。ライン先頭の選手から狙いたい"
-            },
-            {
-              "type": "text",
-              "text": "《②着順別車番データ》"
-            },
-            {
-              "type": "text",
-              "text": "(集計対象→2026年3月に 防府競輪場で開催されたG2 全47レース）"
-            },
-            {
-              "type": "text",
-              "text": "■1着の車番"
-            },
-            {
-              "type": "text",
-              "text": "・1番車：14.89%"
-            },
-            {
-              "type": "text",
-              "text": "・2番車：8.51%"
-            },
-            {
-              "type": "text",
-              "text": "・3番車：19.15%"
-            },
-            {
-              "type": "text",
-              "text": "・4番車：10.64％"
-            },
-            {
-              "type": "text",
-              "text": "・5番車：8.51%"
-            },
-            {
-              "type": "text",
-              "text": "・6番車：6.38%"
-            },
-            {
-              "type": "text",
-              "text": "・7番車：10.64％"
-            },
-            {
-              "type": "text",
-              "text": "・8番車：6.38%"
-            },
-            {
-              "type": "text",
-              "text": "・9番車：14.89%"
-            },
-            {
-              "type": "text",
-              "text": "■2着の車番"
-            },
-            {
-              "type": "text",
-              "text": "・1番車：17.02%"
-            },
-            {
-              "type": "text",
-              "text": "・2番車：6.38%"
-            },
-            {
-              "type": "text",
-              "text": "・3番車：6.38%"
-            },
-            {
-              "type": "text",
-              "text": "・4番車：2.13%"
-            },
-            {
-              "type": "text",
-              "text": "・5番車：14.89%"
-            },
-            {
-              "type": "text",
-              "text": "・6番車：2.13%"
-            },
-            {
-              "type": "text",
-              "text": "・7番車：27.66%"
-            },
-            {
-              "type": "text",
-              "text": "・8番車：6.38%"
-            },
-            {
-              "type": "text",
-              "text": "・9番車：17.02%"
-            },
-            {
-              "type": "text",
-              "text": "★注目ポイント★ 3番車が勝率トップも大きな傾向無し"
-            },
-            {
-              "type": "text",
-              "text": "3番車の勝率が最も高いが、4・6・8番車までまんべんなく表れており大きな傾向は見られない。"
-            },
-            {
-              "type": "text",
-              "text": "《③平均配当データ》"
-            },
-            {
-              "type": "text",
-              "text": "（集計対象→2026年3月～2026年10月に 防府競輪場で開催されたS級戦 全123レース）"
-            },
-            {
-              "type": "text",
-              "text": "■2車単の配当"
-            },
-            {
-              "type": "text",
-              "text": "・最高配当：45,290円"
-            },
-            {
-              "type": "text",
-              "text": "・平均配当：2,488円"
-            },
-            {
-              "type": "text",
-              "text": "・万車券率：2.44％（合計3レース）"
-            },
-            {
-              "type": "text",
-              "text": "■3連単の配当"
-            },
-            {
-              "type": "text",
-              "text": "・最高配当：299,550円"
-            },
-            {
-              "type": "text",
-              "text": "・平均配当：14,837円"
-            },
-            {
-              "type": "text",
-              "text": "・万車券率：34.96％（合計43レース）"
-            },
-            {
-              "type": "text",
-              "text": "★注目ポイント★ 平均配当・万車券率ともに水準程度"
-            },
-            {
-              "type": "text",
-              "text": "最高配当もあまり高くなく、基本はスピードのある自力選手が勝ち切るので、平穏な決着が多い。"
-            },
-            {
-              "type": "text",
-              "text": "こちらのデータもご参考に、「防府競輪G3」のご投票をお楽しみください！"
-            },
-            {
-              "type": "text",
-              "text": "【「防府競輪G3」 クオカードプレゼント！】"
-            },
-            {
-              "type": "text",
-              "text": "・応募期限→11月3日(火) 23:59まで"
-            },
-            {
-              "type": "text",
-              "text": "・本フォーム内の「応募する」ボタンを押してエントリー！"
-            },
-            {
-              "type": "text",
-              "text": "■賞品（抽選でプレゼント）"
-            },
-            {
-              "type": "text",
-              "text": "・抽選で15名様→防府競輪G3 特製クオカード"
-            },
-            {
-              "type": "text",
-              "text": "■本キャンペーン注意事項"
-            },
-            {
-              "type": "text",
-              "text": "※本キャンペーンは応募フォームよりエントリーが必要となります。"
-            },
-            {
-              "type": "text",
-              "text": "※ご当選時の賞品は、本サービスにご登録の住所に賞品をお送りいたします。郵送先を変更する場合は、マイページよりご変更ください。"
-            },
-            {
-              "type": "text",
-              "text": "※キャンペーンの開催期間、および賞品や付与時期は予告なく変更となる場合がございます。"
-            },
-            {
-              "type": "text",
-              "text": "※対象開催が中止・順延となった場合、本キャンペーンも中止・順延いたします。e:[\"$\",\"div\",null,{\"className\":\"sp-footer-spacing-padding flex min-h-screen flex-col md:pb-0\",\"children\":[[\"$\",\"div\",null,{\"className\":\"flex md:flex-1\",\"children\":[[\"$\",\"div\",null,{\"className\":\"hidden md:block\",\"children\":[\"$\",\"$L17\",null,{}]}],[\"$\",\"div\",null,{\"className\":\"flex min-w-0 flex-1 flex-col justify-between\",\"children\":[[\"$\",\"div\",null,{\"children\":[\"$\",\"main\",null,{\"className\":\"m-4 mb-24 rounded-xl bg-white p-4 md:m-auto md:mt-[50px] md:mb-20 md:min-h-auto md:w-[789px] md:rounded-2xl md:bg-white md:p-10\",\"children\":[\"$\",\"div\",null,{\"className\":\"text-default flex flex-col gap-4 rounded-lg bg-white\",\"children\":[[\"$\",\"$L18\",null,{\"href\":\"/info\",\"className\":\"inline-flex items-center gap-2\",\"children\":[[\"$\",\"svg\",null,{\"width\":16,\"height\":16,\"viewBox\":\"0 0 12 20\",\"fill\":\"#888888\",\"xmlns\":\"http://www.w3.org/2000/svg\",\"children\":[\"$\",\"path\",null,{\"d\":\"M10 20L0 10L10 0L11.775 1.775L3.55 10L11.775 18.225L10 20Z\",\"fill\":\"#888888\"}]}],[\"$\",\"span\",null,{\"className\":\"font-[Noto_Sans_JP,sans-serif] text-[14px] leading-[1.5] tracking-[-0.02em] text-[#888888]\",\"children\":\"戻る\"}]]}],[\"$\",\"section\",null,{\"children\":[[\"$\",\"h2\",null,{\"className\":\"text-xl font-bold\",\"children\":\"【10月31日～11月3日】「防府競輪G3」みんなの競輪 オリジナル攻略データ《特製クオカードプレゼント有り》\"}],[\"$\",\"div\",null,{\"className\":\"text-[#888]\",\"children\":\"2026/10/25 00:00\"}]]}],\"$L19\",[\"$\",\"$L1a\",null,{\"htmlContent\":\"$1b\"}]]}]}]}],\"$L1c\"]}]]}],\"$L1d\"]}]"
-            }
-          ],
           "link_version": 1
         }
       ]
     },
     "tipstar": {
       "status": "ok",
-      "last_success": "2026-11-03T08:17:15.931267+09:00",
+      "last_success": "2026-11-04T06:28:38.173224+09:00",
       "items": [
         {
           "title": "【11/4～11/15】ちょこっとチャージでちょこっといいこと",
@@ -4579,7 +4718,7 @@
           "feed": "tipstar",
           "site": "TIPSTAR",
           "section": "お知らせ",
-          "new": true,
+          "new": false,
           "body": [
             "いつもTIPSTARをご利用いただき、ありがとうございます。 期間中、 TIPマネーをチャージ して条件を達成 すると賞品が当たる「 ちょこっとチャージでちょこっといいこと 」を実施！ チャージをしてその場で抽選！",
             "2026/11/4（水）〜 2026/11/15（日）",
@@ -4643,6 +4782,7 @@
             "今後ともTIPSTARをどうぞよろしくお願いいたします。"
           ],
           "note": "",
+          "media_version": 1,
           "blocks": [
             {
               "type": "image",
@@ -4900,7 +5040,6 @@
               "text": "今後ともTIPSTARをどうぞよろしくお願いいたします。"
             }
           ],
-          "media_version": 1,
           "link_version": 1
         },
         {
@@ -4910,7 +5049,7 @@
           "feed": "tipstar",
           "site": "TIPSTAR",
           "section": "お知らせ",
-          "new": true,
+          "new": false,
           "body": [
             "いつもTIPSTARをご利用いただき、ありがとうございます。 期間中に TIPマネーを チャージ して条件を達成 すると 50% の確率で 『 海鮮のTIPSTAR GIFT 』が当たるキャンペーンを 開催！",
             "海鮮のTIPSTAR GIFT",
@@ -4961,6 +5100,7 @@
             "今後ともTIPSTARをどうぞよろしくお願いいたします。"
           ],
           "note": "",
+          "media_version": 1,
           "blocks": [
             {
               "type": "image",
@@ -5166,7 +5306,6 @@
               "text": "今後ともTIPSTARをどうぞよろしくお願いいたします。"
             }
           ],
-          "media_version": 1,
           "link_version": 1
         },
         {
@@ -7297,7 +7436,7 @@
     },
     "pist6": {
       "status": "ok",
-      "last_success": "2026-11-03T08:17:15.931267+09:00",
+      "last_success": "2026-11-04T06:28:38.173224+09:00",
       "items": [
         {
           "title": "【FAIRLADY Z 大集合】11月1日（日）に開催！",
@@ -9300,7 +9439,7 @@
     },
     "betimo": {
       "status": "ok",
-      "last_success": "2026-11-03T08:17:15.931267+09:00",
+      "last_success": "2026-11-04T06:28:38.173224+09:00",
       "items": [
         {
           "title": "Betimo、みんなの銀行と「金融を活用した価値共創にかかる基本合意書」を締結",
