@@ -1,6 +1,6 @@
 {
   "format_version": 1,
-  "updated": "2026-11-20T07:52:57.641281+09:00",
+  "updated": "2026-11-21T07:29:12.568868+09:00",
   "feeds": {
     "gamboo": {
       "status": "unavailable",
@@ -1902,7 +1902,7 @@
     },
     "kdreams": {
       "status": "ok",
-      "last_success": "2026-11-20T07:52:57.641281+09:00",
+      "last_success": "2026-11-21T07:29:12.568868+09:00",
       "items": [
         {
           "title": "【復旧】【重要】緊急メンテナンスに伴うサービス一時停止のお知らせ",
@@ -1911,7 +1911,7 @@
           "feed": "kdreams",
           "site": "楽天Kドリームス",
           "section": "インフォメーション",
-          "new": true,
+          "new": false,
           "body": [
             "2026年11月20日(金)02:23 楽天Kドリームスのサービスを再開いたしました。",
             "お客様にはご迷惑をおかけしたことをお詫びすると共に、復旧までお待ちいただき心より感謝申し上げます。",
@@ -1925,6 +1925,7 @@
             "※詳細な復旧時間は追って、本お知らせまたは公式Xにてご案内いたします。"
           ],
           "note": "",
+          "media_version": 1,
           "blocks": [
             {
               "type": "text",
@@ -1967,7 +1968,6 @@
               "text": "※詳細な復旧時間は追って、本お知らせまたは公式Xにてご案内いたします。"
             }
           ],
-          "media_version": 1,
           "link_version": 1
         },
         {
@@ -2517,8 +2517,152 @@
     },
     "chariloto": {
       "status": "ok",
-      "last_success": "2026-11-20T07:52:57.641281+09:00",
+      "last_success": "2026-11-21T07:29:12.568868+09:00",
       "items": [
+        {
+          "title": "【Perfecta Navi】レースレポート掲載中！【小倉競輪G1ナイター】",
+          "url": "https://www.chariloto.com/articles/7595",
+          "date": "2026-11-20",
+          "feed": "chariloto",
+          "site": "チャリロト",
+          "section": "ニュース",
+          "new": false,
+          "body": [
+            "小倉競輪「第68回朝日新聞社杯競輪祭」G1",
+            "前検日",
+            "PerfectaNavi",
+            "小倉競輪「第4回競輪祭女子王座戦」G1",
+            "前検日",
+            "PerfectaNavi",
+            "初日",
+            "レース結果",
+            "PerfectaNavi"
+          ],
+          "note": "",
+          "media_version": 1,
+          "blocks": [
+            {
+              "type": "text",
+              "text": "小倉競輪「第68回朝日新聞社杯競輪祭」G1"
+            },
+            {
+              "type": "text",
+              "text": "前検日"
+            },
+            {
+              "type": "image",
+              "src": "images/ece53a7a60e6c91a5810be5f.jpg",
+              "caption": ""
+            },
+            {
+              "type": "text",
+              "text": "PerfectaNavi",
+              "links": [
+                {
+                  "text": "PerfectaNavi",
+                  "href": "https://keirin.netkeiba.com/perfectanavi/news_detail.html?id=49904&utm_source=chari&utm_medium=news"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "text": "小倉競輪「第4回競輪祭女子王座戦」G1"
+            },
+            {
+              "type": "text",
+              "text": "前検日"
+            },
+            {
+              "type": "image",
+              "src": "images/e2eaf9566c598a74791228de.jpg",
+              "caption": ""
+            },
+            {
+              "type": "text",
+              "text": "PerfectaNavi",
+              "links": [
+                {
+                  "text": "PerfectaNavi",
+                  "href": "https://keirin.netkeiba.com/perfectanavi/news_detail.html?id=49901&utm_source=top"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "text": "初日"
+            },
+            {
+              "type": "text",
+              "text": "レース結果"
+            },
+            {
+              "type": "text",
+              "text": "PerfectaNavi"
+            },
+            {
+              "type": "image",
+              "src": "images/24f42642fdde32b557c92726.jpg",
+              "caption": ""
+            }
+          ],
+          "link_version": 1
+        },
+        {
+          "title": "（金）【小倉競輪G1】Dokanto!7で約6900万円の高額当選が出ました！",
+          "url": "https://www.chariloto.com/articles/7602",
+          "date": "2026-11-20",
+          "feed": "chariloto",
+          "site": "チャリロト",
+          "section": "ニュース",
+          "new": true,
+          "body": [
+            "2026年11月20日（金）【小倉競輪G1】Dokanto!7で約6900万円の高額当選が出ました！",
+            "Dokanto!7",
+            "払戻金額 6865万9340円（1口）",
+            "当選されたお客様おめでとうございます！",
+            "▼レース経過は下記をご覧下さい!",
+            "小倉競輪 2026年11月20日 3日目 G１ 朝日新聞社杯競輪祭",
+            "▼過去の高額当選はこちらをご覧下さい",
+            "Dokanto!7 高額当選一覧(日付順)"
+          ],
+          "note": "",
+          "blocks": [
+            {
+              "type": "text",
+              "text": "2026年11月20日（金）【小倉競輪G1】Dokanto!7で約6900万円の高額当選が出ました！"
+            },
+            {
+              "type": "text",
+              "text": "Dokanto!7"
+            },
+            {
+              "type": "text",
+              "text": "払戻金額 6865万9340円（1口）"
+            },
+            {
+              "type": "text",
+              "text": "当選されたお客様おめでとうございます！"
+            },
+            {
+              "type": "text",
+              "text": "▼レース経過は下記をご覧下さい!"
+            },
+            {
+              "type": "text",
+              "text": "小倉競輪 2026年11月20日 3日目 G１ 朝日新聞社杯競輪祭"
+            },
+            {
+              "type": "text",
+              "text": "▼過去の高額当選はこちらをご覧下さい"
+            },
+            {
+              "type": "text",
+              "text": "Dokanto!7 高額当選一覧(日付順)"
+            }
+          ],
+          "media_version": 1,
+          "link_version": 1
+        },
         {
           "title": "【投票額の5％還元！】11/21 ～ 11/30は全ての競輪開催の「決勝レース」が対象！",
           "url": "https://www.chariloto.com/articles/7498",
@@ -2526,7 +2670,7 @@
           "feed": "chariloto",
           "site": "チャリロト",
           "section": "ニュース",
-          "new": true,
+          "new": false,
           "body": [
             "日程 ｜ 開催場 ｜ 対象レース ｜ レース区分",
             "11/21（土） ｜ 福井F2 モーニング ｜ 6R ｜ Ｌ級ガールズ決勝",
@@ -2558,6 +2702,7 @@
             "11R ｜ Ａ級決勝"
           ],
           "note": "",
+          "media_version": 1,
           "blocks": [
             {
               "type": "text",
@@ -2672,7 +2817,6 @@
               "text": "11R ｜ Ａ級決勝"
             }
           ],
-          "media_version": 1,
           "link_version": 1
         },
         {
@@ -2682,7 +2826,7 @@
           "feed": "chariloto",
           "site": "チャリロト",
           "section": "ニュース",
-          "new": true,
+          "new": false,
           "body": [
             "いつもチャリロトをご利用いただきありがとうございます。",
             "チャリロトアプリで本日緊急メンテナンスを実施いたします。",
@@ -2695,6 +2839,7 @@
             "今後ともチャリロトをどうぞよろしくお願いいたします。"
           ],
           "note": "",
+          "media_version": 1,
           "blocks": [
             {
               "type": "text",
@@ -2731,95 +2876,6 @@
             {
               "type": "text",
               "text": "今後ともチャリロトをどうぞよろしくお願いいたします。"
-            }
-          ],
-          "media_version": 1,
-          "link_version": 1
-        },
-        {
-          "title": "【Perfecta Navi】レースレポート掲載中！【小倉競輪G1ナイター】",
-          "url": "https://www.chariloto.com/articles/7595",
-          "date": "2026-11-19",
-          "feed": "chariloto",
-          "site": "チャリロト",
-          "section": "ニュース",
-          "new": false,
-          "body": [
-            "小倉競輪「第68回朝日新聞社杯競輪祭」G1",
-            "前検日",
-            "PerfectaNavi",
-            "小倉競輪「第4回競輪祭女子王座戦」G1",
-            "前検日",
-            "PerfectaNavi",
-            "初日",
-            "レース結果",
-            "PerfectaNavi"
-          ],
-          "note": "",
-          "media_version": 1,
-          "blocks": [
-            {
-              "type": "text",
-              "text": "小倉競輪「第68回朝日新聞社杯競輪祭」G1"
-            },
-            {
-              "type": "text",
-              "text": "前検日"
-            },
-            {
-              "type": "image",
-              "src": "images/ece53a7a60e6c91a5810be5f.jpg",
-              "caption": ""
-            },
-            {
-              "type": "text",
-              "text": "PerfectaNavi",
-              "links": [
-                {
-                  "text": "PerfectaNavi",
-                  "href": "https://keirin.netkeiba.com/perfectanavi/news_detail.html?id=49904&utm_source=chari&utm_medium=news"
-                }
-              ]
-            },
-            {
-              "type": "text",
-              "text": "小倉競輪「第4回競輪祭女子王座戦」G1"
-            },
-            {
-              "type": "text",
-              "text": "前検日"
-            },
-            {
-              "type": "image",
-              "src": "images/e2eaf9566c598a74791228de.jpg",
-              "caption": ""
-            },
-            {
-              "type": "text",
-              "text": "PerfectaNavi",
-              "links": [
-                {
-                  "text": "PerfectaNavi",
-                  "href": "https://keirin.netkeiba.com/perfectanavi/news_detail.html?id=49901&utm_source=top"
-                }
-              ]
-            },
-            {
-              "type": "text",
-              "text": "初日"
-            },
-            {
-              "type": "text",
-              "text": "レース結果"
-            },
-            {
-              "type": "text",
-              "text": "PerfectaNavi"
-            },
-            {
-              "type": "image",
-              "src": "images/24f42642fdde32b557c92726.jpg",
-              "caption": ""
             }
           ],
           "link_version": 1
@@ -3344,72 +3400,6 @@
             }
           ],
           "link_version": 1
-        },
-        {
-          "title": "【500名様に飛騨牛が当たる！】小倉G1ナイター「朝日新聞社杯競輪祭」投票キャンペーン！",
-          "url": "https://www.chariloto.com/articles/7505",
-          "date": "2026-11-16",
-          "feed": "chariloto",
-          "site": "チャリロト",
-          "section": "ニュース",
-          "new": false,
-          "body": [
-            "小倉競輪 G1 N 朝日新聞社杯競輪祭",
-            "飛騨牛カタログギフト 抽選500名様",
-            "※画像はイメージです。 ※カタログ形式でのお届けとなります。上記4種類のうち、いずれか1品をお選びいただけます。",
-            "・上記対象開催の車券を当サイトよりご投票されたネット会員様（チャリカ会員・PayPay銀行会員・楽天銀行会員）が対象です。※1 ・通常車券が対象（重勝式、ワイドは対象外） ※1 プラザ会員様は対象外"
-          ],
-          "note": "",
-          "media_version": 1,
-          "blocks": [
-            {
-              "type": "image",
-              "src": "images/b8353cfa4c5b4ac064b9b3e4.png",
-              "caption": ""
-            },
-            {
-              "type": "image",
-              "src": "images/eba3f037e9f57c73f1bd13d6.png",
-              "caption": ""
-            },
-            {
-              "type": "text",
-              "text": "小倉競輪 G1 N 朝日新聞社杯競輪祭"
-            },
-            {
-              "type": "image",
-              "src": "images/5ac0de592d8b47594f873fcd.jpg",
-              "caption": ""
-            },
-            {
-              "type": "image",
-              "src": "images/c05e8cb03e14a0a2b9a58757.jpg",
-              "caption": ""
-            },
-            {
-              "type": "image",
-              "src": "images/4613c30a247daf5ed1eb7bb4.jpg",
-              "caption": ""
-            },
-            {
-              "type": "image",
-              "src": "images/561ac04f86b7328e53d515aa.jpg",
-              "caption": ""
-            },
-            {
-              "type": "text",
-              "text": "飛騨牛カタログギフト 抽選500名様"
-            },
-            {
-              "type": "text",
-              "text": "※画像はイメージです。 ※カタログ形式でのお届けとなります。上記4種類のうち、いずれか1品をお選びいただけます。"
-            },
-            {
-              "type": "text",
-              "text": "・上記対象開催の車券を当サイトよりご投票されたネット会員様（チャリカ会員・PayPay銀行会員・楽天銀行会員）が対象です。※1 ・通常車券が対象（重勝式、ワイドは対象外） ※1 プラザ会員様は対象外"
-            }
-          ],
-          "link_version": 1
         }
       ]
     },
@@ -3421,7 +3411,7 @@
     },
     "autorace-campaign": {
       "status": "ok",
-      "last_success": "2026-11-20T07:52:57.641281+09:00",
+      "last_success": "2026-11-21T07:29:12.568868+09:00",
       "items": [
         {
           "title": "川口 公式ファンクラブ会員限定「SG第41回スーパースター王座決定戦 表彰式ご招待」",
@@ -3430,7 +3420,7 @@
           "feed": "autorace-campaign",
           "site": "AUTORACE.JP",
           "section": "キャンペーン",
-          "new": true,
+          "new": false,
           "body": [
             "公式ファンクラブ会員限定「SG第41回スーパースター王座決定戦 表彰式ご招待」",
             "いつもオートレースをお楽しみいただき、ありがとうございます！",
@@ -3448,6 +3438,7 @@
             "ネット口座をお持ちの方は、即日で登録完了。 スマホ・パソコンからご投票できます。 登録費や年会費などは無くご登録は無料です。 お気軽にAUTORACE.JP投票をお試しください。"
           ],
           "note": "",
+          "media_version": 1,
           "blocks": [
             {
               "type": "text",
@@ -3528,7 +3519,6 @@
               "text": "ネット口座をお持ちの方は、即日で登録完了。 スマホ・パソコンからご投票できます。 登録費や年会費などは無くご登録は無料です。 お気軽にAUTORACE.JP投票をお試しください。"
             }
           ],
-          "media_version": 1,
           "link_version": 1
         },
         {
@@ -3695,7 +3685,7 @@
     },
     "autorace-event": {
       "status": "ok",
-      "last_success": "2026-11-20T07:52:57.641281+09:00",
+      "last_success": "2026-11-21T07:29:12.568868+09:00",
       "items": [
         {
           "title": "浜松 11/22・23【浜松オートレース場】おいもフェス２０２６！キッズバイク乗車体験開催！北市唯選手も参加！",
@@ -3704,7 +3694,7 @@
           "feed": "autorace-event",
           "site": "AUTORACE.JP",
           "section": "イベント",
-          "new": true,
+          "new": false,
           "body": [
             "11/22・23【浜松オートレース場】おいもフェス２０２６！キッズバイク乗車体験開催！北市唯選手も参加！",
             "11月22日（日）・23日（月・祝）、浜松オートレース場にて 「おいもフェス２０２６」が開催！",
@@ -3713,6 +3703,7 @@
             "ネット口座をお持ちの方は、即日で登録完了。 スマホ・パソコンからご投票できます。 登録費や年会費などは無くご登録は無料です。 お気軽にAUTORACE.JP投票をお試しください。"
           ],
           "note": "",
+          "media_version": 1,
           "blocks": [
             {
               "type": "text",
@@ -3755,7 +3746,6 @@
               "text": "ネット口座をお持ちの方は、即日で登録完了。 スマホ・パソコンからご投票できます。 登録費や年会費などは無くご登録は無料です。 お気軽にAUTORACE.JP投票をお試しください。"
             }
           ],
-          "media_version": 1,
           "link_version": 1
         },
         {
@@ -4106,12 +4096,12 @@
     },
     "autorace-update": {
       "status": "ok",
-      "last_success": "2026-11-20T07:52:57.641281+09:00",
+      "last_success": "2026-11-21T07:29:12.568868+09:00",
       "items": []
     },
     "netkeirin": {
       "status": "ok",
-      "last_success": "2026-11-20T07:52:57.641281+09:00",
+      "last_success": "2026-11-21T07:29:12.568868+09:00",
       "items": [
         {
           "title": "キャンペーン 【11/21〜11/23限定】競輪祭 netkeirinブース出展！各日先着300名様に500円分のマネーをプレゼント！",
@@ -4120,7 +4110,7 @@
           "feed": "netkeirin",
           "site": "netkeirin",
           "section": "キャンペーン・お知らせ",
-          "new": true,
+          "new": false,
           "body": [
             "いつもnetkeirinをご利用いただき、誠にありがとうございます。",
             "「競輪祭・競輪祭女子王座戦(小倉競輪G1)」が開催される小倉競輪場にて、11月21日（土）〜11月23日（月）限定でnetkeirinブースを出展します！",
@@ -4177,6 +4167,7 @@
           ],
           "note": "",
           "body_extractor": "notice-v1",
+          "media_version": 1,
           "blocks": [
             {
               "type": "text",
@@ -4387,7 +4378,6 @@
               "text": "netkeirin"
             }
           ],
-          "media_version": 1,
           "link_version": 1
         },
         {
@@ -4397,7 +4387,7 @@
           "feed": "netkeirin",
           "site": "netkeirin",
           "section": "キャンペーン・お知らせ",
-          "new": true,
+          "new": false,
           "body": [
             "いつもnetkeirinをご利用いただき、誠にありがとうございます。",
             "2026年11月19日（木）22:30より実施しておりました緊急メンテナンスは、作業が完了し、現在は通常通りサービスをご利用いただける状態となっております。",
@@ -4414,6 +4404,7 @@
           ],
           "note": "",
           "body_extractor": "notice-v1",
+          "media_version": 1,
           "blocks": [
             {
               "type": "text",
@@ -4464,7 +4455,6 @@
               "text": "netkeirin"
             }
           ],
-          "media_version": 1,
           "link_version": 1
         },
         {
@@ -5537,8 +5527,175 @@
     },
     "minnano": {
       "status": "ok",
-      "last_success": "2026-11-20T07:52:57.641281+09:00",
+      "last_success": "2026-11-21T07:29:12.568868+09:00",
       "items": [
+        {
+          "title": "00:00 【11月21日限定】チャージで2人に1人が当たる！極上すき焼きチャンス！",
+          "url": "https://bet.minnano-keirin.com/info/28175",
+          "date": "2026-11-21",
+          "feed": "minnano",
+          "site": "みんなの競輪",
+          "section": "お知らせ",
+          "new": true,
+          "body": [
+            "Tc8c,",
+            "※賞品画像はイメージです",
+            "※賞品の発送にあたり、当選者の方には後日、登録メールアドレス宛にお届け先住所および賞品のお受け取りに関する確認メールをお送りいたします。メールに記載の案内に従い、期限内にご回答いただきますようお願いいたします。",
+            "11月21日（土）に「みんなの競輪」で10万円以上のチャージ（払戻金チャージを除く）を行い、応募フォームからエントリーされた方の中から、2人に1人に《人形町今半 黒毛和牛すき焼き用肉》をプレゼント！",
+            "【キャンペーン対象日】",
+            "・11月21日（土）00:00～23:59",
+            "【抽選予定日】",
+            "・11月22日（日）",
+            "【エントリー方法】",
+            "・キャンペーン対象期間中において、以下のエントリー条件を満たすこと。",
+            "(1)10万円以上のチャージ（払戻金チャージを除く）",
+            "(2)本フォーム内の「応募する」ボタンを押下してエントリー",
+            "【賞品（2人に1人が当選）】",
+            "・《人形町今半》 黒毛和牛すき焼き用肉 300g",
+            "※賞品は抽選のうえ、当選された方へ後日お届けいたします。",
+            "【はずれた方にもダブルチャンス！】",
+            "惜しくもご当選とならなかった方の中から抽選で5名様に、高級ふりかけパックをプレゼント！",
+            "・高級ふりかけパックセット 5名様",
+            "※賞品は抽選のうえ、当選された方へ後日お届けいたします。",
+            "【本キャンペーン注意事項】",
+            "※本キャンペーンは応募フォームよりエントリーが必要となります。",
+            "※キャンペーン対象期間中に10万円以上のチャージ（払戻金チャージを除く）を行った方が対象となります。",
+            "※ご当選時の賞品は、みんなの競輪にご登録の住所に発送いたします。事前にご登録の住所をご確認ください。",
+            "※賞品の発送後、住所不明、長期不在、受取拒否、その他お客様のご都合により賞品が返送された場合、原則として再発送は行わず、当選を無効とさせていただく場合がございます。",
+            "※キャンペーンの開催期間、および賞品発送時期は予告なく変更となる場合がございます。",
+            "※条件を満たしていない場合、本キャンペーンの対象外となります。",
+            "※その他、本キャンペーンは予告なく内容の変更・または中止となる場合がございます。",
+            "【賞品に関する注意事項】",
+            "※発送元は提携企業となります。",
+            "※賞味期限／消費期限は商品ごとに異なります。ご注意ください。e:[\"$\",\"div\",null,{\"className\":\"sp-footer-spacing-padding flex min-h-screen flex-col md:pb-0\",\"children\":[[\"$\",\"div\",null,{\"className\":\"flex md:flex-1\",\"children\":[[\"$\",\"div\",null,{\"className\":\"hidden md:block\",\"children\":[\"$\",\"$L17\",null,{}]}],[\"$\",\"div\",null,{\"className\":\"flex min-w-0 flex-1 flex-col justify-between\",\"children\":[[\"$\",\"div\",null,{\"children\":[\"$\",\"main\",null,{\"className\":\"m-4 mb-24 rounded-xl bg-white p-4 md:m-auto md:mt-[50px] md:mb-20 md:min-h-auto md:w-[789px] md:rounded-2xl md:bg-white md:p-10\",\"children\":[\"$\",\"div\",null,{\"className\":\"text-default flex flex-col gap-4 rounded-lg bg-white\",\"children\":[[\"$\",\"$L18\",null,{\"href\":\"/info\",\"className\":\"inline-flex items-center gap-2\",\"children\":[[\"$\",\"svg\",null,{\"width\":16,\"height\":16,\"viewBox\":\"0 0 12 20\",\"fill\":\"#888888\",\"xmlns\":\"http://www.w3.org/2000/svg\",\"children\":[\"$\",\"path\",null,{\"d\":\"M10 20L0 10L10 0L11.775 1.775L3.55 10L11.775 18.225L10 20Z\",\"fill\":\"#888888\"}]}],[\"$\",\"span\",null,{\"className\":\"font-[Noto_Sans_JP,sans-serif] text-[14px] leading-[1.5] tracking-[-0.02em] text-[#888888]\",\"children\":\"戻る\"}]]}],[\"$\",\"section\",null,{\"children\":[[\"$\",\"h2\",null,{\"className\":\"text-xl font-bold\",\"children\":\"【11月21日限定】チャージで2人に1人が当たる！極上すき焼きチャンス！\"}],[\"$\",\"div\",null,{\"className\":\"text-[#888]\",\"children\":\"2026/11/21 00:00\"}]]}],\"$L19\",[\"$\",\"$L1a\",null,{\"htmlContent\":\"$1b\"}]]}]}]}],[\"$\",\"footer\",null,{\"className\":\"hidden md:flex bg-default w-full flex-col gap-5 px-4 py-8 pb-[87px] text-white md:gap-10 md:pb-8\",\"children\":[\"$\",\"div\",null,{\"className\":\"flex flex-col gap-10 text-xs text-white md:gap-6\",\"children\":[[\"$\",\"div\",null,{\"className\":\"grid grid-cols-2 gap-5 md:flex md:flex-wrap md:gap-x-12 md:gap-y-2\",\"children\":[[\"$\",\"$L18\",null,{\"href\":\"/about\",\"children\":\"運営会社\"}],[\"$\",\"$L18\",null,{\"href\":\"/about/terms\",\"children\":\"利用規約\"}],[\"$\",\"$L18\",null,{\"href\":\"/about/privacy-policy\",\"children\":\"プライバシーポリシー\"}],[\"$\",\"$L18\",null,{\"href\":\"/about/commercial-transaction\",\"children\":\"特定商取引法に基づく表示\"}],[\"$\",\"$L18\",null,{\"href\":\"/about/security-policy\",\"children\":\"情報セキュリティ方針\"}],[\"$\",\"$L18\",null,{\"href\":\"/mypage/faq\",\"children\":\"よくある質問\"}],[\"$\",\"$L18\",null,{\"href\":\"/mypage/contact\",\"children\":\"お問い合わせ\"}]]}],[\"$\",\"div\",null,{\"className\":\"flex flex-col gap-5 md:flex-row md:flex-wrap md:gap-x-7 md:gap-y-2\",\"children\":[[\"$\",\"$L18\",null,{\"href\":\"/login/gamble-notice\",\"className\":\"flex items-center gap-2\",\"children\":[[\"$\",\"div\",null,{\"children\":\"車券の購入は20歳になってから、競輪は適度に楽しみましょう\"}],\"$L1c\"]}],\"$L1d\",\"$L1e\"]}],\"$L1f\"]}]}]]}]]}],\"$L20\"]}]"
+          ],
+          "note": "",
+          "body_extractor": "minnano-flight-v2",
+          "blocks": [
+            {
+              "type": "text",
+              "text": "Tc8c,"
+            },
+            {
+              "type": "text",
+              "text": "※賞品画像はイメージです"
+            },
+            {
+              "type": "text",
+              "text": "※賞品の発送にあたり、当選者の方には後日、登録メールアドレス宛にお届け先住所および賞品のお受け取りに関する確認メールをお送りいたします。メールに記載の案内に従い、期限内にご回答いただきますようお願いいたします。"
+            },
+            {
+              "type": "text",
+              "text": "11月21日（土）に「みんなの競輪」で10万円以上のチャージ（払戻金チャージを除く）を行い、応募フォームからエントリーされた方の中から、2人に1人に《人形町今半 黒毛和牛すき焼き用肉》をプレゼント！"
+            },
+            {
+              "type": "text",
+              "text": "【キャンペーン対象日】"
+            },
+            {
+              "type": "text",
+              "text": "・11月21日（土）00:00～23:59"
+            },
+            {
+              "type": "text",
+              "text": "【抽選予定日】"
+            },
+            {
+              "type": "text",
+              "text": "・11月22日（日）"
+            },
+            {
+              "type": "text",
+              "text": "【エントリー方法】"
+            },
+            {
+              "type": "text",
+              "text": "・キャンペーン対象期間中において、以下のエントリー条件を満たすこと。"
+            },
+            {
+              "type": "text",
+              "text": "(1)10万円以上のチャージ（払戻金チャージを除く）"
+            },
+            {
+              "type": "text",
+              "text": "(2)本フォーム内の「応募する」ボタンを押下してエントリー"
+            },
+            {
+              "type": "text",
+              "text": "【賞品（2人に1人が当選）】"
+            },
+            {
+              "type": "text",
+              "text": "・《人形町今半》 黒毛和牛すき焼き用肉 300g"
+            },
+            {
+              "type": "text",
+              "text": "※賞品は抽選のうえ、当選された方へ後日お届けいたします。"
+            },
+            {
+              "type": "text",
+              "text": "【はずれた方にもダブルチャンス！】"
+            },
+            {
+              "type": "text",
+              "text": "惜しくもご当選とならなかった方の中から抽選で5名様に、高級ふりかけパックをプレゼント！"
+            },
+            {
+              "type": "text",
+              "text": "・高級ふりかけパックセット 5名様"
+            },
+            {
+              "type": "text",
+              "text": "※賞品は抽選のうえ、当選された方へ後日お届けいたします。"
+            },
+            {
+              "type": "text",
+              "text": "【本キャンペーン注意事項】"
+            },
+            {
+              "type": "text",
+              "text": "※本キャンペーンは応募フォームよりエントリーが必要となります。"
+            },
+            {
+              "type": "text",
+              "text": "※キャンペーン対象期間中に10万円以上のチャージ（払戻金チャージを除く）を行った方が対象となります。"
+            },
+            {
+              "type": "text",
+              "text": "※ご当選時の賞品は、みんなの競輪にご登録の住所に発送いたします。事前にご登録の住所をご確認ください。"
+            },
+            {
+              "type": "text",
+              "text": "※賞品の発送後、住所不明、長期不在、受取拒否、その他お客様のご都合により賞品が返送された場合、原則として再発送は行わず、当選を無効とさせていただく場合がございます。"
+            },
+            {
+              "type": "text",
+              "text": "※キャンペーンの開催期間、および賞品発送時期は予告なく変更となる場合がございます。"
+            },
+            {
+              "type": "text",
+              "text": "※条件を満たしていない場合、本キャンペーンの対象外となります。"
+            },
+            {
+              "type": "text",
+              "text": "※その他、本キャンペーンは予告なく内容の変更・または中止となる場合がございます。"
+            },
+            {
+              "type": "text",
+              "text": "【賞品に関する注意事項】"
+            },
+            {
+              "type": "text",
+              "text": "※発送元は提携企業となります。"
+            },
+            {
+              "type": "text",
+              "text": "※賞味期限／消費期限は商品ごとに異なります。ご注意ください。e:[\"$\",\"div\",null,{\"className\":\"sp-footer-spacing-padding flex min-h-screen flex-col md:pb-0\",\"children\":[[\"$\",\"div\",null,{\"className\":\"flex md:flex-1\",\"children\":[[\"$\",\"div\",null,{\"className\":\"hidden md:block\",\"children\":[\"$\",\"$L17\",null,{}]}],[\"$\",\"div\",null,{\"className\":\"flex min-w-0 flex-1 flex-col justify-between\",\"children\":[[\"$\",\"div\",null,{\"children\":[\"$\",\"main\",null,{\"className\":\"m-4 mb-24 rounded-xl bg-white p-4 md:m-auto md:mt-[50px] md:mb-20 md:min-h-auto md:w-[789px] md:rounded-2xl md:bg-white md:p-10\",\"children\":[\"$\",\"div\",null,{\"className\":\"text-default flex flex-col gap-4 rounded-lg bg-white\",\"children\":[[\"$\",\"$L18\",null,{\"href\":\"/info\",\"className\":\"inline-flex items-center gap-2\",\"children\":[[\"$\",\"svg\",null,{\"width\":16,\"height\":16,\"viewBox\":\"0 0 12 20\",\"fill\":\"#888888\",\"xmlns\":\"http://www.w3.org/2000/svg\",\"children\":[\"$\",\"path\",null,{\"d\":\"M10 20L0 10L10 0L11.775 1.775L3.55 10L11.775 18.225L10 20Z\",\"fill\":\"#888888\"}]}],[\"$\",\"span\",null,{\"className\":\"font-[Noto_Sans_JP,sans-serif] text-[14px] leading-[1.5] tracking-[-0.02em] text-[#888888]\",\"children\":\"戻る\"}]]}],[\"$\",\"section\",null,{\"children\":[[\"$\",\"h2\",null,{\"className\":\"text-xl font-bold\",\"children\":\"【11月21日限定】チャージで2人に1人が当たる！極上すき焼きチャンス！\"}],[\"$\",\"div\",null,{\"className\":\"text-[#888]\",\"children\":\"2026/11/21 00:00\"}]]}],\"$L19\",[\"$\",\"$L1a\",null,{\"htmlContent\":\"$1b\"}]]}]}]}],[\"$\",\"footer\",null,{\"className\":\"hidden md:flex bg-default w-full flex-col gap-5 px-4 py-8 pb-[87px] text-white md:gap-10 md:pb-8\",\"children\":[\"$\",\"div\",null,{\"className\":\"flex flex-col gap-10 text-xs text-white md:gap-6\",\"children\":[[\"$\",\"div\",null,{\"className\":\"grid grid-cols-2 gap-5 md:flex md:flex-wrap md:gap-x-12 md:gap-y-2\",\"children\":[[\"$\",\"$L18\",null,{\"href\":\"/about\",\"children\":\"運営会社\"}],[\"$\",\"$L18\",null,{\"href\":\"/about/terms\",\"children\":\"利用規約\"}],[\"$\",\"$L18\",null,{\"href\":\"/about/privacy-policy\",\"children\":\"プライバシーポリシー\"}],[\"$\",\"$L18\",null,{\"href\":\"/about/commercial-transaction\",\"children\":\"特定商取引法に基づく表示\"}],[\"$\",\"$L18\",null,{\"href\":\"/about/security-policy\",\"children\":\"情報セキュリティ方針\"}],[\"$\",\"$L18\",null,{\"href\":\"/mypage/faq\",\"children\":\"よくある質問\"}],[\"$\",\"$L18\",null,{\"href\":\"/mypage/contact\",\"children\":\"お問い合わせ\"}]]}],[\"$\",\"div\",null,{\"className\":\"flex flex-col gap-5 md:flex-row md:flex-wrap md:gap-x-7 md:gap-y-2\",\"children\":[[\"$\",\"$L18\",null,{\"href\":\"/login/gamble-notice\",\"className\":\"flex items-center gap-2\",\"children\":[[\"$\",\"div\",null,{\"children\":\"車券の購入は20歳になってから、競輪は適度に楽しみましょう\"}],\"$L1c\"]}],\"$L1d\",\"$L1e\"]}],\"$L1f\"]}]}]]}]]}],\"$L20\"]}]"
+            }
+          ],
+          "media_version": 1,
+          "link_version": 1
+        },
         {
           "title": "00:00 【11月20日】「競輪祭女子王座戦G1」決勝レースで最大5%還元！",
           "url": "https://bet.minnano-keirin.com/info/25597",
@@ -5546,7 +5703,7 @@
           "feed": "minnano",
           "site": "みんなの競輪",
           "section": "お知らせ",
-          "new": true,
+          "new": false,
           "body": [
             "2026年11月20日（金）、「競輪祭女子王座戦G1」の「決勝レース（第12R）」に投票（ワイド・重勝式を除く）された方に、ご投票金額の最大5%分のポイントをプレゼント！",
             "【キャンペーン対象日・対象レース】",
@@ -5569,6 +5726,7 @@
           ],
           "note": "",
           "body_extractor": "minnano-flight-v2",
+          "media_version": 1,
           "blocks": [
             {
               "type": "text",
@@ -5643,13 +5801,12 @@
               "text": "※明らかな同一ユーザーによる複数アカウントでの投票は、キャンペーン対象外となります。"
             }
           ],
-          "media_version": 1,
           "link_version": 1
         },
         {
           "title": "00:00 【11月18日～11月23日】「競輪祭G1・競輪祭女子王座戦G1」みんなの競輪 オリジナル攻略データ《特製クオカードプレゼント有り》",
           "url": "https://bet.minnano-keirin.com/info/26307",
-          "date": "2026-11-17",
+          "date": "2026-11-20",
           "feed": "minnano",
           "site": "みんなの競輪",
           "section": "お知らせ",
@@ -6778,174 +6935,12 @@
             }
           ],
           "link_version": 1
-        },
-        {
-          "title": "00:00 【重要】投票還元ポイントの付与日変更について",
-          "url": "https://bet.minnano-keirin.com/info/23851",
-          "date": "2026-11-10",
-          "feed": "minnano",
-          "site": "みんなの競輪",
-          "section": "お知らせ",
-          "new": false,
-          "body": [
-            "Tbd4,いつも「みんなの競輪」をご利用いただき、誠にありがとうございます。",
-            "このたびユーザー様のお問い合わせ・ご要望にお応えし、10月の競輪投票分より、毎月付与しております投票還元ポイントの付与日を変更いたします。",
-            "これまで当月の投票分について、翌月1日にまとめてポイントを付与しておりましたが、今後は毎月3回に分けてポイントを付与いたします。",
-            "なお、ポイント還元の対象および還元率に変更はございません。",
-            "■変更内容",
-            "【変更前】",
-            "当月1日～末日の投票分 → 翌月1日にポイント付与",
-            "【変更後】",
-            "・1日～10日の投票分 → 当月11日にポイント付与",
-            "・11日～20日の投票分 → 当月21日にポイント付与",
-            "・21日～末日の投票分 → 翌月1日にポイント付与",
-            "■ポイント還元内容",
-            "ポイント還元の条件に変更はございません。",
-            "・全レース：対象となる投票金額の1％分をポイント還元",
-            "※ワイド・重勝式は対象外です。",
-            "・ナイター・ミッドナイトの決勝レース および グレードレース決勝レース：対象となる投票金額の最大5％分をポイント還元",
-            "※全会員対象の「投票1％還元キャンペーン」と合わせて、トータルで最大5％分のポイントを還元いたします。",
-            "※全レース1％還元・決勝レース5％還元については、同一の付与日でも反映される時間が異なります。",
-            "■注意事項",
-            "※ポイント付与の対象期間は、投票を行った日を基準として判定いたします。",
-            "※ワイド・重勝式の投票は、キャンペーン対象外となります。",
-            "※付与したポイントの有効期限は180日間です。",
-            "※競走が不成立・開催中止・順延・または選手の欠場などで返金となった場合、その投票はキャンペーンの対象外となります。",
-            "※対象の競輪開催が中止順延となった場合、翌日の決勝レースが対象となります。",
-            "※明らかな同一ユーザーによる複数アカウントでの投票は、キャンペーン対象外となります。",
-            "※システムの状況等により、ポイントの反映までに時間を要する場合がございます。",
-            "※キャンペーンの開催期間、付与時期は予告なく変更となる場合がございます。",
-            "今後も、より便利に「みんなの競輪」をご利用いただけるよう、サービスの改善に努めてまいります。",
-            "引き続き「みんなの競輪」をよろしくお願いいたします。e:[\"$\",\"div\",null,{\"className\":\"sp-footer-spacing-padding flex min-h-screen flex-col md:pb-0\",\"children\":[[\"$\",\"div\",null,{\"className\":\"flex md:flex-1\",\"children\":[[\"$\",\"div\",null,{\"className\":\"hidden md:block\",\"children\":[\"$\",\"$L16\",null,{}]}],[\"$\",\"div\",null,{\"className\":\"flex min-w-0 flex-1 flex-col justify-between\",\"children\":[[\"$\",\"div\",null,{\"children\":[\"$\",\"main\",null,{\"className\":\"m-4 mb-24 rounded-xl bg-white p-4 md:m-auto md:mt-[50px] md:mb-20 md:min-h-auto md:w-[789px] md:rounded-2xl md:bg-white md:p-10\",\"children\":[\"$\",\"div\",null,{\"className\":\"text-default flex flex-col gap-4 rounded-lg bg-white\",\"children\":[[\"$\",\"$L17\",null,{\"href\":\"/info\",\"className\":\"inline-flex items-center gap-2\",\"children\":[[\"$\",\"svg\",null,{\"width\":16,\"height\":16,\"viewBox\":\"0 0 12 20\",\"fill\":\"#888888\",\"xmlns\":\"http://www.w3.org/2000/svg\",\"children\":[\"$\",\"path\",null,{\"d\":\"M10 20L0 10L10 0L11.775 1.775L3.55 10L11.775 18.225L10 20Z\",\"fill\":\"#888888\"}]}],[\"$\",\"span\",null,{\"className\":\"font-[Noto_Sans_JP,sans-serif] text-[14px] leading-[1.5] tracking-[-0.02em] text-[#888888]\",\"children\":\"戻る\"}]]}],[\"$\",\"section\",null,{\"children\":[[\"$\",\"h2\",null,{\"className\":\"text-xl font-bold\",\"children\":\"【重要】投票還元ポイントの付与日変更について\"}],[\"$\",\"div\",null,{\"className\":\"text-[#888]\",\"children\":\"2026/11/10 00:00\"}]]}],false,[\"$\",\"$L18\",null,{\"htmlContent\":\"$19\"}]]}]}]}],[\"$\",\"footer\",null,{\"className\":\"hidden md:flex bg-default w-full flex-col gap-5 px-4 py-8 pb-[87px] text-white md:gap-10 md:pb-8\",\"children\":[\"$\",\"div\",null,{\"className\":\"flex flex-col gap-10 text-xs text-white md:gap-6\",\"children\":[[\"$\",\"div\",null,{\"className\":\"grid grid-cols-2 gap-5 md:flex md:flex-wrap md:gap-x-12 md:gap-y-2\",\"children\":[[\"$\",\"$L17\",null,{\"href\":\"/about\",\"children\":\"運営会社\"}],[\"$\",\"$L17\",null,{\"href\":\"/about/terms\",\"children\":\"利用規約\"}],[\"$\",\"$L17\",null,{\"href\":\"/about/privacy-policy\",\"children\":\"プライバシーポリシー\"}],[\"$\",\"$L17\",null,{\"href\":\"/about/commercial-transaction\",\"children\":\"特定商取引法に基づく表示\"}],[\"$\",\"$L17\",null,{\"href\":\"/about/security-policy\",\"children\":\"情報セキュリティ方針\"}],[\"$\",\"$L17\",null,{\"href\":\"/mypage/faq\",\"children\":\"よくある質問\"}],[\"$\",\"$L17\",null,{\"href\":\"/mypage/contact\",\"children\":\"お問い合わせ\"}]]}],[\"$\",\"div\",null,{\"className\":\"flex flex-col gap-5 md:flex-row md:flex-wrap md:gap-x-7 md:gap-y-2\",\"children\":[[\"$\",\"$L17\",null,{\"href\":\"/login/gamble-notice\",\"className\":\"flex items-center gap-2\",\"children\":[[\"$\",\"div\",null,{\"children\":\"車券の購入は20歳になってから、競輪は適度に楽しみましょう\"}],[\"$\",\"svg\",null,{\"width\":8,\"height\":12,\"viewBox\":\"0 0 8 12\",\"fill\":\"none\",\"xmlns\":\"http://www.w3.org/2000/svg\",\"children\":[\"$\",\"path\",null,{\"d\":\"M2 5.24537e-07L8 6L2 12L0.6 10.6L5.2 6L0.599999 1.4L2 5.24537e-07Z\",\"fill\":\"white\"}]}]]}],[\"$\",\"$L17\",null,{\"href\":\"/login/gambling-addiction\",\"className\":\"flex items-center gap-2\",\"children\":[\"$L1a\",\"$L1b\"]}],\"$L1c\"]}],\"$L1d\"]}]}]]}]]}],\"$L1e\"]}]"
-          ],
-          "note": "",
-          "body_extractor": "minnano-flight-v2",
-          "media_version": 1,
-          "blocks": [
-            {
-              "type": "text",
-              "text": "Tbd4,いつも「みんなの競輪」をご利用いただき、誠にありがとうございます。"
-            },
-            {
-              "type": "text",
-              "text": "このたびユーザー様のお問い合わせ・ご要望にお応えし、10月の競輪投票分より、毎月付与しております投票還元ポイントの付与日を変更いたします。"
-            },
-            {
-              "type": "text",
-              "text": "これまで当月の投票分について、翌月1日にまとめてポイントを付与しておりましたが、今後は毎月3回に分けてポイントを付与いたします。"
-            },
-            {
-              "type": "text",
-              "text": "なお、ポイント還元の対象および還元率に変更はございません。"
-            },
-            {
-              "type": "text",
-              "text": "■変更内容"
-            },
-            {
-              "type": "text",
-              "text": "【変更前】"
-            },
-            {
-              "type": "text",
-              "text": "当月1日～末日の投票分 → 翌月1日にポイント付与"
-            },
-            {
-              "type": "text",
-              "text": "【変更後】"
-            },
-            {
-              "type": "text",
-              "text": "・1日～10日の投票分 → 当月11日にポイント付与"
-            },
-            {
-              "type": "text",
-              "text": "・11日～20日の投票分 → 当月21日にポイント付与"
-            },
-            {
-              "type": "text",
-              "text": "・21日～末日の投票分 → 翌月1日にポイント付与"
-            },
-            {
-              "type": "text",
-              "text": "■ポイント還元内容"
-            },
-            {
-              "type": "text",
-              "text": "ポイント還元の条件に変更はございません。"
-            },
-            {
-              "type": "text",
-              "text": "・全レース：対象となる投票金額の1％分をポイント還元"
-            },
-            {
-              "type": "text",
-              "text": "※ワイド・重勝式は対象外です。"
-            },
-            {
-              "type": "text",
-              "text": "・ナイター・ミッドナイトの決勝レース および グレードレース決勝レース：対象となる投票金額の最大5％分をポイント還元"
-            },
-            {
-              "type": "text",
-              "text": "※全会員対象の「投票1％還元キャンペーン」と合わせて、トータルで最大5％分のポイントを還元いたします。"
-            },
-            {
-              "type": "text",
-              "text": "※全レース1％還元・決勝レース5％還元については、同一の付与日でも反映される時間が異なります。"
-            },
-            {
-              "type": "text",
-              "text": "■注意事項"
-            },
-            {
-              "type": "text",
-              "text": "※ポイント付与の対象期間は、投票を行った日を基準として判定いたします。"
-            },
-            {
-              "type": "text",
-              "text": "※ワイド・重勝式の投票は、キャンペーン対象外となります。"
-            },
-            {
-              "type": "text",
-              "text": "※付与したポイントの有効期限は180日間です。"
-            },
-            {
-              "type": "text",
-              "text": "※競走が不成立・開催中止・順延・または選手の欠場などで返金となった場合、その投票はキャンペーンの対象外となります。"
-            },
-            {
-              "type": "text",
-              "text": "※対象の競輪開催が中止順延となった場合、翌日の決勝レースが対象となります。"
-            },
-            {
-              "type": "text",
-              "text": "※明らかな同一ユーザーによる複数アカウントでの投票は、キャンペーン対象外となります。"
-            },
-            {
-              "type": "text",
-              "text": "※システムの状況等により、ポイントの反映までに時間を要する場合がございます。"
-            },
-            {
-              "type": "text",
-              "text": "※キャンペーンの開催期間、付与時期は予告なく変更となる場合がございます。"
-            },
-            {
-              "type": "text",
-              "text": "今後も、より便利に「みんなの競輪」をご利用いただけるよう、サービスの改善に努めてまいります。"
-            },
-            {
-              "type": "text",
-              "text": "引き続き「みんなの競輪」をよろしくお願いいたします。e:[\"$\",\"div\",null,{\"className\":\"sp-footer-spacing-padding flex min-h-screen flex-col md:pb-0\",\"children\":[[\"$\",\"div\",null,{\"className\":\"flex md:flex-1\",\"children\":[[\"$\",\"div\",null,{\"className\":\"hidden md:block\",\"children\":[\"$\",\"$L16\",null,{}]}],[\"$\",\"div\",null,{\"className\":\"flex min-w-0 flex-1 flex-col justify-between\",\"children\":[[\"$\",\"div\",null,{\"children\":[\"$\",\"main\",null,{\"className\":\"m-4 mb-24 rounded-xl bg-white p-4 md:m-auto md:mt-[50px] md:mb-20 md:min-h-auto md:w-[789px] md:rounded-2xl md:bg-white md:p-10\",\"children\":[\"$\",\"div\",null,{\"className\":\"text-default flex flex-col gap-4 rounded-lg bg-white\",\"children\":[[\"$\",\"$L17\",null,{\"href\":\"/info\",\"className\":\"inline-flex items-center gap-2\",\"children\":[[\"$\",\"svg\",null,{\"width\":16,\"height\":16,\"viewBox\":\"0 0 12 20\",\"fill\":\"#888888\",\"xmlns\":\"http://www.w3.org/2000/svg\",\"children\":[\"$\",\"path\",null,{\"d\":\"M10 20L0 10L10 0L11.775 1.775L3.55 10L11.775 18.225L10 20Z\",\"fill\":\"#888888\"}]}],[\"$\",\"span\",null,{\"className\":\"font-[Noto_Sans_JP,sans-serif] text-[14px] leading-[1.5] tracking-[-0.02em] text-[#888888]\",\"children\":\"戻る\"}]]}],[\"$\",\"section\",null,{\"children\":[[\"$\",\"h2\",null,{\"className\":\"text-xl font-bold\",\"children\":\"【重要】投票還元ポイントの付与日変更について\"}],[\"$\",\"div\",null,{\"className\":\"text-[#888]\",\"children\":\"2026/11/10 00:00\"}]]}],false,[\"$\",\"$L18\",null,{\"htmlContent\":\"$19\"}]]}]}]}],[\"$\",\"footer\",null,{\"className\":\"hidden md:flex bg-default w-full flex-col gap-5 px-4 py-8 pb-[87px] text-white md:gap-10 md:pb-8\",\"children\":[\"$\",\"div\",null,{\"className\":\"flex flex-col gap-10 text-xs text-white md:gap-6\",\"children\":[[\"$\",\"div\",null,{\"className\":\"grid grid-cols-2 gap-5 md:flex md:flex-wrap md:gap-x-12 md:gap-y-2\",\"children\":[[\"$\",\"$L17\",null,{\"href\":\"/about\",\"children\":\"運営会社\"}],[\"$\",\"$L17\",null,{\"href\":\"/about/terms\",\"children\":\"利用規約\"}],[\"$\",\"$L17\",null,{\"href\":\"/about/privacy-policy\",\"children\":\"プライバシーポリシー\"}],[\"$\",\"$L17\",null,{\"href\":\"/about/commercial-transaction\",\"children\":\"特定商取引法に基づく表示\"}],[\"$\",\"$L17\",null,{\"href\":\"/about/security-policy\",\"children\":\"情報セキュリティ方針\"}],[\"$\",\"$L17\",null,{\"href\":\"/mypage/faq\",\"children\":\"よくある質問\"}],[\"$\",\"$L17\",null,{\"href\":\"/mypage/contact\",\"children\":\"お問い合わせ\"}]]}],[\"$\",\"div\",null,{\"className\":\"flex flex-col gap-5 md:flex-row md:flex-wrap md:gap-x-7 md:gap-y-2\",\"children\":[[\"$\",\"$L17\",null,{\"href\":\"/login/gamble-notice\",\"className\":\"flex items-center gap-2\",\"children\":[[\"$\",\"div\",null,{\"children\":\"車券の購入は20歳になってから、競輪は適度に楽しみましょう\"}],[\"$\",\"svg\",null,{\"width\":8,\"height\":12,\"viewBox\":\"0 0 8 12\",\"fill\":\"none\",\"xmlns\":\"http://www.w3.org/2000/svg\",\"children\":[\"$\",\"path\",null,{\"d\":\"M2 5.24537e-07L8 6L2 12L0.6 10.6L5.2 6L0.599999 1.4L2 5.24537e-07Z\",\"fill\":\"white\"}]}]]}],[\"$\",\"$L17\",null,{\"href\":\"/login/gambling-addiction\",\"className\":\"flex items-center gap-2\",\"children\":[\"$L1a\",\"$L1b\"]}],\"$L1c\"]}],\"$L1d\"]}]}]]}]]}],\"$L1e\"]}]"
-            }
-          ],
-          "link_version": 1
         }
       ]
     },
     "tipstar": {
       "status": "ok",
-      "last_success": "2026-11-20T07:52:57.641281+09:00",
+      "last_success": "2026-11-21T07:29:12.568868+09:00",
       "items": [
         {
           "title": "【11/19～11/30】ちょこっとチャージでちょこっといいこと",
@@ -9901,7 +9896,7 @@
     },
     "pist6": {
       "status": "ok",
-      "last_success": "2026-11-20T07:52:57.641281+09:00",
+      "last_success": "2026-11-21T07:29:12.568868+09:00",
       "items": [
         {
           "title": "【イベントレポート】「PIST6秋まつり2026」（10/24-25）を開催しました！",
@@ -11984,7 +11979,7 @@
     },
     "betimo": {
       "status": "ok",
-      "last_success": "2026-11-20T07:52:57.641281+09:00",
+      "last_success": "2026-11-21T07:29:12.568868+09:00",
       "items": [
         {
           "title": "Betimo、みんなの銀行と「金融を活用した価値共創にかかる基本合意書」を締結",
